@@ -29,7 +29,7 @@ import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LoginActivity extends AppCompatActivity {
-
+    SharedPrefManager sharedPrefManager;
     private EditText etEmail;
     private EditText etPassword;
     private Button loginButton;
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        sharedPrefManager = new SharedPrefManager(this);
         getSupportActionBar().hide();
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
@@ -59,6 +59,12 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton = (Button) findViewById(R.id.btnLogin);
         toRegisterPageTextView = (TextView) findViewById(R.id.tvToRegisterPage);
+
+        if (sharedPrefManager.getStatusLogin()) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
 
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -86,6 +92,17 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Login berhasil!", Toast.LENGTH_LONG).show();
                             try {
                                 body = new JSONObject(new Gson().toJson(response.body()));
+                                Log.w("resp", "response: " + body.toString());
+
+                                int id = body.getJSONObject("data").getInt("id");
+                                String token = body.getJSONObject("data").getString("api_token");
+                                sharedPrefManager.saveInt(SharedPrefManager.id, id);
+                                sharedPrefManager.saveString(SharedPrefManager.token, token);
+                                sharedPrefManager.saveBoolean(SharedPrefManager.status_login, true);
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                finish();
+
                                 Log.w("body:", body.toString());
                             } catch (JSONException e) {
                                 e.printStackTrace();
