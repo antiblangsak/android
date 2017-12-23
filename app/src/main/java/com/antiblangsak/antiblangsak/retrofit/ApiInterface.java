@@ -14,4 +14,11 @@ public interface ApiInterface {
     @POST("login")
     @FormUrlEncoded
     Call<Object> login(@Field("email") String email, @Field("password") String body);
+
+    @POST("register")
+    @FormUrlEncoded
+    Call<Object> register(@Field("name") String name,
+                       @Field("email") String email,
+                       @Field("password") String password,
+                       @Field("password_confirmation") String password_confirmation);
 }
