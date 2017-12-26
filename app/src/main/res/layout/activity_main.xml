@@ -26,14 +26,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/home_logo"
+                android:layout_marginTop="@dimen/margin_md"
+                android:layout_marginBottom="@dimen/margin_md"
                 android:layout_marginRight="65dp"
-                android:text="antiblangsak"
-                android:textAlignment="center"
-                android:textColor="@color/color_main_black"
-                android:textSize="35dp" />
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -59,13 +59,9 @@
                     android:background="@color/color_main_yellow"
                     android:elevation="6dp"
                     android:minHeight="?attr/actionBarSize"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:tabMode="fixed"
                     app:tabGravity="fill"
-                    app:tabTextColor="@color/color_main_dark_gray"
-                    app:tabSelectedTextColor="@color/color_main_dark_gray"
-                    app:tabTextAppearance="@style/CustomTabText"
-                    app:tabIndicatorColor="@color/color_main_dark_gray"/>
+                    app:tabIndicatorColor="@color/color_main_black"/>
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/pager"

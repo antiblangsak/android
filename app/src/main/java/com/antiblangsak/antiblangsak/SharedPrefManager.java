@@ -8,20 +8,20 @@ import android.content.SharedPreferences;
 
 public class SharedPrefManager {
 
-    public static final String antiblangsak_app = "antiblangsakApp";
+    public static final String ANTIBLANGSAK_APP = "antiblangsakApp";
 
-    public static final String name = "name";
-    public static final String email = "email";
-    public static final String id = "id";
-    public static final String token = "token";
+    public static final String NAME = "NAME";
+    public static final String EMAIL = "EMAIL";
+    public static final String ID = "ID";
+    public static final String TOKEN = "TOKEN";
 
-    public static final String status_login = "LOGIN";
+    public static final String STATUS_LOGIN = "LOGIN";
 
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;
 
     public SharedPrefManager(Context context){
-        sp = context.getSharedPreferences(antiblangsak_app, Context.MODE_PRIVATE);
+        sp = context.getSharedPreferences(ANTIBLANGSAK_APP, Context.MODE_PRIVATE);
         spEditor = sp.edit();
     }
 
@@ -41,23 +41,23 @@ public class SharedPrefManager {
     }
 
     public String getName(){
-        return sp.getString(name, "");
+        return sp.getString(NAME, "");
     }
 
     public String getEmail(){
-        return sp.getString(email, "");
+        return sp.getString(EMAIL, "");
     }
 
     public int getId(){
-        return sp.getInt(id, 0);
+        return sp.getInt(ID, 0);
     }
 
     public String getToken(){
-        return sp.getString(token, "");
+        return sp.getString(TOKEN, "");
     }
 
     public Boolean getStatusLogin(){
-        return sp.getBoolean(status_login, false);
+        return sp.getBoolean(STATUS_LOGIN, false);
     }
 
 

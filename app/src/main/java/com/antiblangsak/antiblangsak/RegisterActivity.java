@@ -4,16 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.text.InputType;
-import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +21,7 @@ import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -37,9 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etEmail;
     private EditText etPassword;
     private EditText etPasswordConfirmation;
-    private Button registerButton;
-    private TextView toLoginPageTextView;
+    private Button btnRegister;
+    private TextView tvToLoginPage;
+    private TextView tvSudahPunyaAkun;
+    private ProgressBar pbRegister;
+
     private ApiInterface apiInterface;
+    private SharedPrefManager sharedPrefManager;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -54,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
 //        getSupportActionBar().hide();
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        sharedPrefManager = new SharedPrefManager(this);
 
         etName = (EditText) findViewById(R.id.etName);
 
@@ -68,24 +72,37 @@ public class RegisterActivity extends AppCompatActivity {
         etPasswordConfirmation.setTypeface(typeFace);
         etPasswordConfirmation.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
-        registerButton = (Button) findViewById(R.id.btnRegister);
-        toLoginPageTextView = (TextView) findViewById(R.id.tvToLoginPage);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnRegister.setText(Html.fromHtml("<b>DAFTAR</b>"));
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        tvToLoginPage = (TextView) findViewById(R.id.tvToLoginPage);
+        tvSudahPunyaAkun = (TextView) findViewById(R.id.tvSudahPunyaAkun);
+        pbRegister = (ProgressBar) findViewById(R.id.pbRegister);
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnRegister.setVisibility(View.GONE);
+                tvToLoginPage.setVisibility(View.GONE);
+                tvSudahPunyaAkun.setVisibility(View.GONE);
+                pbRegister.setVisibility(View.VISIBLE);
+
                 String name = etName.getText().toString();
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
                 String password_confirmation = etPasswordConfirmation.getText().toString();
 
-                Log.w("name", "name: " + name);
-                Log.w("email", "email: " + email);
-                Log.w("password", "password: " + password);
-                Log.w("password_confirmation", "password_confirmation: " + password_confirmation);
+                Log.w("NAME", "name: " + name);
+                Log.w("EMAIL", "email: " + email);
+                Log.w("PASSWORD", "password: " + password);
+                Log.w("PASSWORD_CONF", "password_confirmation: " + password_confirmation);
 
 
                 if (!validateInput(name, email, password, password_confirmation)) {
+                    pbRegister.setVisibility(View.GONE);
+                    btnRegister.setVisibility(View.VISIBLE);
+                    tvToLoginPage.setVisibility(View.VISIBLE);
+                    tvSudahPunyaAkun.setVisibility(View.VISIBLE);
                     return;
                 }
 
@@ -94,6 +111,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call call, Response response) {
+                        pbRegister.setVisibility(View.GONE);
+
                         JSONObject body = null;
                         int statusCode = response.code();
                         Log.w("status", "status: " + statusCode);
@@ -102,13 +121,32 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Register berhasil!", Toast.LENGTH_LONG).show();
                             try {
                                 body = new JSONObject(new Gson().toJson(response.body()));
-                                Log.w("body:", body.toString());
+                                Log.w("RESPONSE", "body: " + body.toString());
+
+                                int id = body.getJSONObject("data").getInt("id");
+                                String email = body.getJSONObject("data").getString("email");
+                                String token = body.getJSONObject("data").getString("api_token");
+
+                                sharedPrefManager.saveInt(SharedPrefManager.ID, id);
+                                sharedPrefManager.saveString(SharedPrefManager.EMAIL, email);
+                                sharedPrefManager.saveString(SharedPrefManager.TOKEN, token);
+                                sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, true);
+
+                                startActivity(new Intent(RegisterActivity.this, MainActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                finish();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                                 Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            Toast.makeText(getApplicationContext(), "Register gagal!", Toast.LENGTH_LONG).show();
+                            etEmail.requestFocus();
+                            etEmail.setError("Email sudah terdaftar!");
+
+                            btnRegister.setVisibility(View.VISIBLE);
+                            tvToLoginPage.setVisibility(View.VISIBLE);
+                            tvSudahPunyaAkun.setVisibility(View.VISIBLE);
+
                             try {
                                 Log.w("body", response.errorBody().string());
                             } catch (IOException e) {
@@ -120,6 +158,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
+                        pbRegister.setVisibility(View.GONE);
+                        btnRegister.setVisibility(View.VISIBLE);
+                        tvToLoginPage.setVisibility(View.VISIBLE);
+                        tvSudahPunyaAkun.setVisibility(View.VISIBLE);
+
                         Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
                     }
                 });
@@ -127,7 +170,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         });
 
-        toLoginPageTextView.setOnClickListener(new View.OnClickListener() {
+        tvToLoginPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -140,35 +183,41 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean validateInput(String name, String email, String password,
                                   String password_confirmation) {
-        boolean isValid = true;
-
         if (name.isEmpty()) {
+            etName.requestFocus();
             etName.setError("Nama tidak valid!");
-            isValid = false;
+            return false;
         }
 
         if (email.isEmpty()) {
+            etEmail.requestFocus();
             etEmail.setError("Email tidak valid!");
-            isValid = false;
+            return false;
         }
 
         if (password.isEmpty() || password.length() < 8) {
+            etPassword.requestFocus();
             etPassword.setError("Password harus lebih dari 8 karakter!");
-            isValid = false;
+            return false;
         }
 
         if (password_confirmation.isEmpty()) {
-            etPasswordConfirmation.setError("Password tidak sesuai!");
-            isValid = false;
+            etPasswordConfirmation.requestFocus();
+            etPasswordConfirmation.setError("Password tidak valid!");
+            return false;
         }
 
-        if (isValid) {
-            etName.setError(null);
-            etEmail.setError(null);
-            etPassword.setError(null);
-            etPasswordConfirmation.setError(null);
+        if (!password.equals(password_confirmation)) {
+            etPasswordConfirmation.requestFocus();
+            etPasswordConfirmation.setError("Konfirmasi password tidak sesuai!");
+            return false;
         }
-        return isValid;
+
+        etName.setError(null);
+        etEmail.setError(null);
+        etPassword.setError(null);
+        etPasswordConfirmation.setError(null);
+        return true;
     }
 
 }

@@ -17,9 +17,5 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="CustomTabText">
-        <item name="android:textSize">18dp</item>
-        <item name="fontPath">fonts/Comfortaa-Bold.ttf</item>
-    </style>
 
 </resources>

@@ -32,19 +32,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        logoutButton = (Button) findViewById(R.id.btnLogout);
+//        logoutButton = (Button) findViewById(R.ID.btnLogout);
 
         sharedPrefManager = new SharedPrefManager(this);
 
         int id = sharedPrefManager.getId();
         String token = sharedPrefManager.getToken();
-        Log.w("id", "idnyacuy: " + id);
-        Log.w("token", "tokencuy: " + token);
+        Log.w("USER_ID", "" + id);
+        Log.w("API_TOKEN", "" + token);
 
 //        logoutButton.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v) {
-//                sharedPrefManager.saveBoolean(SharedPrefManager.status_login, false);
+//                sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
 //
 //
 //                startActivity(new Intent(MainActivity.this, LoginActivity.class)
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setTabTextColors(R.color.color_main_light_gray, R.color.color_main_dark_gray);
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
@@ -74,11 +75,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                Log.w("TAB", "tab " + tab.getPosition() + " selected");
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                Log.w("TAB", "tab " + tab.getPosition() + " unselected");
             }
 
             @Override

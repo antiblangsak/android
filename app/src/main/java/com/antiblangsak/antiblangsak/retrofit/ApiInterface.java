@@ -3,6 +3,7 @@ package com.antiblangsak.antiblangsak.retrofit;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 /**
@@ -13,7 +14,11 @@ public interface ApiInterface {
 
     @POST("login")
     @FormUrlEncoded
-    Call<Object> login(@Field("email") String email, @Field("password") String body);
+    Call<Object> login(@Field("email") String email, @Field("password") String password);
+
+    @POST("logout")
+    @FormUrlEncoded
+    Call<Object> logout(@Header("Authorization") String token, @Field("email") String email);
 
     @POST("register")
     @FormUrlEncoded

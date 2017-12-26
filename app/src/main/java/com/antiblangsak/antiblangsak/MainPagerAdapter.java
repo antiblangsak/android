@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
-    private String tabTitles[] = new String[] { "Home", "Feeds" };
+    private String tabTitles[] = new String[] { "<b>Home</b>", "<b>Feeds</b>" };
 
     public MainPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -42,7 +43,7 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
         return 2;
     }
 
-    public CharSequence getPageTitle(int position) {
+    public String getPageTitle(int position) {
         return tabTitles[position];
     }
 
@@ -50,7 +51,7 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
         // Given you have a custom layout in `res/layout/custom_tab.xml` with a TextView and ImageView
         View view= LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
         TextView textView= (TextView) view.findViewById(R.id.textView);
-        textView.setText(getPageTitle(position));
+        textView.setText(Html.fromHtml(getPageTitle(position)));
         return view;
     }
 }
