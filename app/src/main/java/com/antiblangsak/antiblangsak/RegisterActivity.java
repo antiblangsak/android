@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
@@ -61,11 +62,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         etPassword = (EditText) findViewById(R.id.etPassword);
         etPassword.setTypeface(typeFace);
-        etPassword.setTransformationMethod(new PasswordTransformationMethod());
+        etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         etPasswordConfirmation = (EditText) findViewById(R.id.etPasswordConfirmation);
         etPasswordConfirmation.setTypeface(typeFace);
-        etPasswordConfirmation.setTransformationMethod(new PasswordTransformationMethod());
+        etPasswordConfirmation.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         registerButton = (Button) findViewById(R.id.btnRegister);
         toLoginPageTextView = (TextView) findViewById(R.id.tvToLoginPage);

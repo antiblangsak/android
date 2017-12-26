@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
@@ -55,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
         etPassword = (EditText) findViewById(R.id.etPassword);
         etPassword.setTypeface(typeFace);
-        etPassword.setTransformationMethod(new PasswordTransformationMethod());
+        etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         loginButton = (Button) findViewById(R.id.btnLogin);
         toRegisterPageTextView = (TextView) findViewById(R.id.tvToRegisterPage);
@@ -96,9 +97,11 @@ public class LoginActivity extends AppCompatActivity {
 
                                 int id = body.getJSONObject("data").getInt("id");
                                 String token = body.getJSONObject("data").getString("api_token");
+
                                 sharedPrefManager.saveInt(SharedPrefManager.id, id);
                                 sharedPrefManager.saveString(SharedPrefManager.token, token);
                                 sharedPrefManager.saveBoolean(SharedPrefManager.status_login, true);
+
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                 finish();

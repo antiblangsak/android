@@ -11,33 +11,69 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="15"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main_yellow"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_profile"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="65dp"
+                android:text="antiblangsak"
+                android:textAlignment="center"
+                android:textColor="@color/color_main_black"
+                android:textSize="35dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="20"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-
-
-            <Button
-                android:id="@+id/btnLogout"
+            <RelativeLayout
+                android:id="@+id/main_layout"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_margin="@dimen/margin_xl"
-                android:text="@string/btn_logout_string"
-                android:textColor="@color/color_main_black"
-                android:backgroundTint="@color/color_main_yellow"
-                android:textSize="@dimen/button_font_size"
-                android:paddingTop="8dp"
-                android:paddingBottom="10dp"/>
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
 
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_main_yellow"
+                    android:elevation="6dp"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:tabMode="fixed"
+                    app:tabGravity="fill"
+                    app:tabTextColor="@color/color_main_dark_gray"
+                    app:tabSelectedTextColor="@color/color_main_dark_gray"
+                    app:tabTextAppearance="@style/CustomTabText"
+                    app:tabIndicatorColor="@color/color_main_dark_gray"/>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@id/tab_layout"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
 

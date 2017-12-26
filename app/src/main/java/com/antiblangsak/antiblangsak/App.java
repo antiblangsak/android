@@ -9,7 +9,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  */
 
 public class App extends Application {
-    @Override public void onCreate() { super.onCreate();
+    @Override public void onCreate() {
+        super.onCreate();
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/Comfortaa-Regular.ttf")
