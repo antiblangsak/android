@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/color_main_dark_gray">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_xl"
+                android:layout_marginRight="@dimen/margin_xl"
+                android:layout_marginBottom="@dimen/margin_md"
+                android:textColorHint="@color/color_main_light_gray">
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/color_main_white"
+                    android:textSize="@dimen/input_text_size"
+                    android:backgroundTint="@color/color_main_yellow"
+                    />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_xl"
+                android:layout_marginRight="@dimen/margin_xl"
+                android:layout_marginBottom="@dimen/margin_md"
+                android:textColorHint="@color/color_main_light_gray"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/color_main_white">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_password"
+                    android:textColor="@color/color_main_white"
+                    android:textSize="@dimen/input_text_size"
+                    android:backgroundTint="@color/color_main_yellow"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/login_loading"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:indeterminate="true" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_margin="@dimen/margin_xl"
+                android:text="@string/btn_login_string"
+                android:textColor="@color/color_main_black"
+                android:backgroundTint="@color/color_main_yellow"
+                android:textSize="@dimen/button_font_size"
+                android:paddingTop="8dp"
+                android:paddingBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_xs"
+                android:text="@string/link_to_register"
+                android:textAlignment="center"
+                android:textColor="@color/color_main_white"/>
+
+            <TextView
+                android:id="@+id/tvToRegisterPage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/link_to_register_string"
+                android:textAlignment="center"
+                android:textColor="@color/color_link_blue"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
