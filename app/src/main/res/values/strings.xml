@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Antiblangsak</string>
 
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
     <string name="welcome">Welcome</string>
     <string name="register">Daftar Akun Baru</string>
     <string name="name">Fullname</string>
@@ -18,8 +22,6 @@
     <string name="link_to_register_string">Daftar sekarang!</string>
     <string name="link_to_login">Sudah punya akun?</string>
     <string name="link_to_login_string">Login sekarang!</string>
-    <string name="title_activity_register">RegisterActivity</string>
-    <string name="title_activity_main">MainActivity</string>
 
     <string name="btn_register_nasabah_string">DAFTAR SEBAGAI NASABAH</string>
 

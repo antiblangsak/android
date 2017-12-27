@@ -50,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().hide();
 
         sharedPrefManager = new SharedPrefManager(this);
             apiInterface = ApiClient.getClient().create(ApiInterface.class);
