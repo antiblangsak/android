@@ -10,5 +10,8 @@
     <color name="color_main_black">#000000</color>
     <color name="color_main_white">#FFFFFF</color>
 
+    <color name="color_layout_border">#c4c4c4</color>
+    <color name="color_menu_pressed">#eaeaea</color>
+
     <color name="color_link_blue">#1961d6</color>
 </resources>

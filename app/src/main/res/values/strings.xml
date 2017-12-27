@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Antiblangsak</string>
 
-    <string name="hint_email">Email</string>
+    <string name="welcome">Welcome</string>
     <string name="register">Daftar Akun Baru</string>
+    <string name="name">Fullname</string>
+    <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_password_register">Kata Sandi (min. 8 karakter)</string>
     <string name="hint_name">Nama</string>
@@ -11,13 +13,27 @@
     <string name="hint_date_of_birth">Date of Birth</string>
     <string name="btn_login_string">MASUK</string>
     <string name="btn_register_string">DAFTAR</string>
+    <string name="btn_logout_string">LOGOUT</string>
     <string name="link_to_register">Belum punya akun?</string>
     <string name="link_to_register_string">Daftar sekarang!</string>
     <string name="link_to_login">Sudah punya akun?</string>
     <string name="link_to_login_string">Login sekarang!</string>
-    <string name="welcome">Welcome</string>
-    <string name="btn_logout_string">LOGOUT</string>
-    <string name="name">Fullname</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <string name="btn_register_nasabah_string">DAFTAR SEBAGAI NASABAH</string>
+
+    <string name="service_dpgk_label">Pendidikan</string>
+    <string name="service_dkk_label">Kesehatan</string>
+    <string name="service_dwk_label">Warisan</string>
+    <string name="service_dtmk_label">Usaha Kecil Menengah</string>
+
+    <string name="service_ojek_label">Ayoojek</string>
+    <string name="service_dokter_label">Ayoo-Dokter</string>
+    <string name="service_food_label">Ayoo-Food</string>
+    <string name="service_piknik_label">Ayoo-Piknik</string>
+    <string name="service_modal_label">Ayoo-Modal</string>
+    <string name="service_bayar_label">Ayoo-Bayar</string>
+    <string name="service_store_label">Ayoo-Store</string>
+    <string name="service_baca_label">Ayoo-Baca</string>
 </resources>

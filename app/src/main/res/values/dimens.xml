@@ -8,9 +8,13 @@
     <dimen name="card_corner_radius">0dp</dimen>
     <dimen name="list_height">72dp</dimen>
     <dimen name="icon_size">40dp</dimen>
+
     <dimen name="button_font_size">18dp</dimen>
+    <dimen name="button_font_size_sm">14dp</dimen>
 
     <dimen name="input_text_size">16dp</dimen>
+
+    <dimen name="text_size_xs">10dp</dimen>
 
     <dimen name="margin_xxxl">36dp</dimen>
     <dimen name="margin_xxl">24dp</dimen>
@@ -19,6 +23,8 @@
     <dimen name="margin_md">12dp</dimen>
     <dimen name="margin_sm">8dp</dimen>
     <dimen name="margin_xs">4dp</dimen>
+    <dimen name="margin_xxs">2dp</dimen>
+    <dimen name="margin_xxxs">1dp</dimen>
 
     <dimen name="fab_margin">16dp</dimen>
 </resources>
