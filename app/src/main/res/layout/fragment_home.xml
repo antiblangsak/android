@@ -228,7 +228,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
@@ -260,7 +260,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
@@ -292,7 +292,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
@@ -324,7 +324,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
@@ -366,7 +366,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
@@ -398,7 +398,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
@@ -430,7 +430,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
@@ -462,7 +462,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_xs"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
+                    android:layout_marginBottom="@dimen/margin_md"
                     />
 
 
