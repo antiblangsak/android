@@ -1,4 +1,5 @@
 <resources>
+    <!--PISAH-PISAHIN YA CUY STRINGNYA, SATU ACTIVITY SATU PART-->
     <string name="app_name">Antiblangsak</string>
 
     <string name="title_activity_login">LoginActivity</string>
@@ -9,6 +10,7 @@
     <string name="welcome">Welcome</string>
     <string name="register">Daftar Akun Baru</string>
     <string name="name">Fullname</string>
+
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_password_register">Kata Sandi (min. 8 karakter)</string>
@@ -43,4 +45,12 @@
 
     <string name="daftar_nasabah_option_keluarga_baru">KELUARGA BARU</string>
     <string name="daftar_nasabah_option_sudah_punya">SUDAH MEMPUNYAI\nKELUARGA TERDAFTAR</string>
+
+    <string name="daftar_nasabah_keluarga_terdaftar_info">
+        Daftarkan diri Anda agar terhubung dengan keluarga Anda.\n\n
+        Untuk menjadi nasabah, pastikan NIK Anda sudah terdaftar pada data keluarga Anda.
+    </string>
+    <string name="hint_keluarga_id">ID Keluarga Anda</string>
+    <string name="hint_nik">NIK Anda</string>
+    <string name="btn_daftarkan_string">Daftarkan</string>
 </resources>

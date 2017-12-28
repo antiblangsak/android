@@ -42,10 +42,12 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".DaftarNasabahActivity"
+        <activity
+            android:name=".DaftarNasabahActivity"
             android:label="@string/title_activity_daftar_nasabah" />
-
+        <activity
+            android:name=".DaftarNasabahKeluargaTerdaftarActivity"
+            android:label="@string/title_activity_daftar_nasabah" />
     </application>
 
 </manifest>

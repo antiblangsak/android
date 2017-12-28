@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antiblangsak.antiblangsak.DaftarNasabahKeluargaTerdaftarActivity">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_super"
+        android:layout_marginLeft="@dimen/margin_xxxl"
+        android:layout_marginRight="@dimen/margin_xxxl"
+        android:orientation="vertical"
+        android:descendantFocusability="beforeDescendants"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_xxl"
+            android:text="@string/daftar_nasabah_keluarga_terdaftar_info"
+            android:textAlignment="center"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_keluarga_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:theme="@style/EditTextTheme">
+
+            <EditText
+                android:id="@+id/etKeluargaId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_keluarga_id"
+                android:inputType="number"
+                android:textSize="@dimen/input_text_size"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="@color/color_main_yellow" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_nik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:theme="@style/EditTextTheme">
+
+            <EditText
+                android:id="@+id/etNik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_nik"
+                android:inputType="number"
+                android:textSize="@dimen/input_text_size"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="@color/color_main_yellow"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pbDaftarkan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/margin_xxxl"
+            android:indeterminateTint="@color/color_main_yellow"
+            android:indeterminate="true" />
+
+        <Button
+            android:id="@+id/btnDaftarkan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:paddingBottom="@dimen/padding_xxs"
+            android:background="@drawable/shape_button"
+            android:text="@string/btn_daftarkan_string"
+            android:textColor="@color/color_main_black"
+            android:textSize="@dimen/button_font_size"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

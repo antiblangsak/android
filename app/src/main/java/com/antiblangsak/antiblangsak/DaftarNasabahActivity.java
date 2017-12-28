@@ -1,14 +1,19 @@
 package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DaftarNasabahActivity extends AppCompatActivity {
 
+    RelativeLayout btnKeluargaBaru;
+    RelativeLayout btnKeluargaTerdaftar;
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -19,6 +24,18 @@ public class DaftarNasabahActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_nasabah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        btnKeluargaBaru = (RelativeLayout) findViewById(R.id.btnDaftarAsNasabahKeluargaBaru);
+        btnKeluargaTerdaftar = (RelativeLayout) findViewById(R.id.btnDaftarAsNasabahKeluargaTerdaftar);
+
+        btnKeluargaTerdaftar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(DaftarNasabahActivity.this,
+                        DaftarNasabahKeluargaTerdaftarActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override

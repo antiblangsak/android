@@ -17,5 +17,8 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlActivated">@color/color_main_light_gray</item>
+        <item name="colorControlHighlight">@color/color_main_light_gray</item>
+    </style>
 </resources>
