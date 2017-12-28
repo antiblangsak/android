@@ -4,6 +4,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_daftar_nasabah">Daftar Sebagai Nasabah</string>
 
     <string name="welcome">Welcome</string>
     <string name="register">Daftar Akun Baru</string>
@@ -24,6 +25,7 @@
     <string name="link_to_login_string">Login sekarang!</string>
 
     <string name="btn_register_nasabah_string">DAFTAR SEBAGAI NASABAH</string>
+    <string name="btn_tulis_berita_string">TULIS BERITA</string>
 
     <string name="service_dpgk_label">Pendidikan</string>
     <string name="service_dkk_label">Kesehatan</string>
@@ -38,4 +40,7 @@
     <string name="service_bayar_label">Ayoo-Bayar</string>
     <string name="service_store_label">Ayoo-Store</string>
     <string name="service_baca_label">Ayoo-Baca</string>
+
+    <string name="daftar_nasabah_option_keluarga_baru">KELUARGA BARU</string>
+    <string name="daftar_nasabah_option_sudah_punya">SUDAH MEMPUNYAI\nKELUARGA TERDAFTAR</string>
 </resources>

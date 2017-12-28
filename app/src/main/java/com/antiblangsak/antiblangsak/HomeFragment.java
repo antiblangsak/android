@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class HomeFragment extends Fragment {
 
     TextView tvLogout;
     ProgressBar pbLogout;
+    Button btnRegisterAsNasabah;
 
     SharedPrefManager sharedPrefManager;
     ApiInterface apiInterface;
@@ -36,6 +38,7 @@ public class HomeFragment extends Fragment {
 
         tvLogout = view.findViewById(R.id.tvLogout);
         pbLogout = view.findViewById(R.id.pbLogout);
+        btnRegisterAsNasabah = view.findViewById(R.id.btnRegisterAsNasabah);
 
         tvLogout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -65,6 +68,13 @@ public class HomeFragment extends Fragment {
                         getActivity().finish();
                     }
                 });
+            }
+        });
+
+        btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DaftarNasabahActivity.class));
             }
         });
         return view;
