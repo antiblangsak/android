@@ -48,6 +48,12 @@
         <activity
             android:name=".DaftarNasabahKeluargaTerdaftarActivity"
             android:label="@string/title_activity_daftar_nasabah" />
+        <activity
+            android:name=".DaftarNasabahKeluargaBaruActivity"
+            android:label="@string/title_activity_daftar_nasabah" />
+        <activity android:name=".AddBankAccountActivity" />
+        <activity android:name=".DaftarNasabahUploadFotoActivity"
+            android:label="@string/title_activity_daftar_nasabah"/>
     </application>
 
 </manifest>
