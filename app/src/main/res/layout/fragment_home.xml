@@ -48,12 +48,11 @@
                 android:id="@+id/btnRegisterAsNasabah"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/margin_sm"
-                android:layout_marginRight="@dimen/margin_sm"
-                android:layout_marginBottom="@dimen/margin_xxs"
+                android:layout_margin="@dimen/margin_sm"
+                android:paddingBottom="@dimen/padding_xxs"
                 android:text="@string/btn_register_nasabah_string"
                 android:textColor="@color/color_main_black"
-                android:backgroundTint="@color/color_main_yellow"
+                android:background="@drawable/shape_button"
                 android:textSize="@dimen/button_font_size_sm"
                 />
         </LinearLayout>
@@ -62,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/layout_border"
+            android:background="@drawable/shape_home_services_normal"
             android:layout_marginBottom="@dimen/margin_xl"
             android:orientation="horizontal">
 
@@ -71,7 +70,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -104,7 +103,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -135,7 +134,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -166,7 +165,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -199,7 +198,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/layout_border"
+            android:background="@drawable/shape_home_services_normal"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -207,7 +206,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -239,7 +238,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -271,7 +270,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -303,7 +302,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -336,7 +335,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/layout_border"
+            android:background="@drawable/shape_home_services_normal"
             android:orientation="horizontal"
             android:layout_marginBottom="@dimen/margin_lg">
 
@@ -345,7 +344,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -377,7 +376,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -409,7 +408,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 
@@ -441,7 +440,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/home_menu_selector"
+                android:background="@drawable/shape_home_services"
                 android:clickable="true"
                 >
 

@@ -134,12 +134,11 @@
                 android:layout_marginTop="@dimen/margin_xl"
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
-                android:backgroundTint="@color/color_main_yellow"
+                android:paddingBottom="@dimen/padding_xxs"
+                android:background="@drawable/shape_button"
                 android:text="@string/btn_register_string"
                 android:textColor="@color/color_main_black"
-                android:textSize="@dimen/button_font_size"
-                android:paddingTop="12dp"
-                android:paddingBottom="15dp"/>
+                android:textSize="@dimen/button_font_size"/>
 
             <TextView
                 android:id="@+id/tvSudahPunyaAkun"
