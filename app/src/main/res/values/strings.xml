@@ -6,6 +6,7 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_daftar_nasabah">Daftar Sebagai Nasabah</string>
+    <string name="title_activity_add_bank_account">Daftarkan Rekening</string>
 
     <string name="welcome">Welcome</string>
     <string name="register">Daftar Akun Baru</string>
@@ -46,6 +47,12 @@
     <string name="daftar_nasabah_option_keluarga_baru">KELUARGA BARU</string>
     <string name="daftar_nasabah_option_sudah_punya">SUDAH MEMPUNYAI\nKELUARGA TERDAFTAR</string>
 
+    <string name="daftar_nasabah_keluarga_baru_info">
+        Sebelum mendaftarkan keluarga Anda sebagai nasabah, Anda harus mendaftarkan minimal satu rekening bank.\n\n
+        Rekening yang Anda daftarkan akan digunakan untuk melakukan pembayaran bulanan.
+    </string>
+    <string name="btn_lanjutkan_string">Lanjutkan</string>
+
     <string name="daftar_nasabah_keluarga_terdaftar_info">
         Daftarkan diri Anda agar terhubung dengan keluarga Anda.\n\n
         Untuk menjadi nasabah, pastikan NIK Anda sudah terdaftar pada data keluarga Anda.
@@ -53,4 +60,18 @@
     <string name="hint_keluarga_id">ID Keluarga Anda</string>
     <string name="hint_nik">NIK Anda</string>
     <string name="btn_daftarkan_string">Daftarkan</string>
+
+    <string name="hint_bank_name">Nama Bank</string>
+    <string name="hint_branch_name">Nama Cabang</string>
+    <string name="hint_account_number">No. Rekening</string>
+    <string name="hint_account_holder_name">Nama Pemilik Rekening</string>
+    <string name="hint_account_photo">Foto Buku Rekening</string>
+    <string name="btn_daftarkan_rekening_string">Daftarkan Rekening</string>
+
+    <string name="btn_daftarkan_keluarga_string">Daftarkan Keluarga</string>
+    <string name="hint_KTP_photo">Foto KTP</string>
+    <string name="hint_KK_photo">Foto KK</string>
+    <string name="note_photo">Harap lampirkan foto sejelas mungkin</string>
+
+    <string name="note_agree">Dengan ini saya menyatakan telah membaca dan menyetujui syarat dan ketentuan yang berlaku.</string>
 </resources>

@@ -6,14 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.widget.Button;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DaftarNasabahActivity extends AppCompatActivity {
+public class DaftarNasabahKeluargaBaruActivity extends AppCompatActivity {
 
-    RelativeLayout btnKeluargaBaru;
-    RelativeLayout btnKeluargaTerdaftar;
+    Button btnLanjutkan;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -22,29 +22,19 @@ public class DaftarNasabahActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_nasabah);
+        setContentView(R.layout.activity_daftar_nasabah_keluarga_baru);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btnKeluargaBaru = (RelativeLayout) findViewById(R.id.btnDaftarAsNasabahKeluargaBaru);
-        btnKeluargaTerdaftar = (RelativeLayout) findViewById(R.id.btnDaftarAsNasabahKeluargaTerdaftar);
-
-        btnKeluargaBaru.setOnClickListener(new View.OnClickListener(){
+        btnLanjutkan = findViewById(R.id.btnLanjutkan);
+        btnLanjutkan.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DaftarNasabahActivity.this,
-                        DaftarNasabahKeluargaBaruActivity.class);
+                Intent myIntent = new Intent(DaftarNasabahKeluargaBaruActivity.this,
+                        AddBankAccountActivity.class);
                 startActivity(myIntent);
             }
         });
 
-        btnKeluargaTerdaftar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(DaftarNasabahActivity.this,
-                        DaftarNasabahKeluargaTerdaftarActivity.class);
-                startActivity(myIntent);
-            }
-        });
     }
 
     @Override

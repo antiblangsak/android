@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antiblangsak.antiblangsak.AddBankAccountActivity">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:descendantFocusability="beforeDescendants"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xxxl"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_xs"
+            android:text="@string/hint_bank_name"
+            android:textSize="@dimen/hint_text_size"
+            android:textColor="@color/color_main_light_gray"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:background="@drawable/shape_spinner">
+
+            <Spinner
+                android:id="@+id/bankNameSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_main_yellow" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:theme="@style/EditTextTheme">
+
+            <EditText
+                android:id="@+id/etBranchName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_branch_name"
+                android:inputType="text"
+                android:textSize="@dimen/input_text_size"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="@color/color_main_yellow" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:theme="@style/EditTextTheme">
+
+            <EditText
+                android:id="@+id/etAccountNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_account_number"
+                android:inputType="number"
+                android:textSize="@dimen/input_text_size"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="@color/color_main_yellow"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:theme="@style/EditTextTheme">
+
+            <EditText
+                android:id="@+id/etAccountHolderName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_account_holder_name"
+                android:inputType="text"
+                android:textSize="@dimen/input_text_size"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="@color/color_main_yellow"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:theme="@style/EditTextTheme">
+
+            <EditText
+                android:id="@+id/etAccountPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_account_photo"
+                android:inputType="text"
+                android:textSize="@dimen/input_text_size"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="@color/color_main_yellow"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pbDaftarkan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/margin_xxxl"
+            android:indeterminateTint="@color/color_main_yellow"
+            android:indeterminate="true" />
+
+        <Button
+            android:id="@+id/btnDaftarkanRekening"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:paddingBottom="@dimen/padding_xxs"
+            android:background="@drawable/shape_button"
+            android:text="@string/btn_daftarkan_rekening_string"
+            android:textColor="@color/color_main_black"
+            android:textSize="@dimen/button_font_size"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
