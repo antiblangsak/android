@@ -4,5 +4,5 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_lg"
     android:padding="@dimen/padding_md"
-    android:textColor="@color/color_main_black"
-    android:textSize="@dimen/input_text_size"/>
+    android:textColor="@color/black"
+    android:textSize="@dimen/textsize_inputtext"/>

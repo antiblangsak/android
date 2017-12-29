@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_super"
-        android:layout_marginBottom="@dimen/margin_super"
+        android:layout_marginTop="@dimen/margin_superxl"
+        android:layout_marginBottom="@dimen/margin_superxl"
         android:layout_marginLeft="@dimen/margin_xxxl"
         android:layout_marginRight="@dimen/margin_xxxl"
         android:orientation="vertical" >
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_daftar_nasabah_option"
+            android:background="@drawable/daftarnasabah_option"
             android:layout_marginBottom="@dimen/margin_xl"
             android:clickable="true">
 
@@ -28,8 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="@string/daftar_nasabah_option_keluarga_baru"
-                android:textSize="@dimen/button_font_size"
+                android:text="@string/daftarnasabah_keluargabarubutton"
+                android:textSize="@dimen/textsize_button_md"
                 android:textAlignment="center"/>
 
         </RelativeLayout>
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_daftar_nasabah_option"
+            android:background="@drawable/daftarnasabah_option"
             android:layout_marginTop="@dimen/margin_xl"
             android:clickable="true">
 
@@ -47,8 +47,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="@string/daftar_nasabah_option_sudah_punya"
-                android:textSize="@dimen/button_font_size"
+                android:text="@string/daftarnasabah_keluargaterdaftarbutton"
+                android:textSize="@dimen/textsize_button_md"
                 android:textAlignment="center"/>
 
         </RelativeLayout>

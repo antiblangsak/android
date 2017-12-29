@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.antiblangsak.antiblangsak.AddBankAccountActivity">
+    tools:context="com.antiblangsak.antiblangsak.DaftarRekeningActivity">
 
     <LinearLayout
         android:id="@+id/mainLayout"
@@ -23,9 +23,9 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:padding="@dimen/padding_xs"
-            android:text="@string/hint_bank_name"
-            android:textSize="@dimen/hint_text_size"
-            android:textColor="@color/color_main_light_gray"/>
+            android:text="@string/daftarrekening_banknamehint"
+            android:textSize="@dimen/textsize_hint"
+            android:textColor="@color/gray"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -33,13 +33,13 @@
             android:layout_marginLeft="@dimen/margin_spinner"
             android:layout_marginRight="@dimen/margin_spinner"
             android:layout_marginBottom="@dimen/margin_md"
-            android:background="@drawable/shape_spinner">
+            android:background="@drawable/all_spinner">
 
             <Spinner
                 android:id="@+id/bankNameSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/color_main_yellow" />
+                android:backgroundTint="@color/yellow" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -55,11 +55,11 @@
                 android:id="@+id/etBranchName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_branch_name"
+                android:hint="@string/daftarrekening_branchnamehint"
                 android:inputType="text"
-                android:textSize="@dimen/input_text_size"
+                android:textSize="@dimen/textsize_inputtext"
                 android:textCursorDrawable="@null"
-                android:backgroundTint="@color/color_main_yellow" />
+                android:backgroundTint="@color/yellow" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -75,11 +75,11 @@
                 android:id="@+id/etAccountNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_account_number"
+                android:hint="@string/daftarrekening_accountnumberhint"
                 android:inputType="number"
-                android:textSize="@dimen/input_text_size"
+                android:textSize="@dimen/textsize_inputtext"
                 android:textCursorDrawable="@null"
-                android:backgroundTint="@color/color_main_yellow"
+                android:backgroundTint="@color/yellow"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -95,11 +95,11 @@
                 android:id="@+id/etAccountHolderName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_account_holder_name"
+                android:hint="@string/daftarrekening_accountholdernamehint"
                 android:inputType="text"
-                android:textSize="@dimen/input_text_size"
+                android:textSize="@dimen/textsize_inputtext"
                 android:textCursorDrawable="@null"
-                android:backgroundTint="@color/color_main_yellow"
+                android:backgroundTint="@color/yellow"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -115,11 +115,11 @@
                 android:id="@+id/etAccountPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_account_photo"
+                android:hint="@string/daftarrekening_accountphotohint"
                 android:inputType="text"
-                android:textSize="@dimen/input_text_size"
+                android:textSize="@dimen/textsize_inputtext"
                 android:textCursorDrawable="@null"
-                android:backgroundTint="@color/color_main_yellow"
+                android:backgroundTint="@color/yellow"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -129,7 +129,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="@dimen/margin_xxxl"
-            android:indeterminateTint="@color/color_main_yellow"
+            android:indeterminateTint="@color/yellow"
             android:indeterminate="true" />
 
         <Button
@@ -140,10 +140,10 @@
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginTop="@dimen/margin_xl"
             android:paddingBottom="@dimen/padding_xxs"
-            android:background="@drawable/shape_button"
-            android:text="@string/btn_daftarkan_rekening_string"
-            android:textColor="@color/color_main_black"
-            android:textSize="@dimen/button_font_size"/>
+            android:background="@drawable/all_button"
+            android:text="@string/daftarrekening_daftarkanbutton"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_button_md"/>
 
     </LinearLayout>
 

@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="floating_button_size">56dp</dimen>
-    <dimen name="floating_button_icon">24dp</dimen>
-    <dimen name="button_elevation">6dp</dimen>
-    <dimen name="button_press_elevation">12dp</dimen>
-    <dimen name="card_elevation">2dp</dimen>
-    <dimen name="card_corner_radius">0dp</dimen>
-    <dimen name="list_height">72dp</dimen>
-    <dimen name="icon_size">40dp</dimen>
+    <dimen name="textsize_button_md">18dp</dimen>
+    <dimen name="textsize_button_sm">14dp</dimen>
+    <dimen name="borderradius_button">8dp</dimen>
 
-    <dimen name="button_font_size">18dp</dimen>
-    <dimen name="button_font_size_sm">14dp</dimen>
-    <dimen name="button_border_radius">8dp</dimen>
+    <dimen name="textsize_hint">10dp</dimen>
+    <dimen name="textsize_inputtext">16dp</dimen>
 
-    <dimen name="hint_text_size">10dp</dimen>
-    <dimen name="input_text_size">16dp</dimen>
+    <dimen name="textsize_all_xs">10dp</dimen>
+    <dimen name="textsize_sm">12dp</dimen>
 
-    <dimen name="text_size_xs">10dp</dimen>
-    <dimen name="text_size_sm">12dp</dimen>
-    <dimen name="text_size_md">16dp</dimen>
-
-    <dimen name="margin_super">60dp</dimen>
+    <dimen name="margin_superxl">60dp</dimen>
     <dimen name="margin_xxxl">36dp</dimen>
     <dimen name="margin_xxl">24dp</dimen>
     <dimen name="margin_xl">20dp</dimen>

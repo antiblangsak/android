@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/color_main_light_gray">
+    android:background="@color/gray">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_main_yellow"
+            android:background="@color/yellow"
             android:orientation="horizontal">
 
             <ImageView
@@ -56,12 +56,12 @@
                     android:id="@+id/tab_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/color_main_yellow"
+                    android:background="@color/yellow"
                     android:elevation="6dp"
                     android:minHeight="?attr/actionBarSize"
                     app:tabMode="fixed"
                     app:tabGravity="fill"
-                    app:tabIndicatorColor="@color/color_main_black"/>
+                    app:tabIndicatorColor="@color/black"/>
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/pager"

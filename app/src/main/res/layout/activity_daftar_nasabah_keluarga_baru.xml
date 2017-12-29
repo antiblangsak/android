@@ -10,7 +10,7 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_super"
+        android:layout_marginTop="@dimen/margin_superxl"
         android:layout_marginLeft="@dimen/margin_xxxl"
         android:layout_marginRight="@dimen/margin_xxxl"
         android:orientation="vertical"
@@ -25,7 +25,7 @@
             android:layout_marginBottom="@dimen/margin_xxl">
 
             <ImageView
-                android:src="@drawable/shape_circle_dummy"
+                android:src="@drawable/all_circle_dummy"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
                 android:layout_margin="@dimen/margin_xxl"
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_xxl"
-            android:text="@string/daftar_nasabah_keluarga_baru_info"
+            android:text="@string/daftarnasabahkeluargabaru_info"
             android:textAlignment="center"/>
 
         <Button
@@ -45,10 +45,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/padding_xxs"
-            android:background="@drawable/shape_button"
-            android:text="@string/btn_lanjutkan_string"
-            android:textColor="@color/color_main_black"
-            android:textSize="@dimen/button_font_size"/>
+            android:background="@drawable/all_button"
+            android:text="@string/lanjutkanbutton"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_button_md"/>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

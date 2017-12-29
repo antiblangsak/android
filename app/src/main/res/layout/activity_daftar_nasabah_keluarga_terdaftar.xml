@@ -10,7 +10,7 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_super"
+        android:layout_marginTop="@dimen/margin_superxl"
         android:layout_marginLeft="@dimen/margin_xxxl"
         android:layout_marginRight="@dimen/margin_xxxl"
         android:orientation="vertical"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_xxl"
-            android:text="@string/daftar_nasabah_keluarga_terdaftar_info"
+            android:text="@string/daftarnasabahkeluargaterdaftar_info"
             android:textAlignment="center"/>
 
         <android.support.design.widget.TextInputLayout
@@ -37,11 +37,11 @@
                 android:id="@+id/etKeluargaId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_keluarga_id"
+                android:hint="@string/daftarnasabahkeluargaterdaftar_keluargaidhint"
                 android:inputType="number"
-                android:textSize="@dimen/input_text_size"
+                android:textSize="@dimen/textsize_inputtext"
                 android:textCursorDrawable="@null"
-                android:backgroundTint="@color/color_main_yellow" />
+                android:backgroundTint="@color/yellow" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -56,11 +56,11 @@
                 android:id="@+id/etNik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_nik"
+                android:hint="@string/daftarnasabahkeluargaterdaftar_nikhint"
                 android:inputType="number"
-                android:textSize="@dimen/input_text_size"
+                android:textSize="@dimen/textsize_inputtext"
                 android:textCursorDrawable="@null"
-                android:backgroundTint="@color/color_main_yellow"
+                android:backgroundTint="@color/yellow"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -70,7 +70,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="@dimen/margin_xxxl"
-            android:indeterminateTint="@color/color_main_yellow"
+            android:indeterminateTint="@color/yellow"
             android:indeterminate="true" />
 
         <Button
@@ -79,10 +79,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_xl"
             android:paddingBottom="@dimen/padding_xxs"
-            android:background="@drawable/shape_button"
-            android:text="@string/btn_daftarkan_string"
-            android:textColor="@color/color_main_black"
-            android:textSize="@dimen/button_font_size"/>
+            android:background="@drawable/all_button"
+            android:text="@string/daftarkanbutton"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_button_md"/>
 
     </LinearLayout>
 

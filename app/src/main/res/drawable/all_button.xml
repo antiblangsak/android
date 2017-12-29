@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
     android:exitFadeDuration="@android:integer/config_shortAnimTime">
 
-    <item android:drawable="@drawable/shape_button_pressed" android:state_pressed="true"></item>
-    <item android:drawable="@drawable/shape_button_normal"></item>
+    <item android:drawable="@drawable/all_button_pressed" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/all_button_normal"></item>
 
 </selector>

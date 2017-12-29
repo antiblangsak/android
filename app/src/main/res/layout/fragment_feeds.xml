@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/color_main_white">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/color_main_light_gray">
+        android:background="@color/gray">
 
         <Button
             android:id="@+id/btnTulisBerita"
@@ -17,10 +17,10 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_sm"
             android:paddingBottom="@dimen/padding_xxs"
-            android:text="@string/btn_tulis_berita_string"
-            android:textColor="@color/color_main_black"
-            android:background="@drawable/shape_button"
-            android:textSize="@dimen/button_font_size_sm"
+            android:text="@string/home_tulisberitabutton"
+            android:textColor="@color/black"
+            android:background="@drawable/all_button"
+            android:textSize="@dimen/textsize_button_sm"
             />
 
     </LinearLayout>

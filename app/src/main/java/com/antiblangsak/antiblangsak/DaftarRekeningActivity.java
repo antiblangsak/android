@@ -2,10 +2,8 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,7 +18,7 @@ import android.widget.TextView;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class AddBankAccountActivity extends AppCompatActivity {
+public class DaftarRekeningActivity extends AppCompatActivity {
 
     private EditText etBranchName;
     private EditText etAccountNumber;
@@ -46,9 +44,9 @@ public class AddBankAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_bank_account);
+        setContentView(R.layout.activity_daftar_rekening);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_activity_daftar_nasabah);
+        getSupportActionBar().setTitle(R.string.daftarnasabah_title);
 
         etBranchName = (EditText) findViewById(R.id.etBranchName);
         etAccountNumber = (EditText) findViewById(R.id.etAccountNumber);
@@ -57,7 +55,7 @@ public class AddBankAccountActivity extends AppCompatActivity {
 
         Spinner spinner = (Spinner) findViewById(R.id.bankNameSpinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, R.layout.spinner_item, BANK_NAMES) {
+                this, R.layout.item_spinner, BANK_NAMES) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
@@ -82,9 +80,9 @@ public class AddBankAccountActivity extends AppCompatActivity {
                 TextView tv = (TextView) view;
                 if (position == 0){
                     // Set the hint text color gray
-                    tv.setTextColor(getResources().getColor(R.color.color_main_light_gray));
+                    tv.setTextColor(getResources().getColor(R.color.gray));
                 } else {
-                    tv.setTextColor(getResources().getColor(R.color.color_main_black));
+                    tv.setTextColor(getResources().getColor(R.color.black));
                 }
                 return view;
             }
@@ -110,7 +108,7 @@ public class AddBankAccountActivity extends AppCompatActivity {
         btnDaftarkanRekening.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(AddBankAccountActivity.this,
+                Intent myIntent = new Intent(DaftarRekeningActivity.this,
                         DaftarNasabahUploadFotoActivity.class);
                 startActivity(myIntent);
             }

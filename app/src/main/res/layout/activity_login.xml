@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/color_main_dark_gray">
+    android:background="@color/gray_dark">
 
     <LinearLayout
         android:id="@+id/mainLayout"
@@ -55,17 +55,17 @@
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
                 android:layout_marginBottom="@dimen/margin_md"
-                android:textColorHint="@color/color_main_light_gray">
+                android:textColorHint="@color/gray">
 
                 <EditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_email"
+                    android:hint="@string/emailhint"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/color_main_white"
-                    android:textSize="@dimen/input_text_size"
-                    android:backgroundTint="@color/color_main_yellow"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_inputtext"
+                    android:backgroundTint="@color/yellow"
                     />
             </android.support.design.widget.TextInputLayout>
 
@@ -76,18 +76,18 @@
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
                 android:layout_marginBottom="@dimen/margin_md"
-                android:textColorHint="@color/color_main_light_gray"
+                android:textColorHint="@color/gray"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/color_main_white">
+                app:passwordToggleTint="@color/white">
 
                 <EditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_password"
-                    android:textColor="@color/color_main_white"
-                    android:textSize="@dimen/input_text_size"
-                    android:backgroundTint="@color/color_main_yellow"/>
+                    android:hint="@string/passwordhint"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_inputtext"
+                    android:backgroundTint="@color/yellow"/>
             </android.support.design.widget.TextInputLayout>
 
             <ProgressBar
@@ -96,7 +96,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="@dimen/margin_xxl"
-                android:indeterminateTint="@color/color_main_yellow"
+                android:indeterminateTint="@color/yellow"
                 android:indeterminate="true" />
 
             <Button
@@ -107,30 +107,30 @@
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
                 android:paddingBottom="@dimen/padding_xxs"
-                android:text="@string/btn_login_string"
-                android:textColor="@color/color_main_black"
-                android:background="@drawable/shape_button"
-                android:textSize="@dimen/button_font_size" />
+                android:text="@string/login_loginbutton"
+                android:textColor="@color/black"
+                android:background="@drawable/all_button"
+                android:textSize="@dimen/textsize_button_md" />
 
             <TextView
                 android:id="@+id/tvBelumPunyaAkun"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_xxxl"
-                android:text="@string/link_to_register"
+                android:text="@string/login_registerlinkinfo"
                 android:textAlignment="center"
                 android:textSize="14dp"
-                android:textColor="@color/color_main_white"/>
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/tvToRegisterPage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_xs"
-                android:text="@string/link_to_register_string"
+                android:text="@string/login_registerlink"
                 android:textAlignment="center"
                 android:textSize="14dp"
-                android:textColor="@color/color_link_blue"/>
+                android:textColor="@color/blue"/>
         </LinearLayout>
 
     </LinearLayout>

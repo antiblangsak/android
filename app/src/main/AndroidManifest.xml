@@ -32,28 +32,28 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="@string/login_title"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
+            android:label="@string/register_title"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="@string/main_title"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DaftarNasabahActivity"
-            android:label="@string/title_activity_daftar_nasabah" />
+            android:label="@string/daftarnasabah_title" />
         <activity
             android:name=".DaftarNasabahKeluargaTerdaftarActivity"
-            android:label="@string/title_activity_daftar_nasabah" />
+            android:label="@string/daftarnasabah_title" />
         <activity
             android:name=".DaftarNasabahKeluargaBaruActivity"
-            android:label="@string/title_activity_daftar_nasabah" />
-        <activity android:name=".AddBankAccountActivity" />
+            android:label="@string/daftarnasabah_title" />
+        <activity android:name=".DaftarRekeningActivity" />
         <activity android:name=".DaftarNasabahUploadFotoActivity"
-            android:label="@string/title_activity_daftar_nasabah"/>
+            android:label="@string/daftarnasabah_title"/>
     </application>
 
 </manifest>

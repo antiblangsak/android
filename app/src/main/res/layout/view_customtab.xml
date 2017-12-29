@@ -10,6 +10,6 @@
         android:text="New Text"
         android:gravity="center"
         android:textSize="16dp"
-        android:textColor="@color/color_main_dark_gray"
+        android:textColor="@color/gray_dark"
         android:layout_marginBottom="@dimen/margin_sm"/>
 </LinearLayout>

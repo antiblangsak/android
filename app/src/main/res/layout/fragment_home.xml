@@ -14,7 +14,7 @@
             android:id="@+id/pbLogout"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:indeterminateTint="@color/color_main_yellow"
+            android:indeterminateTint="@color/yellow"
             android:indeterminate="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Logout"
-            android:textColor="@color/color_main_white"
+            android:textColor="@color/white"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     </RelativeLayout>
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20"
-        android:background="@color/color_main_white"
+        android:background="@color/white"
         android:orientation="vertical"
         >
 
@@ -50,10 +50,10 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/margin_sm"
                 android:paddingBottom="@dimen/padding_xxs"
-                android:text="@string/btn_register_nasabah_string"
-                android:textColor="@color/color_main_black"
-                android:background="@drawable/shape_button"
-                android:textSize="@dimen/button_font_size_sm"
+                android:text="@string/home_daftarnasabahbutton"
+                android:textColor="@color/black"
+                android:background="@drawable/all_button"
+                android:textSize="@dimen/textsize_button_sm"
                 />
         </LinearLayout>
 
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/shape_home_services_normal"
+            android:background="@drawable/home_serviceitem_normal"
             android:layout_marginBottom="@dimen/margin_xl"
             android:orientation="horizontal">
 
@@ -70,12 +70,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_dpgk_logo"
+                    android:src="@drawable/home_dpgk_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_lg"
@@ -88,8 +88,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_dpgk_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_dpgklabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
@@ -103,12 +103,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_dkk_logo"
+                    android:src="@drawable/home_dkk_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -119,8 +119,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_dkk_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_dkklabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
@@ -134,12 +134,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_dwk_logo"
+                    android:src="@drawable/home_dwk_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -150,8 +150,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_dwk_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_dwklabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
@@ -165,12 +165,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_dtmk_logo"
+                    android:src="@drawable/home_dtmk_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -181,10 +181,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_dtmk_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_dtmklabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_sm"
                     />
@@ -198,7 +198,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/shape_home_services_normal"
+            android:background="@drawable/home_serviceitem_normal"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -206,12 +206,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_ojek_logo"
+                    android:src="@drawable/home_ayoojek_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xxl"
@@ -222,10 +222,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_ojek_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoojeklabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
@@ -238,12 +238,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_dokter_logo"
+                    android:src="@drawable/home_ayoodokter_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -254,10 +254,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_dokter_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoodokterlabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
@@ -270,12 +270,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_food_logo"
+                    android:src="@drawable/home_ayoofood_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -286,10 +286,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_food_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoofoodlabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
@@ -302,12 +302,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_piknik_logo"
+                    android:src="@drawable/home_ayoopiknik_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -318,10 +318,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_piknik_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoopikniklabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
@@ -335,7 +335,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@drawable/shape_home_services_normal"
+            android:background="@drawable/home_serviceitem_normal"
             android:orientation="horizontal"
             android:layout_marginBottom="@dimen/margin_lg">
 
@@ -344,12 +344,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_modal_logo"
+                    android:src="@drawable/home_ayoomodal_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -360,10 +360,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_modal_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoomodallabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
@@ -376,12 +376,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_bayar_logo"
+                    android:src="@drawable/home_ayoobayar_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -392,10 +392,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_bayar_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoobayarlabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
@@ -408,12 +408,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_store_logo"
+                    android:src="@drawable/home_ayoostore_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -424,10 +424,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_store_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoostorelabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
@@ -440,12 +440,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/shape_home_services"
+                android:background="@drawable/home_serviceitem"
                 android:clickable="true"
                 >
 
                 <ImageView
-                    android:src="@drawable/service_baca_logo"
+                    android:src="@drawable/home_ayoobaca_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xl"
@@ -456,10 +456,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/service_baca_label"
-                    android:textColor="@color/color_main_light_gray"
+                    android:text="@string/home_ayoobacalabel"
+                    android:textColor="@color/gray"
                     android:textAlignment="center"
-                    android:textSize="@dimen/text_size_xs"
+                    android:textSize="@dimen/textsize_all_xs"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/margin_md"
                     />
