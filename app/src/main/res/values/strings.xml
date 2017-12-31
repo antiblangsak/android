@@ -61,6 +61,7 @@
     <string name="daftarrekening_accountholdernamehint">Nama Pemilik Rekening</string>
     <string name="daftarrekening_accountphotohint">Foto Buku Rekening</string>
     <string name="daftarrekening_daftarkanbutton">Daftarkan Rekening</string>
+    <string name="daftarrekening_accountphoto">Pilih Foto...</string>
 
     <string name="daftarnasabahkeluargabaru_daftarkanbutton">Daftarkan Keluarga</string>
     <string name="daftarnasabahkeluargabaru_ktphint">Foto KTP</string>

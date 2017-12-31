@@ -15,7 +15,6 @@
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,25 +102,44 @@
                 />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:layout_marginBottom="@dimen/margin_md"
-            android:theme="@style/EditTextTheme">
+            android:layout_marginBottom="@dimen/margin_md">
 
-            <EditText
-                android:id="@+id/etAccountPhoto"
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/daftarrekening_accountphotohint"
-                android:inputType="text"
-                android:textSize="@dimen/textsize_inputtext"
-                android:textCursorDrawable="@null"
-                android:backgroundTint="@color/yellow"
-                />
-        </android.support.design.widget.TextInputLayout>
+                android:theme="@style/EditTextTheme"
+                android:layout_weight="4">
+
+                <EditText
+                    android:id="@+id/etAccountPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/daftarrekening_accountphotohint"
+                    android:textSize="@dimen/textsize_inputtext"
+                    android:text="@string/daftarrekening_accountphoto"
+                    android:textCursorDrawable="@null"
+                    android:backgroundTint="@color/yellow"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/imAccountPhoto"
+                android:src="@drawable/all_uploadimage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/margin_sm"
+                android:layout_marginLeft="@dimen/margin_md"
+                android:layout_marginRight="@dimen/margin_sm"
+                android:layout_marginBottom="@dimen/margin_sm"/>
+        </LinearLayout>
+
 
         <ProgressBar
             android:visibility="gone"

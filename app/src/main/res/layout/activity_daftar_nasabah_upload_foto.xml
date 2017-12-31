@@ -16,62 +16,102 @@
         android:focusable="true"
         android:focusableInTouchMode="true">
 
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="@dimen/margin_xxxl"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:layout_marginBottom="@dimen/margin_md"
-            android:theme="@style/EditTextTheme">
+            android:layout_marginBottom="@dimen/margin_md">
 
-            <EditText
-                android:id="@+id/etPhotoKTP"
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/daftarnasabahkeluargabaru_ktphint"
-                android:inputType="text"
-                android:textSize="@dimen/textsize_inputtext"
-                android:textCursorDrawable="@null"
-                android:backgroundTint="@color/yellow"
-                />
+                android:layout_weight="4"
+                android:theme="@style/EditTextTheme">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_xs"
-                android:text="@string/daftarnasabahkeluargabaru_photonote"
-                android:textSize="@dimen/textsize_sm"/>
+                <EditText
+                    android:id="@+id/etPhotoKtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/daftarnasabahkeluargabaru_ktphint"
+                    android:inputType="text"
+                    android:textSize="@dimen/textsize_inputtext"
+                    android:textCursorDrawable="@null"
+                    android:text="@string/daftarrekening_accountphoto"
+                    android:backgroundTint="@color/yellow"
+                    />
 
-        </android.support.design.widget.TextInputLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xs"
+                    android:text="@string/daftarnasabahkeluargabaru_photonote"
+                    android:textSize="@dimen/textsize_sm"/>
 
-        <android.support.design.widget.TextInputLayout
+            </android.support.design.widget.TextInputLayout>
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/imPhotoKtp"
+                android:src="@drawable/all_uploadimage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/margin_lg"
+                android:layout_marginLeft="@dimen/margin_md"
+                android:layout_marginRight="@dimen/margin_sm"
+                android:layout_marginBottom="@dimen/margin_lg"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:layout_marginBottom="@dimen/margin_md"
-            android:theme="@style/EditTextTheme">
+            android:layout_marginBottom="@dimen/margin_md">
 
-            <EditText
-                android:id="@+id/etPhotoKK"
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/daftarnasabahkeluargabaru_kkhint"
-                android:inputType="text"
-                android:textSize="@dimen/textsize_inputtext"
-                android:textCursorDrawable="@null"
-                android:backgroundTint="@color/yellow"
-                />
+                android:layout_weight="4"
+                android:theme="@style/EditTextTheme">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_xs"
-                android:text="@string/daftarnasabahkeluargabaru_photonote"
-                android:textSize="@dimen/textsize_sm"/>
+                <EditText
+                    android:id="@+id/etPhotoKk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/daftarnasabahkeluargabaru_kkhint"
+                    android:inputType="text"
+                    android:textSize="@dimen/textsize_inputtext"
+                    android:textCursorDrawable="@null"
+                    android:text="@string/daftarrekening_accountphoto"
+                    android:backgroundTint="@color/yellow"
+                    />
 
-        </android.support.design.widget.TextInputLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xs"
+                    android:text="@string/daftarnasabahkeluargabaru_photonote"
+                    android:textSize="@dimen/textsize_sm"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/imPhotoKk"
+                android:src="@drawable/all_uploadimage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/margin_lg"
+                android:layout_marginLeft="@dimen/margin_md"
+                android:layout_marginRight="@dimen/margin_sm"
+                android:layout_marginBottom="@dimen/margin_lg"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

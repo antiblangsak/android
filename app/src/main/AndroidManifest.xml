@@ -52,8 +52,12 @@
             android:name=".DaftarNasabahKeluargaBaruActivity"
             android:label="@string/daftarnasabah_title" />
         <activity android:name=".DaftarRekeningActivity" />
-        <activity android:name=".DaftarNasabahUploadFotoActivity"
-            android:label="@string/daftarnasabah_title"/>
+        <activity
+            android:name=".DaftarNasabahUploadFotoActivity"
+            android:label="@string/daftarnasabah_title" />
+        <activity
+            android:name=".FullScreenImageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -2,8 +2,10 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +18,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DaftarRekeningActivity extends AppCompatActivity {
@@ -25,7 +33,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     private EditText etAccountHolderName;
     private EditText etAccountPhoto;
     private Button btnDaftarkanRekening;
-
+    private PhotoView imAccountPhoto;
     private final String[] BANK_NAMES = new String[]{
             "Pilih Nama Bank...",
             "BNI",
@@ -52,6 +60,9 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         etAccountNumber = (EditText) findViewById(R.id.etAccountNumber);
         etAccountHolderName = (EditText) findViewById(R.id.etAccountHolderName);
         etAccountPhoto = (EditText) findViewById(R.id.etAccountPhoto);
+        etAccountPhoto.setFocusable(false);
+        etAccountPhoto.setClickable(true);
+        imAccountPhoto = (PhotoView) findViewById(R.id.imAccountPhoto);
 
         Spinner spinner = (Spinner) findViewById(R.id.bankNameSpinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
@@ -92,15 +103,24 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = (String) parent.getItemAtPosition(position);
-                if (position == 0) {
 
-                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        etAccountPhoto.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Log.v("etAccountPhoto", "CLICKED");
+                Intent openGalleryIntent = new Intent();
+                openGalleryIntent.setType("image/*");
+                openGalleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(openGalleryIntent, "Select Picture"),
+                        AppConstant.DAFTAR_REKENING_REQUEST_GALLERY);
             }
         });
 
@@ -129,6 +149,38 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == AppConstant.DAFTAR_REKENING_REQUEST_GALLERY && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            try {
+                final Uri imageUri = data.getData();
+                InputStream is = getContentResolver().openInputStream(imageUri);
+                Log.v("INPUT STREAM", "Image size: " + is.available());
+
+                AppHelper.showImageThumbnail(imageUri, this, imAccountPhoto, etAccountPhoto);
+                etAccountPhoto.setText(AppHelper.getFileName(this, imageUri));
+
+                byte[] imageBytes = AppHelper.getBytes(is);
+                uploadImage(imageBytes);
+
+                imAccountPhoto.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent fullScreenIntent = new Intent(DaftarRekeningActivity.this,
+                                FullScreenImageActivity.class);
+                        fullScreenIntent.setData(imageUri);
+                        startActivity(fullScreenIntent);
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -138,5 +190,9 @@ public class DaftarRekeningActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void uploadImage(byte[] imageBytes) {
+        Log.v("IMAGE_BYTES", Arrays.toString(imageBytes));
     }
 }
