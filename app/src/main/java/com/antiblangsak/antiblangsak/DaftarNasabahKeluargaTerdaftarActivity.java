@@ -10,14 +10,18 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DaftarNasabahKeluargaTerdaftarActivity extends AppCompatActivity {
 
-    Button btnDaftarkan;
-    EditText etKeluargaId;
-    EditText etNik;
+    private Button btnDaftarkan;
+    private EditText etKeluargaId;
+    private EditText etNik;
+
+    private String keluargaId;
+    private String nik;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -37,10 +41,15 @@ public class DaftarNasabahKeluargaTerdaftarActivity extends AppCompatActivity {
         btnDaftarkan.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DaftarNasabahKeluargaTerdaftarActivity.this,
-                        MainActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(myIntent);
+                if (validateInput()) {
+                    Intent myIntent = new Intent(DaftarNasabahKeluargaTerdaftarActivity.this,
+                            MainActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(myIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE,
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -54,6 +63,29 @@ public class DaftarNasabahKeluargaTerdaftarActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public boolean validateInput() {
+        keluargaId = etKeluargaId.getText().toString();
+        nik = etNik.getText().toString();
+
+        boolean isValid = true;
+
+        if(keluargaId.isEmpty()){
+            etKeluargaId.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etKeluargaId.setError(null);
+        }
+
+        if(nik.isEmpty()){
+            etNik.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etNik.setError(null);
+        }
+
+        return isValid;
     }
 
     @Override

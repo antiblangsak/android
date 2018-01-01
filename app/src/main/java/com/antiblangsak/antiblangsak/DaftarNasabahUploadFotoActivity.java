@@ -6,12 +6,15 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
 
@@ -24,9 +27,16 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
 
     private EditText etPhotoKtp;
     private EditText etPhotoKk;
+
     private PhotoView imPhotoKtp;
     private PhotoView imPhotoKk;
+    private CheckBox chAgree;
     private Button btnDaftarkanKeluarga;
+
+    private String photoKtp;
+    private String photoKk;
+
+    private String DEFAULT_PHOTO_NAME;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -40,10 +50,13 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
 
-        etPhotoKtp = (EditText) findViewById(R.id.etPhotoKtp);
-        etPhotoKk = (EditText) findViewById(R.id.etPhotoKk);
-        imPhotoKtp = (PhotoView) findViewById(R.id.imPhotoKtp);
-        imPhotoKk = (PhotoView) findViewById(R.id.imPhotoKk);
+        DEFAULT_PHOTO_NAME = getResources().getString(R.string.daftarrekening_accountphoto);
+
+        etPhotoKtp = findViewById(R.id.etPhotoKtp);
+        etPhotoKk = findViewById(R.id.etPhotoKk);
+        imPhotoKtp = findViewById(R.id.imPhotoKtp);
+        imPhotoKk = findViewById(R.id.imPhotoKk);
+        chAgree = findViewById(R.id.chAgree);
 
         etPhotoKtp.setFocusable(false);
         etPhotoKtp.setClickable(true);
@@ -77,9 +90,13 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
         btnDaftarkanKeluarga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
-                        MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(myIntent);
+                if (validateInput()) {
+                    Intent myIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
+                            MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(myIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -93,6 +110,48 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public boolean validateInput() {
+        photoKtp = etPhotoKtp.getText().toString();
+        photoKk = etPhotoKk.getText().toString();
+
+        boolean isValid = true;
+
+        if(photoKtp.equals(DEFAULT_PHOTO_NAME)){
+            etPhotoKtp.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etPhotoKtp.setError(null);
+        }
+
+        if(photoKk.equals(DEFAULT_PHOTO_NAME)){
+            etPhotoKk.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etPhotoKk.setError(null);
+        }
+
+        if(!chAgree.isChecked()) {
+            chAgree.setError(AppConstant.GENERAL_CHECKBOX_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            chAgree.setError(null);
+        }
+
+        return isValid;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //Write your logic here
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -110,6 +169,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                 if (requestCode == AppConstant.UPLOAD_FOTO_KTP_REQUEST_GALLERY) {
                     AppHelper.showImageThumbnail(imageUri, this, imPhotoKtp, etPhotoKtp);
                     etPhotoKtp.setText(AppHelper.getFileName(this, imageUri));
+                    etPhotoKtp.setError(null);
 
                     imPhotoKtp.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -123,6 +183,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                 } else {
                     AppHelper.showImageThumbnail(imageUri, this, imPhotoKk, etPhotoKk);
                     etPhotoKk.setText(AppHelper.getFileName(this, imageUri));
+                    etPhotoKk.setError(null);
 
                     imPhotoKk.setOnClickListener(new View.OnClickListener() {
                         @Override

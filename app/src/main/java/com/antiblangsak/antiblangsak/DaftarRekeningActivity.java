@@ -17,8 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,14 +31,25 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DaftarRekeningActivity extends AppCompatActivity {
 
+    private Spinner spBankName;
     private EditText etBranchName;
     private EditText etAccountNumber;
     private EditText etAccountHolderName;
     private EditText etAccountPhoto;
     private Button btnDaftarkanRekening;
     private PhotoView imAccountPhoto;
+
+    private String bankName;
+    private String branchName;
+    private String accountNumber;
+    private String accountHolderName;
+    private String accountPhoto;
+
+    private final String DEFAULT_BANK_NAME = "Pilih Nama Bank...";
+    private String DEFAULT_PHOTO_NAME;
+
     private final String[] BANK_NAMES = new String[]{
-            "Pilih Nama Bank...",
+            DEFAULT_BANK_NAME,
             "BNI",
             "BRI",
             "Bank Mandiri",
@@ -56,15 +70,17 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
 
-        etBranchName = (EditText) findViewById(R.id.etBranchName);
-        etAccountNumber = (EditText) findViewById(R.id.etAccountNumber);
-        etAccountHolderName = (EditText) findViewById(R.id.etAccountHolderName);
-        etAccountPhoto = (EditText) findViewById(R.id.etAccountPhoto);
+        DEFAULT_PHOTO_NAME = getResources().getString(R.string.daftarrekening_accountphoto);
+
+        etBranchName = findViewById(R.id.etBranchName);
+        etAccountNumber = findViewById(R.id.etAccountNumber);
+        etAccountHolderName = findViewById(R.id.etAccountHolderName);
+        etAccountPhoto = findViewById(R.id.etAccountPhoto);
         etAccountPhoto.setFocusable(false);
         etAccountPhoto.setClickable(true);
-        imAccountPhoto = (PhotoView) findViewById(R.id.imAccountPhoto);
+        imAccountPhoto = findViewById(R.id.imAccountPhoto);
 
-        Spinner spinner = (Spinner) findViewById(R.id.bankNameSpinner);
+        spBankName = findViewById(R.id.bankNameSpinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
                 this, R.layout.item_spinner, BANK_NAMES) {
             @Override
@@ -99,11 +115,11 @@ public class DaftarRekeningActivity extends AppCompatActivity {
             }
         };
 
-        spinner.setAdapter(spinnerArrayAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spBankName.setAdapter(spinnerArrayAdapter);
+        spBankName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                bankName = parent.getItemAtPosition(position).toString();
             }
 
             @Override
@@ -124,13 +140,19 @@ public class DaftarRekeningActivity extends AppCompatActivity {
             }
         });
 
-        btnDaftarkanRekening = (Button) findViewById(R.id.btnDaftarkanRekening);
+        btnDaftarkanRekening = findViewById(R.id.btnDaftarkanRekening);
         btnDaftarkanRekening.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DaftarRekeningActivity.this,
-                        DaftarNasabahUploadFotoActivity.class);
-                startActivity(myIntent);
+                if (validateInput()) {
+                    Log.v("btnDaftarkanRekening", "VALID INPUT");
+                    Intent myIntent = new Intent(DaftarRekeningActivity.this,
+                            DaftarNasabahUploadFotoActivity.class);
+                    startActivity(myIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
+                    Log.v("btnDaftarkanRekening", "INVALID INPUT");
+                }
             }
         });
 
@@ -148,6 +170,52 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         });
     }
 
+    public boolean validateInput() {
+        branchName = etBranchName.getText().toString();
+        accountNumber = etAccountNumber.getText().toString();
+        accountHolderName = etAccountHolderName.getText().toString();
+        accountPhoto = etAccountPhoto.getText().toString();
+
+        boolean isValid = true;
+
+        if(bankName.equals(DEFAULT_BANK_NAME)){
+            ((TextView) spBankName.getSelectedView()).setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            ((TextView) spBankName.getSelectedView()).setError(null);
+        }
+
+        if(branchName.isEmpty()){
+            etBranchName.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etBranchName.setError(null);
+        }
+
+        if(accountNumber.isEmpty()){
+            etAccountNumber.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etAccountNumber.setError(null);
+        }
+
+        if(accountHolderName.isEmpty()){
+            etAccountHolderName.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etAccountHolderName.setError(null);
+        }
+
+        if(accountPhoto.equals(DEFAULT_PHOTO_NAME)){
+            etAccountPhoto.setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            isValid = false;
+        } else {
+            etAccountPhoto.setError(null);
+        }
+
+        return isValid;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -160,6 +228,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
 
                 AppHelper.showImageThumbnail(imageUri, this, imAccountPhoto, etAccountPhoto);
                 etAccountPhoto.setText(AppHelper.getFileName(this, imageUri));
+                etAccountPhoto.setError(null);
 
                 byte[] imageBytes = AppHelper.getBytes(is);
                 uploadImage(imageBytes);
