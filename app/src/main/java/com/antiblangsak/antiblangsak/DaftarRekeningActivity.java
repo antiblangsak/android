@@ -2,7 +2,7 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,11 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
+import com.mvc.imagepicker.ImagePicker;
 
-import org.w3c.dom.Text;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -44,9 +41,17 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     private String accountNumber;
     private String accountHolderName;
     private String accountPhoto;
+    private String accountPhotoBase64;
 
     private final String DEFAULT_BANK_NAME = "Pilih Nama Bank...";
     private String DEFAULT_PHOTO_NAME;
+
+    public static final String KEY_BANK_NAME = "BANK_NAME";
+    public static final String KEY_BRANCH_NAME = "BRANCH_NAME";
+    public static final String KEY_ACCOUNT_NUMBER = "ACCOUNT_NUMBER";
+    public static final String KEY_ACCOUNT_HOLDERNAME = "ACCOUNT_HOLDER_NAME";
+    public static final String KEY_ACCOUNT_PHOTO_FILENAME = "ACCOUNT_PHOTO_FILENAME";
+    public static final String KEY_ACCOUNT_PHOTO_BYTES = "ACCOUNT_PHOTO_BYTES";
 
     private final String[] BANK_NAMES = new String[]{
             DEFAULT_BANK_NAME,
@@ -69,6 +74,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar_rekening);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
+        ImagePicker.setMinQuality(600, 600);
 
         DEFAULT_PHOTO_NAME = getResources().getString(R.string.daftarrekening_accountphoto);
 
@@ -132,11 +138,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("etAccountPhoto", "CLICKED");
-                Intent openGalleryIntent = new Intent();
-                openGalleryIntent.setType("image/*");
-                openGalleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(openGalleryIntent, "Select Picture"),
-                        AppConstant.DAFTAR_REKENING_REQUEST_GALLERY);
+                ImagePicker.pickImage(DaftarRekeningActivity.this, "Select your image:");
             }
         });
 
@@ -148,6 +150,11 @@ public class DaftarRekeningActivity extends AppCompatActivity {
                     Log.v("btnDaftarkanRekening", "VALID INPUT");
                     Intent myIntent = new Intent(DaftarRekeningActivity.this,
                             DaftarNasabahUploadFotoActivity.class);
+                    myIntent.putExtra(KEY_BANK_NAME, bankName);
+                    myIntent.putExtra(KEY_BRANCH_NAME, branchName);
+                    myIntent.putExtra(KEY_ACCOUNT_NUMBER, accountNumber);
+                    myIntent.putExtra(KEY_ACCOUNT_HOLDERNAME, accountHolderName);
+                    myIntent.putExtra(KEY_ACCOUNT_PHOTO_BYTES, accountPhotoBase64);
                     startActivity(myIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
@@ -218,36 +225,27 @@ public class DaftarRekeningActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == AppConstant.DAFTAR_REKENING_REQUEST_GALLERY && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            try {
-                final Uri imageUri = data.getData();
-                InputStream is = getContentResolver().openInputStream(imageUri);
-                Log.v("INPUT STREAM", "Image size: " + is.available());
+        if (resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Bitmap bitmap = ImagePicker.getImageFromResult(this, requestCode, resultCode, data);
+            AppHelper.showImageWithGlide(this, bitmap, imAccountPhoto);
 
-                AppHelper.showImageThumbnail(imageUri, this, imAccountPhoto, etAccountPhoto);
-                etAccountPhoto.setText(AppHelper.getFileName(this, imageUri));
-                etAccountPhoto.setError(null);
+            etAccountPhoto.setText(getResources().getString(R.string.daftarrekening_accountphotoubah));
+            etAccountPhoto.setError(null);
+            accountPhotoBase64 = ImageUtil.convert(ImageUtil.compress(bitmap));
 
-                byte[] imageBytes = AppHelper.getBytes(is);
-                uploadImage(imageBytes);
+            imAccountPhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent fullScreenIntent = new Intent(DaftarRekeningActivity.this,
+                            FullScreenImageActivity.class);
 
-                imAccountPhoto.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        Intent fullScreenIntent = new Intent(DaftarRekeningActivity.this,
-                                FullScreenImageActivity.class);
-                        fullScreenIntent.setData(imageUri);
-                        startActivity(fullScreenIntent);
-                    }
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                    fullScreenIntent.putExtra(AppConstant.KEY_IMAGE_BASE64, accountPhotoBase64);
+                    startActivity(fullScreenIntent);
+                }
+            });
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

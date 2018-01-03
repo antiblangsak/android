@@ -1,6 +1,7 @@
 package com.antiblangsak.antiblangsak;
 
 import android.app.Application;
+import android.os.StrictMode;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -17,5 +18,7 @@ public class App extends Application {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
     }
 }

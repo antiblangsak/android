@@ -2,6 +2,7 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,8 +17,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.mvc.imagepicker.ImagePicker;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -33,8 +37,12 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
     private CheckBox chAgree;
     private Button btnDaftarkanKeluarga;
 
+    private Intent previousIntent;
+
     private String photoKtp;
+    private String photoKtpBase64;
     private String photoKk;
+    private String photoKkBase64;
 
     private String DEFAULT_PHOTO_NAME;
 
@@ -49,6 +57,8 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar_nasabah_upload_foto);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
+
+        previousIntent = getIntent();
 
         DEFAULT_PHOTO_NAME = getResources().getString(R.string.daftarrekening_accountphoto);
 
@@ -66,22 +76,16 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
         etPhotoKtp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent openGalleryIntent = new Intent();
-                openGalleryIntent.setType("image/*");
-                openGalleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(openGalleryIntent, "Select Picture"),
-                        AppConstant.UPLOAD_FOTO_KTP_REQUEST_GALLERY);
+                ImagePicker.pickImage(DaftarNasabahUploadFotoActivity.this, "Select your image:",
+                        AppConstant.UPLOAD_FOTO_KTP_REQUEST_GALLERY, false);
             }
         });
 
         etPhotoKk.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent openGalleryIntent = new Intent();
-                openGalleryIntent.setType("image/*");
-                openGalleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(openGalleryIntent, "Select Picture"),
-                        AppConstant.UPLOAD_FOTO_KK_REQUEST_GALLERY);
+                ImagePicker.pickImage(DaftarNasabahUploadFotoActivity.this, "Select your image:",
+                        AppConstant.UPLOAD_FOTO_KK_REQUEST_GALLERY, false);
             }
         });
 
@@ -93,6 +97,15 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                 if (validateInput()) {
                     Intent myIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                             MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Log.v(DaftarRekeningActivity.KEY_BANK_NAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_BANK_NAME));
+                    Log.v(DaftarRekeningActivity.KEY_BRANCH_NAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_BRANCH_NAME));
+                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_NUMBER, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_NUMBER));
+                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_HOLDERNAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_HOLDERNAME));
+                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_FILENAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_FILENAME));
+                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_BYTES, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_BYTES));
+                    Log.v("POTO KTP", photoKtpBase64);
+                    Log.v("POTO KK", photoKkBase64);
+
                     startActivity(myIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
@@ -156,47 +169,41 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            try {
-                final Uri imageUri = data.getData();
-                InputStream is = getContentResolver().openInputStream(imageUri);
-                Log.v("INPUT STREAM", "Image size: " + is.available());
-                byte[] imageBytes = AppHelper.getBytes(is);
-//                uploadImage(imageBytes);
+        if (resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Log.v("MASUK IMAGE PICKER", "");
+            final Bitmap bitmap = ImagePicker.getImageFromResult(this, requestCode, resultCode, data);
+            final String base64 = ImageUtil.convert(ImageUtil.compress(bitmap));
 
-                if (requestCode == AppConstant.UPLOAD_FOTO_KTP_REQUEST_GALLERY) {
-                    AppHelper.showImageThumbnail(imageUri, this, imPhotoKtp, etPhotoKtp);
-                    etPhotoKtp.setText(AppHelper.getFileName(this, imageUri));
-                    etPhotoKtp.setError(null);
+            if (requestCode == AppConstant.UPLOAD_FOTO_KTP_REQUEST_GALLERY) {
+                AppHelper.showImageWithGlide(this, bitmap, imPhotoKtp);
+                etPhotoKtp.setText(getResources().getString(R.string.daftarrekening_accountphotoubah));
+                etPhotoKtp.setError(null);
+                photoKtpBase64 = base64;
 
-                    imPhotoKtp.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
-                                    FullScreenImageActivity.class);
-                            fullScreenIntent.setData(imageUri);
-                            startActivity(fullScreenIntent);
-                        }
-                    });
-                } else {
-                    AppHelper.showImageThumbnail(imageUri, this, imPhotoKk, etPhotoKk);
-                    etPhotoKk.setText(AppHelper.getFileName(this, imageUri));
-                    etPhotoKk.setError(null);
+                imPhotoKtp.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
+                                FullScreenImageActivity.class);
+                        fullScreenIntent.putExtra(AppConstant.KEY_IMAGE_BASE64, base64);
+                        startActivity(fullScreenIntent);
+                    }
+                });
+            } else {
+                AppHelper.showImageWithGlide(this, bitmap, imPhotoKk);
+                etPhotoKk.setText(getResources().getString(R.string.daftarrekening_accountphotoubah));
+                etPhotoKk.setError(null);
+                photoKkBase64 = base64;
 
-                    imPhotoKk.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
-                                    FullScreenImageActivity.class);
-                            fullScreenIntent.setData(imageUri);
-                            startActivity(fullScreenIntent);
-                        }
-                    });
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+                imPhotoKk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
+                                FullScreenImageActivity.class);
+                        fullScreenIntent.putExtra(AppConstant.KEY_IMAGE_BASE64, base64);
+                        startActivity(fullScreenIntent);
+                    }
+                });
             }
         }
     }

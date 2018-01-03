@@ -1,10 +1,9 @@
 package com.antiblangsak.antiblangsak;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import com.github.chrisbanes.photoview.PhotoView;
 
@@ -20,9 +19,9 @@ public class FullScreenImageActivity extends AppCompatActivity {
 
         Intent callingActivityIntent = getIntent();
         if(callingActivityIntent != null) {
-            Uri imageUri = callingActivityIntent.getData();
-            if(imageUri != null && fullScreenImageView != null) {
-                fullScreenImageView.setImageURI(imageUri);
+            Bitmap bitmap = ImageUtil.convert(getIntent().getStringExtra(AppConstant.KEY_IMAGE_BASE64));
+            if(bitmap != null && fullScreenImageView != null) {
+                AppHelper.showImageWithGlide(this, bitmap, fullScreenImageView);
             }
         }
     }
