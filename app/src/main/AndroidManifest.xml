@@ -59,6 +59,9 @@
         <activity
             android:name=".FullScreenImageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/profile_title"></activity>
     </application>
 
 </manifest>

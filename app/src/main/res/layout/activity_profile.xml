@@ -9,13 +9,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_main_white"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/color_main_light_gray"
+            android:background="@color/gray_light"
             android:id="@+id/relativeLayout">
 
             <ImageView
@@ -66,7 +66,7 @@
                 android:layout_below="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_home_services">
+                android:background="@drawable/home_serviceitem">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -100,7 +100,7 @@
                 android:id="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_home_services">
+                android:background="@drawable/home_serviceitem">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -135,7 +135,7 @@
                 android:layout_below="@+id/ll2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_home_services">
+                android:background="@drawable/home_serviceitem">
 
                 <RelativeLayout
                     android:layout_width="0dp"
