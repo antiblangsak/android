@@ -10,16 +10,19 @@ import com.github.chrisbanes.photoview.PhotoView;
 
 public class FullScreenImageActivity extends AppCompatActivity {
 
+    private SharedPrefManager sharedPrefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_screen_image);
+        sharedPrefManager = new SharedPrefManager(this);
 
         PhotoView fullScreenImageView = (PhotoView) findViewById(R.id.fullScreenImageView);
 
         Intent callingActivityIntent = getIntent();
         if(callingActivityIntent != null) {
-            Bitmap bitmap = ImageUtil.convert(getIntent().getStringExtra(AppConstant.KEY_IMAGE_BASE64));
+            Bitmap bitmap = ImageUtil.convert(sharedPrefManager.getBankAccPhotoBase64());
             if(bitmap != null && fullScreenImageView != null) {
                 AppHelper.showImageWithGlide(this, bitmap, fullScreenImageView);
             }

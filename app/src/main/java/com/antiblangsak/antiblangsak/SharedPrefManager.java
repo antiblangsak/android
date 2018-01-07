@@ -17,6 +17,10 @@ public class SharedPrefManager {
 
     public static final String STATUS_LOGIN = "LOGIN";
 
+    public static final String BANK_ACC_PHOTO_BASE64 = "BANK_ACC";
+    public static final String KTP_PHOTO_BASE64 = "KTP";
+    public static final String KK_PHOTO_BASE64 = "KK";
+
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;
 
@@ -40,6 +44,25 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
+    public String getBankAccPhotoBase64() {
+        return sp.getString(BANK_ACC_PHOTO_BASE64, "");
+    }
+
+    public String getKtpPhotoBase64() {
+        return sp.getString(KTP_PHOTO_BASE64, "");
+    }
+
+    public String getKkPhotoBase64() {
+        return sp.getString(KK_PHOTO_BASE64, "");
+    }
+
+    public void clearPhotos() {
+        spEditor.remove(BANK_ACC_PHOTO_BASE64);
+        spEditor.remove(KTP_PHOTO_BASE64);
+        spEditor.remove(KK_PHOTO_BASE64);
+        spEditor.commit();
+    }
+
     public String getName(){
         return sp.getString(NAME, "");
     }
@@ -59,6 +82,4 @@ public class SharedPrefManager {
     public Boolean getStatusLogin(){
         return sp.getBoolean(STATUS_LOGIN, false);
     }
-
-
 }

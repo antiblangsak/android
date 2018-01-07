@@ -38,6 +38,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
     private Button btnDaftarkanKeluarga;
 
     private Intent previousIntent;
+    private SharedPrefManager sharedPrefManager;
 
     private String photoKtp;
     private String photoKtpBase64;
@@ -57,6 +58,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar_nasabah_upload_foto);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
+        sharedPrefManager = new SharedPrefManager(this);
 
         previousIntent = getIntent();
 
@@ -77,7 +79,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImagePicker.pickImage(DaftarNasabahUploadFotoActivity.this, "Select your image:",
-                        AppConstant.UPLOAD_FOTO_KTP_REQUEST_GALLERY, false);
+                        AppConstant.UPLOAD_FOTO_KTP_REQUEST_GALLERY, true);
             }
         });
 
@@ -85,7 +87,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImagePicker.pickImage(DaftarNasabahUploadFotoActivity.this, "Select your image:",
-                        AppConstant.UPLOAD_FOTO_KK_REQUEST_GALLERY, false);
+                        AppConstant.UPLOAD_FOTO_KK_REQUEST_GALLERY, true);
             }
         });
 
@@ -101,11 +103,11 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                     Log.v(DaftarRekeningActivity.KEY_BRANCH_NAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_BRANCH_NAME));
                     Log.v(DaftarRekeningActivity.KEY_ACCOUNT_NUMBER, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_NUMBER));
                     Log.v(DaftarRekeningActivity.KEY_ACCOUNT_HOLDERNAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_HOLDERNAME));
-                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_FILENAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_FILENAME));
-                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_BYTES, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_BYTES));
+                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_BYTES, sharedPrefManager.getBankAccPhotoBase64());
                     Log.v("POTO KTP", photoKtpBase64);
                     Log.v("POTO KK", photoKkBase64);
 
+                    sharedPrefManager.clearPhotos();
                     startActivity(myIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
@@ -185,7 +187,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                                 FullScreenImageActivity.class);
-                        fullScreenIntent.putExtra(AppConstant.KEY_IMAGE_BASE64, base64);
+                        sharedPrefManager.saveString(SharedPrefManager.KTP_PHOTO_BASE64, photoKkBase64);
                         startActivity(fullScreenIntent);
                     }
                 });
@@ -200,7 +202,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                                 FullScreenImageActivity.class);
-                        fullScreenIntent.putExtra(AppConstant.KEY_IMAGE_BASE64, base64);
+                        sharedPrefManager.saveString(SharedPrefManager.KK_PHOTO_BASE64, photoKkBase64);
                         startActivity(fullScreenIntent);
                     }
                 });

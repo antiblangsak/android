@@ -46,6 +46,8 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     private final String DEFAULT_BANK_NAME = "Pilih Nama Bank...";
     private String DEFAULT_PHOTO_NAME;
 
+    private SharedPrefManager sharedPrefManager;
+
     public static final String KEY_BANK_NAME = "BANK_NAME";
     public static final String KEY_BRANCH_NAME = "BRANCH_NAME";
     public static final String KEY_ACCOUNT_NUMBER = "ACCOUNT_NUMBER";
@@ -75,6 +77,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
         ImagePicker.setMinQuality(600, 600);
+        sharedPrefManager = new SharedPrefManager(this);
 
         DEFAULT_PHOTO_NAME = getResources().getString(R.string.daftarrekening_accountphoto);
 
@@ -138,7 +141,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("etAccountPhoto", "CLICKED");
-                ImagePicker.pickImage(DaftarRekeningActivity.this, "Select your image:");
+                ImagePicker.pickImageGalleryOnly(DaftarRekeningActivity.this, 234);
             }
         });
 
@@ -154,7 +157,6 @@ public class DaftarRekeningActivity extends AppCompatActivity {
                     myIntent.putExtra(KEY_BRANCH_NAME, branchName);
                     myIntent.putExtra(KEY_ACCOUNT_NUMBER, accountNumber);
                     myIntent.putExtra(KEY_ACCOUNT_HOLDERNAME, accountHolderName);
-                    myIntent.putExtra(KEY_ACCOUNT_PHOTO_BYTES, accountPhotoBase64);
                     startActivity(myIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
@@ -239,7 +241,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
                     Intent fullScreenIntent = new Intent(DaftarRekeningActivity.this,
                             FullScreenImageActivity.class);
 
-                    fullScreenIntent.putExtra(AppConstant.KEY_IMAGE_BASE64, accountPhotoBase64);
+                    sharedPrefManager.saveString(SharedPrefManager.BANK_ACC_PHOTO_BASE64, accountPhotoBase64);
                     startActivity(fullScreenIntent);
                 }
             });
