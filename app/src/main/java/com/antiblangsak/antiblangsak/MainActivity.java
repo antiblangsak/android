@@ -7,11 +7,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
     private Button logoutButton;
+    private ImageView profile;
     SharedPrefManager sharedPrefManager;
 
     @Override
@@ -46,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
 //
 //
 //        });
+
+        profile = findViewById(R.id.imProfile);
+
+        profile.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            }
+        });
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), MainActivity.this);

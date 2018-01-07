@@ -6,6 +6,7 @@
     <string name="main_title">Home</string>
     <string name="daftarnasabah_title">Daftar Sebagai Nasabah</string>
     <string name="addbankaccount_title">Daftarkan Rekening</string>
+    <string name="profile_title">Profil</string>
 
     <!--PISAH-PISAHIN YA CUY STRINGNYA, SATU ACTIVITY SATU PART. NAMING CONVENTIONNYA BACA DISINI:-->
     <!--https://jeroenmols.com/blog/2016/03/07/resourcenaming/-->
