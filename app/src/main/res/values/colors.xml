@@ -14,4 +14,8 @@
     <color name="yellow">#F9CF20</color>
     <color name="yellow_pressed">#E0B607</color>
     <color name="blue">#3333FF</color>
+
+    <color name="dpgk_color">#9FC5F8</color>
+    <color name="dkk_color">#DC5162</color>
+    <color name="dwk_color">#8DCE71</color>
 </resources>

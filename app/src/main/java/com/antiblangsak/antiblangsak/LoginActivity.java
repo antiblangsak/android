@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         sharedPrefManager = new SharedPrefManager(this);
-            apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         etEmail = (EditText) findViewById(R.id.etEmail);
         Typeface typeFace = etEmail.getTypeface();
