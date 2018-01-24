@@ -3,7 +3,7 @@
     package="com.antiblangsak.antiblangsak">
 
     <!-- To auto-complete EMAILmail text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -61,7 +61,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
-            android:label="@string/profile_title"></activity>
+            android:label="@string/profile_title" />
+        <activity
+            android:name=".DPKActivity"
+            android:label="Dana Pendidikan Kami" />
+        <activity
+            android:name=".DKKActivity"
+            android:label="Dana Kesehatan Kami" />
+        <activity
+            android:name=".DWKActivity"
+            android:label="Dana Warisan Kami"/>
     </application>
 
 </manifest>

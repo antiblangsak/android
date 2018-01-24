@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
@@ -26,6 +27,9 @@ public class HomeFragment extends Fragment {
     TextView tvLogout;
     ProgressBar pbLogout;
     Button btnRegisterAsNasabah;
+    RelativeLayout btnServiceDpgk;
+    RelativeLayout btnServiceDkk;
+    RelativeLayout btnServiceDwk;
 
     SharedPrefManager sharedPrefManager;
     ApiInterface apiInterface;
@@ -39,6 +43,9 @@ public class HomeFragment extends Fragment {
         tvLogout = view.findViewById(R.id.tvLogout);
         pbLogout = view.findViewById(R.id.pbLogout);
         btnRegisterAsNasabah = view.findViewById(R.id.btnRegisterAsNasabah);
+        btnServiceDpgk = view.findViewById(R.id.btnServiceDpgk);
+        btnServiceDkk = view.findViewById(R.id.btnServiceDkk);
+        btnServiceDwk = view.findViewById(R.id.btnServiceDwk);
 
         tvLogout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -77,6 +84,28 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getActivity(), DaftarNasabahActivity.class));
             }
         });
+
+        btnServiceDpgk.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DPKActivity.class));
+            }
+        });
+
+        btnServiceDkk.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DKKActivity.class));
+            }
+        });
+
+        btnServiceDwk.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DWKActivity.class));
+            }
+        });
+
         return view;
     }
 }

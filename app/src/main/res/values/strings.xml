@@ -71,4 +71,20 @@
     <string name="daftarnasabahkeluargabaru_photonote">Harap lampirkan foto sejelas mungkin</string>
 
     <string name="daftarnasabahkeluargabaru_agreementnote">Dengan ini saya menyatakan telah membaca dan menyetujui syarat dan ketentuan yang berlaku.</string>
+	
+	 <string name="dpk_deskripsi_title">Deskripsi Layanan</string>
+    <string name="dpk_deskripsi_short">Apa itu Dana Pendidikan Kami?</string>
+    <string name="dkk_deskripsi_short">Apa itu Dana Kesehatan Kami?</string>
+
+    <string name="dpk_nasabah_title">Nasabah</string>
+    <string name="dpk_nasabah_short">Anda Belum Mendaftarkan Nasabah</string>
+
+    <string name="dpk_bayar_title">Bayar</string>
+    <string name="dpk_bayar_short">Anda Belum Mendaftarkan Nasabah</string>
+
+    <string name="dpk_klaim_title">Klaim</string>
+    <string name="dpk_klaim_short">Anda Belum Mendaftarkan Nasabah</string>
+
+    <string name="dpk_history_title">History</string>
+    <string name="dpk_history_short">Anda Belum Mendaftarkan Nasabah</string>
 </resources>
