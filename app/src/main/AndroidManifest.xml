@@ -71,7 +71,9 @@
         <activity
             android:name=".DWKActivity"
             android:label="Dana Warisan Kami" />
-        <activity android:name=".DKKHistoryActivity"></activity>
+        <activity
+            android:name=".DKKHistoryActivity"
+            android:label="Riwayat"/>
     </application>
 
 </manifest>

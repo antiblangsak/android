@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -29,6 +30,11 @@ public class DKKActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dkk);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        int familyId = getIntent().getExtras().getInt("FAMILY_ID");
+        int familyStatus = getIntent().getExtras().getInt("FAMILY_STATUS");
+        Log.w("FAMILY ID", familyId + "");
+        Log.w("FAMILY STATUS", familyStatus + "");
 
         rowHistory = (LinearLayout) findViewById(R.id.rowHistory);
 

@@ -3,6 +3,7 @@ package com.antiblangsak.antiblangsak;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +35,19 @@ public class HomeFragment extends Fragment {
     SharedPrefManager sharedPrefManager;
     ApiInterface apiInterface;
 
+    int familyId = -1;
+    int familyStatus = -1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         sharedPrefManager = new SharedPrefManager(getActivity());
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+        if (sharedPrefManager.hasFamily()) {
+            familyId = sharedPrefManager.getFamilyId();
+            familyStatus = sharedPrefManager.getFamilyStatus();
+        }
 
         tvLogout = view.findViewById(R.id.tvLogout);
         pbLogout = view.findViewById(R.id.pbLogout);
@@ -62,6 +71,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onResponse(Call call, Response response) {
                         sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
+                        sharedPrefManager.saveBoolean(SharedPrefManager.HAS_FAMILY, false);
                         startActivity(new Intent(getActivity(), LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                         getActivity().finish();
@@ -70,6 +80,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onFailure(Call call, Throwable t) {
                         sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
+                        sharedPrefManager.saveBoolean(SharedPrefManager.HAS_FAMILY, false);
                         startActivity(new Intent(getActivity(), LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                         getActivity().finish();
@@ -95,7 +106,9 @@ public class HomeFragment extends Fragment {
         btnServiceDkk.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DKKActivity.class));
+                startActivity(new Intent(getActivity(), DKKActivity.class)
+                .putExtra("FAMILY_ID", familyId)
+                .putExtra("FAMILY_STATUS", familyStatus));
             }
         });
 

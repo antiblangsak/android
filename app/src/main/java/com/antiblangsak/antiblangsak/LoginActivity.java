@@ -25,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.logging.SocketHandler;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -123,12 +124,25 @@ public class LoginActivity extends AppCompatActivity {
                                 sharedPrefManager.saveString(SharedPrefManager.TOKEN, "Bearer " + token);
                                 sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, true);
 
+                                if (body.getJSONObject("data").has("keluarga")) {
+                                    int familyId = body.getJSONObject("data").getJSONObject("keluarga").getInt("id");
+                                    int familyStatus = body.getJSONObject("data").getJSONObject("keluarga").getInt("status");
+
+                                    sharedPrefManager.saveBoolean(SharedPrefManager.HAS_FAMILY, true);
+                                    sharedPrefManager.saveInt(SharedPrefManager.FAMILY_ID, familyId);
+                                    sharedPrefManager.saveInt(SharedPrefManager.FAMILY_STATUS, familyStatus);
+                                }
+
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                 finish();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                                 Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                                btnLogin.setVisibility(View.VISIBLE);
+                                tvToRegisterPage.setVisibility(View.VISIBLE);
+                                tvBelumPunyaAkun.setVisibility(View.VISIBLE);
+                                pbLogin.setVisibility(View.GONE);
                             }
                         } else {
                             btnLogin.setVisibility(View.VISIBLE);
