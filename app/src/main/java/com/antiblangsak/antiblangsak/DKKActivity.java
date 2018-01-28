@@ -1,12 +1,15 @@
 package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.antiblangsak.antiblangsak.R;
 
@@ -28,6 +31,15 @@ public class DKKActivity extends AppCompatActivity {
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+
+        LinearLayout rowNasabah = findViewById(R.id.rowNasabah);
+        rowNasabah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(DKKActivity.this, RegisterActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override
