@@ -37,16 +37,17 @@
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:src="@drawable/home_dpgk_logo"
+                        android:src="@drawable/ic_deskripsi"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:paddingRight="@dimen/margin_sm"
                         android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
 
@@ -87,16 +88,17 @@
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:src="@drawable/home_dpgk_logo"
+                        android:src="@drawable/ic_nasabah"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:paddingRight="@dimen/margin_sm"
                         android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
 
@@ -132,18 +134,19 @@
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_alignBottom="@+id/relativeLayout2"
                     android:layout_alignParentStart="true"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:src="@drawable/home_dpgk_logo"
+                        android:src="@drawable/ic_bayar"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:paddingRight="@dimen/margin_sm"
                         android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
 
@@ -179,15 +182,15 @@
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_alignBottom="@+id/relativeLayout2"
                     android:layout_alignParentStart="true"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:src="@drawable/home_dpgk_logo"
+                        android:src="@drawable/ic_klaim"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:paddingRight="@dimen/margin_sm"
                         android:adjustViewBounds="true"
                         android:layout_centerHorizontal="true"/>
@@ -226,18 +229,19 @@
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_alignBottom="@+id/relativeLayout2"
                     android:layout_alignParentStart="true"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:src="@drawable/home_dpgk_logo"
+                        android:src="@drawable/ic_history"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:paddingRight="@dimen/margin_sm"
                         android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
 

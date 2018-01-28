@@ -18,4 +18,8 @@
     <color name="dpgk_color">#9FC5F8</color>
     <color name="dkk_color">#DC5162</color>
     <color name="dwk_color">#8DCE71</color>
+
+    <color name="waiting">#FF9900</color>
+    <color name="rejected">#CF2A27</color>
+    <color name="accepted">#009E0F</color>
 </resources>
