@@ -27,7 +27,7 @@ public class DWKActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.GREEN));
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
     }
 
     @Override

@@ -27,7 +27,7 @@ public class DPKActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
     }
 
     @Override
