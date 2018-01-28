@@ -69,8 +69,15 @@
             android:name=".DKKActivity"
             android:label="Dana Kesehatan Kami" />
         <activity
+            android:name=".DeskripsiDKKActivity"
+            android:label="Deskripsi DKK" />
+        <activity
+            android:name=".ListRSActivity"
+            android:label="List Rumah Sakit Mitra" />
+        <activity
             android:name=".DWKActivity"
-            android:label="Dana Warisan Kami"/>
+            android:label="Dana Warisan Kami" />
+
     </application>
 
 </manifest>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_dark"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+
+            android:background="@color/gray_dark"
+            android:id="@+id/relativeLayout">
+
+            <TextView
+                android:id="@+id/tvDeskripsiDKK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/deskripsi_dkk"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:textSize="16dp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:id="@+id/relativeLayout2">
+
+
+
+            <LinearLayout
+                android:padding="@dimen/padding_lg"
+                android:id="@+id/rowDeskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5">
+
+                    <Button
+                        android:id="@+id/btnRS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_xl"
+                        android:layout_marginLeft="@dimen/margin_xxxl"
+                        android:layout_marginRight="@dimen/margin_xxxl"
+                        android:paddingBottom="@dimen/padding_xxs"
+                        android:text="@string/list_rumah_sakit"
+                        android:textColor="@color/black"
+                        android:background="@drawable/all_button"
+                        android:textSize="@dimen/textsize_button_md" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
