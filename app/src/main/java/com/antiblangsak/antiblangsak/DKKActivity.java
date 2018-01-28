@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.antiblangsak.antiblangsak.R;
@@ -18,6 +21,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DKKActivity extends AppCompatActivity {
 
+    private LinearLayout rowDeskripsi;
+    private SharedPrefManager sharedPrefManager;
     private LinearLayout rowHistory;
 
     @Override
@@ -30,6 +35,9 @@ public class DKKActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dkk);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        sharedPrefManager = new SharedPrefManager(this);
+
+        rowDeskripsi = (LinearLayout) findViewById(R.id.rowDeskripsi);
 
         int familyId = getIntent().getExtras().getInt("FAMILY_ID");
         int familyStatus = getIntent().getExtras().getInt("FAMILY_STATUS");
@@ -47,6 +55,16 @@ public class DKKActivity extends AppCompatActivity {
                 startActivity(new Intent(DKKActivity.this, DKKHistoryActivity.class));
             }
         });
+
+        rowDeskripsi.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DKKActivity.this, DeskripsiDKKActivity.class));
+            }
+        });
+
+
+
     }
 
     @Override

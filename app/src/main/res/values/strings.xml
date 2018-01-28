@@ -16,6 +16,8 @@
     <string name="login_loginbutton">MASUK</string>
     <string name="login_registerlinkinfo">Belum punya akun?</string>
     <string name="login_registerlink">Daftar sekarang!</string>
+    <string name="deskripsi_dkk">Deskripsi dari ini adalah ketika syukri mencoba menjadi orang yang lebih tawakal untuk mewujudkan cita-citanya</string>
+    <string name="list_rumah_sakit">List Rumah Sakit</string>
 
     <string name="namehint">Nama</string>
     <string name="register_passwordhint">Kata Sandi (min. 8 karakter)</string>
@@ -87,4 +89,5 @@
 
     <string name="dpk_history_title">Riwayat</string>
     <string name="dpk_history_short">Anda Belum Mendaftarkan Nasabah</string>
+    <string name="title_activity_list_rs">ListRSActivity</string>
 </resources>
