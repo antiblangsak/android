@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
@@ -39,6 +41,9 @@ public class DKKHistoryActivity extends AppCompatActivity {
     private ArrayList<HistoryModel> history;
     private DKKHistoryAdapter adapter;
 
+    private ProgressBar progressBar;
+    private TextView tvNoData;
+
     private String token;
     private int familyId;
     private String emailUser;
@@ -58,7 +63,9 @@ public class DKKHistoryActivity extends AppCompatActivity {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
 
-        listView = findViewById( R.id.mainlist);
+        listView = findViewById(R.id.mainlist);
+        progressBar = findViewById(R.id.progressBar);
+        tvNoData = findViewById(R.id.tvNoData);
 
         String[] title = new String[] { "Android", "iPhone", "WindowsMobile",
                 "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
@@ -85,18 +92,22 @@ public class DKKHistoryActivity extends AppCompatActivity {
 
                         history = new ArrayList<HistoryModel>();
                         JSONArray data = body.getJSONArray("data");
-                        for (int i = 0; i < data.length(); i++) {
-                            JSONObject obj = data.getJSONObject(i);
-                            String type = obj.getString("type");
-                            int id = obj.getInt("id");
-                            int status = Integer.parseInt(obj.getString("status"));
-                            String createdAt = obj.getString("created_at");
-                            Log.w("DATA", type + " " + id + " " + status + " " + createdAt);
-                            history.add(new HistoryModel(id, type, status, createdAt));
+                        if (data.length() == 0) {
+                            tvNoData.setVisibility(View.VISIBLE);
+                        } else {
+                            for (int i = 0; i < data.length(); i++) {
+                                JSONObject obj = data.getJSONObject(i);
+                                String type = obj.getString("type");
+                                int id = obj.getInt("id");
+                                int status = Integer.parseInt(obj.getString("status"));
+                                String createdAt = obj.getString("created_at");
+                                Log.w("DATA", type + " " + id + " " + status + " " + createdAt);
+                                history.add(new HistoryModel(id, type, status, createdAt));
+                            }
+                            adapter = new DKKHistoryAdapter(history, getApplicationContext());
+                            listView.setAdapter(adapter);
+                            listView.setVisibility(View.VISIBLE);
                         }
-                        adapter = new DKKHistoryAdapter(history, getApplicationContext());
-                        listView.setAdapter(adapter);
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
@@ -124,6 +135,7 @@ public class DKKHistoryActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
 

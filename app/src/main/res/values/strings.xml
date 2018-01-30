@@ -8,6 +8,8 @@
     <string name="addbankaccount_title">Daftarkan Rekening</string>
     <string name="profile_title">Profil</string>
 
+    <string name="tidak_ada_data">Tidak ada data</string>
+
     <!--PISAH-PISAHIN YA CUY STRINGNYA, SATU ACTIVITY SATU PART. NAMING CONVENTIONNYA BACA DISINI:-->
     <!--https://jeroenmols.com/blog/2016/03/07/resourcenaming/-->
 
