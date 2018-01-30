@@ -71,7 +71,9 @@
         <activity
             android:name=".DWKActivity"
             android:label="Dana Warisan Kami" />
-        <activity android:name=".NasabahDKKActivity"></activity>
+        <activity
+            android:name=".NasabahDKKActivity"
+            android:label="Daftarkan Nasabah Baru" />
     </application>
 
 </manifest>

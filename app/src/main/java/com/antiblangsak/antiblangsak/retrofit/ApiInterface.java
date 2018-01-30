@@ -31,4 +31,7 @@ public interface ApiInterface {
 
     @GET("user/{userId}")
     Call<Object> profile(@Header("Authorization") String token, @Path("userId") int id);
+
+    @GET("dkk/{familyId}/family_members")
+    Call<Object> getAllDKKFamilyMembers(@Header("Authorization") String token, @Path("familyId") int familyId);
 }

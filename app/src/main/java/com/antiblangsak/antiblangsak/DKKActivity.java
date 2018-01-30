@@ -36,7 +36,7 @@ public class DKKActivity extends AppCompatActivity {
         rowNasabah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DKKActivity.this, RegisterActivity.class);
+                Intent myIntent = new Intent(DKKActivity.this, NasabahDKKActivity.class);
                 startActivity(myIntent);
             }
         });

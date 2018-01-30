@@ -1,10 +1,12 @@
 package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -12,30 +14,54 @@ import java.util.ArrayList;
  * Created by Syukri on 1/28/18.
  */
 
-public class NasabahAdapter extends BaseAdapter {
+public class NasabahAdapter extends ArrayAdapter<NasabahModel> {
 
     private Context mContext;
     private LayoutInflater mInflater;
-    private ArrayList<Nasabah> mDataSource;
+    private ArrayList<NasabahModel> mDataSource;
 
-    @Override
-    public int getCount() {
-        return mDataSource.size();
+    private boolean isRegistered;
+
+    private static class ViewHolder {
+        TextView tvName;
+        TextView tvDesc;
     }
 
-    @Override
-    public Object getItem(int position) {
-        return mDataSource.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
+    public NasabahAdapter(ArrayList<NasabahModel> mDataSource, Context mContext, boolean isRegistered) {
+        super(mContext, R.layout.listitem_nasabah, mDataSource);
+        this.mDataSource = mDataSource;
+        this.mContext = mContext;
+        this.isRegistered = isRegistered;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View rowView = mInflater.inflate(R.layout.view_nasabah, parent, false);
-        return rowView;
+        NasabahModel model = getItem(position);
+        ViewHolder viewHolder;
+
+        if (convertView == null) {
+            viewHolder = new ViewHolder();
+            LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+            convertView = layoutInflater.inflate(R.layout.listitem_nasabah, parent, false);
+            viewHolder.tvName = convertView.findViewById(R.id.tvName);
+            viewHolder.tvDesc = convertView.findViewById(R.id.tvDesc);
+
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+
+        Typeface customFont = Typeface.createFromAsset(mContext.getAssets(), "fonts/Comfortaa-Bold.ttf");
+
+        viewHolder.tvName.setTypeface(customFont);
+        viewHolder.tvDesc.setTypeface(customFont);
+
+        viewHolder.tvName.setText(model.getName());
+        if (isRegistered) {
+            viewHolder.tvDesc.setText(model.getStatus());
+        } else {
+            viewHolder.tvDesc.setText(model.getRelation());
+        }
+        return convertView;
     }
 }
