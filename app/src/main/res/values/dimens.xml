@@ -9,6 +9,7 @@
 
     <dimen name="textsize_all_xs">10dp</dimen>
     <dimen name="textsize_sm">12dp</dimen>
+    <dimen name="textsize_lg">20sp</dimen>
 
     <dimen name="margin_superxl">60dp</dimen>
     <dimen name="margin_xxxl">36dp</dimen>
