@@ -18,4 +18,6 @@
     <color name="dpgk_color">#9FC5F8</color>
     <color name="dkk_color">#DC5162</color>
     <color name="dwk_color">#8DCE71</color>
+
+    <color name="dkk_nasabah_checked_color">#f7b4bb</color>
 </resources>

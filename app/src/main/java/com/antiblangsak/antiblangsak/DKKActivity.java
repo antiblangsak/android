@@ -2,7 +2,6 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +9,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import com.antiblangsak.antiblangsak.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -36,7 +33,7 @@ public class DKKActivity extends AppCompatActivity {
         rowNasabah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DKKActivity.this, NasabahDKKActivity.class);
+                Intent myIntent = new Intent(DKKActivity.this, DKKNasabahActivity.class);
                 startActivity(myIntent);
             }
         });

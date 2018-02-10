@@ -9,12 +9,14 @@ public class NasabahModel {
     private String name;
     private String relation;
     private int status;
+    private boolean selected;
 
     public NasabahModel(int id, String name, String relation, int status) {
         this.id = id;
         this.name = name;
         this.relation = relation;
         this.status = status;
+        this.selected = false;
     }
 
     public int getId() {
@@ -37,5 +39,13 @@ public class NasabahModel {
         } else {
             return "Rejected";
         }
+    }
+
+    public void pressed() {
+        this.selected = !this.selected;
+    }
+
+    public boolean isSelected() {
+        return selected;
     }
 }

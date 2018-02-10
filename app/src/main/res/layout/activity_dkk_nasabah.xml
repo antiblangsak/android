@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.antiblangsak.antiblangsak.NasabahDKKActivity"
+    tools:context="com.antiblangsak.antiblangsak.DKKNasabahActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -11,19 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        >
 
         <ListView
             android:id="@+id/list_view_nasabah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/home_serviceitem"
             >
 
         </ListView>
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layout_add_nasabah"
             android:padding="@dimen/padding_lg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,6 +61,26 @@
 
             </RelativeLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tvBelumAdaNasabah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_lg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/dkk_nasabah_belum_ada_nasabah_line_1"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/dkk_nasabah_belum_ada_nasabah_line_2"
+                android:textAlignment="center"/>
         </LinearLayout>
 
     </LinearLayout>

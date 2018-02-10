@@ -29,7 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class NasabahDKKActivity extends AppCompatActivity {
+public class DKKNasabahActivity extends AppCompatActivity {
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
@@ -39,11 +39,16 @@ public class NasabahDKKActivity extends AppCompatActivity {
     private static NasabahAdapter nasabahAdapter;
 
     private ProgressBar progressBar;
-    LinearLayout mainLayout;
+    private LinearLayout mainLayout;
+    private LinearLayout tvBelumAdaNasabah;
+    private LinearLayout addNewNasabah;
 
     private String token;
     private int familyId;
     private String emailUser;
+
+    private JSONArray registered;
+    private JSONArray unregistered;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -53,7 +58,7 @@ public class NasabahDKKActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nasabah_dkk);
+        setContentView(R.layout.activity_dkk_nasabah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
@@ -61,7 +66,8 @@ public class NasabahDKKActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
 
         nasabahListView = findViewById(R.id.list_view_nasabah);
-        nasabahModels = new ArrayList<NasabahModel>();
+        addNewNasabah = findViewById(R.id.layout_add_nasabah);
+        tvBelumAdaNasabah = findViewById(R.id.tvBelumAdaNasabah);
 
         progressBar = findViewById(R.id.progressBar);
         mainLayout = findViewById(R.id.mainLayout);
@@ -84,10 +90,11 @@ public class NasabahDKKActivity extends AppCompatActivity {
                         body = new JSONObject(new Gson().toJson(response.body()));
                         Log.w("RESPONSE", "body: " + body.toString());
 
-                        nasabahModels = new ArrayList<NasabahModel>();
                         JSONObject data = body.getJSONObject("data");
-                        JSONArray registered = data.getJSONArray("registered");
-                        JSONArray unregistered = data.getJSONArray("unregistered");
+                        registered = data.getJSONArray("registered");
+                        unregistered = data.getJSONArray("unregistered");
+
+                        nasabahModels = new ArrayList<NasabahModel>();
                         for (int i = 0; i < registered.length(); i++) {
                             JSONObject obj = registered.getJSONObject(i);
                             int id = obj.getInt("id");
@@ -102,6 +109,23 @@ public class NasabahDKKActivity extends AppCompatActivity {
 
                         mainLayout.setVisibility(View.VISIBLE);
 
+                        if (registered != null && registered.length() > 0) {
+                            tvBelumAdaNasabah.setVisibility(View.GONE);
+                        }
+
+                        if (unregistered == null || unregistered.length() == 0) {
+                            addNewNasabah.setVisibility(View.GONE);
+                        } else {
+                            addNewNasabah.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent myIntent = new Intent(DKKNasabahActivity.this, DKKAddNasabahActivity.class)
+                                            .putExtra(AppConstant.KEY_UNREGISTERED_MEMBERS_JSON, unregistered.toString());
+                                    startActivity(myIntent);
+                                }
+                            });
+                        }
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
@@ -110,9 +134,9 @@ public class NasabahDKKActivity extends AppCompatActivity {
                     try {
                         Log.w("body", response.errorBody().string());
                         sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(NasabahDKKActivity.this, LoginActivity.class)
+                        startActivity(new Intent(DKKNasabahActivity.this, LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        NasabahDKKActivity.this.finish();
+                        DKKNasabahActivity.this.finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {
@@ -136,9 +160,9 @@ public class NasabahDKKActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
-
     }
 
     @Override

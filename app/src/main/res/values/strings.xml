@@ -89,4 +89,7 @@
     <string name="dpk_history_short">Anda Belum Mendaftarkan Nasabah</string>
 
     <string name="dkk_nasabah_daftarkan">Daftarkan Nasabah Baru</string>
+    <string name="dkk_nasabah_belum_ada_nasabah_line_1">Anda belum mendaftarkan nasabah</string>
+    <string name="dkk_nasabah_belum_ada_nasabah_line_2">Daftarkan sekarang!</string>
+    <string name="dkk_nasabah_daftarkan_button">Daftarkan</string>
 </resources>
