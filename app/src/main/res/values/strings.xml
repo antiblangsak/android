@@ -54,6 +54,13 @@
     </string>
 
 
+    <string name="ketentuan_dwk1">Wajib membayar iuran setiap bulan, paling telat tanggal 5 setiap bulannya. Iuran sedikitnya mengendap terlebih dulu selama 3 bulan sejak awal pendaftaran, untuk dapat mengajukan klaim DWK.</string>
+    <string name="ketentuan_dwk2">Peserta dapat melakukan pembayaran iuran untuk beberapa bulan ke depannya. Misalnya, jika saat mendaftar ingin dalam posisi siap mengajukan klaim, maka peserta wajib membayar 3 bulan sekaligus iuran bulanannya, yakni sebesar Rp. 75.000. Bisa juga peserta langsung menutup iurannya langsung untuk 12 bulan ke depan, sebesar Rp. 25.000 x 12 = Rp.  300.000,-.</string>
+    <string name="ketentuan_dwk3">Peserta juga dapat menyicil pembayaran bulanannya setiap minggu per peserta yakni sebesar Rp. 6.250/ minggu. Yang penting saat tanggal 5 setiap bulannya, nilainya sudah mencukupi sebesar Rp. 25.000,- per peserta.</string>
+    <string name="ketentuan_dwk4">Keanggotaan peserta langsung non aktif, pada saat ahli waris anda mengkonfirmasikan berita kepada sistim kami bahwa anda meninggal dunia. Kewajiban iuran bulanan atas nama kepesertaan anda otomatis hilang, dan selanjutnya ahli waris tinggal meng klik klaim untuk dicairkannya DWK  kepada nama yang sudah didaftarkan sebelumnya.</string>
+    <string name="ketentuan_dwk5">Paling lama, klaim DWK dapat dicairkan dalam 3 hari kerja. Perwakilan dari manajemen Antiblangsak, akan datang mengantarkan langsung kepada ahli waris di rumah duka, sejumlah nilai yang menjadi hak dari peserta DWK.</string>
+    <string name="ketentuan_dwk6">Antiblangsak secara rutin akan melakukan undian doorprize setiap dua bulan sekali, dengan cara mengocok nomor ke pesertaan anda di hadapan notaris. Anda yang beruntung keluar sebagai pemenang dalam door prize tersebut, akan mendapatkan aneka hadiah berupa sejumlah barang dari sponsor kami. Mulai dari peralatan elektrik rumah tangga, hingga ke peralatan komunikasi seperti HP dan Laptop. Hadiah akan dikirimi ke alamat anda yang sudah terdaftar di dalam sistim.</string>
+
 
     <string name="namehint">Nama</string>
     <string name="register_passwordhint">Kata Sandi (min. 8 karakter)</string>

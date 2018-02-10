@@ -55,12 +55,11 @@ public class DeskripsiDKKActivity extends AppCompatActivity {
         tvSyaratKetentuan.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DeskripsiDKKActivity.this, KetentuanDWKActivity.class));
+                startActivity(new Intent(DeskripsiDKKActivity.this, KetentuanDKKActivity.class));
             }
         });
 
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -72,4 +71,6 @@ public class DeskripsiDKKActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }
