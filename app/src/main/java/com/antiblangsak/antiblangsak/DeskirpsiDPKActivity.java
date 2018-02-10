@@ -2,22 +2,22 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.retrofit.ApiClient;
+import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DPKActivity extends AppCompatActivity {
+public class DeskirpsiDPKActivity extends AppCompatActivity {
 
-    private LinearLayout rowDeskripsiDPK;
+    private TextView tvSyaratKetentuanDPK;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -27,21 +27,20 @@ public class DPKActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dpk);
+        setContentView(R.layout.activity_deskirpsi_dpk);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        rowDeskripsiDPK = (LinearLayout) findViewById(R.id.rowDeskripsi);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
 
-        rowDeskripsiDPK.setOnClickListener(new View.OnClickListener(){
+        tvSyaratKetentuanDPK = (TextView) findViewById(R.id.tvSyaratKetentuanDPK);
+
+        tvSyaratKetentuanDPK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DPKActivity.this, DeskirpsiDPKActivity.class));
+                startActivity(new Intent(DeskirpsiDPKActivity.this, KetentuanDPKActivity.class));
             }
         });
-
     }
 
     @Override

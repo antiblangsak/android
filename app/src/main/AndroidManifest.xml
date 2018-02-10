@@ -75,6 +75,9 @@
             android:name=".DeskripsiDWKActivity"
             android:label="Deskripsi DWK" />
         <activity
+            android:name=".DeskirpsiDPKActivity"
+            android:label="Deskripsi DPGK" />
+        <activity
             android:name=".ListRSActivity"
             android:label="List Rumah Sakit Mitra" />
         <activity
@@ -83,7 +86,10 @@
         <activity
             android:name=".KetentuanDKKActivity"
             android:label="Syarat dan Ketentuan" />
-        <activity android:name=".KetentuanDWKActivity"></activity>
+        <activity android:name=".KetentuanDWKActivity"
+            android:label="Syarat dan Ketentuan"/>
+        <activity android:name=".KetentuanDPKActivity"
+            android:label="Syarat dan Ketentuan"/>
     </application>
 
 </manifest>

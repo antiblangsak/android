@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="@string/deskripsi_dwk"
+                android:text="@string/deskripsi_dpk1"
                 android:textColor="@color/white"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="12dp"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="@string/deskripsi_dwk1"
+                android:text="@string/deskripsi_dpk2"
                 android:textColor="@color/white"
                 android:paddingTop="10dp"
                 android:layout_marginLeft="15dp"
@@ -45,13 +45,24 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="@string/deskripsi_dwk2"
+                android:text="@string/deskripsi_dpk3"
                 android:textColor="@color/white"
                 android:paddingTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="12dp"
                 android:textSize="14dp" />
-
+            <TextView
+                android:id="@+id/tvDeskripsiDWK3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/deskripsi_dpk4"
+                android:textColor="@color/white"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="12dp"
+                android:textSize="14dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,7 +70,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp">
                 <TextView
-                    android:id="@+id/tvSyaratKetentuanDWK"
+                    android:id="@+id/tvSyaratKetentuanDPK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_xs"
