@@ -77,6 +77,9 @@
         <activity
             android:name=".DWKActivity"
             android:label="Dana Warisan Kami" />
+        <activity
+            android:name=".KetentuanDWKActivity"
+            android:label="Syarat dan Ketentuan" />
 
     </application>
 

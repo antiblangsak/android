@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-
+            android:layout_marginTop="10dp"
             android:background="@color/gray_dark"
             android:id="@+id/relativeLayout">
 
@@ -25,14 +25,35 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="@string/deskripsi_dkk"
-                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:textSize="16dp" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="14dp" />
+
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_dark"
+            android:id="@+id/relativeLayout1">
+
+            <TextView
+                android:id="@+id/tvDeskripsiDKK1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/deskripsi_dkk1"
+                android:textColor="@color/white"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -40,15 +61,11 @@
             android:layout_weight="5"
             android:id="@+id/relativeLayout2">
 
-
-
             <LinearLayout
                 android:padding="@dimen/padding_lg"
                 android:id="@+id/rowDeskripsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -68,15 +85,25 @@
                         android:background="@drawable/all_button"
                         android:textSize="@dimen/textsize_button_md" />
 
-
                 </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvSyaratKetentuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_xs"
+                    android:text="@string/syarat_dan_ketentuan"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textColor="@color/blue"/>
 
             </LinearLayout>
 
 
-
         </RelativeLayout>
-
     </LinearLayout>
 
 
