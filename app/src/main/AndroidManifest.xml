@@ -70,7 +70,13 @@
             android:label="Dana Kesehatan Kami" />
         <activity
             android:name=".DWKActivity"
-            android:label="Dana Warisan Kami"/>
+            android:label="Dana Warisan Kami" />
+        <activity
+            android:name=".DKKBayarActivity"
+            android:label="Pembayaran Bulanan" />
+        <activity
+            android:name=".DKKDetailPembayaranActivity"
+            android:label="Detail Pembayaran"/>
     </application>
 
 </manifest>
