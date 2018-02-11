@@ -1,15 +1,15 @@
 package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.content.Intent;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,28 +23,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DKKHistoryActivity extends AppCompatActivity {
+public class DKKHistoryPayActivity extends AppCompatActivity {
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
 
-    private ListView listView;
-    private ArrayList<HistoryModel> history;
-    private DKKHistoryAdapter adapter;
-
-    private ProgressBar progressBar;
-    private TextView tvNoData;
-
     private String token;
     private int familyId;
     private String emailUser;
+
+    private ProgressBar progressBar;
+    private LinearLayout main;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -54,26 +49,34 @@ public class DKKHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dkkhistory);
+        setContentView(R.layout.activity_dkkhistory_pay);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+
+        Intent i = getIntent();
+        // getting attached intent data
+        int histoID = i.getIntExtra("histoId", -1);
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
 
-        listView = findViewById(R.id.mainlist);
         progressBar = findViewById(R.id.progressBar);
-        tvNoData = findViewById(R.id.tvNoData);
+        main = findViewById(R.id.mainLayout);
 
-        String[] title = new String[] { "Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2" };
+        final Button btnBayar = findViewById(R.id.btnBayar);
+        final TextView informasi = findViewById(R.id.peringatan);
+
+        final TextView nomorPembayaran = findViewById(R.id.nomorPembayaran);
+        final TextView nominal = findViewById(R.id.nominal);
+        final TextView nasabah = findViewById(R.id.nasabah);
+        final TextView metode = findViewById(R.id.metode);
+        final TextView status = findViewById(R.id.status);
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
         familyId = sharedPrefManager.getFamilyId();
 
-        Call call = apiInterface.getDKKHistory(token, familyId);
+        Call call = apiInterface.pay(token, histoID);
         call.enqueue(new Callback() {
 
             @Override
@@ -88,44 +91,68 @@ public class DKKHistoryActivity extends AppCompatActivity {
                         body = new JSONObject(new Gson().toJson(response.body()));
                         Log.w("RESPONSE", "body: " + body.toString());
 
-                        history = new ArrayList<HistoryModel>();
-                        JSONArray data = body.getJSONArray("data");
-                        if (data.length() == 0) {
-                            tvNoData.setVisibility(View.VISIBLE);
-                        } else {
-                            for (int i = 0; i < data.length(); i++) {
-                                JSONObject obj = data.getJSONObject(i);
-                                String type = obj.getString("type");
-                                int id = obj.getInt("id");
-                                int status = Integer.parseInt(obj.getString("status"));
-                                String createdAt = obj.getString("created_at");
-                                Log.w("DATA", type + " " + id + " " + status + " " + createdAt);
-                                history.add(new HistoryModel(id, type, status, createdAt));
-                            }
-                            adapter = new DKKHistoryAdapter(history, getApplicationContext());
-                            listView.setAdapter(adapter);
-                            listView.setVisibility(View.VISIBLE);
-                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                        JSONObject data = body.getJSONObject("data");
 
-                                    Log.w("error","masuk sini");
+                        String paymentNumber = "";
+                        int amount = 0;
+                        JSONArray clients = null;
+                        String client = "";
+                        JSONObject bankAcc = null;
+                        String bank = "";
+                        String accNumber = "";
+                        String refUser = "";
+                        int stat = 0;
 
-                                    HistoryModel histo = adapter.getItem(position);
-                                    Intent inten;
-                                    if (histo.getType().equals("Pembayaran")){
-                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryPayActivity.class);
-                                    }else {
-                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryPayActivity.class);
-                                    }
+                        Log.w("RESPONSE", "Tai dah");
 
-                                    inten.putExtra("histoId", histo.getId());
+                        paymentNumber = data.getString("payment_number");;
+                        amount = Integer.parseInt(data.getString("payment_amount"));
+                        clients = data.getJSONArray("clients");
+                        bankAcc = data.getJSONObject("bank_account");
+                        stat = Integer.parseInt(data.getString("status"));
+                        Log.w("DATA", paymentNumber + " " + amount + " " + clients + " " + bankAcc);
 
-                                    startActivity(inten);
 
-                                }
-                            });
+
+                        main.setVisibility(View.VISIBLE);
+
+                        nomorPembayaran.setText(paymentNumber);
+                        nominal.setText(amount+"");
+
+                        for (int i = 0; i < clients.length(); i++){
+                            client = client + clients.get(i) + "\n";
                         }
+                        nasabah.setText(client);
+
+                        bank = bankAcc.getString("bank_name");
+
+
+                        metode.setText(metode.getText()+ bank + "\n" + "1506004004000" + "\n" + "a/n PT. AntiBlangsak"
+                        + "\n" + "Cabang Kedoya Permai");
+
+                        if (stat == 0){
+                            status.setText("Menunggu Pembarayan");
+                            status.setTextColor(getResources().getColor(R.color.waiting));
+
+                            btnBayar.setVisibility(View.VISIBLE);
+                            informasi.setVisibility(View.VISIBLE);
+
+                        } else if (stat == 1){
+                            status.setText("Menunggu Konfirmasi");
+                            status.setTextColor(getResources().getColor(R.color.waiting));
+
+                            informasi.setVisibility(View.VISIBLE);
+                            informasi.setText("Sistem sedang melakukan verifikasi terhadap pembayaran anda. Mohon tunggu beberapa saat.");
+
+                        } else if (stat == 2){
+                            status.setText("Diterima");
+                            status.setTextColor(getResources().getColor(R.color.accepted));
+                        } else {
+                            status.setText("Ditolak");
+                            status.setTextColor(getResources().getColor(R.color.rejected));
+                        }
+
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
@@ -134,9 +161,9 @@ public class DKKHistoryActivity extends AppCompatActivity {
                     try {
                         Log.w("body", response.errorBody().string());
                         sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(DKKHistoryActivity.this, LoginActivity.class)
+                        startActivity(new Intent(DKKHistoryPayActivity.this, LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        DKKHistoryActivity.this.finish();
+                        DKKHistoryPayActivity.this.finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {
@@ -162,6 +189,12 @@ public class DKKHistoryActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
             }
         });
+
+
+
+
+
+
     }
 
     @Override

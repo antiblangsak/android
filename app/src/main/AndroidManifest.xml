@@ -73,7 +73,11 @@
             android:label="Dana Warisan Kami" />
         <activity
             android:name=".DKKHistoryActivity"
-            android:label="Riwayat"/>
+            android:label="Riwayat" />
+        <activity
+            android:name=".DKKHistoryPayActivity"
+            android:label="Clicked" />
+        <activity android:name=".DKKHistoryClaimActivity"></activity>
     </application>
 
 </manifest>

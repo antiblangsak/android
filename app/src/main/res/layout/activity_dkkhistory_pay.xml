@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.antiblangsak.antiblangsak.DaftarRekeningActivity">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:descendantFocusability="beforeDescendants"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/nomorLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_xs"
+            android:text="Nomor Pembayaran"
+            android:textSize="@dimen/textsize_hint"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/nomorPembayaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nomor Pembayaran"
+            android:textSize="@dimen/textsize_inputtext"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/nominalLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_xs"
+            android:text="Nominal"
+            android:textSize="@dimen/textsize_hint"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/nominal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nominal"
+            android:textSize="@dimen/textsize_inputtext"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/nasabahLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_xs"
+            android:text="Nasabah"
+            android:textSize="@dimen/textsize_hint"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/nasabah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nasabah"
+            android:textSize="@dimen/textsize_inputtext"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/metodeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_xs"
+            android:text="Metode Pembayaran"
+            android:textSize="@dimen/textsize_hint"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/metode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transfer Manual (ATM)\n"
+            android:textSize="@dimen/textsize_inputtext"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/statusLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_xs"
+            android:text="Status Pembayaran"
+            android:textSize="@dimen/textsize_hint"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status Pembayaran"
+            android:textSize="@dimen/textsize_inputtext"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <Button
+            android:id="@+id/btnBayar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:paddingBottom="@dimen/padding_xxs"
+            android:background="@drawable/all_button"
+            android:text="Konfirmasi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_button_md"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/peringatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Harap segera melakukan pembayaran dalam 1x24 jam. Pembayaran akan otomatis dibatalkan apabila melebihi waktu 1x24 jam. \n \n Setelah melakukan transfer, harap tekan tombol konfirmasi"
+            android:textSize="12dp"
+            android:textAlignment="center"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_xl"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/margin_xxl"
+            android:indeterminateTint="@color/yellow"
+            android:indeterminate="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

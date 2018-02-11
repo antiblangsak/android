@@ -34,4 +34,10 @@ public interface ApiInterface {
 
     @GET("dkk/{familyId}/history")
     Call<Object> getDKKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("claim/{claimId}")
+    Call<Object> claim(@Header("Authorization") String token, @Path("claimId") int id);
+
+    @GET("payment/{payId}")
+    Call<Object> pay(@Header("Authorization") String token, @Path("payId") int id);
 }

@@ -77,6 +77,6 @@ public class DKKHistoryAdapter extends ArrayAdapter<HistoryModel> {
         viewHolder.tvCreatedAt.setText(historyModel.getCreatedAt());
 
         // Return the completed view to render on screen
-        return convertView;
+        return result;
     }
 }
