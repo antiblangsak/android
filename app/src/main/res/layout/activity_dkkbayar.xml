@@ -11,11 +11,7 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:descendantFocusability="beforeDescendants"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -27,6 +23,16 @@
             android:text="Nasabah"
             android:textSize="@dimen/textsize_hint"
             android:textColor="@color/gray"/>
+
+        <ListView
+            android:id="@+id/listNasabah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_xs"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -141,9 +147,9 @@
             android:textColor="@color/gray"/>
 
         <TextView
+            android:id="@+id/totalTagihan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rp 50.000,00"
             android:textSize="@dimen/textsize_inputtext"
             android:layout_marginLeft="@dimen/margin_spinner"
             android:layout_marginRight="@dimen/margin_spinner"

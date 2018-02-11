@@ -35,7 +35,7 @@ public class DKKActivity extends AppCompatActivity {
         rowbayar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DKKActivity.this, DKKDetailPembayaranActivity.class);
+                Intent myIntent = new Intent(DKKActivity.this, DKKBayarActivity.class);
                 startActivity(myIntent);
 
             }
