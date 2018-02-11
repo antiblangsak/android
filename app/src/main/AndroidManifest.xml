@@ -86,10 +86,13 @@
         <activity
             android:name=".KetentuanDKKActivity"
             android:label="Syarat dan Ketentuan" />
-        <activity android:name=".KetentuanDWKActivity"
-            android:label="Syarat dan Ketentuan"/>
-        <activity android:name=".KetentuanDPKActivity"
-            android:label="Syarat dan Ketentuan"/>
+        <activity
+            android:name=".KetentuanDWKActivity"
+            android:label="Syarat dan Ketentuan" />
+        <activity
+            android:name=".KetentuanDPKActivity"
+            android:label="Syarat dan Ketentuan" />
+        <activity android:name=".ProfilKeluargaActivity"></activity>
     </application>
 
 </manifest>

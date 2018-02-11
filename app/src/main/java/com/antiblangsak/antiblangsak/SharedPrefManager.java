@@ -14,9 +14,7 @@ public class SharedPrefManager {
     public static final String EMAIL = "EMAIL";
     public static final String ID = "ID";
     public static final String TOKEN = "TOKEN";
-
     public static final String STATUS_LOGIN = "LOGIN";
-
     public static final String BANK_ACC_PHOTO_BASE64 = "BANK_ACC";
     public static final String KTP_PHOTO_BASE64 = "KTP";
     public static final String KK_PHOTO_BASE64 = "KK";

@@ -14,6 +14,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DWKActivity extends AppCompatActivity {
     private LinearLayout rowDeskripsiDWK;
+    private LinearLayout rowHistoryDWK;
     private SharedPrefManager sharedPrefManager;
 
     @Override
@@ -29,6 +30,7 @@ public class DWKActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
 
         rowDeskripsiDWK = (LinearLayout) findViewById(R.id.rowDeskripsi);
+        rowHistoryDWK = (LinearLayout) findViewById(R.id.rowHistory);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
@@ -39,6 +41,13 @@ public class DWKActivity extends AppCompatActivity {
                 startActivity(new Intent(DWKActivity.this, DeskripsiDWKActivity.class));
             }
         });
+        rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
+            }
+        });
+
     }
 
     @Override

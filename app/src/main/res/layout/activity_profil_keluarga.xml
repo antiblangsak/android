@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antiblangsak.antiblangsak.ProfilKeluargaActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/row1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_md"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/margin_sm">
+
+            <TextView
+                android:id="@+id/tvIdKeluarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID Keluarga: 657"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowww"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/row1">
+
+            <com.riyagayasen.easyaccordion.AccordionView
+                android:id="@+id/accDataKeluarga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:visibility="visible"
+                app:heading="Data Keluarga"
+                app:isAnimated="false"
+                app:isExpanded="true"
+                app:isPartitioned="true">
+
+                <LinearLayout
+                    android:id="@+id/ll1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Id Keluarga"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="567"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Kepala Keluarga"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvKepalaKeluarga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Tukijan S.kom"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Alamat"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvAlamat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Jl Akses Ui No. 13"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll3"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="RT/RW"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvAlamat4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="02/13"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll4"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Kode Pos"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvAlamat5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="642424"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll5"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Desa/Kelurahan"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvAlamat6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Tugu"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll6"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Kecamatan"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvAlamat7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Cimanggis"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll7"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Kabupaten"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvAlamat8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Kota Depok"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xl"
+                    android:layout_below="@id/ll8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Provinsi"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvTitikDua9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvAlamat9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Jawa Barat"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+
+
+            </com.riyagayasen.easyaccordion.AccordionView>
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rowww">
+
+        <com.riyagayasen.easyaccordion.AccordionView
+            android:id="@+id/accDataKeluarganya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:visibility="visible"
+            app:heading="Data Keluarga"
+            app:isAnimated="false"
+            app:isExpanded="true"
+            app:isPartitioned="true">
+
+            <LinearLayout
+                android:id="@+id/ll13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_xl"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Kemas Ramadhan"
+                    android:textColor="@color/gray"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Aulia Rahmadi"
+                    android:textColor="@color/gray"
+                    android:textSize="16dp" />
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Dira Ayu Kusuma"
+                    android:textColor="@color/gray"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+        </com.riyagayasen.easyaccordion.AccordionView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
