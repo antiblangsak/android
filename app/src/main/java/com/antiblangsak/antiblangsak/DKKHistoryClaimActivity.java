@@ -88,7 +88,7 @@ public class DKKHistoryClaimActivity extends AppCompatActivity {
         detailLabel = findViewById(R.id.detailLabel);
         statusLabel = findViewById(R.id.statusLabel);
 
-        Typeface customFont = Typeface.createFromAsset(DKKHistoryClaimActivity.this.getApplicationContext().getAssets(), "fonts/Comfortaa-Bold.ttf");
+        Typeface customFont = Typeface.createFromAsset(DKKHistoryClaimActivity.this.getApplicationContext().getAssets(), AppConfig.BOLD_FONT);
         nomorPembayaranLabel.setTypeface(customFont, Typeface.BOLD);
         nominalLabel.setTypeface(customFont, Typeface.BOLD);
         nasabahLabel.setTypeface(customFont, Typeface.BOLD);
@@ -141,7 +141,7 @@ public class DKKHistoryClaimActivity extends AppCompatActivity {
                         main.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     try {
@@ -171,7 +171,8 @@ public class DKKHistoryClaimActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }

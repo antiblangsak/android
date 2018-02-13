@@ -124,30 +124,11 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
 
                         JSONObject data = body.getJSONObject("data");
 
-                        String paymentNumber = "";
-                        int amount = 0;
-                        JSONArray clients = null;
+                        String paymentNumber = data.getString("payment_number");;
+                        int amount = Integer.parseInt(data.getString("payment_amount"));
+                        JSONArray clients = data.getJSONArray("clients");
+
                         String client = "";
-                        JSONObject bankAcc = null;
-                        String bank = "";
-                        String accNumber = "";
-                        String refUser = "";
-                        int stat = 0;
-
-                        Log.w("RESPONSE", "Tai dah");
-
-                        paymentNumber = data.getString("payment_number");;
-                        amount = Integer.parseInt(data.getString("payment_amount"));
-                        clients = data.getJSONArray("clients");
-                        bankAcc = data.getJSONObject("bank_account");
-                        stat = Integer.parseInt(data.getString("status"));
-                        Log.w("DATA", paymentNumber + " " + amount + " " + clients + " " + bankAcc);
-
-                        main.setVisibility(View.VISIBLE);
-
-                        nomorPembayaran.setText(paymentNumber);
-                        nominal.setText(AppHelper.formatRupiah(amount));
-
                         for (int i = 0; i < clients.length(); i++){
                             if (i == clients.length() - 1) {
                                 client = client + clients.get(i);
@@ -155,11 +136,14 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                                 client = client + clients.get(i) + "\n";
                             }
                         }
+
+                        JSONObject bankAcc = data.getJSONObject("bank_account");
+                        int stat = Integer.parseInt(data.getString("status"));
+                        String bank = bankAcc.getString("bank_name");
+
+                        nomorPembayaran.setText(paymentNumber);
+                        nominal.setText(AppHelper.formatRupiah(amount));
                         nasabah.setText(client);
-
-                        bank = bankAcc.getString("bank_name");
-
-
                         metode.setText(metode.getText()+ bank + "\n" + "1506004004000" + "\n" + "a/n PT. AntiBlangsak"
                         + "\n" + "Cabang Kedoya Permai");
 
@@ -168,6 +152,7 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                             status.setTextColor(getResources().getColor(R.color.waiting));
 
                             btnBayar.setVisibility(View.VISIBLE);
+
                             informasi.setVisibility(View.VISIBLE);
                             informasi.setText(AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOT_PAYMENT_NOTE);
 
@@ -185,6 +170,7 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                             status.setText(AppConstant.HISTORY_PAYMENT_STATUS_REJECTED_STRING);
                             status.setTextColor(getResources().getColor(R.color.rejected));
                         }
+                        main.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();

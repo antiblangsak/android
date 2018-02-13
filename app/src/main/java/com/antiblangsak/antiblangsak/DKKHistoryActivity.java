@@ -65,10 +65,6 @@ public class DKKHistoryActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         tvNoData = findViewById(R.id.tvNoData);
 
-        String[] title = new String[]{"Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2"};
-
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
         familyId = sharedPrefManager.getFamilyId();
@@ -127,7 +123,7 @@ public class DKKHistoryActivity extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     try {
@@ -158,7 +154,8 @@ public class DKKHistoryActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
