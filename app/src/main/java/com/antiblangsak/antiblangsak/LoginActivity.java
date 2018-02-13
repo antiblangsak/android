@@ -56,6 +56,12 @@ public class LoginActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
+        if (sharedPrefManager.getStatusLogin()) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
+
         etEmail = (EditText) findViewById(R.id.etEmail);
         Typeface typeFace = etEmail.getTypeface();
 
@@ -69,12 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         tvToRegisterPage = (TextView) findViewById(R.id.tvToRegisterPage);
         tvBelumPunyaAkun = (TextView) findViewById(R.id.tvBelumPunyaAkun);
         pbLogin = (ProgressBar) findViewById(R.id.pbLogin);
-
-        if (sharedPrefManager.getStatusLogin()) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
-        }
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -122,6 +122,15 @@ public class LoginActivity extends AppCompatActivity {
                                 sharedPrefManager.saveString(SharedPrefManager.EMAIL, email);
                                 sharedPrefManager.saveString(SharedPrefManager.TOKEN, "Bearer " + token);
                                 sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, true);
+
+                                if (body.getJSONObject("data").has("keluarga")) {
+                                    int familyId = body.getJSONObject("data").getJSONObject("keluarga").getInt("id");
+                                    int familyStatus = body.getJSONObject("data").getJSONObject("keluarga").getInt("status");
+
+                                    sharedPrefManager.saveBoolean(SharedPrefManager.HAS_FAMILY, true);
+                                    sharedPrefManager.saveInt(SharedPrefManager.FAMILY_ID, familyId);
+                                    sharedPrefManager.saveInt(SharedPrefManager.FAMILY_STATUS, familyStatus);
+                                }
 
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));

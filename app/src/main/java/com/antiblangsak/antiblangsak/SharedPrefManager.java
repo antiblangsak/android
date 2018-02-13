@@ -15,6 +15,10 @@ public class SharedPrefManager {
     public static final String ID = "ID";
     public static final String TOKEN = "TOKEN";
 
+    public static final String HAS_FAMILY = "HAS_FAMILY";
+    public static final String FAMILY_ID = "FAMILY_ID";
+    public static final String FAMILY_STATUS = "FAMILY_STATUS";
+
     public static final String STATUS_LOGIN = "LOGIN";
 
     public static final String BANK_ACC_PHOTO_BASE64 = "BANK_ACC";
@@ -27,6 +31,18 @@ public class SharedPrefManager {
     public SharedPrefManager(Context context){
         sp = context.getSharedPreferences(ANTIBLANGSAK_APP, Context.MODE_PRIVATE);
         spEditor = sp.edit();
+    }
+
+    public void logout() {
+        spEditor.remove(ID);
+        spEditor.remove(EMAIL);
+        spEditor.remove(TOKEN);
+        spEditor.remove(STATUS_LOGIN);
+
+        spEditor.remove(HAS_FAMILY);
+        spEditor.remove(FAMILY_ID);
+        spEditor.remove(FAMILY_STATUS);
+        spEditor.commit();
     }
 
     public void saveString(String keySP, String value){
@@ -81,5 +97,17 @@ public class SharedPrefManager {
 
     public Boolean getStatusLogin(){
         return sp.getBoolean(STATUS_LOGIN, false);
+    }
+
+    public Boolean hasFamily() {
+        return sp.getBoolean(HAS_FAMILY, false);
+    }
+
+    public int getFamilyId() {
+        return sp.getInt(FAMILY_ID, -2);
+    }
+
+    public int getFamilyStatus() {
+        return sp.getInt(FAMILY_STATUS, -2);
     }
 }
