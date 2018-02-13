@@ -25,9 +25,9 @@
             android:layout_marginTop="@dimen/margin_xl"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:padding="@dimen/padding_xs"
             android:text="Nomor Pembayaran"
-            android:textSize="@dimen/textsize_hint"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:textColor="@color/gray"/>
 
         <TextView
@@ -35,9 +35,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nomor Pembayaran"
-            android:textSize="@dimen/textsize_inputtext"
-            android:layout_marginLeft="@dimen/margin_spinner"
-            android:layout_marginRight="@dimen/margin_spinner"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
 
         <TextView
@@ -46,9 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:padding="@dimen/padding_xs"
             android:text="Nominal"
-            android:textSize="@dimen/textsize_hint"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:textColor="@color/gray"/>
 
         <TextView
@@ -56,9 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nominal"
-            android:textSize="@dimen/textsize_inputtext"
-            android:layout_marginLeft="@dimen/margin_spinner"
-            android:layout_marginRight="@dimen/margin_spinner"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
 
         <TextView
@@ -67,9 +67,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:padding="@dimen/padding_xs"
             android:text="Nasabah"
-            android:textSize="@dimen/textsize_hint"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:textColor="@color/gray"/>
 
         <TextView
@@ -77,9 +77,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nasabah"
-            android:textSize="@dimen/textsize_inputtext"
-            android:layout_marginLeft="@dimen/margin_spinner"
-            android:layout_marginRight="@dimen/margin_spinner"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
 
         <TextView
@@ -88,9 +88,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:padding="@dimen/padding_xs"
             android:text="Metode Pembayaran"
-            android:textSize="@dimen/textsize_hint"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:textColor="@color/gray"/>
 
         <TextView
@@ -98,9 +98,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Transfer Manual (ATM)\n"
-            android:textSize="@dimen/textsize_inputtext"
-            android:layout_marginLeft="@dimen/margin_spinner"
-            android:layout_marginRight="@dimen/margin_spinner"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
 
         <TextView
@@ -109,9 +109,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:padding="@dimen/padding_xs"
             android:text="Status Pembayaran"
-            android:textSize="@dimen/textsize_hint"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:textColor="@color/gray"/>
 
         <TextView
@@ -119,9 +119,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Status Pembayaran"
-            android:textSize="@dimen/textsize_inputtext"
-            android:layout_marginLeft="@dimen/margin_spinner"
-            android:layout_marginRight="@dimen/margin_spinner"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
 
         <Button
@@ -131,7 +131,7 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginTop="@dimen/margin_xl"
-            android:layout_marginBottom="@dimen/margin_md"
+            android:layout_marginBottom="@dimen/margin_lg"
             android:paddingBottom="@dimen/padding_xxs"
             android:background="@drawable/all_button"
             android:text="Konfirmasi"

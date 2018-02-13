@@ -1,6 +1,7 @@
 package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +42,21 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private LinearLayout main;
 
+    private TextView nomorPembayaran;
+    private TextView nominal;
+    private TextView nasabah;
+    private TextView metode;
+    private TextView status;
+
+    private TextView nomorPembayaranLabel;
+    private TextView nominalLabel;
+    private TextView nasabahLabel;
+    private TextView metodeLabel;
+    private TextView statusLabel;
+
+    private Button btnBayar;
+    private TextView informasi;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -63,14 +79,27 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         main = findViewById(R.id.mainLayout);
 
-        final Button btnBayar = findViewById(R.id.btnBayar);
-        final TextView informasi = findViewById(R.id.peringatan);
+        btnBayar = findViewById(R.id.btnBayar);
+        informasi = findViewById(R.id.peringatan);
 
-        final TextView nomorPembayaran = findViewById(R.id.nomorPembayaran);
-        final TextView nominal = findViewById(R.id.nominal);
-        final TextView nasabah = findViewById(R.id.nasabah);
-        final TextView metode = findViewById(R.id.metode);
-        final TextView status = findViewById(R.id.status);
+        nomorPembayaran = findViewById(R.id.nomorPembayaran);
+        nominal = findViewById(R.id.nominal);
+        nasabah = findViewById(R.id.nasabah);
+        metode = findViewById(R.id.metode);
+        status = findViewById(R.id.status);
+
+        nomorPembayaranLabel = findViewById(R.id.nomorLabel);
+        nominalLabel = findViewById(R.id.nominalLabel);
+        nasabahLabel = findViewById(R.id.nasabahLabel);
+        metodeLabel = findViewById(R.id.metodeLabel);
+        statusLabel = findViewById(R.id.statusLabel);
+
+        Typeface customFont = Typeface.createFromAsset(DKKHistoryPayActivity.this.getApplicationContext().getAssets(), "fonts/Comfortaa-Bold.ttf");
+        nomorPembayaranLabel.setTypeface(customFont, Typeface.BOLD);
+        nominalLabel.setTypeface(customFont, Typeface.BOLD);
+        nasabahLabel.setTypeface(customFont, Typeface.BOLD);
+        metodeLabel.setTypeface(customFont, Typeface.BOLD);
+        statusLabel.setTypeface(customFont, Typeface.BOLD);
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
@@ -112,15 +141,17 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                         stat = Integer.parseInt(data.getString("status"));
                         Log.w("DATA", paymentNumber + " " + amount + " " + clients + " " + bankAcc);
 
-
-
                         main.setVisibility(View.VISIBLE);
 
                         nomorPembayaran.setText(paymentNumber);
                         nominal.setText(amount+"");
 
                         for (int i = 0; i < clients.length(); i++){
-                            client = client + clients.get(i) + "\n";
+                            if (i == clients.length() - 1) {
+                                client = client + clients.get(i);
+                            } else {
+                                client = client + clients.get(i) + "\n";
+                            }
                         }
                         nasabah.setText(client);
 
@@ -130,25 +161,25 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                         metode.setText(metode.getText()+ bank + "\n" + "1506004004000" + "\n" + "a/n PT. AntiBlangsak"
                         + "\n" + "Cabang Kedoya Permai");
 
-                        if (stat == 0){
-                            status.setText("Menunggu Pembarayan");
+                        if (stat == AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_PAYMENT){
+                            status.setText(AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_PAYMENT_STRING);
                             status.setTextColor(getResources().getColor(R.color.waiting));
 
                             btnBayar.setVisibility(View.VISIBLE);
                             informasi.setVisibility(View.VISIBLE);
 
-                        } else if (stat == 1){
-                            status.setText("Menunggu Konfirmasi");
+                        } else if (stat == AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_VERIFICATION){
+                            status.setText(AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_VERIFICATION_STRING);
                             status.setTextColor(getResources().getColor(R.color.waiting));
 
                             informasi.setVisibility(View.VISIBLE);
-                            informasi.setText("Sistem sedang melakukan verifikasi terhadap pembayaran anda. Mohon tunggu beberapa saat.");
+                            informasi.setText(AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_VERIFICATION_NOTE);
 
-                        } else if (stat == 2){
-                            status.setText("Diterima");
+                        } else if (stat == AppConstant.HISTORY_PAYMENT_STATUS_ACCEPTED){
+                            status.setText(AppConstant.HISTORY_PAYMENT_STATUS_ACCEPTED_STRING);
                             status.setTextColor(getResources().getColor(R.color.accepted));
                         } else {
-                            status.setText("Ditolak");
+                            status.setText(AppConstant.HISTORY_PAYMENT_STATUS_REJECTED_STRING);
                             status.setTextColor(getResources().getColor(R.color.rejected));
                         }
 

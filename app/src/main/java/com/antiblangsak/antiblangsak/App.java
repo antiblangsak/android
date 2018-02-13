@@ -14,7 +14,7 @@ public class App extends Application {
         super.onCreate();
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Comfortaa-Bold.ttf")
+                .setDefaultFontPath("fonts/Comfortaa-Regular.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
