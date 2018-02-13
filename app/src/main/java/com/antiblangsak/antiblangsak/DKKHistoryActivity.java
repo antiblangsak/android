@@ -65,9 +65,9 @@ public class DKKHistoryActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         tvNoData = findViewById(R.id.tvNoData);
 
-        String[] title = new String[] { "Android", "iPhone", "WindowsMobile",
+        String[] title = new String[]{"Android", "iPhone", "WindowsMobile",
                 "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2" };
+                "Linux", "OS/2"};
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
@@ -109,18 +109,17 @@ public class DKKHistoryActivity extends AppCompatActivity {
                                 @Override
                                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                                    Log.w("error","masuk sini");
+                                    Log.w("error", "masuk sini");
 
                                     HistoryModel histo = adapter.getItem(position);
                                     Intent inten;
-                                    if (histo.getType().equals("Pembayaran")){
+                                    if (histo.getType().equals("Pembayaran")) {
                                         inten = new Intent(DKKHistoryActivity.this, DKKHistoryPayActivity.class);
-                                    }else {
-                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryPayActivity.class);
+                                        inten.putExtra("histoId", histo.getId());
+                                    } else {
+                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryClaimActivity.class);
+                                        inten.putExtra("claimId", histo.getId());
                                     }
-
-                                    inten.putExtra("histoId", histo.getId());
-
                                     startActivity(inten);
 
                                 }

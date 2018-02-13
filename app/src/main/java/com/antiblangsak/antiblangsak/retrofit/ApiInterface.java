@@ -6,6 +6,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -36,8 +37,13 @@ public interface ApiInterface {
     Call<Object> getDKKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
 
     @GET("claim/{claimId}")
-    Call<Object> claim(@Header("Authorization") String token, @Path("claimId") int id);
+    Call<Object> getClaimDetail(@Header("Authorization") String token, @Path("claimId") int id);
 
     @GET("payment/{payId}")
-    Call<Object> pay(@Header("Authorization") String token, @Path("payId") int id);
+    Call<Object> getPaymentDetail(@Header("Authorization") String token, @Path("payId") int id);
+
+    @PUT("payment/{payId}")
+    @FormUrlEncoded
+    Call<Object> confirmPayment(@Header("Authorization") String token, @Path("payId") int id,
+                                @Field("status") int status);
 }

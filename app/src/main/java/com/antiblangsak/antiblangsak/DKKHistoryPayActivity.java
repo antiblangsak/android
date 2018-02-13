@@ -36,10 +36,10 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
     private SharedPrefManager sharedPrefManager;
 
     private String token;
-    private int familyId;
     private String emailUser;
 
     private ProgressBar progressBar;
+    private ProgressBar progressBarButton;
     private LinearLayout main;
 
     private TextView nomorPembayaran;
@@ -57,6 +57,8 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
     private Button btnBayar;
     private TextView informasi;
 
+    private int histoID;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -71,12 +73,13 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         // getting attached intent data
-        int histoID = i.getIntExtra("histoId", -1);
+        histoID = i.getIntExtra("histoId", -1);
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
 
         progressBar = findViewById(R.id.progressBar);
+        progressBarButton = findViewById(R.id.progressBarButton);
         main = findViewById(R.id.mainLayout);
 
         btnBayar = findViewById(R.id.btnBayar);
@@ -103,9 +106,8 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
-        familyId = sharedPrefManager.getFamilyId();
 
-        Call call = apiInterface.pay(token, histoID);
+        Call call = apiInterface.getPaymentDetail(token, histoID);
         call.enqueue(new Callback() {
 
             @Override
@@ -144,7 +146,7 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                         main.setVisibility(View.VISIBLE);
 
                         nomorPembayaran.setText(paymentNumber);
-                        nominal.setText(amount+"");
+                        nominal.setText(AppHelper.formatRupiah(amount));
 
                         for (int i = 0; i < clients.length(); i++){
                             if (i == clients.length() - 1) {
@@ -167,6 +169,7 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
 
                             btnBayar.setVisibility(View.VISIBLE);
                             informasi.setVisibility(View.VISIBLE);
+                            informasi.setText(AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOT_PAYMENT_NOTE);
 
                         } else if (stat == AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_VERIFICATION){
                             status.setText(AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_VERIFICATION_STRING);
@@ -182,11 +185,9 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                             status.setText(AppConstant.HISTORY_PAYMENT_STATUS_REJECTED_STRING);
                             status.setTextColor(getResources().getColor(R.color.rejected));
                         }
-
-
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     try {
@@ -214,18 +215,67 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
             }
 
-
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
+        btnBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBarButton.setVisibility(View.VISIBLE);
+                btnBayar.setVisibility(View.GONE);
+                informasi.setVisibility(View.GONE);
 
+                Call call = apiInterface.confirmPayment(token, histoID, AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_VERIFICATION);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        JSONObject body = null;
+                        int statusCode = response.code();
+                        Log.w("status", "status: " + statusCode);
 
+                        if (statusCode == 201) {
+                            startActivity(new Intent(DKKHistoryPayActivity.this, DKKHistoryActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                            DKKHistoryPayActivity.this.finish();
+                            Toast.makeText(getApplicationContext(), "Konfirmasi berhasil!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            try {
+                                Log.w("body", response.errorBody().string());
+                                sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
+                                startActivity(new Intent(DKKHistoryPayActivity.this, LoginActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                DKKHistoryPayActivity.this.finish();
 
+                                Call callLogout = apiInterface.logout(token, emailUser);
+                                callLogout.enqueue(new Callback() {
+                                    @Override
+                                    public void onResponse(Call call, Response response) {
 
+                                    }
 
+                                    @Override
+                                    public void onFailure(Call call, Throwable t) {
+                                    }
+                                });
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                        progressBarButton.setVisibility(View.GONE);
+                        btnBayar.setVisibility(View.VISIBLE);
+                        informasi.setVisibility(View.VISIBLE);
+                    }
+                });
+            }
+        });
     }
 
     @Override
