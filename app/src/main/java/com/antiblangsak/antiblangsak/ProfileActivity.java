@@ -99,8 +99,8 @@ public class ProfileActivity extends AppCompatActivity {
                         Log.w("body", response.errorBody().string());
                         sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
                         startActivity(new Intent(ProfileActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        ProfileActivity.this.finish();
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {
