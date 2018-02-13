@@ -149,10 +149,10 @@ public class DKKAddNasabahActivity extends AppCompatActivity {
                                     startActivity(new Intent(DKKAddNasabahActivity.this, DKKNasabahActivity.class)
                                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                     finish();
-
+                                    Toast.makeText(getApplicationContext(), "Berhasil mendaftarkan!", Toast.LENGTH_SHORT).show();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                    Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 try {
@@ -181,7 +181,7 @@ public class DKKAddNasabahActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                             btnDaftarkan.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.GONE);
                         }

@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                                 finish();
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                                 btnLogin.setVisibility(View.VISIBLE);
                                 tvToRegisterPage.setVisibility(View.VISIBLE);
                                 tvBelumPunyaAkun.setVisibility(View.VISIBLE);
@@ -166,7 +166,7 @@ public class LoginActivity extends AppCompatActivity {
                         tvToRegisterPage.setVisibility(View.VISIBLE);
                         tvBelumPunyaAkun.setVisibility(View.VISIBLE);
 
-                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

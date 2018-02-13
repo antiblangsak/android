@@ -159,7 +159,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
                     myIntent.putExtra(KEY_ACCOUNT_HOLDERNAME, accountHolderName);
                     startActivity(myIntent);
                 } else {
-                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
                     Log.v("btnDaftarkanRekening", "INVALID INPUT");
                 }
             }
