@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onResponse(Call call, Response response) {
-                        sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
+                        sharedPrefManager.logout();
                         startActivity(new Intent(getActivity(), LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                         getActivity().finish();
@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
-                        sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
+                        sharedPrefManager.logout();
                         startActivity(new Intent(getActivity(), LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                         getActivity().finish();
