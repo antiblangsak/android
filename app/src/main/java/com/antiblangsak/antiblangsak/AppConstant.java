@@ -37,7 +37,7 @@ public class AppConstant {
     public static final String HISTORY_PAYMENT_STATUS_WAITING_FOT_PAYMENT_NOTE =
             "Harap segera melakukan pembayaran dalam 1x24 jam. " +
                     "Pembayaran akan otomatis dibatalkan apabila melebihi waktu 1x24 jam. " +
-                    "\\n \\n Setelah melakukan transfer, harap tekan tombol konfirmasi\"";
+                    "\n \n Setelah melakukan transfer, harap tekan tombol konfirmasi";
 
 
     public static final int HISTORY_CLAIM_STATUS_WAITING_FOR_VERIFICATION = 0;
