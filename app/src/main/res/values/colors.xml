@@ -19,6 +19,8 @@
     <color name="dkk_color">#DC5162</color>
     <color name="dwk_color">#8DCE71</color>
 
+    <color name="dkk_nasabah_checked_color">#f7b4bb</color>
+
     <color name="waiting">#FF9900</color>
     <color name="rejected">#CF2A27</color>
     <color name="accepted">#009E0F</color>

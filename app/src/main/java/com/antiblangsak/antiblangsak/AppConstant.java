@@ -16,6 +16,12 @@ public class AppConstant {
 
     public static final String KEY_IMAGE_BASE64 = "IMAGE_BASE64";
 
+    public static final String KEY_UNREGISTERED_MEMBERS_JSON = "UNREGISTERED_MEMBERS";
+
+    public static final int DPGK_SERVICE_ID_INTEGER = 1;
+    public static final int DKK_SERVICE_ID_INTEGER = 2;
+    public static final int DWK_SERVICE_ID_INTEGER = 3;
+
     public static final int HISTORY_PAYMENT_STATUS_WAITING_FOR_PAYMENT = 0;
     public static final int HISTORY_PAYMENT_STATUS_WAITING_FOR_VERIFICATION = 1;
     public static final int HISTORY_PAYMENT_STATUS_ACCEPTED = 2;

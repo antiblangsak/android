@@ -1,5 +1,7 @@
 package com.antiblangsak.antiblangsak.retrofit;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -32,6 +34,16 @@ public interface ApiInterface {
 
     @GET("user/{userId}")
     Call<Object> profile(@Header("Authorization") String token, @Path("userId") int id);
+
+    @GET("dkk/{familyId}/family_members")
+    Call<Object> getAllDKKFamilyMembers(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @POST("client")
+    @FormUrlEncoded
+    Call<Object> registerClient(@Header("Authorization") String token,
+                                @Field("ref_user_id") int userId,
+                                @Field("list_family_member_id[]") ArrayList<Integer> list_member,
+                                @Field("service_id") int serviceId);
 
     @GET("dkk/{familyId}/history")
     Call<Object> getDKKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);

@@ -41,6 +41,15 @@ public class DKKActivity extends AppCompatActivity {
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
+        LinearLayout rowNasabah = findViewById(R.id.rowNasabah);
+        rowNasabah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(DKKActivity.this, DKKNasabahActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
         rowHistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
