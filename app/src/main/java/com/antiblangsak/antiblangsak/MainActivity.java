@@ -16,7 +16,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class MainActivity extends AppCompatActivity {
     private Button logoutButton;
     private ImageView profile;
-    SharedPrefManager sharedPrefManager;
+
+    private ViewPager viewPager;
+    private MainPagerAdapter adapter;
+
+    private SharedPrefManager sharedPrefManager;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -33,8 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
         int id = sharedPrefManager.getId();
         String token = sharedPrefManager.getToken();
+        boolean hasFamily = sharedPrefManager.hasFamily();
+
         Log.w("USER_ID", "" + id);
         Log.w("API_TOKEN", "" + token);
+        Log.w("HAS_FAMILY", "" + hasFamily);
+        if (hasFamily) {
+            Log.w("FAMILY_ID", sharedPrefManager.getFamilyId() + "");
+            Log.w("FAMILY_STATUS", sharedPrefManager.getFamilyStatus() + "");
+        }
 
 //        logoutButton.setOnClickListener(new View.OnClickListener(){
 //            @Override
@@ -60,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), MainActivity.this);
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        adapter = new MainPagerAdapter(getSupportFragmentManager(), MainActivity.this);
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
