@@ -33,6 +33,18 @@ public class SharedPrefManager {
         spEditor = sp.edit();
     }
 
+    public void logout() {
+        spEditor.remove(ID);
+        spEditor.remove(EMAIL);
+        spEditor.remove(TOKEN);
+        spEditor.remove(STATUS_LOGIN);
+
+        spEditor.remove(HAS_FAMILY);
+        spEditor.remove(FAMILY_ID);
+        spEditor.remove(FAMILY_STATUS);
+        spEditor.commit();
+    }
+
     public void saveString(String keySP, String value){
         spEditor.putString(keySP, value);
         spEditor.commit();
