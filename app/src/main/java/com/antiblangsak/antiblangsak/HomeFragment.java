@@ -24,15 +24,19 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
-    TextView tvLogout;
-    ProgressBar pbLogout;
-    Button btnRegisterAsNasabah;
-    RelativeLayout btnServiceDpgk;
-    RelativeLayout btnServiceDkk;
-    RelativeLayout btnServiceDwk;
+    private TextView tvLogout;
+    private ProgressBar pbLogout;
+    private Button btnRegisterAsNasabah;
+    private RelativeLayout btnServiceDpgk;
+    private RelativeLayout btnServiceDkk;
+    private RelativeLayout btnServiceDwk;
 
-    SharedPrefManager sharedPrefManager;
-    ApiInterface apiInterface;
+    private SharedPrefManager sharedPrefManager;
+    private ApiInterface apiInterface;
+
+    private String token;
+    private String email;
+    private boolean hasFamily;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,14 +51,15 @@ public class HomeFragment extends Fragment {
         btnServiceDkk = view.findViewById(R.id.btnServiceDkk);
         btnServiceDwk = view.findViewById(R.id.btnServiceDwk);
 
+        token = sharedPrefManager.getToken();
+        email = sharedPrefManager.getEmail();
+        hasFamily = sharedPrefManager.hasFamily();
+
         tvLogout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 tvLogout.setVisibility(View.GONE);
                 pbLogout.setVisibility(View.VISIBLE);
-
-                String token = sharedPrefManager.getToken();
-                String email = sharedPrefManager.getEmail();
 
                 Call call = apiInterface.logout(token, email);
                 call.enqueue(new Callback() {
@@ -78,12 +83,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DaftarNasabahActivity.class));
-            }
-        });
+        if (hasFamily) {
+            btnRegisterAsNasabah.setText(R.string.home_profilkeluargabutton);
+        } else {
+            btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getActivity(), DaftarNasabahActivity.class));
+                }
+            });
+        }
 
         btnServiceDpgk.setOnClickListener(new View.OnClickListener(){
             @Override

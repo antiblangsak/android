@@ -25,6 +25,7 @@
     <string name="register_loginlink">Login sekarang!</string>
 
     <string name="home_daftarnasabahbutton">DAFTAR SEBAGAI NASABAH</string>
+    <string name="home_profilkeluargabutton">PROFIL KELUARGA</string>
     <string name="home_tulisberitabutton">TULIS BERITA</string>
     <string name="home_dpgklabel">Pendidikan</string>
     <string name="home_dkklabel">Kesehatan</string>
