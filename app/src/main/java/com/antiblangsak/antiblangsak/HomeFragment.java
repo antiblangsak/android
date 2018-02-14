@@ -24,8 +24,6 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
-    private TextView tvLogout;
-    private ProgressBar pbLogout;
     private Button btnRegisterAsNasabah;
     private RelativeLayout btnServiceDpgk;
     private RelativeLayout btnServiceDkk;
@@ -44,8 +42,6 @@ public class HomeFragment extends Fragment {
         sharedPrefManager = new SharedPrefManager(getActivity());
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-        tvLogout = view.findViewById(R.id.tvLogout);
-        pbLogout = view.findViewById(R.id.pbLogout);
         btnRegisterAsNasabah = view.findViewById(R.id.btnRegisterAsNasabah);
         btnServiceDpgk = view.findViewById(R.id.btnServiceDpgk);
         btnServiceDkk = view.findViewById(R.id.btnServiceDkk);
@@ -54,34 +50,6 @@ public class HomeFragment extends Fragment {
         token = sharedPrefManager.getToken();
         email = sharedPrefManager.getEmail();
         hasFamily = sharedPrefManager.hasFamily();
-
-        tvLogout.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                tvLogout.setVisibility(View.GONE);
-                pbLogout.setVisibility(View.VISIBLE);
-
-                Call call = apiInterface.logout(token, email);
-                call.enqueue(new Callback() {
-
-                    @Override
-                    public void onResponse(Call call, Response response) {
-                        sharedPrefManager.logout();
-                        startActivity(new Intent(getActivity(), LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        getActivity().finish();
-                    }
-
-                    @Override
-                    public void onFailure(Call call, Throwable t) {
-                        sharedPrefManager.logout();
-                        startActivity(new Intent(getActivity(), LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        getActivity().finish();
-                    }
-                });
-            }
-        });
 
         if (hasFamily) {
             btnRegisterAsNasabah.setText(R.string.home_profilkeluargabutton);

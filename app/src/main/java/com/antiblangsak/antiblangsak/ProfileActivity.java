@@ -49,6 +49,10 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout upperLayout;
     private RelativeLayout lowerLayout;
 
+    private LinearLayout logoutLayout;
+    private TextView tvLogout;
+    private ProgressBar progressBarLogout;
+
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
 
@@ -80,6 +84,38 @@ public class ProfileActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         upperLayout = findViewById(R.id.relativeLayout);
         lowerLayout = findViewById(R.id.relativeLayout2);
+
+        logoutLayout = findViewById(R.id.logout);
+        tvLogout = findViewById(R.id.tvLogout);
+        progressBarLogout = findViewById(R.id.progressBarLogout);
+
+        logoutLayout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                tvLogout.setVisibility(View.GONE);
+                progressBarLogout.setVisibility(View.VISIBLE);
+
+                Call call = apiInterface.logout(token, email);
+                call.enqueue(new Callback() {
+
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(ProfileActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(ProfileActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
+                    }
+                });
+            }
+        });
 
         id = sharedPrefManager.getId();
         token = sharedPrefManager.getToken();

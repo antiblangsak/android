@@ -123,7 +123,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:id="@+id/ll2"
                 android:padding="@dimen/padding_lg"
                 android:layout_below="@+id/ll1"
                 android:layout_width="match_parent"
@@ -165,9 +165,45 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="textEnd"
-                        android:padding="@dimen/padding_sm"
+                        android:paddingRight="@dimen/padding_sm"
+                        android:paddingBottom="@dimen/padding_sm"
                         android:text="Tambah rekening baru"
                         android:textSize="14dp"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/logout"
+                android:layout_below="@+id/ll2"
+                android:padding="@dimen/padding_lg"
+                android:layout_marginTop="@dimen/margin_xxxl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_serviceitem"
+                android:clickable="true">
+
+                <TextView
+                    android:id="@+id/tvLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOGOUT"
+                    android:textAlignment="center"
+                    android:textSize="14dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/progressBarLogout"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:indeterminateTint="@color/yellow"
+                        android:indeterminate="true"
+                        android:layout_centerInParent="true"/>
 
                 </RelativeLayout>
 
