@@ -15,4 +15,10 @@ public class AppConstant {
     public static final String GENERAL_MISSING_FIELD_ERROR_MESSAGE = "Harap lengkapi isian di atas";
 
     public static final String KEY_IMAGE_BASE64 = "IMAGE_BASE64";
+
+    public static final String KEY_UNREGISTERED_MEMBERS_JSON = "UNREGISTERED_MEMBERS";
+
+    public static final int DPGK_SERVICE_ID_INTEGER = 1;
+    public static final int DKK_SERVICE_ID_INTEGER = 2;
+    public static final int DWK_SERVICE_ID_INTEGER = 3;
 }

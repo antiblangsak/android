@@ -70,7 +70,13 @@
             android:label="Dana Kesehatan Kami" />
         <activity
             android:name=".DWKActivity"
-            android:label="Dana Warisan Kami"/>
+            android:label="Dana Warisan Kami" />
+        <activity
+            android:name=".DKKNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan" />
+
+        <activity android:name=".DKKAddNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan"/>
     </application>
 
 </manifest>
