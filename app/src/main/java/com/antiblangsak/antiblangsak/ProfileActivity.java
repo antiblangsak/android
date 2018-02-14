@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -41,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView tvEmail;
 
     private ListView bankAccList;
+    private TextView tvEndRekening;
     private ArrayAdapter<String> arrayAdapter;
 
     private ProgressBar progressBar;
@@ -73,6 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tvEmail);
         tvMemberSince =  findViewById(R.id.tvMemberSince);
         bankAccList = findViewById(R.id.listRekening);
+        tvEndRekening = findViewById(R.id.tvEndRekening);
 
         progressBar = findViewById(R.id.progressBar);
         upperLayout = findViewById(R.id.relativeLayout);

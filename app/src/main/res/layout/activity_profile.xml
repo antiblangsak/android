@@ -159,6 +159,16 @@
 
                     </ListView>
 
+                    <TextView
+                        android:id="@+id/tvEndRekening"
+                        android:layout_below="@id/listRekening"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:padding="@dimen/padding_sm"
+                        android:text="Tambah rekening baru"
+                        android:textSize="14dp"/>
+
                 </RelativeLayout>
 
             </LinearLayout>
