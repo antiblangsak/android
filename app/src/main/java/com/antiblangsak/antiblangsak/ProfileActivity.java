@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -39,11 +40,16 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView tvEmail;
 
     private ListView bankAccList;
+    private TextView tvEndRekening;
     private ArrayAdapter<String> arrayAdapter;
 
     private ProgressBar progressBar;
     private LinearLayout upperLayout;
     private RelativeLayout lowerLayout;
+
+    private LinearLayout logoutLayout;
+    private TextView tvLogout;
+    private ProgressBar progressBarLogout;
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
@@ -71,10 +77,43 @@ public class ProfileActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tvEmail);
         tvMemberSince =  findViewById(R.id.tvMemberSince);
         bankAccList = findViewById(R.id.listRekening);
+        tvEndRekening = findViewById(R.id.tvEndRekening);
 
         progressBar = findViewById(R.id.progressBar);
         upperLayout = findViewById(R.id.relativeLayout);
         lowerLayout = findViewById(R.id.relativeLayout2);
+
+        logoutLayout = findViewById(R.id.logout);
+        tvLogout = findViewById(R.id.tvLogout);
+        progressBarLogout = findViewById(R.id.progressBarLogout);
+
+        logoutLayout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                tvLogout.setVisibility(View.GONE);
+                progressBarLogout.setVisibility(View.VISIBLE);
+
+                Call call = apiInterface.logout(token, email);
+                call.enqueue(new Callback() {
+
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(ProfileActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(ProfileActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
+                    }
+                });
+            }
+        });
 
         id = sharedPrefManager.getId();
         token = sharedPrefManager.getToken();

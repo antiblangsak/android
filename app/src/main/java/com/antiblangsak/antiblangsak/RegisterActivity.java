@@ -175,9 +175,7 @@ public class RegisterActivity extends AppCompatActivity {
         tvToLoginPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(RegisterActivity.this, LoginActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(myIntent);
+                finish();
 
             }
         });
