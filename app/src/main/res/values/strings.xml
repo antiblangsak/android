@@ -19,61 +19,7 @@
     <string name="login_registerlinkinfo">Belum punya akun?</string>
     <string name="login_registerlink">Daftar sekarang!</string>
     <string name="syarat_dan_ketentuan">Syarat dan ketentuan</string>
-
-    <string name="deskripsi_dkk">Program ini  adalah perlindungan kesehatan kepada masyarakat atas biaya pengobatan terhadap setiap gangguan kesehatan yang dialami peserta saat mereka berobat ke Rumah Sakit mitra Antiblangsak. Biaya pengobatan terdiri dari total seluruh biaya pendaftaran, biaya pemeriksaan medis oleh dokter, dan biaya untuk tebus obat di apotik Rumah Sakit.</string>
-    <string name="deskripsi_dkk1">Untuk mendapatkan hak ke pesertaan program ini, anda harus terdaftar sebagai pemilik akun Antiblangsak. Setelah itu, anda mengisi formulir kepesertaan dan menyatakan bersedia mengikuti ketentuan dan syarat yang berlaku. Ketentuan tersebut seperti, untuk taat pada kewajiban untuk membayar iuran kesehatan sebesar Rp.25.000/bulan (lebih kurang Rp.1000/hari).</string>
     <string name="list_rumah_sakit">Rumah Sakit Mitra</string>
-
-
-    <string name="deskripsi_dwk">Program ini adalah perlindungan bagi ahli waris peserta, jika yang bersangkutan meninggal dunia kapan saja dan dimana saja. Yang penting peserta yang ikut dalam program perlindungan DWK ini sebab meninggalnya bukan karena bunuh diri atau karena kejadian darurat bencana nasional.
-    </string>
-    <string name="deskripsi_dwk1">Dengan program ini, setiap peserta dipastikan tidak akan meninggalkan persoalan yang serius bagi ahli waris yang ditinggalkan, semisal terkait dengan kelangsungan kehidupan keluarga selanjutnya, jika yang meninggal adalah seorang suami sebagai kepala rumah tangga. Nilai perlindungan yang diberikan kepada ahli waris adalah sebesar Rp. 125.000.000,-
-    </string>
-    <string name="deskripsi_dwk2">Antiblangsak sebagai platform “one stop digital” berkomitmen untuk memudahkan segenap pesertanya, dalam menghadapi setiap persoalan penting dan genting yang dialami, termasuk kemungkinan jika peserta meninggal dunia. Iuran bulanan yang diwajibkan kepada peserta adalah sebesar Rp. 25.000. Menjadikan platform Antiblangsak sebagai sahabat kehidupan siapa saja, merupakan komitmen dari kehadiran aplikasi ini ke tengah masyarakat.
-    </string>
-
-    <string name="ketentuan_dkk1">Wajib membayar iuran setiap bulan, paling telat tanggal 5 setiap bulannya. Iuran sedikitnya mengendap terlebih dulu selama 3 bulan sejak awal pendaftaran, untuk dapat mengajukan klaim kesehatan.
-    </string>
-    <string name="ketentuan_dkk2">Peserta tidak diwajibkan untuk melalui test kesehatan terlebih dahulu, namun cukup menyebutkan riwayat penyakit yang pernah atau sedang diderita peserta, lengkap dengan bukti rekam medis sebelumnya.
-    </string>
-    <string name="ketentuan_dkk3">Peserta dapat melakukan pembayaran iuran untuk beberapa bulan ke depannya. Misalnya, jika saat mendaftar ingin dalam posisi siap mengajukan klaim, maka peserta wajib membayar 3 bulan sekaligus iuran bulanannya, yakni sebesar Rp. 75.000. Bisa juga peserta langsung menutup iurannya langsung untuk 12 bulan ke depan, sebesar Rp. 25.000 x 12 = Rp.  300.000,-.
-    </string>
-    <string name="ketentuan_dkk4">Peserta juga dapat menyicil pembayaran bulannya setiap minggu per peserta yakni sebesar Rp. 6.250/ minggu. Yang penting saat tanggal 5 setiap bulannya, nilainya sudah mencukupi sebesar Rp. 25.000,- per peserta.
-    </string>
-    <string name="ketentuan_dkk5">Keanggotaan peserta langsung non aktif, pada saat anda meninggal dunia. Kewajiban iuran bulanan dan klaim atas nama kepesertaan anda otomatis hilang. Namun jika anda meninggal dunia dalam keadaan perawatan medis di rumah sakit, maka seluruh kewajiban pembiayaan rumah sakit akan menjadi tanggung jawa Antiblangsak.
-    </string>
-    <string name="ketentuan_dkk6">Untuk rawat jalan, seluruh biaya pemeriksaan (biaya pendaftaran, biaya pemeriksaan dokter, biaya pengambilan resep obat, biaya laboratorium, biaya fisioterapi, biaya rontgen, biaya CTScan dan biaya ambulance jika dianggap perlu, ditanggung oleh Antiblangsak).
-    </string>
-    <string name="ketentuan_dkk7">Untuk rawat inap, anda dimungkinkan untuk mendapatkan maksimal kelas II.  Seluruh biaya plus tindakan operasi jika ada, akan ditanggung oleh Antiblangsak.
-    </string>
-    <string name="ketentuan_dkk8">Antiblangsak secara rutin akan melakukan undian doorprize setiap dua bulan sekali, dengan cara mengocok nomor ke pesertaan anda di hadapan notaris. Anda yang beruntung keluar sebagai pemenang dalam door prize tersebut, akan mendapatkan aneka hadiah berupa sejumlah barang dari sponsor kami. Mulai dari peralatan elektrik rumah tangga, hingga ke peralatan komunikasi seperti HP dan Laptop. Hadiah akan dikirimi ke alamat anda yang sudah terdaftar di dalam sistem.
-    </string>
-
-
-    <string name="ketentuan_dwk1">Wajib membayar iuran setiap bulan, paling telat tanggal 5 setiap bulannya. Iuran sedikitnya mengendap terlebih dulu selama 3 bulan sejak awal pendaftaran, untuk dapat mengajukan klaim DWK.</string>
-    <string name="ketentuan_dwk2">Peserta dapat melakukan pembayaran iuran untuk beberapa bulan ke depannya. Misalnya, jika saat mendaftar ingin dalam posisi siap mengajukan klaim, maka peserta wajib membayar 3 bulan sekaligus iuran bulanannya, yakni sebesar Rp. 75.000. Bisa juga peserta langsung menutup iurannya langsung untuk 12 bulan ke depan, sebesar Rp. 25.000 x 12 = Rp.  300.000,-.</string>
-    <string name="ketentuan_dwk3">Peserta juga dapat menyicil pembayaran bulanannya setiap minggu per peserta yakni sebesar Rp. 6.250/ minggu. Yang penting saat tanggal 5 setiap bulannya, nilainya sudah mencukupi sebesar Rp. 25.000,- per peserta.</string>
-    <string name="ketentuan_dwk4">Keanggotaan peserta langsung non aktif, pada saat ahli waris anda mengkonfirmasikan berita kepada sistim kami bahwa anda meninggal dunia. Kewajiban iuran bulanan atas nama kepesertaan anda otomatis hilang, dan selanjutnya ahli waris tinggal meng klik klaim untuk dicairkannya DWK  kepada nama yang sudah didaftarkan sebelumnya.</string>
-    <string name="ketentuan_dwk5">Paling lama, klaim DWK dapat dicairkan dalam 3 hari kerja. Perwakilan dari manajemen Antiblangsak, akan datang mengantarkan langsung kepada ahli waris di rumah duka, sejumlah nilai yang menjadi hak dari peserta DWK.</string>
-    <string name="ketentuan_dwk6">Antiblangsak secara rutin akan melakukan undian doorprize setiap dua bulan sekali, dengan cara mengocok nomor ke pesertaan anda di hadapan notaris. Anda yang beruntung keluar sebagai pemenang dalam door prize tersebut, akan mendapatkan aneka hadiah berupa sejumlah barang dari sponsor kami. Mulai dari peralatan elektrik rumah tangga, hingga ke peralatan komunikasi seperti HP dan Laptop. Hadiah akan dikirimi ke alamat anda yang sudah terdaftar di dalam sistim.</string>
-
-    <string name="deskripsi_dpk1">Program ini adalah perlindungan pembiayaan pendidikan kepada masyarakat, khususnya kepada keluarga-keluarga yang masih memiliki tanggungan anak yang masih bersekolah. Pembiayaan pendidikan mulai dari tingkat TK dan SD hingga tingkat Perguruan Tinggi.  DPGK adalah bentuk lain dari Kartu Pintar Indonesia (KPI) yang menjadi program pemerintah atau Kartu Jakarta Pintar (KJP) program yang diusung oleh Pemprov DKI Jakarta.</string>
-    <string name="deskripsi_dpk2">Aplikasi Antiblangsak menawarkan skema lain yang bisa diikuti oleh seluruh peserta didik di seluruh Indonesia, guna memastikan pencapaian jenjang pendidikan formal hingga Perguruan Tinggi. Yang dilindungi oleh Antiblangsak adalah seluruh biaya pendaftaran masuk sekolah/Perguruan Tinggi.</string>
-    <string name="deskripsi_dpk3">Untuk jenjang pendidikan SD hingga SMA, kami menawarkan tiga skema. Pertama, perlindungan atas biaya pangkal masuk sekolah saja, dan kedua,  perlindungan atas biaya uang SPP setiap bulan hingga tamat, dan ketiga, perlindungan atas biaya uang pangkal plus uang SPP setiap bulan .</string>
-    <string name="deskripsi_dpk4">Untuk jenjang pendidikan tinggi, seluruh biaya akan dilindungi oleh program ini. Mulai dari uang pangkal masuk hingga biaya uang semester dan biaya riset untuk  syarat kelulusan di jenjang S-1 hingga S-3.</string>
-
-    <string name="ketentuan_dpk1">Wajib membayar iuran setiap bulan, paling telat tanggal 5 setiap bulannya. Iuran sedikitnya mengendap terlebih dulu selama 3 bulan sejak awal pendaftaran, untuk dapat mengajukan klaim kesehatan.
-    </string>
-    <string name="ketentuan_dpk2">Peserta tidak diwajibkan untuk melalui test kesehatan terlebih dahulu, namun cukup menyebutkan riwayat penyakit yang pernah atau sedang diderita peserta, lengkap dengan bukti rekam medis sebelumnya.
-    </string>
-    <string name="ketentuan_dpk3">Peserta dapat melakukan pembayaran iuran untuk beberapa bulan ke depannya. Misalnya, jika saat mendaftar ingin dalam posisi siap mengajukan klaim, maka peserta wajib membayar 3 bulan sekaligus iuran bulanannya, yakni sebesar Rp. 75.000. Bisa juga peserta langsung menutup iurannya langsung untuk 12 bulan ke depan, sebesar Rp. 25.000 x 12 = Rp.  300.000,-.
-    </string>
-    <string name="ketentuan_dpk4">Peserta juga dapat menyicil pembayaran bulannya setiap minggu per peserta yakni sebesar Rp. 6.250/ minggu. Yang penting saat tanggal 5 setiap bulannya, nilainya sudah mencukupi sebesar Rp. 25.000,- per peserta.
-    </string>
-    <string name="ketentuan_dpk5">Keanggotaan peserta langsung non aktif, pada saat anda meninggal dunia. Kewajiban iuran bulanan dan klaim atas nama kepesertaan anda otomatis hilang. Namun jika anda meninggal dunia dalam keadaan perawatan medis di rumah sakit, maka seluruh kewajiban pembiayaan rumah sakit akan menjadi tanggung jawa Antiblangsak.
-    </string>
-    <string name="ketentuan_dpk6">Untuk rawat jalan, seluruh biaya pemeriksaan (biaya pendaftaran, biaya pemeriksaan dokter, biaya pengambilan resep obat, biaya laboratorium, biaya fisioterapi, biaya rontgen, biaya CTScan dan biaya ambulance jika dianggap perlu, ditanggung oleh Antiblangsak).
-    </string>
 
     <string name="namehint">Nama</string>
     <string name="register_passwordhint">Kata Sandi (min. 8 karakter)</string>
@@ -111,6 +57,7 @@
         Daftarkan diri Anda agar terhubung dengan keluarga Anda.\n\n
         Untuk menjadi nasabah, pastikan NIK Anda sudah terdaftar pada data keluarga Anda.
     </string>
+
     <string name="daftarnasabahkeluargaterdaftar_keluargaidhint">ID Keluarga Anda</string>
     <string name="daftarnasabahkeluargaterdaftar_nikhint">NIK Anda</string>
     <string name="daftarkanbutton">Daftarkan</string>
@@ -154,4 +101,40 @@
     <string name="dkk_nasabah_belum_ada_nasabah_line_1">Anda belum mendaftarkan nasabah</string>
     <string name="dkk_nasabah_belum_ada_nasabah_line_2">Daftarkan sekarang!</string>
     <string name="dkk_nasabah_daftarkan_button">Daftarkan</string>
+
+    <string name="title_activity_deskripsi">Deskripsi Layanan</string>
+    <string name="deskripsi_dkk">Program ini  adalah perlindungan kesehatan kepada masyarakat atas biaya pengobatan terhadap setiap gangguan kesehatan yang dialami peserta saat mereka berobat ke Rumah Sakit mitra Antiblangsak. Biaya pengobatan terdiri dari total seluruh biaya pendaftaran, biaya pemeriksaan medis oleh dokter, dan biaya untuk tebus obat di apotik Rumah Sakit.</string>
+    <string name="deskripsi_dkk1">Untuk mendapatkan hak ke pesertaan program ini, anda harus terdaftar sebagai pemilik akun Antiblangsak. Setelah itu, anda mengisi formulir kepesertaan dan menyatakan bersedia mengikuti ketentuan dan syarat yang berlaku. Ketentuan tersebut seperti, untuk taat pada kewajiban untuk membayar iuran kesehatan sebesar Rp.25.000/bulan (lebih kurang Rp.1000/hari).</string>
+
+    <string name="ketentuan_dkk1">Wajib membayar iuran setiap bulan, paling telat tanggal 5 setiap bulannya. Iuran sedikitnya mengendap terlebih dulu selama 3 bulan sejak awal pendaftaran, untuk dapat mengajukan klaim kesehatan.</string>
+    <string name="ketentuan_dkk2">Peserta tidak diwajibkan untuk melalui test kesehatan terlebih dahulu, namun cukup menyebutkan riwayat penyakit yang pernah atau sedang diderita peserta, lengkap dengan bukti rekam medis sebelumnya.</string>
+    <string name="ketentuan_dkk3">Peserta dapat melakukan pembayaran iuran untuk beberapa bulan ke depannya. Misalnya, jika saat mendaftar ingin dalam posisi siap mengajukan klaim, maka peserta wajib membayar 3 bulan sekaligus iuran bulanannya, yakni sebesar Rp. 75.000. Bisa juga peserta langsung menutup iurannya langsung untuk 12 bulan ke depan, sebesar Rp. 25.000 x 12 = Rp.  300.000,-.</string>
+    <string name="ketentuan_dkk4">Peserta juga dapat menyicil pembayaran bulannya setiap minggu per peserta yakni sebesar Rp. 6.250/ minggu. Yang penting saat tanggal 5 setiap bulannya, nilainya sudah mencukupi sebesar Rp. 25.000,- per peserta.</string>
+    <string name="ketentuan_dkk5">Keanggotaan peserta langsung non aktif, pada saat anda meninggal dunia. Kewajiban iuran bulanan dan klaim atas nama kepesertaan anda otomatis hilang. Namun jika anda meninggal dunia dalam keadaan perawatan medis di rumah sakit, maka seluruh kewajiban pembiayaan rumah sakit akan menjadi tanggung jawa Antiblangsak.</string>
+    <string name="ketentuan_dkk6">Untuk rawat jalan, seluruh biaya pemeriksaan (biaya pendaftaran, biaya pemeriksaan dokter, biaya pengambilan resep obat, biaya laboratorium, biaya fisioterapi, biaya rontgen, biaya CTScan dan biaya ambulance jika dianggap perlu, ditanggung oleh Antiblangsak).</string>
+    <string name="ketentuan_dkk7">Untuk rawat inap, anda dimungkinkan untuk mendapatkan maksimal kelas II.  Seluruh biaya plus tindakan operasi jika ada, akan ditanggung oleh Antiblangsak.</string>
+    <string name="ketentuan_dkk8">Antiblangsak secara rutin akan melakukan undian doorprize setiap dua bulan sekali, dengan cara mengocok nomor ke pesertaan anda di hadapan notaris. Anda yang beruntung keluar sebagai pemenang dalam door prize tersebut, akan mendapatkan aneka hadiah berupa sejumlah barang dari sponsor kami. Mulai dari peralatan elektrik rumah tangga, hingga ke peralatan komunikasi seperti HP dan Laptop. Hadiah akan dikirimi ke alamat anda yang sudah terdaftar di dalam sistem.</string>
+
+    <string name="deskripsi_dwk">Program ini adalah perlindungan bagi ahli waris peserta, jika yang bersangkutan meninggal dunia kapan saja dan dimana saja. Yang penting peserta yang ikut dalam program perlindungan DWK ini sebab meninggalnya bukan karena bunuh diri atau karena kejadian darurat bencana nasional.</string>
+    <string name="deskripsi_dwk1">Dengan program ini, setiap peserta dipastikan tidak akan meninggalkan persoalan yang serius bagi ahli waris yang ditinggalkan, semisal terkait dengan kelangsungan kehidupan keluarga selanjutnya, jika yang meninggal adalah seorang suami sebagai kepala rumah tangga. Nilai perlindungan yang diberikan kepada ahli waris adalah sebesar Rp. 125.000.000,-</string>
+    <string name="deskripsi_dwk2">Antiblangsak sebagai platform “one stop digital” berkomitmen untuk memudahkan segenap pesertanya, dalam menghadapi setiap persoalan penting dan genting yang dialami, termasuk kemungkinan jika peserta meninggal dunia. Iuran bulanan yang diwajibkan kepada peserta adalah sebesar Rp. 25.000. Menjadikan platform Antiblangsak sebagai sahabat kehidupan siapa saja, merupakan komitmen dari kehadiran aplikasi ini ke tengah masyarakat.</string>
+
+    <string name="ketentuan_dwk1">Wajib membayar iuran setiap bulan, paling telat tanggal 5 setiap bulannya. Iuran sedikitnya mengendap terlebih dulu selama 3 bulan sejak awal pendaftaran, untuk dapat mengajukan klaim DWK.</string>
+    <string name="ketentuan_dwk2">Peserta dapat melakukan pembayaran iuran untuk beberapa bulan ke depannya. Misalnya, jika saat mendaftar ingin dalam posisi siap mengajukan klaim, maka peserta wajib membayar 3 bulan sekaligus iuran bulanannya, yakni sebesar Rp. 75.000. Bisa juga peserta langsung menutup iurannya langsung untuk 12 bulan ke depan, sebesar Rp. 25.000 x 12 = Rp.  300.000,-.</string>
+    <string name="ketentuan_dwk3">Peserta juga dapat menyicil pembayaran bulanannya setiap minggu per peserta yakni sebesar Rp. 6.250/ minggu. Yang penting saat tanggal 5 setiap bulannya, nilainya sudah mencukupi sebesar Rp. 25.000,- per peserta.</string>
+    <string name="ketentuan_dwk4">Keanggotaan peserta langsung non aktif, pada saat ahli waris anda mengkonfirmasikan berita kepada sistim kami bahwa anda meninggal dunia. Kewajiban iuran bulanan atas nama kepesertaan anda otomatis hilang, dan selanjutnya ahli waris tinggal meng klik klaim untuk dicairkannya DWK  kepada nama yang sudah didaftarkan sebelumnya.</string>
+    <string name="ketentuan_dwk5">Paling lama, klaim DWK dapat dicairkan dalam 3 hari kerja. Perwakilan dari manajemen Antiblangsak, akan datang mengantarkan langsung kepada ahli waris di rumah duka, sejumlah nilai yang menjadi hak dari peserta DWK.</string>
+    <string name="ketentuan_dwk6">Antiblangsak secara rutin akan melakukan undian doorprize setiap dua bulan sekali, dengan cara mengocok nomor ke pesertaan anda di hadapan notaris. Anda yang beruntung keluar sebagai pemenang dalam door prize tersebut, akan mendapatkan aneka hadiah berupa sejumlah barang dari sponsor kami. Mulai dari peralatan elektrik rumah tangga, hingga ke peralatan komunikasi seperti HP dan Laptop. Hadiah akan dikirimi ke alamat anda yang sudah terdaftar di dalam sistim.</string>
+
+    <string name="deskripsi_dpk1">Program ini adalah perlindungan pembiayaan pendidikan kepada masyarakat, khususnya kepada keluarga-keluarga yang masih memiliki tanggungan anak yang masih bersekolah. Pembiayaan pendidikan mulai dari tingkat TK dan SD hingga tingkat Perguruan Tinggi.  DPGK adalah bentuk lain dari Kartu Pintar Indonesia (KPI) yang menjadi program pemerintah atau Kartu Jakarta Pintar (KJP) program yang diusung oleh Pemprov DKI Jakarta.</string>
+    <string name="deskripsi_dpk2">Aplikasi Antiblangsak menawarkan skema lain yang bisa diikuti oleh seluruh peserta didik di seluruh Indonesia, guna memastikan pencapaian jenjang pendidikan formal hingga Perguruan Tinggi. Yang dilindungi oleh Antiblangsak adalah seluruh biaya pendaftaran masuk sekolah/Perguruan Tinggi.</string>
+    <string name="deskripsi_dpk3">Untuk jenjang pendidikan SD hingga SMA, kami menawarkan tiga skema. Pertama, perlindungan atas biaya pangkal masuk sekolah saja, dan kedua,  perlindungan atas biaya uang SPP setiap bulan hingga tamat, dan ketiga, perlindungan atas biaya uang pangkal plus uang SPP setiap bulan .</string>
+    <string name="deskripsi_dpk4">Untuk jenjang pendidikan tinggi, seluruh biaya akan dilindungi oleh program ini. Mulai dari uang pangkal masuk hingga biaya uang semester dan biaya riset untuk  syarat kelulusan di jenjang S-1 hingga S-3.</string>
+
+    <string name="ketentuan_dpk1">Wajib membayar iuran setiap bulan, paling telat tanggal 5 setiap bulannya. Iuran sedikitnya mengendap terlebih dulu selama 3 bulan sejak awal pendaftaran, untuk dapat mengajukan klaim kesehatan.</string>
+    <string name="ketentuan_dpk2">Peserta tidak diwajibkan untuk melalui test kesehatan terlebih dahulu, namun cukup menyebutkan riwayat penyakit yang pernah atau sedang diderita peserta, lengkap dengan bukti rekam medis sebelumnya.</string>
+    <string name="ketentuan_dpk3">Peserta dapat melakukan pembayaran iuran untuk beberapa bulan ke depannya. Misalnya, jika saat mendaftar ingin dalam posisi siap mengajukan klaim, maka peserta wajib membayar 3 bulan sekaligus iuran bulanannya, yakni sebesar Rp. 75.000. Bisa juga peserta langsung menutup iurannya langsung untuk 12 bulan ke depan, sebesar Rp. 25.000 x 12 = Rp.  300.000,-.</string>
+    <string name="ketentuan_dpk4">Peserta juga dapat menyicil pembayaran bulannya setiap minggu per peserta yakni sebesar Rp. 6.250/ minggu. Yang penting saat tanggal 5 setiap bulannya, nilainya sudah mencukupi sebesar Rp. 25.000,- per peserta.</string>
+    <string name="ketentuan_dpk5">Keanggotaan peserta langsung non aktif, pada saat anda meninggal dunia. Kewajiban iuran bulanan dan klaim atas nama kepesertaan anda otomatis hilang. Namun jika anda meninggal dunia dalam keadaan perawatan medis di rumah sakit, maka seluruh kewajiban pembiayaan rumah sakit akan menjadi tanggung jawa Antiblangsak.</string>
+    <string name="ketentuan_dpk6">Untuk rawat jalan, seluruh biaya pemeriksaan (biaya pendaftaran, biaya pemeriksaan dokter, biaya pengambilan resep obat, biaya laboratorium, biaya fisioterapi, biaya rontgen, biaya CTScan dan biaya ambulance jika dianggap perlu, ditanggung oleh Antiblangsak).</string>
 </resources>

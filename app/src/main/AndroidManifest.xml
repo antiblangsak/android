@@ -31,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--LOGIN AND LOGOUT-->
         <activity
             android:name=".LoginActivity"
             android:label="@string/login_title"
@@ -43,6 +44,8 @@
             android:name=".MainActivity"
             android:label="@string/main_title"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--DAFTAR NASABAH AND PROFIL-->
         <activity
             android:name=".DaftarNasabahActivity"
             android:label="@string/daftarnasabah_title" />
@@ -52,7 +55,8 @@
         <activity
             android:name=".DaftarNasabahKeluargaBaruActivity"
             android:label="@string/daftarnasabah_title" />
-        <activity android:name=".DaftarRekeningActivity" />
+        <activity
+            android:name=".DaftarRekeningActivity" />
         <activity
             android:name=".DaftarNasabahUploadFotoActivity"
             android:label="@string/daftarnasabah_title" />
@@ -63,52 +67,58 @@
             android:name=".ProfileActivity"
             android:label="@string/profile_title" />
         <activity
+            android:name=".ProfilKeluargaActivity"/>
+
+        <!--DPGK-->
+        <activity
             android:name=".DPKActivity"
             android:label="Dana Pendidikan Kami" />
+        <activity
+            android:name=".DeskirpsiDPKActivity"
+            android:label="@string/title_activity_deskripsi" />
+        <activity
+            android:name=".KetentuanDPKActivity"
+            android:label="Syarat dan Ketentuan" />
+
+        <!--DKK-->
         <activity
             android:name=".DKKActivity"
             android:label="Dana Kesehatan Kami" />
         <activity
+            android:name=".KetentuanDKKActivity"
+            android:label="Syarat dan Ketentuan" />
+        <activity
             android:name=".DeskripsiDKKActivity"
-            android:label="Deskripsi DKK" />
-        <activity
-            android:name=".DeskripsiDWKActivity"
-            android:label="Deskripsi DWK" />
-        <activity
-            android:name=".DeskirpsiDPKActivity"
-            android:label="Deskripsi DPGK" />
+            android:label="@string/title_activity_deskripsi" />
         <activity
             android:name=".ListRSActivity"
             android:label="Daftar RS Mitra" />
         <activity
-            android:name=".DWKActivity"
-            android:label="Dana Warisan Kami" />
-        <activity
-            android:name=".KetentuanDKKActivity"
-            android:label="Syarat dan Ketentuan" />
-        <activity
-            android:name=".KetentuanDWKActivity"
-            android:label="Syarat dan Ketentuan" />
-        <activity
-            android:name=".KetentuanDPKActivity"
-            android:label="Syarat dan Ketentuan" />
-        <activity
-            android:name=".ProfilKeluargaActivity"/>
-        <activity
             android:name=".DKKHistoryActivity"
             android:label="Riwayat" />
-        <activity
-            android:name=".DKKHistoryPayActivity"
-            android:label="Detail Pembayaran" />
-        <activity
-            android:name=".DKKHistoryClaimActivity"
-            android:label="Detail Klaim"/>
         <activity
             android:name=".DKKNasabahActivity"
             android:label="@string/dkk_nasabah_daftarkan" />
         <activity
             android:name=".DKKAddNasabahActivity"
             android:label="@string/dkk_nasabah_daftarkan"/>
+        <activity
+            android:name=".DKKHistoryPayActivity"
+            android:label="Detail Pembayaran" />
+        <activity
+            android:name=".DKKHistoryClaimActivity"
+            android:label="Detail Klaim"/>
+
+        <!--DWK-->
+        <activity
+            android:name=".DWKActivity"
+            android:label="Dana Warisan Kami" />
+        <activity
+            android:name=".DeskripsiDWKActivity"
+            android:label="@string/title_activity_deskripsi" />
+        <activity
+            android:name=".KetentuanDWKActivity"
+            android:label="Syarat dan Ketentuan" />
     </application>
 
 </manifest>
