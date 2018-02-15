@@ -31,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--LOGIN AND LOGOUT-->
+        <!-- LOGIN AND LOGOUT -->
         <activity
             android:name=".common.LoginActivity"
             android:label="@string/login_title"
@@ -46,13 +46,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".dpgk.DPGKNasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan"/>
+            android:label="@string/dkk_nasabah_daftarkan" />
         <activity
             android:name=".dpgk.DPGKAddNasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan"/>
+            android:label="@string/dkk_nasabah_daftarkan" />
 
-
-        <!--DAFTAR NASABAH AND PROFIL-->
+        <!-- DAFTAR NASABAH AND PROFIL -->
         <activity
             android:name=".common.DaftarNasabahActivity"
             android:label="@string/daftarnasabah_title" />
@@ -62,8 +61,7 @@
         <activity
             android:name=".common.DaftarNasabahKeluargaBaruActivity"
             android:label="@string/daftarnasabah_title" />
-        <activity
-            android:name=".common.DaftarRekeningActivity" />
+        <activity android:name=".common.DaftarRekeningActivity" />
         <activity
             android:name=".common.DaftarNasabahUploadFotoActivity"
             android:label="@string/daftarnasabah_title" />
@@ -73,10 +71,9 @@
         <activity
             android:name=".common.ProfileActivity"
             android:label="@string/profile_title" />
-        <activity
-            android:name=".common.ProfilKeluargaActivity"/>
+        <activity android:name=".common.ProfilKeluargaActivity" />
 
-        <!--DPGK-->
+        <!-- DPGK -->
         <activity
             android:name=".dpgk.DPGKActivity"
             android:label="Dana Pendidikan Kami" />
@@ -86,8 +83,17 @@
         <activity
             android:name=".dpgk.DPGKTermsConditionsActivity"
             android:label="Syarat dan Ketentuan" />
+        <activity
+            android:name=".dpgk.DPGKHistoryActivity"
+            android:label="Riwayat"/>
+        <activity
+            android:name=".dpgk.DPGKHistoryClaimActivity"
+            android:label="Detail Klaim"/>
+        <activity
+            android:name=".dpgk.DPGKHistoryPayActivity"
+            android:label="Detail Pembayaran"/>
 
-        <!--DKK-->
+        <!-- DKK -->
         <activity
             android:name=".dkk.DKKActivity"
             android:label="Dana Kesehatan Kami" />
@@ -114,9 +120,9 @@
             android:label="Detail Pembayaran" />
         <activity
             android:name=".dkk.DKKHistoryClaimActivity"
-            android:label="Detail Klaim"/>
+            android:label="Detail Klaim" />
 
-        <!--DWK-->
+        <!-- DWK -->
         <activity
             android:name=".dwk.DWKActivity"
             android:label="Dana Warisan Kami" />
@@ -126,6 +132,7 @@
         <activity
             android:name=".dwk.DWKTermsConditionsActivity"
             android:label="Syarat dan Ketentuan" />
+
     </application>
 
 </manifest>

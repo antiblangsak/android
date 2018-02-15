@@ -61,4 +61,8 @@ public interface ApiInterface {
 
     @GET("dpgk/{familyId}/family_members")
     Call<Object> getAllDPGKFamilyMembers(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dpgk/{familyId}/history")
+    Call<Object> getDPGKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
+
 }

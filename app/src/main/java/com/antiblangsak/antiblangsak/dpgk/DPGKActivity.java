@@ -18,6 +18,7 @@ public class DPGKActivity extends AppCompatActivity {
 
     private LinearLayout rowDeskripsi;
     private LinearLayout rowNasabah;
+    private LinearLayout rowHistory;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -47,6 +48,15 @@ public class DPGKActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(DPGKActivity.this, DPGKDescriptionActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        rowHistory = findViewById(R.id.rowHistory);
+        rowHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(DPGKActivity.this, DPGKHistoryActivity.class);
                 startActivity(myIntent);
             }
         });
