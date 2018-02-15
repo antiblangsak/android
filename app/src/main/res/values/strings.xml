@@ -29,6 +29,7 @@
     <string name="register_loginlink">Login sekarang!</string>
 
     <string name="home_daftarnasabahbutton">DAFTAR SEBAGAI NASABAH</string>
+    <string name="home_profilkeluargabutton">PROFIL KELUARGA</string>
     <string name="home_tulisberitabutton">TULIS BERITA</string>
     <string name="home_dpgklabel">Pendidikan</string>
     <string name="home_dkklabel">Kesehatan</string>
@@ -92,4 +93,9 @@
     <string name="dpk_history_title">Riwayat</string>
     <string name="dpk_history_short">Anda Belum Mendaftarkan Nasabah</string>
     <string name="title_activity_list_rs">ListRSActivity</string>
+
+    <string name="dkk_nasabah_daftarkan">Daftarkan Nasabah Baru</string>
+    <string name="dkk_nasabah_belum_ada_nasabah_line_1">Anda belum mendaftarkan nasabah</string>
+    <string name="dkk_nasabah_belum_ada_nasabah_line_2">Daftarkan sekarang!</string>
+    <string name="dkk_nasabah_daftarkan_button">Daftarkan</string>
 </resources>

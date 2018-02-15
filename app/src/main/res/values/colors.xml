@@ -22,4 +22,6 @@
     <color name="waiting">#FF9900</color>
     <color name="rejected">#CF2A27</color>
     <color name="accepted">#009E0F</color>
+
+    <color name="dkk_nasabah_checked_color">#f7b4bb</color>
 </resources>

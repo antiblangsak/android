@@ -22,8 +22,10 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class DKKActivity extends AppCompatActivity {
 
     private LinearLayout rowDeskripsi;
-    private SharedPrefManager sharedPrefManager;
+    private LinearLayout rowNasabah;
     private LinearLayout rowHistory;
+
+    private SharedPrefManager sharedPrefManager;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -38,24 +40,6 @@ public class DKKActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
 
         rowDeskripsi = (LinearLayout) findViewById(R.id.rowDeskripsi);
-
-        int familyId = getIntent().getExtras().getInt("FAMILY_ID");
-        int familyStatus = getIntent().getExtras().getInt("FAMILY_STATUS");
-        Log.w("FAMILY ID", familyId + "");
-        Log.w("FAMILY STATUS", familyStatus + "");
-
-        rowHistory = (LinearLayout) findViewById(R.id.rowHistory);
-
-        ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
-
-        rowHistory.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DKKActivity.this, DKKHistoryActivity.class));
-            }
-        });
-
         rowDeskripsi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -63,8 +47,30 @@ public class DKKActivity extends AppCompatActivity {
             }
         });
 
+        rowNasabah = findViewById(R.id.rowNasabah);
+        rowNasabah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(DKKActivity.this, DKKNasabahActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
+        int familyId = getIntent().getExtras().getInt("FAMILY_ID");
+        int familyStatus = getIntent().getExtras().getInt("FAMILY_STATUS");
+        Log.w("FAMILY ID", familyId + "");
+        Log.w("FAMILY STATUS", familyStatus + "");
 
+        rowHistory = (LinearLayout) findViewById(R.id.rowHistory);
+        rowHistory.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DKKActivity.this, DKKHistoryActivity.class));
+            }
+        });
+
+        ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
     }
 
     @Override

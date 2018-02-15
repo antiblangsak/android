@@ -86,6 +86,12 @@
         <activity
             android:name=".DKKHistoryClaimActivity"
             android:label="Detail Klaim"/>
+        <activity
+            android:name=".DKKNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan" />
+        <activity
+            android:name=".DKKAddNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan"/>
     </application>
 
 </manifest>

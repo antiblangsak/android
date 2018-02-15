@@ -12,88 +12,79 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
+            android:background="@color/gray_dark"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/gray_light"
-            android:id="@+id/relativeLayout">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_above="@+id/tvName"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_profile" />
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/tvMemberSince"
-                android:layout_centerHorizontal="true"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/tvMemberSince"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/button"
-                android:layout_centerHorizontal="true"
-                android:textSize="12dp" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_vertical"
-                android:text="Edit Profile"
-                android:textSize="10dp" />
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:id="@+id/relativeLayout2">
+            android:layout_height="240dp">
 
             <LinearLayout
-                android:padding="@dimen/padding_lg"
-                android:id="@+id/ll2"
-                android:layout_below="@+id/ll1"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/home_serviceitem">
+                android:orientation="vertical"
+                android:id="@+id/relativeLayout">
 
                 <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_marginTop="@dimen/margin_lg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Phone" />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:padding="@dimen/margin_sm"
+                        android:src="@drawable/ic_profile_white"
+                        android:layout_centerInParent="true"/>
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2">
+                    android:textAlignment="center"
+                    android:text="Nama Saya"
+                    android:textColor="@color/white"
+                    android:textSize="16dp" />
 
-                    <TextView
-                        android:id="@+id/tvPhone"
-                        android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvMemberSince"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:text="Bergabung sejak"
+                    android:textSize="12dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/button"
+                        android:background="@drawable/all_button"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAlignment="textEnd" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/margin_lg"
+                        android:paddingLeft="@dimen/padding_lg"
+                        android:paddingRight="@dimen/padding_lg"
+                        android:text="Edit Profile"
+                        android:textSize="14dp" />
 
                 </RelativeLayout>
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp"
+            android:id="@+id/relativeLayout2">
 
             <LinearLayout
                 android:padding="@dimen/padding_lg"
@@ -110,7 +101,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Email" />
+                        android:text="EMAIL"
+                        android:textSize="14dp"/>
 
                 </RelativeLayout>
 
@@ -123,16 +115,17 @@
                         android:id="@+id/tvEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="textEnd" />
+                        android:textAlignment="textEnd"
+                        android:textSize="14dp"/>
 
                 </RelativeLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:id="@+id/ll2"
                 android:padding="@dimen/padding_lg"
-                android:layout_below="@+id/ll2"
+                android:layout_below="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/home_serviceitem">
@@ -147,7 +140,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Rekening" />
+                        android:text="REKENING"
+                        android:textSize="14dp"/>
 
                 </RelativeLayout>
 
@@ -156,11 +150,60 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2">
 
-                    <TextView
+                    <ListView
+                        android:id="@+id/listRekening"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Izhar Almizan (BNI)"
-                        android:textAlignment="textEnd" />
+                        android:divider="@null"
+                        android:dividerHeight="0dp">
+
+                    </ListView>
+
+                    <TextView
+                        android:id="@+id/tvEndRekening"
+                        android:layout_below="@id/listRekening"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:paddingRight="@dimen/padding_sm"
+                        android:paddingBottom="@dimen/padding_sm"
+                        android:text="Tambah rekening baru"
+                        android:textSize="14dp"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/logout"
+                android:layout_below="@+id/ll2"
+                android:padding="@dimen/padding_lg"
+                android:layout_marginTop="@dimen/margin_xxxl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_serviceitem"
+                android:clickable="true">
+
+                <TextView
+                    android:id="@+id/tvLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOGOUT"
+                    android:textAlignment="center"
+                    android:textSize="14dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/progressBarLogout"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:indeterminateTint="@color/yellow"
+                        android:indeterminate="true"
+                        android:layout_centerInParent="true"/>
 
                 </RelativeLayout>
 
@@ -168,20 +211,14 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/relativeLayout"
-            android:layout_weight="2">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="123"
-                android:textAlignment="textEnd" />
-
-        </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin_xxl"
+            android:indeterminateTint="@color/yellow"
+            android:indeterminate="true"
+            android:layout_centerInParent="true"/>
 
     </RelativeLayout>
 

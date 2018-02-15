@@ -48,4 +48,10 @@ public class AppConstant {
             "Klaim Anda diterima. Dana akan dikirimkan ke rekening Anda dalam maksimal 12 jam.";
     public static final String HISTORY_CLAIM_STATUS_REJECTED_NOTE =
             "Klaim Anda ditolak karena berkas yang Anda lampirkan tidak valid.";
+
+    public static final String KEY_UNREGISTERED_MEMBERS_JSON = "UNREGISTERED_MEMBERS";
+
+    public static final int DPGK_SERVICE_ID_INTEGER = 1;
+    public static final int DKK_SERVICE_ID_INTEGER = 2;
+    public static final int DWK_SERVICE_ID_INTEGER = 3;
 }
