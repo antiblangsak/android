@@ -5,12 +5,12 @@
     android:layout_height="match_parent">
     <ScrollView
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:background="@color/gray_dark">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray_dark"
             android:paddingBottom="20dp"
             android:paddingTop="10dp">
             <LinearLayout
