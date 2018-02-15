@@ -10,6 +10,7 @@
         android:background="@color/gray_dark"
         android:padding="10dp"
         android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tvDeskripsiDKK"
                 android:layout_width="match_parent"
@@ -22,6 +23,7 @@
                 android:layout_marginRight="15dp"
                 android:paddingTop="10dp"
                 android:textSize="14dp" />
+
             <TextView
                 android:id="@+id/tvDeskripsiDKK1"
                 android:layout_width="match_parent"
@@ -35,7 +37,6 @@
                 android:layout_marginRight="15dp"
                 android:textSize="14dp" />
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -46,10 +47,11 @@
                 android:padding="@dimen/padding_lg"
                 android:id="@+id/rowDeskripsi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="5">
 
@@ -58,6 +60,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_xl"
+                        android:layout_marginBottom="@dimen/margin_sm"
                         android:layout_marginLeft="@dimen/margin_xxxl"
                         android:layout_marginRight="@dimen/margin_xxxl"
                         android:paddingBottom="@dimen/padding_xxs"
@@ -67,25 +70,20 @@
                         android:textSize="@dimen/textsize_button_md" />
 
                 </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/tvSyaratKetentuan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_xs"
+                    android:layout_margin="@dimen/margin_md"
                     android:text="@string/syarat_dan_ketentuan"
                     android:textAlignment="center"
                     android:textSize="14dp"
                     android:textColor="@color/blue"/>
-
             </LinearLayout>
 
-
         </RelativeLayout>
-    </LinearLayout>
 
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

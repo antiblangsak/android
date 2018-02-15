@@ -62,7 +62,7 @@
                     android:id="@+id/tvSyaratKetentuanDWK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_xs"
+                    android:layout_margin="@dimen/margin_md"
                     android:text="@string/syarat_dan_ketentuan"
                     android:textAlignment="center"
                     android:textSize="14dp"
