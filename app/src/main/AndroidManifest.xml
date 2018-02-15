@@ -79,7 +79,7 @@
             android:label="Deskripsi DPGK" />
         <activity
             android:name=".ListRSActivity"
-            android:label="List Rumah Sakit Mitra" />
+            android:label="Daftar RS Mitra" />
         <activity
             android:name=".DWKActivity"
             android:label="Dana Warisan Kami" />

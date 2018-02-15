@@ -38,7 +38,7 @@ public class ListRSAdapter extends ArrayAdapter<RumahSakitModel> {
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 
-        Typeface customFont = Typeface.createFromAsset(mContext.getAssets(), "fonts/Comfortaa-Bold.ttf");
+        Typeface customFont = Typeface.createFromAsset(mContext.getAssets(), AppConfig.REGULAR_FONT);
 
         final View result;
 
