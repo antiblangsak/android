@@ -21,6 +21,8 @@ public class DeskripsiDKKActivity extends AppCompatActivity {
     private TextView tvDeskripsiDKK;
     private SharedPrefManager sharedPrefManager;
     private ApiInterface apiInterface;
+    private TextView tvSyaratKetentuan;
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -39,6 +41,7 @@ public class DeskripsiDKKActivity extends AppCompatActivity {
 
         btnRS = (Button) findViewById(R.id.btnRS);
         tvDeskripsiDKK = (TextView) findViewById(R.id.tvDeskripsiDKK);
+        tvSyaratKetentuan = (TextView) findViewById(R.id.tvSyaratKetentuan);
 
         btnRS.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -46,9 +49,14 @@ public class DeskripsiDKKActivity extends AppCompatActivity {
                 startActivity(new Intent(DeskripsiDKKActivity.this, ListRSActivity.class));
             }
         });
+        tvSyaratKetentuan.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DeskripsiDKKActivity.this, KetentuanDKKActivity.class));
+            }
+        });
 
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -60,4 +68,6 @@ public class DeskripsiDKKActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

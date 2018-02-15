@@ -2,6 +2,7 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -27,17 +28,26 @@ public class ListRSActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_rs);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
-
         ListView listViewRS = (ListView) findViewById( R.id.listViewRS );
 
+        ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+
         RSmodel = new ArrayList<>();
-        RSmodel.add(new RumahSakitModel("Rumah Sakit Cinere", "Cinere blok EF1/11", "14"));
-        RSmodel.add(new RumahSakitModel("Rumah Sakit Bunda", "Margonda no 45 RT 2 RW 3", "16"));
-        RSmodel.add(new RumahSakitModel("Rumah Sakit Ananda", "Margonda no 3", "17"));
+        RSmodel.add(new RumahSakitModel("RS Cinere", "Cinere blok EF1/11", "14"));
+        RSmodel.add(new RumahSakitModel("RS Bunda Margonda", "Margonda no 45 RT 2 RW 3", "16"));
+        RSmodel.add(new RumahSakitModel("RS Ananda", "Margonda no 3", "17"));
+        RSmodel.add(new RumahSakitModel("RS Damrah", "Jl. Bulungan no 9", "19"));
+        RSmodel.add(new RumahSakitModel("RS Tiara Shella", "Jl. Hibrida no 36", "23"));
+        RSmodel.add(new RumahSakitModel("RS Cipete", "Raffles Hills blok EF1/11", "24"));
+        RSmodel.add(new RumahSakitModel("RS Citra Margonda", "Jl. Juanda no 45 RT 2 RW 33", "26"));
+        RSmodel.add(new RumahSakitModel("RS Cipayung", "Cimanggis Depok", "37"));
+        RSmodel.add(new RumahSakitModel("RS Cipto", "Jl. Raya Bogor no 53", "39"));
+        RSmodel.add(new RumahSakitModel("RS Haji", "Jl. Akses UI no 23", "49"));
         adapter= new ListRSAdapter(RSmodel,getApplicationContext());
 
         listViewRS.setAdapter(adapter);
+
     }
 
     @Override

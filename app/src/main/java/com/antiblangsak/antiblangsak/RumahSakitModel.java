@@ -6,7 +6,6 @@ package com.antiblangsak.antiblangsak;
 
 public class RumahSakitModel {
 
-
     String name;
     String address;
     String distance;
@@ -15,7 +14,6 @@ public class RumahSakitModel {
         this.name=name;
         this.address=address;
         this.distance=distance;
-
     }
 
     public String getName() {
@@ -29,7 +27,4 @@ public class RumahSakitModel {
     public String getDistance() {
         return distance;
     }
-
-
-
 }

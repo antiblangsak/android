@@ -8,14 +8,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.antiblangsak.antiblangsak.retrofit.ApiClient;
+import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DWKActivity extends AppCompatActivity {
-    private LinearLayout rowDeskripsiDWK;
-    private LinearLayout rowHistoryDWK;
+public class DeskripsiDWKActivity extends AppCompatActivity {
+
+
+    private TextView tvDeskripsiDKK;
     private SharedPrefManager sharedPrefManager;
+    private ApiInterface apiInterface;
+    private TextView tvSyaratKetentuanDWK;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -25,31 +31,25 @@ public class DWKActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dwk);
+        setContentView(R.layout.activity_deskripsi_dwk);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        sharedPrefManager = new SharedPrefManager(this);
-
-        rowDeskripsiDWK = (LinearLayout) findViewById(R.id.rowDeskripsi);
-        rowHistoryDWK = (LinearLayout) findViewById(R.id.rowHistory);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
 
-        rowDeskripsiDWK.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, DeskripsiDWKActivity.class));
-            }
-        });
-        rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
-            }
-        });
+        sharedPrefManager = new SharedPrefManager(this);
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
+        tvDeskripsiDKK = (TextView) findViewById(R.id.tvDeskripsiDKK);
+        tvSyaratKetentuanDWK = (TextView) findViewById(R.id.tvSyaratKetentuanDWK);
+
+        tvSyaratKetentuanDWK.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DeskripsiDWKActivity.this, KetentuanDWKActivity.class));
+            }
+        });
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

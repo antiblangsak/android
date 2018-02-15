@@ -1,53 +1,31 @@
 package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DWKActivity extends AppCompatActivity {
-    private LinearLayout rowDeskripsiDWK;
-    private LinearLayout rowHistoryDWK;
-    private SharedPrefManager sharedPrefManager;
+public class KetentuanDWKActivity extends AppCompatActivity {
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dwk);
+        setContentView(R.layout.activity_ketentuan_dwk);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        sharedPrefManager = new SharedPrefManager(this);
-
-        rowDeskripsiDWK = (LinearLayout) findViewById(R.id.rowDeskripsi);
-        rowHistoryDWK = (LinearLayout) findViewById(R.id.rowHistory);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
-
-        rowDeskripsiDWK.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, DeskripsiDWKActivity.class));
-            }
-        });
-        rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
-            }
-        });
-
     }
 
     @Override
