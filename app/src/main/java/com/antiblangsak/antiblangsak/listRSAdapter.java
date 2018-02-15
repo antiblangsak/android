@@ -9,15 +9,13 @@ import android.widget.TextView;
 import android.graphics.Typeface;
 import java.util.ArrayList;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
 /**
  * Created by martinovela on 1/28/18.
  */
 
-public class listRSAdapter extends ArrayAdapter<rumahSakitModel> {
+public class listRSAdapter extends ArrayAdapter<RumahSakitModel> {
 
-    private ArrayList<rumahSakitModel> dataSet;
+    private ArrayList<RumahSakitModel> dataSet;
     Context mContext;
 
     // View lookup cache
@@ -27,7 +25,7 @@ public class listRSAdapter extends ArrayAdapter<rumahSakitModel> {
         TextView list_tvDistance;
     }
 
-    public listRSAdapter(ArrayList<rumahSakitModel> data, Context context) {
+    public listRSAdapter(ArrayList<RumahSakitModel> data, Context context) {
         super(context, R.layout.content_list_rs, data);
         this.dataSet = data;
         this.mContext=context;
@@ -36,7 +34,7 @@ public class listRSAdapter extends ArrayAdapter<rumahSakitModel> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        rumahSakitModel rumahSakitModel = getItem(position);
+        RumahSakitModel rumahSakitModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 

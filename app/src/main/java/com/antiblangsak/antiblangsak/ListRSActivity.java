@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class ListRSActivity extends AppCompatActivity {
 
     private ListView listViewRS;
-    ArrayList<rumahSakitModel> RSmodel;
+    ArrayList<RumahSakitModel> RSmodel;
     public static listRSAdapter adapter;
 
     @Override
@@ -35,16 +34,16 @@ public class ListRSActivity extends AppCompatActivity {
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
         RSmodel = new ArrayList<>();
-        RSmodel.add(new rumahSakitModel("RS Cinere", "Cinere blok EF1/11", "14"));
-        RSmodel.add(new rumahSakitModel("RS Bunda Margonda", "Margonda no 45 RT 2 RW 3", "16"));
-        RSmodel.add(new rumahSakitModel("RS Ananda", "Margonda no 3", "17"));
-        RSmodel.add(new rumahSakitModel("RS Damrah", "Jl. Bulungan no 9", "19"));
-        RSmodel.add(new rumahSakitModel("RS Tiara Shella", "Jl. Hibrida no 36", "23"));
-        RSmodel.add(new rumahSakitModel("RS Cipete", "Raffles Hills blok EF1/11", "24"));
-        RSmodel.add(new rumahSakitModel("RS Citra Margonda", "Jl. Juanda no 45 RT 2 RW 33", "26"));
-        RSmodel.add(new rumahSakitModel("RS Cipayung", "Cimanggis Depok", "37"));
-        RSmodel.add(new rumahSakitModel("RS Cipto", "Jl. Raya Bogor no 53", "39"));
-        RSmodel.add(new rumahSakitModel("RS Haji", "Jl. Akses UI no 23", "49"));
+        RSmodel.add(new RumahSakitModel("RS Cinere", "Cinere blok EF1/11", "14"));
+        RSmodel.add(new RumahSakitModel("RS Bunda Margonda", "Margonda no 45 RT 2 RW 3", "16"));
+        RSmodel.add(new RumahSakitModel("RS Ananda", "Margonda no 3", "17"));
+        RSmodel.add(new RumahSakitModel("RS Damrah", "Jl. Bulungan no 9", "19"));
+        RSmodel.add(new RumahSakitModel("RS Tiara Shella", "Jl. Hibrida no 36", "23"));
+        RSmodel.add(new RumahSakitModel("RS Cipete", "Raffles Hills blok EF1/11", "24"));
+        RSmodel.add(new RumahSakitModel("RS Citra Margonda", "Jl. Juanda no 45 RT 2 RW 33", "26"));
+        RSmodel.add(new RumahSakitModel("RS Cipayung", "Cimanggis Depok", "37"));
+        RSmodel.add(new RumahSakitModel("RS Cipto", "Jl. Raya Bogor no 53", "39"));
+        RSmodel.add(new RumahSakitModel("RS Haji", "Jl. Akses UI no 23", "49"));
         adapter= new listRSAdapter(RSmodel,getApplicationContext());
 
         listViewRS.setAdapter(adapter);

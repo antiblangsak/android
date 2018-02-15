@@ -4,13 +4,13 @@ package com.antiblangsak.antiblangsak;
  * Created by martinovela on 1/28/18.
  */
 
-public class rumahSakitModel {
+public class RumahSakitModel {
 
     String name;
     String address;
     String distance;
 
-    public rumahSakitModel(String name, String address, String distance) {
+    public RumahSakitModel(String name, String address, String distance) {
         this.name=name;
         this.address=address;
         this.distance=distance;
