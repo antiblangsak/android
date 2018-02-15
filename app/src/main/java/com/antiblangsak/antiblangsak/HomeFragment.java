@@ -7,16 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Syukri on 12/26/17.
@@ -65,7 +59,7 @@ public class HomeFragment extends Fragment {
         btnServiceDpgk.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DPKActivity.class));
+                startActivity(new Intent(getActivity(), DPGKActivity.class));
             }
         });
 

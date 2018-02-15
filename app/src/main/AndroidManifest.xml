@@ -63,7 +63,7 @@
             android:name=".ProfileActivity"
             android:label="@string/profile_title" />
         <activity
-            android:name=".DPKActivity"
+            android:name=".DPGKActivity"
             android:label="Dana Pendidikan Kami" />
         <activity
             android:name=".DKKActivity"
@@ -74,8 +74,14 @@
         <activity
             android:name=".DKKNasabahActivity"
             android:label="@string/dkk_nasabah_daftarkan" />
-
-        <activity android:name=".DKKAddNasabahActivity"
+        <activity
+            android:name=".DKKAddNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan" />
+        <activity
+            android:name=".DPGKNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan"/>
+        <activity
+            android:name=".DPGKAddNasabahActivity"
             android:label="@string/dkk_nasabah_daftarkan"/>
     </application>
 

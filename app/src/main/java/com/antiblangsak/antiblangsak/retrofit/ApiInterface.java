@@ -43,4 +43,7 @@ public interface ApiInterface {
                                 @Field("ref_user_id") int userId,
                                 @Field("list_family_member_id[]") ArrayList<Integer> list_member,
                                 @Field("service_id") int serviceId);
+
+    @GET("dpgk/{familyId}/family_members")
+    Call<Object> getAllDPGKFamilyMembers(@Header("Authorization") String token, @Path("familyId") int familyId);
 }
