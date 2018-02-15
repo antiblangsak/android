@@ -44,6 +44,13 @@
             android:name=".MainActivity"
             android:label="@string/main_title"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DPGKNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan"/>
+        <activity
+            android:name=".DPGKAddNasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan"/>
+
 
         <!--DAFTAR NASABAH AND PROFIL-->
         <activity
@@ -71,7 +78,7 @@
 
         <!--DPGK-->
         <activity
-            android:name=".DPKActivity"
+            android:name=".DPGKActivity"
             android:label="Dana Pendidikan Kami" />
         <activity
             android:name=".DeskirpsiDPKActivity"
@@ -101,7 +108,7 @@
             android:label="@string/dkk_nasabah_daftarkan" />
         <activity
             android:name=".DKKAddNasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan"/>
+            android:label="@string/dkk_nasabah_daftarkan" />
         <activity
             android:name=".DKKHistoryPayActivity"
             android:label="Detail Pembayaran" />

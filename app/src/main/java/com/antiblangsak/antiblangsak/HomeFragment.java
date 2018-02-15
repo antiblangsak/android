@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment {
         btnServiceDpgk.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DPKActivity.class));
+                startActivity(new Intent(getActivity(), DPGKActivity.class));
             }
         });
 
@@ -86,8 +86,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), DKKActivity.class)
-                .putExtra("FAMILY_ID", familyId)
-                .putExtra("FAMILY_STATUS", familyStatus));
+                        .putExtra("FAMILY_ID", familyId)
+                        .putExtra("FAMILY_STATUS", familyStatus));
             }
         });
 

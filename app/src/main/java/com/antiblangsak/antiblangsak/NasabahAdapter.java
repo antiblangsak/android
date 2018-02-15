@@ -51,7 +51,7 @@ public class NasabahAdapter extends ArrayAdapter<NasabahModel> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        Typeface customFont = Typeface.createFromAsset(mContext.getAssets(), "fonts/Comfortaa-Bold.ttf");
+        Typeface customFont = Typeface.createFromAsset(mContext.getAssets(), AppConfig.REGULAR_FONT);
 
         viewHolder.tvName.setTypeface(customFont);
         viewHolder.tvDesc.setTypeface(customFont);

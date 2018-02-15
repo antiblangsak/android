@@ -15,9 +15,10 @@ import com.antiblangsak.antiblangsak.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DPKActivity extends AppCompatActivity {
+public class DPGKActivity extends AppCompatActivity {
 
-    private LinearLayout rowDeskripsiDPK;
+    private LinearLayout rowDeskripsi;
+    private LinearLayout rowNasabah;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -27,21 +28,29 @@ public class DPKActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dpk);
+        setContentView(R.layout.activity_dpgk);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        rowDeskripsiDPK = (LinearLayout) findViewById(R.id.rowDeskripsi);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
 
-        rowDeskripsiDPK.setOnClickListener(new View.OnClickListener(){
+        rowNasabah = findViewById(R.id.rowNasabah);
+        rowNasabah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DPKActivity.this, DeskirpsiDPKActivity.class));
+                Intent myIntent = new Intent(DPGKActivity.this, DPGKNasabahActivity.class);
+                startActivity(myIntent);
             }
         });
 
+        rowDeskripsi = findViewById(R.id.rowDeskripsi);
+        rowDeskripsi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(DPGKActivity.this, DeskirpsiDPKActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override
