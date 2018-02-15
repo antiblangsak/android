@@ -79,7 +79,13 @@
             android:label="Dana Warisan Kami" />
         <activity
             android:name=".DKKHistoryActivity"
-            android:label="Riwayat"/>
+            android:label="Riwayat" />
+        <activity
+            android:name=".DKKHistoryPayActivity"
+            android:label="Detail Pembayaran" />
+        <activity
+            android:name=".DKKHistoryClaimActivity"
+            android:label="Detail Klaim"/>
     </application>
 
 </manifest>

@@ -62,21 +62,22 @@ public class DKKHistoryAdapter extends ArrayAdapter<HistoryModel> {
             result = convertView;
         }
 
-        Typeface customFont = Typeface.createFromAsset(context.getAssets(), "fonts/Comfortaa-Bold.ttf");
+        Typeface regularFont = Typeface.createFromAsset(context.getAssets(), AppConfig.REGULAR_FONT);
+        Typeface boldFont = Typeface.createFromAsset(context.getAssets(), AppConfig.BOLD_FONT);
         if (historyModel.getType().equals("Pembayaran")) {
             viewHolder.imType.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_bayar));
         } else {
             viewHolder.imType.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_klaim));
         }
-        viewHolder.tvType.setTypeface(customFont);
+        viewHolder.tvType.setTypeface(boldFont);
         viewHolder.tvType.setText(historyModel.getType());
-        viewHolder.tvStatus.setTypeface(customFont);
+        viewHolder.tvStatus.setTypeface(boldFont);
         viewHolder.tvStatus.setText(historyModel.getStatus());
         viewHolder.tvStatus.setTextColor(context.getResources().getColor(historyModel.getStatusColor()));
-        viewHolder.tvCreatedAt.setTypeface(customFont);
+        viewHolder.tvCreatedAt.setTypeface(regularFont);
         viewHolder.tvCreatedAt.setText(historyModel.getCreatedAt());
 
         // Return the completed view to render on screen
-        return convertView;
+        return result;
     }
 }

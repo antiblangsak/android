@@ -2,14 +2,14 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,33 +18,41 @@ import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DKKHistoryActivity extends AppCompatActivity {
+public class DKKHistoryClaimActivity extends AppCompatActivity {
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
 
-    private ListView listView;
-    private ArrayList<HistoryModel> history;
-    private DKKHistoryAdapter adapter;
-
-    private ProgressBar progressBar;
-    private TextView tvNoData;
-
     private String token;
     private int familyId;
     private String emailUser;
+
+    private ProgressBar progressBar;
+    private LinearLayout main;
+
+    private TextView nomorKlaim;
+    private TextView nominal;
+    private TextView nasabah;
+    private TextView detail;
+    private TextView status;
+
+    private TextView nomorPembayaranLabel;
+    private TextView nominalLabel;
+    private TextView nasabahLabel;
+    private TextView detailLabel;
+    private TextView statusLabel;
+
+    private TextView informasi;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -54,27 +62,48 @@ public class DKKHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dkkhistory);
+        setContentView(R.layout.activity_dkkhistory_claim);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+
+        Intent i = getIntent();
+        int claimId = i.getIntExtra("claimId", -1);
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
 
-        listView = findViewById(R.id.mainlist);
         progressBar = findViewById(R.id.progressBar);
-        tvNoData = findViewById(R.id.tvNoData);
+        main = findViewById(R.id.mainLayout);
+
+        nomorKlaim = findViewById(R.id.nomorKlaim);
+        nominal = findViewById(R.id.nominal);
+        nasabah = findViewById(R.id.nasabah);
+        detail = findViewById(R.id.detail);
+        status = findViewById(R.id.status);
+        informasi = findViewById(R.id.peringatan);
+
+        nomorPembayaranLabel = findViewById(R.id.nomorLabel);
+        nominalLabel = findViewById(R.id.nominalLabel);
+        nasabahLabel = findViewById(R.id.nasabahLabel);
+        detailLabel = findViewById(R.id.detailLabel);
+        statusLabel = findViewById(R.id.statusLabel);
+
+        Typeface customFont = Typeface.createFromAsset(DKKHistoryClaimActivity.this.getApplicationContext().getAssets(), AppConfig.BOLD_FONT);
+        nomorPembayaranLabel.setTypeface(customFont, Typeface.BOLD);
+        nominalLabel.setTypeface(customFont, Typeface.BOLD);
+        nasabahLabel.setTypeface(customFont, Typeface.BOLD);
+        detailLabel.setTypeface(customFont, Typeface.BOLD);
+        statusLabel.setTypeface(customFont, Typeface.BOLD);
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
         familyId = sharedPrefManager.getFamilyId();
 
-        Call call = apiInterface.getDKKHistory(token, familyId);
+        Call call = apiInterface.getClaimDetail(token, claimId);
         call.enqueue(new Callback() {
 
             @Override
             public void onResponse(Call call, Response response) {
-
                 JSONObject body = null;
                 int statusCode = response.code();
                 Log.w("status", "status: " + statusCode);
@@ -84,43 +113,32 @@ public class DKKHistoryActivity extends AppCompatActivity {
                         body = new JSONObject(new Gson().toJson(response.body()));
                         Log.w("RESPONSE", "body: " + body.toString());
 
-                        history = new ArrayList<HistoryModel>();
-                        JSONArray data = body.getJSONArray("data");
-                        if (data.length() == 0) {
-                            tvNoData.setVisibility(View.VISIBLE);
+                        JSONObject data = body.getJSONObject("data");
+                        String claimNumber = data.getString("claim_number");
+                        String client = data.getString("client");
+                        int claim_amount = data.getInt("claim_amount");
+                        String note = data.getString("note");
+                        int statusKlaim = data.getInt("status");
+
+                        nomorKlaim.setText(claimNumber);
+                        nasabah.setText(client);
+                        nominal.setText(AppHelper.formatRupiah(claim_amount));
+                        detail.setText(note);
+
+                        if (statusKlaim == AppConstant.HISTORY_CLAIM_STATUS_WAITING_FOR_VERIFICATION) {
+                            status.setText(AppConstant.HISTORY_CLAIM_STATUS_WAITING_FOR_VERIFICATION_STRING);
+                            status.setTextColor(getResources().getColor(R.color.waiting));
+                            informasi.setText(AppConstant.HISTORY_CLAIM_STATUS_WAITING_FOR_VERIFICATION_NOTE);
+                        } else if (statusKlaim == AppConstant.HISTORY_CLAIM_STATUS_ACCEPTED) {
+                            status.setText(AppConstant.HISTORY_CLAIM_STATUS_ACCEPTED_STRING);
+                            status.setTextColor(getResources().getColor(R.color.accepted));
+                            informasi.setText(AppConstant.HISTORY_CLAIM_STATUS_ACCEPTED_NOTE);
                         } else {
-                            for (int i = 0; i < data.length(); i++) {
-                                JSONObject obj = data.getJSONObject(i);
-                                String type = obj.getString("type");
-                                int id = obj.getInt("id");
-                                int status = Integer.parseInt(obj.getString("status"));
-                                String createdAt = obj.getString("created_at");
-                                Log.w("DATA", type + " " + id + " " + status + " " + createdAt);
-                                history.add(new HistoryModel(id, type, status, createdAt));
-                            }
-                            adapter = new DKKHistoryAdapter(history, getApplicationContext());
-                            listView.setAdapter(adapter);
-                            listView.setVisibility(View.VISIBLE);
-                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-
-                                    Log.w("error", "masuk sini");
-
-                                    HistoryModel histo = adapter.getItem(position);
-                                    Intent inten;
-                                    if (histo.getType().equals("Pembayaran")) {
-                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryPayActivity.class);
-                                        inten.putExtra("histoId", histo.getId());
-                                    } else {
-                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryClaimActivity.class);
-                                        inten.putExtra("claimId", histo.getId());
-                                    }
-                                    startActivity(inten);
-
-                                }
-                            });
+                            status.setText(AppConstant.HISTORY_CLAIM_STATUS_REJECTED_STRING);
+                            status.setTextColor(getResources().getColor(R.color.rejected));
+                            informasi.setText(AppConstant.HISTORY_CLAIM_STATUS_REJECTED_NOTE);
                         }
+                        main.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
@@ -129,9 +147,9 @@ public class DKKHistoryActivity extends AppCompatActivity {
                     try {
                         Log.w("body", response.errorBody().string());
                         sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(DKKHistoryActivity.this, LoginActivity.class)
+                        startActivity(new Intent(DKKHistoryClaimActivity.this, LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        DKKHistoryActivity.this.finish();
+                        DKKHistoryClaimActivity.this.finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {
@@ -150,7 +168,6 @@ public class DKKHistoryActivity extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.GONE);
             }
-
 
             @Override
             public void onFailure(Call call, Throwable t) {

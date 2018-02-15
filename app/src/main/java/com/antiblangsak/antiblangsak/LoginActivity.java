@@ -57,6 +57,12 @@ public class LoginActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
+        if (sharedPrefManager.getStatusLogin()) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
+
         etEmail = (EditText) findViewById(R.id.etEmail);
         Typeface typeFace = etEmail.getTypeface();
 
@@ -70,12 +76,6 @@ public class LoginActivity extends AppCompatActivity {
         tvToRegisterPage = (TextView) findViewById(R.id.tvToRegisterPage);
         tvBelumPunyaAkun = (TextView) findViewById(R.id.tvBelumPunyaAkun);
         pbLogin = (ProgressBar) findViewById(R.id.pbLogin);
-
-        if (sharedPrefManager.getStatusLogin()) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
-        }
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override

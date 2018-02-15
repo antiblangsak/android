@@ -21,6 +21,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * Created by Syukri on 1/1/18.
@@ -35,5 +39,11 @@ public class AppHelper {
                 .load(stream.toByteArray())
                 .asBitmap()
                 .into(imageView);
+    }
+
+    public static String formatRupiah(int harga){
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        return formatRupiah.format(harga);
     }
 }

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.antiblangsak.antiblangsak.DaftarRekeningActivity">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:descendantFocusability="beforeDescendants"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/nomorLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:text="Nomor Klaim"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/nomorKlaim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nomor Klaim"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/nominalLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:text="Nominal"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/nominal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nominal"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/nasabahLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:text="Nasabah"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/nasabah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nasabah"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/detailLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:text="Detail Klaim"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detail"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/statusLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:text="Status Klaim"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"/>
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status Klaim"
+            android:textSize="14dp"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginBottom="@dimen/margin_md"/>
+
+        <TextView
+            android:id="@+id/peringatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12dp"
+            android:textAlignment="center"
+            android:layout_marginLeft="@dimen/margin_spinner"
+            android:layout_marginRight="@dimen/margin_spinner"
+            android:layout_marginBottom="@dimen/margin_xl"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/margin_xxl"
+            android:indeterminateTint="@color/yellow"
+            android:indeterminate="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
