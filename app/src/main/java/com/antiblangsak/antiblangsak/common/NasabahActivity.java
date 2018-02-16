@@ -86,6 +86,7 @@ public class NasabahActivity extends AppCompatActivity {
             call = apiInterface.getAllDKKFamilyMembers(token, familyId);
         } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+            call = apiInterface.getAllDWKFamilyMembers(token, familyId);
         } else {
             Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
             finish();
