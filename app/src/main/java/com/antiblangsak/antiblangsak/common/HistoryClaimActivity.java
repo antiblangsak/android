@@ -1,4 +1,4 @@
-package com.antiblangsak.antiblangsak.dkk;
+package com.antiblangsak.antiblangsak.common;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,11 +14,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConfig;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.AppHelper;
-import com.antiblangsak.antiblangsak.common.LoginActivity;
-import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
@@ -34,7 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DKKHistoryClaimActivity extends AppCompatActivity {
+public class HistoryClaimActivity extends AppCompatActivity {
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
@@ -60,6 +59,9 @@ public class DKKHistoryClaimActivity extends AppCompatActivity {
 
     private TextView informasi;
 
+    private int serviceId;
+    private int claimId;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -68,12 +70,23 @@ public class DKKHistoryClaimActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dkkhistory_claim);
+        setContentView(R.layout.activity_history_claim);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
-        Intent i = getIntent();
-        int claimId = i.getIntExtra("claimId", -1);
+        serviceId = getIntent().getIntExtra(AppConstant.SERVICE_ID_KEY, -1);
+
+        if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
+        } else if (serviceId == AppConstant.DKK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+        } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+        claimId = getIntent().getIntExtra("claimId", -1);
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
@@ -94,7 +107,7 @@ public class DKKHistoryClaimActivity extends AppCompatActivity {
         detailLabel = findViewById(R.id.detailLabel);
         statusLabel = findViewById(R.id.statusLabel);
 
-        Typeface customFont = Typeface.createFromAsset(DKKHistoryClaimActivity.this.getApplicationContext().getAssets(), AppConfig.BOLD_FONT);
+        Typeface customFont = Typeface.createFromAsset(HistoryClaimActivity.this.getApplicationContext().getAssets(), AppConfig.BOLD_FONT);
         nomorPembayaranLabel.setTypeface(customFont, Typeface.BOLD);
         nominalLabel.setTypeface(customFont, Typeface.BOLD);
         nasabahLabel.setTypeface(customFont, Typeface.BOLD);
@@ -152,10 +165,10 @@ public class DKKHistoryClaimActivity extends AppCompatActivity {
                 } else {
                     try {
                         Log.w("body", response.errorBody().string());
-                        sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(DKKHistoryClaimActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        DKKHistoryClaimActivity.this.finish();
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(HistoryClaimActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {

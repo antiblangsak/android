@@ -1,11 +1,11 @@
-package com.antiblangsak.antiblangsak.dkk;
+package com.antiblangsak.antiblangsak.common;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.content.Intent;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,10 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.AppHelper;
-import com.antiblangsak.antiblangsak.common.LoginActivity;
-import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
@@ -35,7 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DKKHistoryPayActivity extends AppCompatActivity {
+public class HistoryPaymentActivity extends AppCompatActivity {
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
@@ -63,6 +62,7 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
     private TextView informasi;
 
     private int histoID;
+    private int serviceId;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -72,13 +72,23 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dkkhistory_pay);
+        setContentView(R.layout.activity_history_payment);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
-        Intent i = getIntent();
-        // getting attached intent data
-        histoID = i.getIntExtra("histoId", -1);
+        serviceId = getIntent().getIntExtra(AppConstant.SERVICE_ID_KEY, -1);
+
+        if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
+        } else if (serviceId == AppConstant.DKK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+        } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+        histoID = getIntent().getIntExtra("histoId", -1);
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
@@ -102,7 +112,7 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
         metodeLabel = findViewById(R.id.metodeLabel);
         statusLabel = findViewById(R.id.statusLabel);
 
-        Typeface customFont = Typeface.createFromAsset(DKKHistoryPayActivity.this.getApplicationContext().getAssets(), "fonts/Comfortaa-Bold.ttf");
+        Typeface customFont = Typeface.createFromAsset(HistoryPaymentActivity.this.getApplicationContext().getAssets(), "fonts/Comfortaa-Bold.ttf");
         nomorPembayaranLabel.setTypeface(customFont, Typeface.BOLD);
         nominalLabel.setTypeface(customFont, Typeface.BOLD);
         nasabahLabel.setTypeface(customFont, Typeface.BOLD);
@@ -150,7 +160,7 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                         nominal.setText(AppHelper.formatRupiah(amount));
                         nasabah.setText(client);
                         metode.setText(metode.getText()+ bank + "\n" + "1506004004000" + "\n" + "a/n PT. AntiBlangsak"
-                        + "\n" + "Cabang Kedoya Permai");
+                                + "\n" + "Cabang Kedoya Permai");
 
                         if (stat == AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_PAYMENT){
                             status.setText(AppConstant.HISTORY_PAYMENT_STATUS_WAITING_FOR_PAYMENT_STRING);
@@ -183,10 +193,10 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                 } else {
                     try {
                         Log.w("body", response.errorBody().string());
-                        sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(DKKHistoryPayActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        DKKHistoryPayActivity.this.finish();
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(HistoryPaymentActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {
@@ -228,17 +238,18 @@ public class DKKHistoryPayActivity extends AppCompatActivity {
                         Log.w("status", "status: " + statusCode);
 
                         if (statusCode == 201) {
-                            startActivity(new Intent(DKKHistoryPayActivity.this, DKKHistoryActivity.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                            DKKHistoryPayActivity.this.finish();
+                            startActivity(new Intent(HistoryPaymentActivity.this, HistoryActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra(AppConstant.SERVICE_ID_KEY, serviceId));
+                            finish();
                             Toast.makeText(getApplicationContext(), "Konfirmasi berhasil!", Toast.LENGTH_SHORT).show();
                         } else {
                             try {
                                 Log.w("body", response.errorBody().string());
-                                sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                                startActivity(new Intent(DKKHistoryPayActivity.this, LoginActivity.class)
-                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                DKKHistoryPayActivity.this.finish();
+                                sharedPrefManager.logout();
+                                startActivity(new Intent(HistoryPaymentActivity.this, LoginActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                finish();
 
                                 Call callLogout = apiInterface.logout(token, emailUser);
                                 callLogout.enqueue(new Callback() {

@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
+import com.antiblangsak.antiblangsak.common.HistoryActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -62,7 +64,8 @@ public class DKKActivity extends AppCompatActivity {
         rowHistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DKKActivity.this, DKKHistoryActivity.class));
+                startActivity(new Intent(DKKActivity.this, HistoryActivity.class)
+                .putExtra(AppConstant.SERVICE_ID_KEY, AppConstant.DKK_SERVICE_ID_INTEGER));
             }
         });
 

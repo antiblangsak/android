@@ -1,4 +1,4 @@
-package com.antiblangsak.antiblangsak.dkk;
+package com.antiblangsak.antiblangsak.common;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.adapters.HistoryAdapter;
+import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.models.HistoryModel;
 import com.antiblangsak.antiblangsak.common.LoginActivity;
 import com.antiblangsak.antiblangsak.R;
@@ -35,7 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DKKHistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
@@ -50,6 +51,9 @@ public class DKKHistoryActivity extends AppCompatActivity {
     private String token;
     private int familyId;
     private String emailUser;
+    private int serviceId;
+
+    private Call call;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -59,22 +63,34 @@ public class DKKHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dkkhistory);
+        setContentView(R.layout.activity_history);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
-
-        listView = findViewById(R.id.mainlist);
-        progressBar = findViewById(R.id.progressBar);
-        tvNoData = findViewById(R.id.tvNoData);
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
         familyId = sharedPrefManager.getFamilyId();
 
-        Call call = apiInterface.getDKKHistory(token, familyId);
+        serviceId = getIntent().getIntExtra(AppConstant.SERVICE_ID_KEY, -1);
+
+        if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
+        } else if (serviceId == AppConstant.DKK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+            call = apiInterface.getDKKHistory(token, familyId);
+        } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+        listView = findViewById(R.id.mainlist);
+        progressBar = findViewById(R.id.progressBar);
+        tvNoData = findViewById(R.id.tvNoData);
+
         call.enqueue(new Callback() {
 
             @Override
@@ -115,11 +131,13 @@ public class DKKHistoryActivity extends AppCompatActivity {
                                     HistoryModel histo = adapter.getItem(position);
                                     Intent inten;
                                     if (histo.getType().equals("Pembayaran")) {
-                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryPayActivity.class);
+                                        inten = new Intent(HistoryActivity.this, HistoryPaymentActivity.class);
                                         inten.putExtra("histoId", histo.getId());
+                                        inten.putExtra(AppConstant.SERVICE_ID_KEY, serviceId);
                                     } else {
-                                        inten = new Intent(DKKHistoryActivity.this, DKKHistoryClaimActivity.class);
+                                        inten = new Intent(HistoryActivity.this, HistoryClaimActivity.class);
                                         inten.putExtra("claimId", histo.getId());
+                                        inten.putExtra(AppConstant.SERVICE_ID_KEY, serviceId);
                                     }
                                     startActivity(inten);
 
@@ -133,10 +151,10 @@ public class DKKHistoryActivity extends AppCompatActivity {
                 } else {
                     try {
                         Log.w("body", response.errorBody().string());
-                        sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(DKKHistoryActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        DKKHistoryActivity.this.finish();
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(HistoryActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {
