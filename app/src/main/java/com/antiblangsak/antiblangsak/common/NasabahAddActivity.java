@@ -83,6 +83,7 @@ public class NasabahAddActivity extends AppCompatActivity {
             checkedColor = new ColorDrawable(getResources().getColor(R.color.dkk_nasabah_checked_color));
         } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+            checkedColor = new ColorDrawable(getResources().getColor(R.color.dwk_nasabah_checked_color));
         } else {
             Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
             finish();

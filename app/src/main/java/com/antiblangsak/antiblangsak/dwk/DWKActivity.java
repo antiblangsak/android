@@ -12,13 +12,18 @@ import android.widget.LinearLayout;
 
 import com.antiblangsak.antiblangsak.common.FamilyProfileActivity;
 import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
+import com.antiblangsak.antiblangsak.common.NasabahActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DWKActivity extends AppCompatActivity {
+
     private LinearLayout rowDeskripsi;
     private LinearLayout rowHistory;
+    private LinearLayout rowNasabah;
+
     private SharedPrefManager sharedPrefManager;
 
     @Override
@@ -35,6 +40,7 @@ public class DWKActivity extends AppCompatActivity {
 
         rowDeskripsi = findViewById(R.id.rowDeskripsi);
         rowHistory = findViewById(R.id.rowHistory);
+        rowNasabah = findViewById(R.id.rowNasabah);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
@@ -45,6 +51,15 @@ public class DWKActivity extends AppCompatActivity {
                 startActivity(new Intent(DWKActivity.this, DWKDescriptionActivity.class));
             }
         });
+
+        rowNasabah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, NasabahActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
         rowHistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
