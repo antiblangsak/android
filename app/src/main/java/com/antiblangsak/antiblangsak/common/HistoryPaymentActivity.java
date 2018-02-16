@@ -75,7 +75,7 @@ public class HistoryPaymentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_payment);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        serviceId = getIntent().getIntExtra(AppConstant.SERVICE_ID_KEY, -1);
+        serviceId = getIntent().getIntExtra(AppConstant.KEY_SERVICE_ID, -1);
 
         if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
@@ -240,7 +240,7 @@ public class HistoryPaymentActivity extends AppCompatActivity {
                         if (statusCode == 201) {
                             startActivity(new Intent(HistoryPaymentActivity.this, HistoryActivity.class)
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    .putExtra(AppConstant.SERVICE_ID_KEY, serviceId));
+                                    .putExtra(AppConstant.KEY_SERVICE_ID, serviceId));
                             finish();
                             Toast.makeText(getApplicationContext(), "Konfirmasi berhasil!", Toast.LENGTH_SHORT).show();
                         } else {

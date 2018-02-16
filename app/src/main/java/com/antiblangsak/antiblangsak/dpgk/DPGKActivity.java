@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.app.AppConstant;
+import com.antiblangsak.antiblangsak.common.NasabahActivity;
+import com.antiblangsak.antiblangsak.dkk.DKKActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -37,8 +40,8 @@ public class DPGKActivity extends AppCompatActivity {
         rowNasabah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DPGKActivity.this, DPGKNasabahActivity.class);
-                startActivity(myIntent);
+                startActivity(new Intent(DPGKActivity.this, NasabahActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DPGK_SERVICE_ID_INTEGER));
             }
         });
 

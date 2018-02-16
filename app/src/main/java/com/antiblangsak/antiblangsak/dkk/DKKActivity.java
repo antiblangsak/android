@@ -15,6 +15,8 @@ import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.common.HistoryActivity;
+import com.antiblangsak.antiblangsak.common.NasabahActivity;
+import com.antiblangsak.antiblangsak.common.NasabahAddActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -38,7 +40,7 @@ public class DKKActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         sharedPrefManager = new SharedPrefManager(this);
 
-        rowDeskripsi = (LinearLayout) findViewById(R.id.rowDeskripsi);
+        rowDeskripsi = findViewById(R.id.rowDeskripsi);
         rowDeskripsi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -50,8 +52,8 @@ public class DKKActivity extends AppCompatActivity {
         rowNasabah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DKKActivity.this, DKKNasabahActivity.class);
-                startActivity(myIntent);
+                startActivity(new Intent(DKKActivity.this, NasabahActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DKK_SERVICE_ID_INTEGER));
             }
         });
 
@@ -60,12 +62,12 @@ public class DKKActivity extends AppCompatActivity {
         Log.w("FAMILY ID", familyId + "");
         Log.w("FAMILY STATUS", familyStatus + "");
 
-        rowHistory = (LinearLayout) findViewById(R.id.rowHistory);
+        rowHistory = findViewById(R.id.rowHistory);
         rowHistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DKKActivity.this, HistoryActivity.class)
-                .putExtra(AppConstant.SERVICE_ID_KEY, AppConstant.DKK_SERVICE_ID_INTEGER));
+                .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DKK_SERVICE_ID_INTEGER));
             }
         });
 

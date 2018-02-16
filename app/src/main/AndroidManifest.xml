@@ -44,12 +44,6 @@
             android:name=".common.MainActivity"
             android:label="@string/main_title"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".dpgk.DPGKNasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan" />
-        <activity
-            android:name=".dpgk.DPGKAddNasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan" />
 
         <!-- DAFTAR NASABAH AND PROFIL -->
         <activity
@@ -76,13 +70,19 @@
         <!-- COMMON ACTIVITIES -->
         <activity
             android:name=".common.HistoryActivity"
-            android:label="Riwayat"/>
+            android:label="Riwayat" />
         <activity
             android:name=".common.HistoryPaymentActivity"
-            android:label="Detail Pembayaran"/>
+            android:label="Detail Pembayaran" />
         <activity
             android:name=".common.HistoryClaimActivity"
-            android:label="Detail Klaim"/>
+            android:label="Detail Klaim" />
+        <activity
+            android:name=".common.NasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan"/>
+        <activity
+            android:name=".common.NasabahAddActivity"
+            android:label="@string/dkk_nasabah_daftarkan"/>
 
         <!-- DPGK -->
         <activity
@@ -108,12 +108,6 @@
         <activity
             android:name=".dkk.DKKListRumahSakitActivity"
             android:label="Daftar RS Mitra" />
-        <activity
-            android:name=".dkk.DKKNasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan" />
-        <activity
-            android:name=".dkk.DKKAddNasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan" />
 
         <!-- DWK -->
         <activity
@@ -125,6 +119,7 @@
         <activity
             android:name=".dwk.DWKTermsConditionsActivity"
             android:label="Syarat dan Ketentuan" />
+
     </application>
 
 </manifest>

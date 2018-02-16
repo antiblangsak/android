@@ -73,7 +73,7 @@ public class HistoryClaimActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_claim);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        serviceId = getIntent().getIntExtra(AppConstant.SERVICE_ID_KEY, -1);
+        serviceId = getIntent().getIntExtra(AppConstant.KEY_SERVICE_ID, -1);
 
         if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));

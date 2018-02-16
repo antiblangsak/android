@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.antiblangsak.antiblangsak.adapters.HistoryAdapter;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.models.HistoryModel;
-import com.antiblangsak.antiblangsak.common.LoginActivity;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
@@ -73,7 +72,7 @@ public class HistoryActivity extends AppCompatActivity {
         emailUser = sharedPrefManager.getEmail();
         familyId = sharedPrefManager.getFamilyId();
 
-        serviceId = getIntent().getIntExtra(AppConstant.SERVICE_ID_KEY, -1);
+        serviceId = getIntent().getIntExtra(AppConstant.KEY_SERVICE_ID, -1);
 
         if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
@@ -133,11 +132,11 @@ public class HistoryActivity extends AppCompatActivity {
                                     if (histo.getType().equals("Pembayaran")) {
                                         inten = new Intent(HistoryActivity.this, HistoryPaymentActivity.class);
                                         inten.putExtra("histoId", histo.getId());
-                                        inten.putExtra(AppConstant.SERVICE_ID_KEY, serviceId);
+                                        inten.putExtra(AppConstant.KEY_SERVICE_ID, serviceId);
                                     } else {
                                         inten = new Intent(HistoryActivity.this, HistoryClaimActivity.class);
                                         inten.putExtra("claimId", histo.getId());
-                                        inten.putExtra(AppConstant.SERVICE_ID_KEY, serviceId);
+                                        inten.putExtra(AppConstant.KEY_SERVICE_ID, serviceId);
                                     }
                                     startActivity(inten);
 
