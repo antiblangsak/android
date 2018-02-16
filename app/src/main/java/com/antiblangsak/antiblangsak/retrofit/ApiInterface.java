@@ -42,6 +42,9 @@ public interface ApiInterface {
                                 @Field("list_family_member_id[]") ArrayList<Integer> list_member,
                                 @Field("service_id") int serviceId);
 
+    @GET("family/{familyId}")
+    Call<Object> getFamilyProfile(@Header("Authorization") String token, @Path("familyId") int familyId);
+
     @GET("claim/{claimId}")
     Call<Object> getClaimDetail(@Header("Authorization") String token, @Path("claimId") int id);
 

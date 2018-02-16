@@ -67,7 +67,8 @@
             android:name=".common.ProfileActivity"
             android:label="@string/profile_title" />
         <activity
-            android:name=".common.ProfilKeluargaActivity" />
+            android:name=".common.FamilyProfileActivity"
+            android:label="@string/title_activity_family_profile"/>
 
         <!-- COMMON ACTIVITIES -->
         <activity

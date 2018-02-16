@@ -67,6 +67,12 @@ public class HomeFragment extends Fragment {
 
         if (hasFamily) {
             btnRegisterAsNasabah.setText(R.string.home_profilkeluargabutton);
+            btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getActivity(), FamilyProfileActivity.class));
+                }
+            });
         } else {
             btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener(){
                 @Override

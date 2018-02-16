@@ -78,6 +78,8 @@
 
     <string name="daftarnasabahkeluargabaru_agreementnote">Dengan ini saya menyatakan telah membaca dan menyetujui syarat dan ketentuan yang berlaku.</string>
 
+    <string name="title_activity_family_profile">Profil Keluarga</string>
+
     <string name="dpk_deskripsi_title">Deskripsi Layanan</string>
     <string name="dpk_deskripsi_short">Apa itu Dana Pendidikan Kami?</string>
     <string name="dkk_deskripsi_short">Apa itu Dana Kesehatan Kami?</string>
