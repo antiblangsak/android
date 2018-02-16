@@ -51,6 +51,7 @@ public class AppConstant {
 
     public static final String KEY_UNREGISTERED_MEMBERS_JSON = "UNREGISTERED_MEMBERS";
 
+    public static final String KEY_SERVICE_ID = "SERVICE_ID";
     public static final int DPGK_SERVICE_ID_INTEGER = 1;
     public static final int DKK_SERVICE_ID_INTEGER = 2;
     public static final int DWK_SERVICE_ID_INTEGER = 3;

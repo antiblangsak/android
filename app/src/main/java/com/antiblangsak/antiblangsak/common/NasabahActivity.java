@@ -1,4 +1,4 @@
-package com.antiblangsak.antiblangsak.dkk;
+package com.antiblangsak.antiblangsak.common;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,12 +13,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.antiblangsak.antiblangsak.app.AppConstant;
-import com.antiblangsak.antiblangsak.common.LoginActivity;
-import com.antiblangsak.antiblangsak.adapters.NasabahAdapter;
-import com.antiblangsak.antiblangsak.models.NasabahModel;
 import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.adapters.NasabahAdapter;
+import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
+import com.antiblangsak.antiblangsak.models.NasabahModel;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 import com.google.gson.Gson;
@@ -35,7 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DKKNasabahActivity extends AppCompatActivity {
+public class NasabahActivity extends AppCompatActivity {
 
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
@@ -56,6 +55,9 @@ public class DKKNasabahActivity extends AppCompatActivity {
     private JSONArray registered;
     private JSONArray unregistered;
 
+    private int serviceId;
+    private Call call;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -64,12 +66,30 @@ public class DKKNasabahActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dkk_nasabah);
+        setContentView(R.layout.activity_nasabah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
+
+        token = sharedPrefManager.getToken();
+        emailUser = sharedPrefManager.getEmail();
+        familyId = sharedPrefManager.getFamilyId();
+
+        serviceId = getIntent().getIntExtra(AppConstant.KEY_SERVICE_ID, -1);
+
+        if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
+            call = apiInterface.getAllDPGKFamilyMembers(token, familyId);
+        } else if (serviceId == AppConstant.DKK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+            call = apiInterface.getAllDKKFamilyMembers(token, familyId);
+        } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         nasabahListView = findViewById(R.id.list_view_nasabah);
         addNewNasabah = findViewById(R.id.layout_add_nasabah);
@@ -78,11 +98,6 @@ public class DKKNasabahActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         mainLayout = findViewById(R.id.mainLayout);
 
-        token = sharedPrefManager.getToken();
-        emailUser = sharedPrefManager.getEmail();
-        familyId = sharedPrefManager.getFamilyId();
-
-        Call call = apiInterface.getAllDKKFamilyMembers(token, familyId);
         call.enqueue(new Callback() {
 
             @Override
@@ -125,8 +140,9 @@ public class DKKNasabahActivity extends AppCompatActivity {
                             addNewNasabah.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent myIntent = new Intent(DKKNasabahActivity.this, DKKAddNasabahActivity.class)
-                                            .putExtra(AppConstant.KEY_UNREGISTERED_MEMBERS_JSON, unregistered.toString());
+                                    Intent myIntent = new Intent(NasabahActivity.this, NasabahAddActivity.class)
+                                            .putExtra(AppConstant.KEY_UNREGISTERED_MEMBERS_JSON, unregistered.toString())
+                                            .putExtra(AppConstant.KEY_SERVICE_ID, serviceId);
                                     startActivity(myIntent);
                                 }
                             });
@@ -139,10 +155,10 @@ public class DKKNasabahActivity extends AppCompatActivity {
                 } else {
                     try {
                         Log.w("body", response.errorBody().string());
-                        sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(DKKNasabahActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        DKKNasabahActivity.this.finish();
+                        sharedPrefManager.logout();
+                        startActivity(new Intent(NasabahActivity.this, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
 
                         Call callLogout = apiInterface.logout(token, emailUser);
                         callLogout.enqueue(new Callback() {

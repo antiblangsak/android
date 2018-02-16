@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.antiblangsak.antiblangsak.common.DaftarRekeningActivity">
+    tools:context="com.antiblangsak.antiblangsak.common.HistoryPaymentActivity">
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,8 +16,7 @@
         android:descendantFocusability="beforeDescendants"
         android:clickable="true"
         android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:visibility="gone">
+        android:focusableInTouchMode="true">
 
         <TextView
             android:id="@+id/nomorLabel"
@@ -25,16 +25,16 @@
             android:layout_marginTop="@dimen/margin_xl"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:text="Nomor Klaim"
+            android:text="Nomor Pembayaran"
             android:textSize="16dp"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
 
         <TextView
-            android:id="@+id/nomorKlaim"
+            android:id="@+id/nomorPembayaran"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nomor Klaim"
+            android:text="Nomor Pembayaran"
             android:textSize="14dp"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
@@ -83,21 +83,21 @@
             android:layout_marginBottom="@dimen/margin_md"/>
 
         <TextView
-            android:id="@+id/detailLabel"
+            android:id="@+id/metodeLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:text="Detail Klaim"
+            android:text="Metode Pembayaran"
             android:textSize="16dp"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
 
         <TextView
-            android:id="@+id/detail"
+            android:id="@+id/metode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Detail"
+            android:text="Transfer Manual (ATM)\n"
             android:textSize="14dp"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:text="Status Klaim"
+            android:text="Status Pembayaran"
             android:textSize="16dp"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
@@ -118,11 +118,27 @@
             android:id="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Status Klaim"
+            android:text="Status Pembayaran"
             android:textSize="14dp"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btnBayar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginBottom="@dimen/margin_lg"
+            android:paddingBottom="@dimen/padding_xxs"
+            android:background="@drawable/all_button"
+            android:text="Konfirmasi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_button_md"/>
+
 
         <TextView
             android:id="@+id/peringatan"
@@ -134,6 +150,23 @@
             android:layout_marginLeft="@dimen/margin_spinner"
             android:layout_marginRight="@dimen/margin_spinner"
             android:layout_marginBottom="@dimen/margin_xl"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progressBarButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/margin_xl"
+                android:indeterminateTint="@color/yellow"
+                android:indeterminate="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 
