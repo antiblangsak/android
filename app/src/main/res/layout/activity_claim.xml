@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antiblangsak.antiblangsak.common.ClaimActivity">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:descendantFocusability="beforeDescendants"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xl"
+                android:layout_marginLeft="@dimen/margin_xxxl"
+                android:layout_marginRight="@dimen/margin_xxxl"
+                android:padding="@dimen/padding_xs"
+                android:text="@string/klaim_pilihnasabahhint"
+                android:textSize="@dimen/textsize_hint"
+                android:textColor="@color/gray"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_spinner"
+                android:layout_marginRight="@dimen/margin_spinner"
+                android:layout_marginBottom="@dimen/margin_sm"
+                android:background="@drawable/all_spinner">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/yellow" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvRemainingAmountText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xxxl"
+                    android:paddingLeft="@dimen/padding_xs"
+                    android:textSize="@dimen/textsize_sm"/>
+
+                <TextView
+                    android:id="@+id/tvRemainingAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_xxxl"
+                    android:paddingLeft="@dimen/padding_xs"
+                    android:textSize="@dimen/textsize_sm"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginTop="@dimen/margin_lg"
+            android:layout_marginBottom="@dimen/margin_md">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:theme="@style/EditTextTheme">
+
+                <EditText
+                    android:id="@+id/etPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/klaim_photohint"
+                    android:inputType="text"
+                    android:textSize="@dimen/textsize_inputtext"
+                    android:textCursorDrawable="@null"
+                    android:text="@string/klaim_claimphoto"
+                    android:backgroundTint="@color/yellow"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xs"
+                    android:text="@string/daftarnasabahkeluargabaru_photonote"
+                    android:textSize="@dimen/textsize_sm"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/imPhoto"
+                android:src="@drawable/all_uploadimage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/margin_lg"
+                android:layout_marginLeft="@dimen/margin_md"
+                android:layout_marginRight="@dimen/margin_sm"
+                android:layout_marginBottom="@dimen/margin_lg"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:paddingBottom="@dimen/padding_xxs"
+            android:background="@drawable/all_button"
+            android:text="@string/klaim_kirimbutton"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_button_md"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/margin_xxxl"
+            android:indeterminateTint="@color/yellow"
+            android:indeterminate="true"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

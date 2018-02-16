@@ -55,8 +55,7 @@
         <activity
             android:name=".common.DaftarNasabahKeluargaBaruActivity"
             android:label="@string/daftarnasabah_title" />
-        <activity
-            android:name=".common.DaftarRekeningActivity" />
+        <activity android:name=".common.DaftarRekeningActivity" />
         <activity
             android:name=".common.DaftarNasabahUploadFotoActivity"
             android:label="@string/daftarnasabah_title" />
@@ -66,8 +65,7 @@
         <activity
             android:name=".common.ProfileActivity"
             android:label="@string/profile_title" />
-        <activity
-            android:name=".common.ProfilKeluargaActivity" />
+        <activity android:name=".common.ProfilKeluargaActivity" />
 
         <!-- COMMON ACTIVITIES -->
         <activity
@@ -81,10 +79,13 @@
             android:label="Detail Klaim" />
         <activity
             android:name=".common.NasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan"/>
+            android:label="@string/dkk_nasabah_daftarkan" />
         <activity
             android:name=".common.NasabahAddActivity"
-            android:label="@string/dkk_nasabah_daftarkan"/>
+            android:label="@string/dkk_nasabah_daftarkan" />
+        <activity
+            android:name=".common.ClaimActivity"
+            android:label="Klaim Dana"/>
 
         <!-- DPGK -->
         <activity

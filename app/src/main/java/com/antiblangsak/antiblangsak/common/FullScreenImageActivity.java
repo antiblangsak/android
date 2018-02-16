@@ -26,7 +26,7 @@ public class FullScreenImageActivity extends AppCompatActivity {
 
         Intent callingActivityIntent = getIntent();
         if(callingActivityIntent != null) {
-            Bitmap bitmap = ImageUtil.convert(sharedPrefManager.getBankAccPhotoBase64());
+            Bitmap bitmap = ImageUtil.convert(sharedPrefManager.getPhoto(callingActivityIntent.getStringExtra("TYPE")));
             if(bitmap != null && fullScreenImageView != null) {
                 AppHelper.showImageWithGlide(this, bitmap, fullScreenImageView);
             }

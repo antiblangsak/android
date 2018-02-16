@@ -68,8 +68,8 @@
     <string name="daftarrekening_accountholdernamehint">Nama Pemilik Rekening</string>
     <string name="daftarrekening_accountphotohint">Foto Buku Rekening</string>
     <string name="daftarrekening_daftarkanbutton">Daftarkan Rekening</string>
-    <string name="daftarrekening_accountphoto">Pilih Foto...</string>
-    <string name="daftarrekening_accountphotoubah">Ubah Foto...</string>
+    <string name="daftarrekening_accountphoto">Pilih Foto…</string>
+    <string name="daftarrekening_accountphotoubah">Ubah Foto…</string>
 
     <string name="daftarnasabahkeluargabaru_daftarkanbutton">Daftarkan Keluarga</string>
     <string name="daftarnasabahkeluargabaru_ktphint">Foto KTP</string>
@@ -101,6 +101,12 @@
     <string name="dkk_nasabah_belum_ada_nasabah_line_1">Anda belum mendaftarkan nasabah</string>
     <string name="dkk_nasabah_belum_ada_nasabah_line_2">Daftarkan sekarang!</string>
     <string name="dkk_nasabah_daftarkan_button">Daftarkan</string>
+
+    <string name="klaim_pilihnasabahhint">Pilih Nasabah</string>
+    <string name="klaim_photohint">Foto Tagihan</string>
+    <string name="klaim_claimphoto">Pilih Foto…</string>
+    <string name="klaim_ubahfoto">Ubah Foto…</string>
+    <string name="klaim_kirimbutton">Kirim</string>
 
     <string name="title_activity_deskripsi">Deskripsi Layanan</string>
     <string name="deskripsi_dkk">Program ini  adalah perlindungan kesehatan kepada masyarakat atas biaya pengobatan terhadap setiap gangguan kesehatan yang dialami peserta saat mereka berobat ke Rumah Sakit mitra Antiblangsak. Biaya pengobatan terdiri dari total seluruh biaya pendaftaran, biaya pemeriksaan medis oleh dokter, dan biaya untuk tebus obat di apotik Rumah Sakit.</string>
