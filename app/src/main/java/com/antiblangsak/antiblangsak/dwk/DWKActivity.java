@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.antiblangsak.antiblangsak.app.AppConstant;
+import com.antiblangsak.antiblangsak.common.HistoryActivity;
 import com.antiblangsak.antiblangsak.common.ProfilKeluargaActivity;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
@@ -45,10 +47,12 @@ public class DWKActivity extends AppCompatActivity {
                 startActivity(new Intent(DWKActivity.this, DWKDescriptionActivity.class));
             }
         });
+
         rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
+                startActivity(new Intent(DWKActivity.this, HistoryActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
             }
         });
 
