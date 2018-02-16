@@ -112,7 +112,7 @@ public class NasabahAddActivity extends AppCompatActivity {
                 Log.w("DATA", id + " | " + name + " | " + relation);
                 nasabahModels.add(new NasabahModel(id, name, relation, 0));
             }
-            nasabahAdapter = new NasabahAdapter(nasabahModels, getApplicationContext(), false);
+            nasabahAdapter = new NasabahAdapter(nasabahModels, NasabahAddActivity.this, false);
             nasabahListView.setAdapter(nasabahAdapter);
         } catch (JSONException e) {
             e.printStackTrace();

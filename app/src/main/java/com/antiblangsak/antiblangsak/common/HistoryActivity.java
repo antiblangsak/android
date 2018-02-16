@@ -119,7 +119,7 @@ public class HistoryActivity extends AppCompatActivity {
                                 Log.w("DATA", type + " " + id + " " + status + " " + createdAt);
                                 history.add(new HistoryModel(id, type, status, createdAt));
                             }
-                            adapter = new HistoryAdapter(history, getApplicationContext());
+                            adapter = new HistoryAdapter(history, HistoryActivity.this);
                             listView.setAdapter(adapter);
                             listView.setVisibility(View.VISIBLE);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

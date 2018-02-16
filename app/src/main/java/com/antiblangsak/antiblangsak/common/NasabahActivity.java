@@ -125,7 +125,7 @@ public class NasabahActivity extends AppCompatActivity {
                             Log.w("DATA", id + " | " + name + " | " + relation + " | " + status);
                             nasabahModels.add(new NasabahModel(id, name, relation, status));
                         }
-                        nasabahAdapter = new NasabahAdapter(nasabahModels, getApplicationContext(), true);
+                        nasabahAdapter = new NasabahAdapter(nasabahModels, NasabahActivity.this, true);
                         nasabahListView.setAdapter(nasabahAdapter);
 
                         mainLayout.setVisibility(View.VISIBLE);

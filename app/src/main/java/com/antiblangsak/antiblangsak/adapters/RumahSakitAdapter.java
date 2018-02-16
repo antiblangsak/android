@@ -43,8 +43,6 @@ public class RumahSakitAdapter extends ArrayAdapter<RumahSakitModel> {
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 
-        Typeface customFont = Typeface.createFromAsset(mContext.getAssets(), AppConfig.REGULAR_FONT);
-
         final View result;
 
         if (convertView == null) {
@@ -54,15 +52,12 @@ public class RumahSakitAdapter extends ArrayAdapter<RumahSakitModel> {
             viewHolder.list_tvNameRS = (TextView) convertView.findViewById(R.id.list_tvNameRS);
             viewHolder.list_tvAddress = (TextView) convertView.findViewById(R.id.list_tvAddress);
             viewHolder.list_tvDistance = (TextView) convertView.findViewById(R.id.list_tvDistance);
-            viewHolder.list_tvNameRS.setTypeface(customFont);
-            viewHolder.list_tvAddress.setTypeface(customFont);
-            viewHolder.list_tvDistance.setTypeface(customFont);
 
-            result=convertView;
+            result = convertView;
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
-            result=convertView;
+            result = convertView;
         }
 
         viewHolder.list_tvNameRS.setText(rumahSakitModel.getName());

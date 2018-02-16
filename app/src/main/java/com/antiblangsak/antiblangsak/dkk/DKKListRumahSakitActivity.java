@@ -48,7 +48,7 @@ public class DKKListRumahSakitActivity extends AppCompatActivity {
         RSmodel.add(new RumahSakitModel("RS Cipayung", "Cimanggis Depok", "37"));
         RSmodel.add(new RumahSakitModel("RS Cipto", "Jl. Raya Bogor no 53", "39"));
         RSmodel.add(new RumahSakitModel("RS Haji", "Jl. Akses UI no 23", "49"));
-        adapter= new RumahSakitAdapter(RSmodel,getApplicationContext());
+        adapter= new RumahSakitAdapter(RSmodel, DKKListRumahSakitActivity.this);
 
         listViewRS.setAdapter(adapter);
 

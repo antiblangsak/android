@@ -1,6 +1,7 @@
 package com.antiblangsak.antiblangsak.adapters;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,11 +55,6 @@ public class NasabahAdapter extends ArrayAdapter<NasabahModel> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
-        Typeface customFont = Typeface.createFromAsset(mContext.getAssets(), AppConfig.REGULAR_FONT);
-
-        viewHolder.tvName.setTypeface(customFont);
-        viewHolder.tvDesc.setTypeface(customFont);
 
         viewHolder.tvName.setText(model.getName());
         if (isRegistered) {
