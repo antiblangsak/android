@@ -133,16 +133,32 @@ public class HistoryClaimActivity extends AppCompatActivity {
                         Log.w("RESPONSE", "body: " + body.toString());
 
                         JSONObject data = body.getJSONObject("data");
+
                         String claimNumber = data.getString("claim_number");
                         String client = data.getString("client");
-                        int claim_amount = data.getInt("claim_amount");
-                        String note = data.getString("note");
                         int statusKlaim = data.getInt("status");
 
                         nomorKlaim.setText(claimNumber);
                         nasabah.setText(client);
-                        nominal.setText(AppHelper.formatRupiah(claim_amount));
-                        detail.setText(note);
+
+                        int claim_amount = -1;
+                        if (data.has("claim_amount")) {
+                            claim_amount = data.getInt("claim_amount");
+                            nominal.setText(AppHelper.formatRupiah(claim_amount));
+                        } else {
+                            nominalLabel.setVisibility(View.GONE);
+                            nominal.setVisibility(View.GONE);
+                        }
+
+                        String note = "";
+                        if (data.has("note")) {
+                            note = data.getString("note");
+                            detail.setText(note);
+                        } else {
+                            detailLabel.setVisibility(View.GONE);
+                            detail.setVisibility(View.GONE);
+
+                        }
 
                         if (statusKlaim == AppConstant.HISTORY_CLAIM_STATUS_WAITING_FOR_VERIFICATION) {
                             status.setText(AppConstant.HISTORY_CLAIM_STATUS_WAITING_FOR_VERIFICATION_STRING);
@@ -161,6 +177,7 @@ public class HistoryClaimActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 } else {
                     try {
