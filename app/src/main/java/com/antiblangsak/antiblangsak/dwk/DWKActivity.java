@@ -14,6 +14,7 @@ import com.antiblangsak.antiblangsak.common.FamilyProfileActivity;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
+import com.antiblangsak.antiblangsak.common.HistoryActivity;
 import com.antiblangsak.antiblangsak.common.NasabahActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -63,7 +64,8 @@ public class DWKActivity extends AppCompatActivity {
         rowHistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(DWKActivity.this, HistoryActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
             }
         });
 

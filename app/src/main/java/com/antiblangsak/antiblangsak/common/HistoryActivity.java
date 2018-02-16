@@ -82,6 +82,7 @@ public class HistoryActivity extends AppCompatActivity {
             call = apiInterface.getDKKHistory(token, familyId);
         } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+            call = apiInterface.getDWKHistory(token, familyId);
         } else {
             Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
             finish();

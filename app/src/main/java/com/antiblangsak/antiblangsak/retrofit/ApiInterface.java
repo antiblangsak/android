@@ -70,4 +70,7 @@ public interface ApiInterface {
 
     @GET("dwk/{familyId}/family_members")
     Call<Object> getAllDWKFamilyMembers(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dwk/{familyId}/history")
+    Call<Object> getDWKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
 }
