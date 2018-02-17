@@ -42,6 +42,7 @@ public class SharedPrefManager {
         spEditor.remove(HAS_FAMILY);
         spEditor.remove(FAMILY_ID);
         spEditor.remove(FAMILY_STATUS);
+        clearPhotos();
         spEditor.commit();
     }
 
