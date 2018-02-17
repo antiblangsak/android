@@ -36,7 +36,7 @@ public interface ApiInterface {
     Call<Object> profile(@Header("Authorization") String token, @Path("userId") int id);
 
     @GET("dkk/{familyId}/get_prepayment_info")
-    Call<Object> prepayment(@Header("Authorization") String token, @Path("familyId") int id);
+    Call<Object> getDKKPaymentInfo(@Header("Authorization") String token, @Path("familyId") int id);
 
     @POST("payment")
     @FormUrlEncoded

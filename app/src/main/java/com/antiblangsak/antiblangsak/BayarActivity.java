@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,7 +27,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -36,7 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class DKKBayarActivity extends AppCompatActivity {
+public class BayarActivity extends AppCompatActivity {
 
     private Spinner spPaymentMethod;
     private Spinner spBankName;
@@ -109,7 +107,7 @@ public class DKKBayarActivity extends AppCompatActivity {
         final String emailUser = sharedPrefManager.getEmail();
         final int userId = sharedPrefManager.getId();
 
-        Call call_prepayment = apiInterface.prepayment(token, familyId);
+        Call call_prepayment = apiInterface.getDKKPaymentInfo(token, familyId);
         call_prepayment.enqueue(new Callback() {
 
             @Override
@@ -153,7 +151,7 @@ public class DKKBayarActivity extends AppCompatActivity {
                         }
 
                         ArrayAdapter<String> spinnerArrayAdapterBankName = new ArrayAdapter<String>(
-                                DKKBayarActivity.this, R.layout.item_spinner, bankAccountsName) {
+                                BayarActivity.this, R.layout.item_spinner, bankAccountsName) {
                             @Override
                             public View getView(int position, View convertView, ViewGroup parent) {
                                 View view = super.getView(position, convertView, parent);
@@ -220,9 +218,9 @@ public class DKKBayarActivity extends AppCompatActivity {
                     try {
                         Log.w("body", response.errorBody().string());
                         sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
-                        startActivity(new Intent(DKKBayarActivity.this, LoginActivity.class)
+                        startActivity(new Intent(BayarActivity.this, LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        DKKBayarActivity.this.finish();
+                        BayarActivity.this.finish();
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -317,7 +315,7 @@ public class DKKBayarActivity extends AppCompatActivity {
                                 body = new JSONObject(new Gson().toJson(response.body()));
                                 Log.w("RESPONSE", "body: " + body.toString());
 
-                                startActivity(new Intent(DKKBayarActivity.this, DKKActivity.class)
+                                startActivity(new Intent(BayarActivity.this, DKKActivity.class)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                 finish();
 
@@ -329,7 +327,7 @@ public class DKKBayarActivity extends AppCompatActivity {
                             try {
                                 Log.w("body", response.errorBody().string());
                                 sharedPrefManager.logout();
-                                startActivity(new Intent(DKKBayarActivity.this, LoginActivity.class)
+                                startActivity(new Intent(BayarActivity.this, LoginActivity.class)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                 finish();
 
@@ -355,14 +353,8 @@ public class DKKBayarActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
                     }
                 });
-
-                Intent myIntent = new Intent(DKKBayarActivity.this, DKKDetailPembayaranActivity.class);
-                startActivity(myIntent);
-
             }
         });
-
-
     }
 
     @Override

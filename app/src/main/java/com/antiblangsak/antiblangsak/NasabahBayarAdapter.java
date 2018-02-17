@@ -2,14 +2,12 @@ package com.antiblangsak.antiblangsak;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.nfc.tech.NfcA;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -65,11 +63,11 @@ public class NasabahBayarAdapter extends ArrayAdapter<NasabahBayarModel>{
                 model.checked();
 
                 if (model.isChecked()) {
-                    DKKBayarActivity.addTagihan();
+                    BayarActivity.addTagihan();
                 } else {
-                    DKKBayarActivity.reduceTagihan();
+                    BayarActivity.reduceTagihan();
                 }
-                DKKBayarActivity.showTagihan();
+                BayarActivity.showTagihan();
             }
         });
         return convertView;

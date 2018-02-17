@@ -31,11 +31,10 @@ public class DKKActivity extends AppCompatActivity {
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
         rowbayar = findViewById(R.id.rowBayar);
-
         rowbayar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(DKKActivity.this, DKKBayarActivity.class);
+                Intent myIntent = new Intent(DKKActivity.this, BayarActivity.class);
                 startActivity(myIntent);
 
             }
