@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textsize_button_md">18dp</dimen>
+    <dimen name="textsize_button_xd">16dp</dimen>
     <dimen name="textsize_button_sm">14dp</dimen>
     <dimen name="borderradius_button">8dp</dimen>
+
+    <dimen name="textsize_feature_title">16dp</dimen>
+    <dimen name="textsize_feature_title_desc">12dp</dimen>
 
     <dimen name="textsize_hint">10dp</dimen>
     <dimen name="textsize_inputtext">16dp</dimen>
 
     <dimen name="textsize_all_xs">10dp</dimen>
     <dimen name="textsize_sm">12dp</dimen>
+    <dimen name="textsize_md">14dp</dimen>
+    <dimen name="textsize_ll">16dp</dimen>
     <dimen name="textsize_lg">20sp</dimen>
 
     <dimen name="margin_superxl">60dp</dimen>
+    <dimen name="margin_xxxxl">48dp</dimen>
     <dimen name="margin_xxxl">36dp</dimen>
     <dimen name="margin_xxl">24dp</dimen>
     <dimen name="margin_xl">20dp</dimen>
+    <dimen name="margin_ll">18dp</dimen>
     <dimen name="margin_lg">16dp</dimen>
     <dimen name="margin_md">12dp</dimen>
     <dimen name="margin_sm">8dp</dimen>
