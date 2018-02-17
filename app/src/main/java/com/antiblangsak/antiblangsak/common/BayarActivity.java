@@ -13,7 +13,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +54,7 @@ public class BayarActivity extends AppCompatActivity {
 
     private ArrayList<NasabahBayarModel> nasabahBayarModels;
     public static NasabahBayarAdapter nasabahBayarModelsAdapter;
-    private ListView listView;
+    private NonScrollListView listView;
     private static TextView totalTagihan;
     private static int tagihan;
 
@@ -69,14 +70,19 @@ public class BayarActivity extends AppCompatActivity {
     private String[] bankAccountsNumber;
     private String[] bankAccountsOwner;
     private int[] bankAccountsId;
-    private int positionId;
+    private int bankAccountIndex;
 
     private String[] PAYMENT_METHOD = new String[]{
-            DEFAULT_PAYMENT_METHOD,
             "Transfer Manual (ATM)",
     };
 
     private int serviceId;
+
+    private LinearLayout mainLayout;
+    private ProgressBar progressBar;
+    private ProgressBar progressBarBayar;
+
+    private ArrayList<Integer> selectedClients;
 
     public static void addTagihan() {
         tagihan += 25000;
@@ -100,7 +106,7 @@ public class BayarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dkkbayar);
+        setContentView(R.layout.activity_bayar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -116,6 +122,12 @@ public class BayarActivity extends AppCompatActivity {
         final String token = sharedPrefManager.getToken();
         final String emailUser = sharedPrefManager.getEmail();
         final int userId = sharedPrefManager.getId();
+
+        mainLayout = findViewById(R.id.mainLayout);
+        progressBar = findViewById(R.id.progressBar);
+        progressBarBayar = findViewById(R.id.progressBarBayar);
+
+        selectedClients = new ArrayList();
 
         Call call_prepayment = apiInterface.getDKKPaymentInfo(token, familyId);
         call_prepayment.enqueue(new Callback() {
@@ -146,6 +158,7 @@ public class BayarActivity extends AppCompatActivity {
 
                         listView = findViewById(R.id.listNasabah);
                         listView.setAdapter(nasabahBayarModelsAdapter);
+                        listView.setVisibility(View.VISIBLE);
 
                         bankAccountsName = new String[bankAccount.length() + 1];
                         bankAccountsNumber = new String[bankAccount.length()+1];
@@ -203,6 +216,7 @@ public class BayarActivity extends AppCompatActivity {
                                 tvPemilikRekening = findViewById(R.id.pemilikRekening);
                                 tvNomorRekeningTitle = findViewById(R.id.nomorRekeningTitle);
                                 tvPemilikRekeningTitle = findViewById(R.id.pemilikRekeningTitle);
+
                                 if(position > 0){
                                     tvNomorRekening.setVisibility(View.VISIBLE);
                                     tvPemilikRekening.setVisibility(View.VISIBLE);
@@ -210,7 +224,7 @@ public class BayarActivity extends AppCompatActivity {
                                     tvPemilikRekeningTitle.setVisibility(View.VISIBLE);
                                     tvNomorRekening.setText(bankAccountsNumber[position]);
                                     tvPemilikRekening.setText(bankAccountsOwner[position]);
-                                    positionId = position;
+                                    bankAccountIndex = position;
                                 }
                             }
 
@@ -219,25 +233,25 @@ public class BayarActivity extends AppCompatActivity {
 
                             }
                         });
-
+                        progressBar.setVisibility(View.GONE);
+                        mainLayout.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 } else {
                     try {
                         Log.w("body", response.errorBody().string());
-                        sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, false);
+                        sharedPrefManager.logout();
                         startActivity(new Intent(BayarActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        BayarActivity.this.finish();
-
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-
 
             @Override
             public void onFailure(Call call, Throwable t) {
@@ -260,25 +274,13 @@ public class BayarActivity extends AppCompatActivity {
 
             @Override
             public boolean isEnabled(int position) {
-                if (position == 0) {
-                    // Disable the first item from Spinner. First item will be use for hint
-                    return false;
-                } else {
-                    return true;
-                }
+                return true;
             }
 
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {
                 View view = super.getDropDownView(position, convertView, parent);
-                TextView tv = (TextView) view;
-                if (position == 0){
-                    // Set the hint text color gray
-                    tv.setTextColor(getResources().getColor(R.color.gray));
-                } else {
-                    tv.setTextColor(getResources().getColor(R.color.black));
-                }
                 return view;
             }
         };
@@ -302,17 +304,25 @@ public class BayarActivity extends AppCompatActivity {
 
         btnBayar = findViewById(R.id.btnBayar);
         btnBayar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                int bank_account_id = bankAccountsId[positionId];
-                ArrayList clients = new ArrayList();
+                if (!validateInput()) {
+                    return;
+                }
+                btnBayar.setVisibility(View.GONE);
+                progressBarBayar.setVisibility(View.VISIBLE);
+
+                int bank_account_id = bankAccountsId[bankAccountIndex];
+
                 for(int i = 0; i < nasabahBayarModels.size(); i++){
                     if(nasabahBayarModels.get(i).isChecked()){
-                        clients.add(nasabahBayarModels.get(i).getId());
+                        selectedClients.add(nasabahBayarModels.get(i).getId());
                     }
                 }
-                Log.w("clients", clients.toString());
-                Call call_payment = apiInterface.payment(token,serviceId, bank_account_id, userId, clients, tagihan);
+                Log.w("selectedClients", selectedClients.toString());
+
+                Call call_payment = apiInterface.payment(token, serviceId, bank_account_id, userId, selectedClients, tagihan);
                 call_payment.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
@@ -325,8 +335,13 @@ public class BayarActivity extends AppCompatActivity {
                                 body = new JSONObject(new Gson().toJson(response.body()));
                                 Log.w("RESPONSE", "body: " + body.toString());
 
-                                startActivity(new Intent(BayarActivity.this, DKKActivity.class)
-                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                JSONObject data = body.getJSONObject("data");
+                                int paymentId = data.getInt("id");
+
+                                startActivity(new Intent(BayarActivity.this, HistoryPaymentActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        .putExtra(AppConstant.KEY_SERVICE_ID, serviceId)
+                                        .putExtra("histoId", paymentId));
                                 finish();
 
                             } catch (JSONException e) {
@@ -361,10 +376,40 @@ public class BayarActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                        btnBayar.setVisibility(View.GONE);
+                        progressBarBayar.setVisibility(View.VISIBLE);
                     }
                 });
             }
         });
+    }
+
+    public boolean validateInput() {
+        boolean isValid = true;
+
+        ArrayList<Integer> selectedClients = new ArrayList<>();
+        for(int i = 0; i < nasabahBayarModels.size(); i++){
+            if(nasabahBayarModels.get(i).isChecked()){
+                selectedClients.add(nasabahBayarModels.get(i).getId());
+            }
+        }
+
+        if (selectedClients.size() == 0) {
+            isValid = false;
+            Toast.makeText(getApplicationContext(), AppConstant.BAYAR_NO_CLIENT_SELECTED_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
+        }
+
+        if (bankAccountIndex == 0) {
+            ((TextView) spBankName.getSelectedView()).setError(AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE);
+            if (isValid) {
+                Toast.makeText(getApplicationContext(), AppConstant.GENERAL_TEXTVIEW_EMPTY_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
+            }
+            isValid = false;
+        } else {
+            ((TextView) spBankName.getSelectedView()).setError(null);
+        }
+
+        return isValid;
     }
 
     @Override
