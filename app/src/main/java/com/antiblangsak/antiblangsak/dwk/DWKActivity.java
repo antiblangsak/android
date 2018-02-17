@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.antiblangsak.antiblangsak.common.BayarActivity;
 import com.antiblangsak.antiblangsak.common.ClaimActivity;
 import com.antiblangsak.antiblangsak.common.FamilyProfileActivity;
 import com.antiblangsak.antiblangsak.R;
@@ -17,7 +18,6 @@ import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.common.HistoryActivity;
 import com.antiblangsak.antiblangsak.common.NasabahActivity;
-import com.antiblangsak.antiblangsak.dpgk.DPGKActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -26,6 +26,7 @@ public class DWKActivity extends AppCompatActivity {
     private LinearLayout rowDeskripsi;
     private LinearLayout rowHistory;
     private LinearLayout rowNasabah;
+    private LinearLayout rowBayar;
     private LinearLayout rowClaim;
 
     private SharedPrefManager sharedPrefManager;
@@ -60,6 +61,15 @@ public class DWKActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DWKActivity.this, NasabahActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
+        rowBayar = findViewById(R.id.rowBayar);
+        rowBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, BayarActivity.class)
                         .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
             }
         });

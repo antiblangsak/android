@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.adapters.NasabahBayarAdapter;
+import com.antiblangsak.antiblangsak.app.App;
 import com.antiblangsak.antiblangsak.models.NasabahBayarModel;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
@@ -98,6 +99,13 @@ public class BayarActivity extends AppCompatActivity {
 
     private Button btnBayar;
 
+    private Call callPaymentInfo;
+
+    private int familyId;
+    private String token;
+    private String emailUser;
+    private int userId;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -115,13 +123,25 @@ public class BayarActivity extends AppCompatActivity {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
 
-        ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+        familyId = sharedPrefManager.getFamilyId();
+        token = sharedPrefManager.getToken();
+        emailUser = sharedPrefManager.getEmail();
+        userId = sharedPrefManager.getId();
 
-        final int familyId = sharedPrefManager.getFamilyId();
-        final String token = sharedPrefManager.getToken();
-        final String emailUser = sharedPrefManager.getEmail();
-        final int userId = sharedPrefManager.getId();
+        ActionBar bar = getSupportActionBar();
+        if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
+            bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
+            callPaymentInfo = apiInterface.getDPGKPaymentInfo(token, familyId);
+        } else if (serviceId == AppConstant.DKK_SERVICE_ID_INTEGER) {
+            bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+            callPaymentInfo = apiInterface.getDKKPaymentInfo(token, familyId);
+        } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
+            bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+            callPaymentInfo = apiInterface.getDWKPaymentInfo(token, familyId);
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         mainLayout = findViewById(R.id.mainLayout);
         progressBar = findViewById(R.id.progressBar);
@@ -129,8 +149,7 @@ public class BayarActivity extends AppCompatActivity {
 
         selectedClients = new ArrayList();
 
-        Call call_prepayment = apiInterface.getDKKPaymentInfo(token, familyId);
-        call_prepayment.enqueue(new Callback() {
+        callPaymentInfo.enqueue(new Callback() {
 
             @Override
             public void onResponse(Call call, Response response) {
