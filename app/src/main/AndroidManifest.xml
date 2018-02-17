@@ -67,7 +67,8 @@
             android:name=".common.ProfileActivity"
             android:label="@string/profile_title" />
         <activity
-            android:name=".common.ProfilKeluargaActivity" />
+            android:name=".common.FamilyProfileActivity"
+            android:label="@string/title_activity_family_profile"/>
 
         <!-- COMMON ACTIVITIES -->
         <activity
@@ -81,10 +82,16 @@
             android:label="Detail Klaim" />
         <activity
             android:name=".common.NasabahActivity"
-            android:label="@string/dkk_nasabah_daftarkan"/>
+            android:label="@string/dkk_nasabah_daftarkan" />
         <activity
             android:name=".common.NasabahAddActivity"
-            android:label="@string/dkk_nasabah_daftarkan"/>
+            android:label="@string/dkk_nasabah_daftarkan" />
+        <activity
+            android:name=".common.BayarActivity"
+            android:label="Pembayaran Bulanan" />
+        <activity
+            android:name=".common.ClaimActivity"
+            android:label="Klaim Dana"/>
 
         <!-- DPGK -->
         <activity

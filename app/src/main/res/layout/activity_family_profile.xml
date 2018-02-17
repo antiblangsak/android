@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antiblangsak.antiblangsak.common.FamilyProfileActivity">
+
+    <ScrollView
+        android:visibility="gone"
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvIdKeluarga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:background="@drawable/daftarnasabah_option_normal"
+                android:layout_margin="@dimen/margin_md"
+                android:padding="@dimen/padding_sm"/>
+
+            <LinearLayout
+                android:id="@+id/layoutFamilyDataHeader"
+                android:padding="@dimen/padding_lg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_serviceitem"
+                >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:src="@drawable/ic_data_keluarga"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:paddingRight="@dimen/margin_sm"
+                        android:adjustViewBounds="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Data Keluarga"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/margin_xxl"
+                        android:id="@+id/tvDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Informasi umum keluarga Amda"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFamilyData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_xl">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Nomor KK"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvFamilyNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="13456789134593489"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Nama Kepala Keluarga"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvChairman"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="Kemas Ramadhan"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Alamat"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="Jl. Katelia Raya AS4 No. 51"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="RT/RW"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvRtRw"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="009/014"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Kode Pos"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvPostalCode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="17433"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Desa/Kelurahan"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvVillage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="Jatisampurna"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Kecamatan"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvSubDistrict"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="Jatisampurna"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Kabupaten/Kota"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvCity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="Kota Bekasi"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="12"
+                        android:text="Provinsi"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=":"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:id="@+id/tvProvince"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="15"
+                        android:text="Jawa Barat"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFamilyMemberHeader"
+                android:padding="@dimen/padding_lg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_serviceitem"
+                >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:src="@drawable/ic_anggota_keluarga"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:paddingRight="@dimen/margin_sm"
+                        android:adjustViewBounds="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Anggota Keluarga"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/margin_xxl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Terdapat 3 anggota keluarga"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFamilyMember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.antiblangsak.antiblangsak.common.NonScrollListView
+                    android:id="@+id/listFamilyMember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/padding_xl"
+                    android:paddingBottom="@dimen/padding_xl"
+                    android:paddingLeft="@dimen/padding_xxxl"
+                    android:paddingRight="@dimen/padding_xxxl"
+                    android:divider="@null"
+                    android:dividerHeight="@dimen/margin_md">
+
+                </com.antiblangsak.antiblangsak.common.NonScrollListView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/margin_xxl"
+        android:indeterminateTint="@color/yellow"
+        android:indeterminate="true"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

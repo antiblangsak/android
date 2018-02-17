@@ -10,15 +10,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.antiblangsak.antiblangsak.common.ProfilKeluargaActivity;
+import com.antiblangsak.antiblangsak.common.BayarActivity;
+import com.antiblangsak.antiblangsak.common.ClaimActivity;
+import com.antiblangsak.antiblangsak.common.FamilyProfileActivity;
 import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
+import com.antiblangsak.antiblangsak.common.HistoryActivity;
+import com.antiblangsak.antiblangsak.common.NasabahActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DWKActivity extends AppCompatActivity {
-    private LinearLayout rowDeskripsiDWK;
-    private LinearLayout rowHistoryDWK;
+
+    private LinearLayout rowDeskripsi;
+    private LinearLayout rowHistory;
+    private LinearLayout rowNasabah;
+    private LinearLayout rowBayar;
+    private LinearLayout rowClaim;
+
     private SharedPrefManager sharedPrefManager;
 
     @Override
@@ -33,22 +43,51 @@ public class DWKActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         sharedPrefManager = new SharedPrefManager(this);
 
-        rowDeskripsiDWK = (LinearLayout) findViewById(R.id.rowDeskripsi);
-        rowHistoryDWK = (LinearLayout) findViewById(R.id.rowHistory);
+        rowDeskripsi = findViewById(R.id.rowDeskripsi);
+        rowHistory = findViewById(R.id.rowHistory);
+        rowNasabah = findViewById(R.id.rowNasabah);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
 
-        rowDeskripsiDWK.setOnClickListener(new View.OnClickListener(){
+        rowDeskripsi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DWKActivity.this, DWKDescriptionActivity.class));
             }
         });
-        rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
+
+        rowNasabah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
+                startActivity(new Intent(DWKActivity.this, NasabahActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
+        rowBayar = findViewById(R.id.rowBayar);
+        rowBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, BayarActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
+        rowClaim = findViewById(R.id.rowKlaim);
+        rowClaim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, ClaimActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
+        rowHistory.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, HistoryActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
             }
         });
 

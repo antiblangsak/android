@@ -42,8 +42,18 @@ public interface ApiInterface {
                                 @Field("list_family_member_id[]") ArrayList<Integer> list_member,
                                 @Field("service_id") int serviceId);
 
+    @GET("family/{familyId}")
+    Call<Object> getFamilyProfile(@Header("Authorization") String token, @Path("familyId") int familyId);
+
     @GET("claim/{claimId}")
     Call<Object> getClaimDetail(@Header("Authorization") String token, @Path("claimId") int id);
+
+    @POST("claim")
+    @FormUrlEncoded
+    Call<Object> postClaim(@Header("Authorization") String token,
+                           @Field("service_id") int serviceId,
+                           @Field("ref_user_id") int userId,
+                           @Field("client_id") int clientId);
 
     @GET("payment/{payId}")
     Call<Object> getPaymentDetail(@Header("Authorization") String token, @Path("payId") int id);
@@ -65,4 +75,33 @@ public interface ApiInterface {
     @GET("dpgk/{familyId}/history")
     Call<Object> getDPGKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
 
+    @GET("dpgk/{familyId}/get_claim_info")
+    Call<Object> getDPGKClaimInfo(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dwk/{familyId}/family_members")
+    Call<Object> getAllDWKFamilyMembers(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dwk/{familyId}/history")
+    Call<Object> getDWKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dwk/{familyId}/get_claim_info")
+    Call<Object> getDWKClaimInfo(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dpgk/{familyId}/get_prepayment_info")
+    Call<Object> getDPGKPaymentInfo(@Header("Authorization") String token, @Path("familyId") int id);
+
+    @GET("dkk/{familyId}/get_prepayment_info")
+    Call<Object> getDKKPaymentInfo(@Header("Authorization") String token, @Path("familyId") int id);
+
+    @GET("dwk/{familyId}/get_prepayment_info")
+    Call<Object> getDWKPaymentInfo(@Header("Authorization") String token, @Path("familyId") int id);
+
+    @POST("payment")
+    @FormUrlEncoded
+    Call<Object> payment(@Header("Authorization") String token,
+                         @Field("service_id") int service_id,
+                         @Field("bank_account_id") int bank_account_id,
+                         @Field("ref_user_id") int ref_user_id,
+                         @Field("clients[]") ArrayList<Integer> clients,
+                         @Field("payment_amount") int payment_amount);
 }

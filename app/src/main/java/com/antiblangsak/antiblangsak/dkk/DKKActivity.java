@@ -6,17 +6,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.antiblangsak.antiblangsak.common.BayarActivity;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.common.HistoryActivity;
 import com.antiblangsak.antiblangsak.common.NasabahActivity;
-import com.antiblangsak.antiblangsak.common.NasabahAddActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -24,6 +23,7 @@ public class DKKActivity extends AppCompatActivity {
 
     private LinearLayout rowDeskripsi;
     private LinearLayout rowNasabah;
+    private LinearLayout rowBayar;
     private LinearLayout rowHistory;
 
     private SharedPrefManager sharedPrefManager;
@@ -57,10 +57,14 @@ public class DKKActivity extends AppCompatActivity {
             }
         });
 
-        int familyId = getIntent().getExtras().getInt("FAMILY_ID");
-        int familyStatus = getIntent().getExtras().getInt("FAMILY_STATUS");
-        Log.w("FAMILY ID", familyId + "");
-        Log.w("FAMILY STATUS", familyStatus + "");
+        rowBayar = findViewById(R.id.rowBayar);
+        rowBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DKKActivity.this, BayarActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DKK_SERVICE_ID_INTEGER));
+            }
+        });
 
         rowHistory = findViewById(R.id.rowHistory);
         rowHistory.setOnClickListener(new View.OnClickListener(){
