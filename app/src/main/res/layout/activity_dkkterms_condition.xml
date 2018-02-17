@@ -6,7 +6,7 @@
     <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:background="@color/gray_dark">
+        android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="1."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -37,7 +37,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk1"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
@@ -57,7 +57,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="2."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -69,7 +69,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk2"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
@@ -89,7 +89,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="3."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -101,7 +101,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk3"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
@@ -121,7 +121,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="4."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -133,7 +133,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk4"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
@@ -153,7 +153,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="5."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -165,7 +165,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk5"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
@@ -185,7 +185,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="6."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -197,7 +197,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk6"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
@@ -217,7 +217,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="7."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -229,7 +229,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk7"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
@@ -249,7 +249,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="8."
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp" />
@@ -261,7 +261,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/ketentuan_dkk8"
-                android:textColor="@color/white"
+                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"

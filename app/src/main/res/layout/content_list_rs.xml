@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/list_icon_rs"
-            android:src="@drawable/home_dkk_logo"
+            android:src="@drawable/rumah_sakit"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:paddingRight="@dimen/margin_sm"

@@ -17,6 +17,8 @@ import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+
 public class DKKDescriptionActivity extends AppCompatActivity {
 
     private Button btnRS;
@@ -37,6 +39,8 @@ public class DKKDescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dkkdescription);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
+
+
 
         sharedPrefManager = new SharedPrefManager(this);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
