@@ -165,6 +165,27 @@ public class ClaimActivity extends AppCompatActivity {
                                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
                                             .putExtra(AppConstant.KEY_SERVICE_ID, serviceId)
                                             .putExtra("claimId", claimId));
+
+                                    Call uploadImage = apiInterface.uploadClaimFile(token, claimId, sharedPrefManager.getPhoto(SharedPrefManager.CLAIM_PHOTO_BASE64));
+                                    uploadImage.enqueue(new Callback() {
+                                        @Override
+                                        public void onResponse(Call call, Response response) {
+                                            try {
+                                                int statusCode = response.code();
+                                                Log.w("STATUS", "status: " + statusCode);
+
+                                                JSONObject body = new JSONObject(new Gson().toJson(response.body()));
+                                                Log.w("RESPONSE", "body: " + body.toString());
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call call, Throwable t) {
+                                            Toast.makeText(getApplicationContext(), "Upload image failed!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                     finish();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -380,7 +401,7 @@ public class ClaimActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Log.v("MASUK IMAGE PICKER", "");
             final Bitmap bitmap = ImagePicker.getImageFromResult(this, requestCode, resultCode, data);
-            final String base64 = ImageUtil.convert(ImageUtil.compress(bitmap));
+            final String base64 = ImageUtil.convert(bitmap);
 
             if (requestCode == AppConstant.UPLOAD_FOTO_KLAIM) {
                 AppHelper.showImageWithGlide(this, bitmap, imPhoto);
