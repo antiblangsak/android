@@ -83,4 +83,7 @@ public interface ApiInterface {
 
     @GET("dwk/{familyId}/history")
     Call<Object> getDWKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dwk/{familyId}/get_claim_info")
+    Call<Object> getDWKClaimInfo(@Header("Authorization") String token, @Path("familyId") int familyId);
 }

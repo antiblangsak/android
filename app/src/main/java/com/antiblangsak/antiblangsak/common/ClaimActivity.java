@@ -106,6 +106,7 @@ public class ClaimActivity extends AppCompatActivity {
             callGetInfo = apiInterface.getDPGKClaimInfo(token, familyId);
         } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+            callGetInfo = apiInterface.getDWKClaimInfo(token, familyId);
         } else {
             Toast.makeText(getApplicationContext(), "Invalid service", Toast.LENGTH_SHORT).show();
             finish();
