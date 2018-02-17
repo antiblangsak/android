@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -36,7 +35,6 @@ import com.mvc.imagepicker.ImagePicker;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -52,6 +50,7 @@ public class ClaimActivity extends AppCompatActivity {
 
     private String token;
     private String emailUser;
+    private int userId;
     private int familyId;
 
     private int serviceId;
@@ -73,7 +72,10 @@ public class ClaimActivity extends AppCompatActivity {
     private String photoBase64;
     private String clientName;
 
-    private Call call;
+    private int selectedClientId = -1;
+
+    private Call callGetInfo;
+    private Call callPost;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -93,13 +95,14 @@ public class ClaimActivity extends AppCompatActivity {
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
+        userId = sharedPrefManager.getId();
         familyId = sharedPrefManager.getFamilyId();
 
         serviceId = getIntent().getIntExtra(AppConstant.KEY_SERVICE_ID, -1);
 
         if (serviceId == AppConstant.DPGK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dpgk_color)));
-            call = apiInterface.getDPGKClaimInfo(token, familyId);
+            callGetInfo = apiInterface.getDPGKClaimInfo(token, familyId);
         } else if (serviceId == AppConstant.DWK_SERVICE_ID_INTEGER) {
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
         } else {
@@ -131,11 +134,72 @@ public class ClaimActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateInput();
+                if (!validateInput()) {
+                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.w("CLIENT ID", selectedClientId + "");
+                    callPost = apiInterface.postClaim(token, serviceId, userId, selectedClientId);
+                    callPost.enqueue(new Callback() {
+                        @Override
+                        public void onResponse(Call call, Response response) {
+                            JSONObject body = null;
+                            int statusCode = response.code();
+                            Log.w("status", "status: " + statusCode);
+
+                            if (statusCode == 201) {
+                                try {
+                                    body = new JSONObject(new Gson().toJson(response.body()));
+                                    Log.w("RESPONSE", "body: " + body.toString());
+
+                                    JSONObject data = body.getJSONObject("data");
+                                    int claimId = data.getInt("id");
+
+                                    startActivity(new Intent(ClaimActivity.this, HistoryClaimActivity.class)
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            .putExtra(AppConstant.KEY_SERVICE_ID, serviceId)
+                                            .putExtra("claimId", claimId));
+                                    finish();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            } else {
+                                try {
+                                    Log.w("body", response.errorBody().string());
+                                    sharedPrefManager.logout();
+                                    Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(ClaimActivity.this, LoginActivity.class)
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                    finish();
+
+                                    Call callLogout = apiInterface.logout(token, emailUser);
+                                    callLogout.enqueue(new Callback() {
+                                        @Override
+                                        public void onResponse(Call call, Response response) {
+
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call call, Throwable t) {
+                                        }
+                                    });
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call call, Throwable t) {
+
+                        }
+                    });
+                }
             }
         });
 
-        call.enqueue(new Callback() {
+        callGetInfo.enqueue(new Callback() {
 
             @Override
             public void onResponse(Call call, Response response) {
@@ -148,7 +212,6 @@ public class ClaimActivity extends AppCompatActivity {
                     try {
                         body = new JSONObject(new Gson().toJson(response.body()));
                         Log.w("RESPONSE", "body: " + body.toString());
-
 
                         JSONArray clients = body.getJSONArray("data");
                         clientNames = new String[clients.length() + 1];
@@ -219,6 +282,7 @@ public class ClaimActivity extends AppCompatActivity {
                                         tvRemainingAmount.setTextColor(getResources().getColor(R.color.accepted));
                                     }
                                     tvRemainingAmount.setText(AppHelper.formatRupiah(remainingAmount));
+                                    selectedClientId = model.getId();
                                 }
                             }
 

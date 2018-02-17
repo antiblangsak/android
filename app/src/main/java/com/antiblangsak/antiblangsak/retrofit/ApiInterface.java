@@ -45,6 +45,13 @@ public interface ApiInterface {
     @GET("claim/{claimId}")
     Call<Object> getClaimDetail(@Header("Authorization") String token, @Path("claimId") int id);
 
+    @POST("claim")
+    @FormUrlEncoded
+    Call<Object> postClaim(@Header("Authorization") String token,
+                           @Field("service_id") int serviceId,
+                           @Field("ref_user_id") int userId,
+                           @Field("client_id") int clientId);
+
     @GET("payment/{payId}")
     Call<Object> getPaymentDetail(@Header("Authorization") String token, @Path("payId") int id);
 
