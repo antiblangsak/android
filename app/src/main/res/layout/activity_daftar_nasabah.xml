@@ -24,12 +24,21 @@
             android:layout_marginBottom="@dimen/margin_xl"
             android:clickable="true">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keluarga_baru"
+                android:layout_marginBottom="@dimen/margin_xxxl"
+                android:layout_marginTop="@dimen/margin_xxl"/>
+
             <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin_md"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/daftarnasabah_keluargabarubutton"
-                android:textSize="@dimen/textsize_button_md"
+                android:textSize="@dimen/textsize_button_sm"
                 android:textAlignment="center"/>
 
         </RelativeLayout>
@@ -43,12 +52,21 @@
             android:layout_marginTop="@dimen/margin_xl"
             android:clickable="true">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_punya_keluarga_warna"
+                android:layout_marginBottom="@dimen/margin_xxxxl"
+                android:layout_marginTop="@dimen/margin_xl"/>
+
             <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin_sm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/daftarnasabah_keluargaterdaftarbutton"
-                android:textSize="@dimen/textsize_button_md"
+                android:textSize="@dimen/textsize_button_sm"
                 android:textAlignment="center"/>
 
         </RelativeLayout>
