@@ -48,6 +48,13 @@ public interface ApiInterface {
     @GET("claim/{claimId}")
     Call<Object> getClaimDetail(@Header("Authorization") String token, @Path("claimId") int id);
 
+    @POST("claim")
+    @FormUrlEncoded
+    Call<Object> postClaim(@Header("Authorization") String token,
+                           @Field("service_id") int serviceId,
+                           @Field("ref_user_id") int userId,
+                           @Field("client_id") int clientId);
+
     @GET("payment/{payId}")
     Call<Object> getPaymentDetail(@Header("Authorization") String token, @Path("payId") int id);
 
@@ -67,6 +74,9 @@ public interface ApiInterface {
 
     @GET("dpgk/{familyId}/history")
     Call<Object> getDPGKHistory(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dpgk/{familyId}/get_claim_info")
+    Call<Object> getDPGKClaimInfo(@Header("Authorization") String token, @Path("familyId") int familyId);
 
     @GET("dwk/{familyId}/family_members")
     Call<Object> getAllDWKFamilyMembers(@Header("Authorization") String token, @Path("familyId") int familyId);
