@@ -7,8 +7,10 @@ package com.antiblangsak.antiblangsak;
 public class NasabahBayarModel {
     boolean checked;
     private String name;
+    private int id;
 
-    public NasabahBayarModel(String name){
+    public NasabahBayarModel(int id, String name){
+        this.id = id;
         this.name = name;
         this.checked = false;
     }
@@ -19,6 +21,7 @@ public class NasabahBayarModel {
     public boolean isChecked(){
         return this.checked;
     }
+    public int getId(){return this.id;}
 
     public void checked() {
         this.checked = !this.checked;

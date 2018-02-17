@@ -1,5 +1,8 @@
 package com.antiblangsak.antiblangsak.retrofit;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -32,6 +35,15 @@ public interface ApiInterface {
     @GET("user/{userId}")
     Call<Object> profile(@Header("Authorization") String token, @Path("userId") int id);
 
-    @GET("dkk/{familyId}/get_prepaymennt_info")
+    @GET("dkk/{familyId}/get_prepayment_info")
     Call<Object> prepayment(@Header("Authorization") String token, @Path("familyId") int id);
+
+    @POST("payment")
+    @FormUrlEncoded
+    Call<Object> payment(@Header("Authorization") String token,
+                         @Field("service_id") int service_id,
+                         @Field("bank_account_id") int bank_account_id,
+                         @Field("ref_user_id") int ref_user_id,
+                         @Field("clients[]") ArrayList<Integer> clients,
+                         @Field("payment_amount") int payment_amount);
 }

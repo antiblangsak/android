@@ -85,6 +85,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <TextView
+            android:id="@+id/nomorRekeningTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
@@ -92,18 +93,21 @@
             android:padding="@dimen/padding_xs"
             android:text="Nomor Rekening"
             android:textSize="@dimen/textsize_hint"
-            android:textColor="@color/gray"/>
+            android:textColor="@color/gray"
+            android:visibility="gone"/>
 
         <TextView
+            android:id="@+id/nomorRekening"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1306386831"
             android:textSize="@dimen/textsize_inputtext"
             android:layout_marginLeft="@dimen/margin_spinner"
             android:layout_marginRight="@dimen/margin_spinner"
-            android:layout_marginBottom="@dimen/margin_md"/>
+            android:layout_marginBottom="@dimen/margin_md"
+            android:visibility="gone"/>
 
         <TextView
+            android:id="@+id/pemilikRekeningTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_xxxl"
@@ -111,16 +115,18 @@
             android:padding="@dimen/padding_xs"
             android:text="Nama Pemilik Rekening"
             android:textSize="@dimen/textsize_hint"
-            android:textColor="@color/gray"/>
+            android:textColor="@color/gray"
+            android:visibility="gone"/>
 
         <TextView
+            android:id="@+id/pemilikRekening"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Martin Novela"
             android:textSize="@dimen/textsize_inputtext"
             android:layout_marginLeft="@dimen/margin_spinner"
             android:layout_marginRight="@dimen/margin_spinner"
-            android:layout_marginBottom="@dimen/margin_md"/>
+            android:layout_marginBottom="@dimen/margin_md"
+            android:visibility="gone"/>
 
         <ProgressBar
             android:visibility="gone"

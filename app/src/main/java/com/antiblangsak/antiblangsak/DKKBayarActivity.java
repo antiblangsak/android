@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -51,24 +53,23 @@ public class DKKBayarActivity extends AppCompatActivity {
     private static TextView totalTagihan;
     private static int tagihan;
 
+    private TextView tvNomorRekening;
+    private TextView tvPemilikRekening;
+    private TextView tvNomorRekeningTitle;
+    private TextView tvPemilikRekeningTitle;
+
     private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
 
-    private final String[] BANK_NAMES = new String[]{
-            DEFAULT_BANK_NAME,
-            "BNI",
-            "BRI",
-            "Bank Mandiri",
-            "BCA",
-            "Bank Permata",
-            "Bank Bukopin"
-    };
+    private String[] bankAccountsName;
+    private String[] bankAccountsNumber;
+    private String[] bankAccountsOwner;
+    private int[] bankAccountsId;
+    private int positionId;
 
-    private final String[] PAYMENT_METHOD = new String[]{
+    private String[] PAYMENT_METHOD = new String[]{
             DEFAULT_PAYMENT_METHOD,
             "Transfer Manual (ATM)",
-            "Dua",
-            "Tiga"
     };
 
     public static void addTagihan() {
@@ -82,6 +83,8 @@ public class DKKBayarActivity extends AppCompatActivity {
     public static void showTagihan() {
         totalTagihan.setText("Rp. " + tagihan + ",00");
     }
+
+    private Button btnBayar;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -101,12 +104,13 @@ public class DKKBayarActivity extends AppCompatActivity {
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dkk_color)));
 
-        final int id = sharedPrefManager.getId();
+        final int familyId = sharedPrefManager.getFamilyId();
         final String token = sharedPrefManager.getToken();
         final String emailUser = sharedPrefManager.getEmail();
+        final int userId = sharedPrefManager.getId();
 
-        Call call = apiInterface.prepayment(token, id);
-        call.enqueue(new Callback() {
+        Call call_prepayment = apiInterface.prepayment(token, familyId);
+        call_prepayment.enqueue(new Callback() {
 
             @Override
             public void onResponse(Call call, Response response) {
@@ -120,7 +124,6 @@ public class DKKBayarActivity extends AppCompatActivity {
                         body = new JSONObject(new Gson().toJson(response.body()));
                         Log.w("RESPONSE", "body: " + body.toString());
 
-                        int id = body.getJSONObject("data").getInt("id");
                         JSONArray familyMembersName = body.getJSONObject("data").getJSONArray("family_members");
                         JSONArray bankAccount = body.getJSONObject("data").getJSONArray("bank_accounts");
 
@@ -128,10 +131,86 @@ public class DKKBayarActivity extends AppCompatActivity {
 
                         for(int i = 0; i < familyMembersName.length(); i++){
                             JSONObject member = (JSONObject) familyMembersName.get(i);
-                            nasabahBayarModels.add(new NasabahBayarModel(member.getString("fullname")));
+                            nasabahBayarModels.add(new NasabahBayarModel(member.getInt("client_id"), member.getString("fullname")));
                         }
 
                         nasabahBayarModelsAdapter = new NasabahBayarAdapter(nasabahBayarModels, getApplicationContext());
+
+                        listView = findViewById(R.id.listNasabah);
+                        listView.setAdapter(nasabahBayarModelsAdapter);
+
+                        bankAccountsName = new String[bankAccount.length() + 1];
+                        bankAccountsNumber = new String[bankAccount.length()+1];
+                        bankAccountsOwner = new String[bankAccount.length()+1];
+                        bankAccountsId = new int[bankAccount.length()+1];
+                        bankAccountsName[0] = DEFAULT_BANK_NAME;
+
+                        for(int i = 0; i < bankAccount.length(); i++){
+                            bankAccountsName[i+1] = bankAccount.getJSONObject(i).getString("bank_name");
+                            bankAccountsNumber[i+1] = bankAccount.getJSONObject(i).getString("account_number");
+                            bankAccountsOwner[i+1] = bankAccount.getJSONObject(i).getString("account_name");
+                            bankAccountsId[i+1] = bankAccount.getJSONObject(i).getInt("id");
+                        }
+
+                        ArrayAdapter<String> spinnerArrayAdapterBankName = new ArrayAdapter<String>(
+                                DKKBayarActivity.this, R.layout.item_spinner, bankAccountsName) {
+                            @Override
+                            public View getView(int position, View convertView, ViewGroup parent) {
+                                View view = super.getView(position, convertView, parent);
+                                view.setPadding(0, 8, 0, 8);
+                                return view;
+                            }
+
+                            @Override
+                            public boolean isEnabled(int position) {
+                                if (position == 0) {
+                                    // Disable the first item from Spinner. First item will be use for hint
+                                    return false;
+                                } else {
+                                    return true;
+                                }
+                            }
+
+                            @Override
+                            public View getDropDownView(int position, View convertView,
+                                                        ViewGroup parent) {
+                                View view = super.getDropDownView(position, convertView, parent);
+                                TextView tv = (TextView) view;
+                                if (position == 0){
+                                    // Set the hint text color gray
+                                    tv.setTextColor(getResources().getColor(R.color.gray));
+                                } else {
+                                    tv.setTextColor(getResources().getColor(R.color.black));
+                                }
+                                return view;
+                            }
+                        };
+
+                        spBankName.setAdapter(spinnerArrayAdapterBankName);
+                        spBankName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                bankName = parent.getItemAtPosition(position).toString();
+                                tvNomorRekening = findViewById(R.id.nomorRekening);
+                                tvPemilikRekening = findViewById(R.id.pemilikRekening);
+                                tvNomorRekeningTitle = findViewById(R.id.nomorRekeningTitle);
+                                tvPemilikRekeningTitle = findViewById(R.id.pemilikRekeningTitle);
+                                if(position > 0){
+                                    tvNomorRekening.setVisibility(View.VISIBLE);
+                                    tvPemilikRekening.setVisibility(View.VISIBLE);
+                                    tvNomorRekeningTitle.setVisibility(View.VISIBLE);
+                                    tvPemilikRekeningTitle.setVisibility(View.VISIBLE);
+                                    tvNomorRekening.setText(bankAccountsNumber[position]);
+                                    tvPemilikRekening.setText(bankAccountsOwner[position]);
+                                    positionId = position;
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -145,17 +224,6 @@ public class DKKBayarActivity extends AppCompatActivity {
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                         DKKBayarActivity.this.finish();
 
-                        Call callLogout = apiInterface.logout(token, emailUser);
-                        callLogout.enqueue(new Callback() {
-                            @Override
-                            public void onResponse(Call call, Response response) {
-
-                            }
-
-                            @Override
-                            public void onFailure(Call call, Throwable t) {
-                            }
-                        });
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -171,52 +239,6 @@ public class DKKBayarActivity extends AppCompatActivity {
 
 
         spBankName = findViewById(R.id.bankNameSpinner);
-        ArrayAdapter<String> spinnerArrayAdapterBankName = new ArrayAdapter<String>(
-                this, R.layout.item_spinner, BANK_NAMES) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                view.setPadding(0, 8, 0, 8);
-                return view;
-            }
-
-            @Override
-            public boolean isEnabled(int position) {
-                if (position == 0) {
-                    // Disable the first item from Spinner. First item will be use for hint
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-
-            @Override
-            public View getDropDownView(int position, View convertView,
-                                        ViewGroup parent) {
-                View view = super.getDropDownView(position, convertView, parent);
-                TextView tv = (TextView) view;
-                if (position == 0){
-                    // Set the hint text color gray
-                    tv.setTextColor(getResources().getColor(R.color.gray));
-                } else {
-                    tv.setTextColor(getResources().getColor(R.color.black));
-                }
-                return view;
-            }
-        };
-
-        spBankName.setAdapter(spinnerArrayAdapterBankName);
-        spBankName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                bankName = parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         spPaymentMethod = findViewById(R.id.paymentMethodSpinner);
         ArrayAdapter<String> spinnerArrayAdapterPaymentMethod = new ArrayAdapter<String>(
@@ -266,18 +288,81 @@ public class DKKBayarActivity extends AppCompatActivity {
             }
         });
 
-        nasabahBayarModels = new ArrayList<>();
-        nasabahBayarModels.add(new NasabahBayarModel("Kemas Ramadhan"));
-        nasabahBayarModels.add(new NasabahBayarModel("Siti Muslihat"));
-        nasabahBayarModels.add(new NasabahBayarModel("Hardi Ramli"));
-
-        nasabahBayarModelsAdapter = new NasabahBayarAdapter(nasabahBayarModels, getApplicationContext());
-
-        listView = findViewById(R.id.listNasabah);
-        listView.setAdapter(nasabahBayarModelsAdapter);
-
         totalTagihan = findViewById(R.id.totalTagihan);
         totalTagihan.setText("Rp. " + tagihan + ",00");
+
+
+        btnBayar = findViewById(R.id.btnBayar);
+        btnBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int bank_account_id = bankAccountsId[positionId];
+                ArrayList clients = new ArrayList();
+                for(int i = 0; i < nasabahBayarModels.size(); i++){
+                    if(nasabahBayarModels.get(i).isChecked()){
+                        clients.add(nasabahBayarModels.get(i).getId());
+                    }
+                }
+                Log.w("clients", clients.toString());
+                Call call_payment = apiInterface.payment(token,2, bank_account_id, userId, clients, tagihan);
+                call_payment.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        JSONObject body = null;
+                        int statusCode = response.code();
+                        Log.w("status", "status: " + statusCode);
+
+                        if (statusCode == 201) {
+                            try {
+                                body = new JSONObject(new Gson().toJson(response.body()));
+                                Log.w("RESPONSE", "body: " + body.toString());
+
+                                startActivity(new Intent(DKKBayarActivity.this, DKKActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                finish();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            try {
+                                Log.w("body", response.errorBody().string());
+                                sharedPrefManager.logout();
+                                startActivity(new Intent(DKKBayarActivity.this, LoginActivity.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                finish();
+
+                                Call callLogout = apiInterface.logout(token, emailUser);
+                                callLogout.enqueue(new Callback() {
+                                    @Override
+                                    public void onResponse(Call call, Response response) {
+
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call call, Throwable t) {
+                                    }
+                                });
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                Intent myIntent = new Intent(DKKBayarActivity.this, DKKDetailPembayaranActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+
     }
 
     @Override
