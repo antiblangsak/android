@@ -40,6 +40,19 @@ public interface ApiInterface {
     @GET("user/{userId}")
     Call<Object> profile(@Header("Authorization") String token, @Path("userId") int id);
 
+    @GET("user/{userId}/get_bank_accounts")
+    Call<Object> getUsersBankAccount(@Header("Authorization") String token, @Path("userId") int id);
+
+    @POST("bank_accounts")
+    @FormUrlEncoded
+    Call<Object> registerBankAccount(@Header("Authorization") String token,
+                                      @Field("user_id") int userId,
+                                      @Field("bank_name") String bankName,
+                                      @Field("branch_name") String branchName,
+                                      @Field("account_number") String accountNumber,
+                                      @Field("account_name") String accountName,
+                                      @Field("account_photo") String accountPhotoBase64);
+
     @POST("client")
     @FormUrlEncoded
     Call<Object> registerClient(@Header("Authorization") String token,

@@ -34,6 +34,7 @@ public class DaftarNasabahKeluargaBaruActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(DaftarNasabahKeluargaBaruActivity.this,
                         DaftarRekeningActivity.class);
                 startActivity(myIntent);
+                finish();
             }
         });
 
