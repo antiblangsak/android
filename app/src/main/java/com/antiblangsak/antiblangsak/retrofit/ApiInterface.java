@@ -86,4 +86,16 @@ public interface ApiInterface {
 
     @GET("dwk/{familyId}/get_claim_info")
     Call<Object> getDWKClaimInfo(@Header("Authorization") String token, @Path("familyId") int familyId);
+
+    @GET("dkk/{familyId}/get_prepayment_info")
+    Call<Object> getDKKPaymentInfo(@Header("Authorization") String token, @Path("familyId") int id);
+
+    @POST("payment")
+    @FormUrlEncoded
+    Call<Object> payment(@Header("Authorization") String token,
+                         @Field("service_id") int service_id,
+                         @Field("bank_account_id") int bank_account_id,
+                         @Field("ref_user_id") int ref_user_id,
+                         @Field("clients[]") ArrayList<Integer> clients,
+                         @Field("payment_amount") int payment_amount);
 }
