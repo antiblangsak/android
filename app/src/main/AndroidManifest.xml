@@ -87,7 +87,7 @@
             android:name=".common.NasabahAddActivity"
             android:label="@string/dkk_nasabah_daftarkan" />
         <activity
-            android:name=".BayarActivity"
+            android:name=".common.BayarActivity"
             android:label="Pembayaran Bulanan" />
         <activity
             android:name=".common.ClaimActivity"

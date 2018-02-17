@@ -1,4 +1,4 @@
-package com.antiblangsak.antiblangsak;
+package com.antiblangsak.antiblangsak.common;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,9 +18,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.antiblangsak.antiblangsak.adapters.NasabahBayarAdapter;
+import com.antiblangsak.antiblangsak.models.NasabahBayarModel;
+import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
-import com.antiblangsak.antiblangsak.common.LoginActivity;
 import com.antiblangsak.antiblangsak.dkk.DKKActivity;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;

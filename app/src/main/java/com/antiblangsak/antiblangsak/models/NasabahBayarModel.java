@@ -1,4 +1,4 @@
-package com.antiblangsak.antiblangsak;
+package com.antiblangsak.antiblangsak.models;
 
 /**
  * Created by citra on 2/11/2018.

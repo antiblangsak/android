@@ -6,18 +6,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.antiblangsak.antiblangsak.BayarActivity;
+import com.antiblangsak.antiblangsak.common.BayarActivity;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.common.HistoryActivity;
 import com.antiblangsak.antiblangsak.common.NasabahActivity;
-import com.antiblangsak.antiblangsak.common.NasabahAddActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
