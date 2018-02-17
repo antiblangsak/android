@@ -69,7 +69,6 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     private String token;
     private String emailUser;
     private int userId;
-    private int familyId;
 
     public static final String KEY_BANK_NAME = "BANK_NAME";
     public static final String KEY_BRANCH_NAME = "BRANCH_NAME";
@@ -106,7 +105,6 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
         userId = sharedPrefManager.getId();
-        familyId = sharedPrefManager.getFamilyId();
 
         DEFAULT_PHOTO_NAME = getResources().getString(R.string.daftarrekening_accountphoto);
 

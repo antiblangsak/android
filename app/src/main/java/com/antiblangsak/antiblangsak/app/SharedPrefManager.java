@@ -65,8 +65,12 @@ public class SharedPrefManager {
             return getBankAccPhotoBase64();
         } else if (key.equals(CLAIM_PHOTO_BASE64)) {
             return getClaimPhotoBase64();
+        } else if (key.equals(KTP_PHOTO_BASE64)){
+            return getKtpPhotoBase64();
+        } else if (key.equals(KK_PHOTO_BASE64)) {
+            return getKkPhotoBase64();
         } else {
-            return "";
+            return null;
         }
     }
 

@@ -53,6 +53,13 @@ public interface ApiInterface {
                                       @Field("account_name") String accountName,
                                       @Field("account_photo") String accountPhotoBase64);
 
+    @POST("family_registration")
+    @FormUrlEncoded
+    Call<Object> registerFamilyUploadPhotos(@Header("Authorization") String token,
+                                            @Field("user_id") int userId,
+                                            @Field("kk_photo") String kkPhotoBase64,
+                                            @Field("ktp_photo") String ktpPhotoBase64);
+
     @POST("client")
     @FormUrlEncoded
     Call<Object> registerClient(@Header("Authorization") String token,
