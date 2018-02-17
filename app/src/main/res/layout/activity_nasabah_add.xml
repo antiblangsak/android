@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.antiblangsak.antiblangsak.common.NasabahAddActivity">
+
+    <ListView
+        android:id="@+id/list_view_nasabah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/layout_button_daftarkan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_view_nasabah"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnDaftarkan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:text="@string/dkk_nasabah_daftarkan_button"
+            android:textColor="@color/black"
+            android:background="@drawable/all_button"
+            android:textSize="@dimen/textsize_button_md" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/pbDaftarkan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/margin_xxxl"
+                android:indeterminateTint="@color/yellow"
+                android:indeterminate="true"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

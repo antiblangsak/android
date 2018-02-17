@@ -27,254 +27,258 @@
 
         </RelativeLayout>
 
-
-        <RelativeLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
-            android:id="@+id/relativeLayout2">
+            android:layout_weight="5">
 
-
-
-            <LinearLayout
-                android:padding="@dimen/padding_lg"
-                android:id="@+id/rowDeskripsi"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/home_serviceitem">
+                android:id="@+id/relativeLayout2">
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:padding="@dimen/padding_lg"
+                    android:id="@+id/rowDeskripsi"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:background="@drawable/home_serviceitem">
 
-                    <ImageView
-                        android:src="@drawable/home_dpgk_logo"
-                        android:layout_width="match_parent"
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:src="@drawable/ic_deskripsi"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:paddingRight="@dimen/margin_sm"
+                            android:adjustViewBounds="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/margin_sm"
-                        android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_weight="5">
 
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:text="@string/dpk_deskripsi_title"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                        <TextView
+                            android:layout_marginTop="@dimen/margin_xxl"
+                            android:id="@+id/tvEmail2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dwk_deskripsi_short"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/padding_lg"
+                    android:id="@+id/rowNasabah"
+                    android:layout_below="@+id/rowDeskripsi"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5">
+                    android:background="@drawable/home_serviceitem">
 
-                    <TextView
-                        android:id="@+id/tvEmail"
-                        android:layout_width="match_parent"
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:src="@drawable/ic_nasabah"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:paddingRight="@dimen/margin_sm"
+                            android:adjustViewBounds="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="5">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:text="@string/dpk_nasabah_title"/>
+
+                        <TextView
+                            android:layout_marginTop="@dimen/margin_xxl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dpk_nasabah_short"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rowBayar"
+                    android:padding="@dimen/padding_lg"
+                    android:layout_below="@+id/rowNasabah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/home_serviceitem">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/relativeLayout2"
                         android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:text="@string/dpk_deskripsi_title"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:layout_weight="1">
 
-                    <TextView
-                        android:layout_marginTop="@dimen/margin_xxl"
-                        android:id="@+id/tvEmail2"
-                        android:layout_width="match_parent"
+                        <ImageView
+                            android:src="@drawable/ic_bayar"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:paddingRight="@dimen/margin_sm"
+                            android:adjustViewBounds="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/dpk_deskripsi_short"/>
+                        android:layout_weight="5">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:text="@string/dpk_bayar_title"/>
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_marginTop="@dimen/margin_xxl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dpk_bayar_short"/>
 
-            </LinearLayout>
+                    </RelativeLayout>
 
-            <LinearLayout
-                android:padding="@dimen/padding_lg"
-                android:id="@+id/rowNasabah"
-                android:layout_below="@+id/rowDeskripsi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_serviceitem">
+                </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/rowKlaim"
+                    android:padding="@dimen/padding_lg"
+                    android:layout_below="@+id/rowBayar"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:background="@drawable/home_serviceitem">
 
-                    <ImageView
-                        android:src="@drawable/home_dpgk_logo"
-                        android:layout_width="match_parent"
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/relativeLayout2"
+                        android:layout_alignParentStart="true"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:src="@drawable/ic_klaim"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:paddingRight="@dimen/margin_sm"
+                            android:adjustViewBounds="true"
+                            android:layout_centerHorizontal="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/margin_sm"
-                        android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_weight="5">
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:text="@string/dpk_klaim_title"/>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                        <TextView
+                            android:layout_marginTop="@dimen/margin_xxl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dpk_klaim_short"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rowHistory"
+                    android:padding="@dimen/padding_lg"
+                    android:layout_below="@+id/rowKlaim"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5">
+                    android:background="@drawable/home_serviceitem">
 
-                    <TextView
-                        android:layout_width="match_parent"
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/relativeLayout2"
+                        android:layout_alignParentStart="true"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:src="@drawable/ic_history"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:paddingRight="@dimen/margin_sm"
+                            android:adjustViewBounds="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:text="@string/dpk_nasabah_title"/>
+                        android:layout_weight="5">
 
-                    <TextView
-                        android:layout_marginTop="@dimen/margin_xxl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dpk_nasabah_short"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:text="@string/dpk_history_title"/>
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_marginTop="@dimen/margin_xxl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dpk_history_short"/>
 
-            </LinearLayout>
+                    </RelativeLayout>
 
-            <LinearLayout
-                android:id="@+id/rowBayar"
-                android:padding="@dimen/padding_lg"
-                android:layout_below="@+id/rowNasabah"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_serviceitem">
+                </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/relativeLayout2"
-                    android:layout_alignParentStart="true"
-                    android:layout_weight="1">
+            </RelativeLayout>
 
-                    <ImageView
-                        android:src="@drawable/home_dpgk_logo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/margin_sm"
-                        android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:text="@string/dpk_bayar_title"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/margin_xxl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dpk_bayar_short"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/rowKlaim"
-                android:padding="@dimen/padding_lg"
-                android:layout_below="@+id/rowBayar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_serviceitem">
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/relativeLayout2"
-                    android:layout_alignParentStart="true"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:src="@drawable/home_dpgk_logo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/margin_sm"
-                        android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:text="@string/dpk_klaim_title"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/margin_xxl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dpk_klaim_short"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/rowHistory"
-                android:padding="@dimen/padding_lg"
-                android:layout_below="@+id/rowKlaim"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_serviceitem">
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/relativeLayout2"
-                    android:layout_alignParentStart="true"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:src="@drawable/home_dpgk_logo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/margin_sm"
-                        android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:text="@string/dpk_history_title"/>
-
-                    <TextView
-                        android:layout_marginTop="@dimen/margin_xxl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dpk_history_short"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
+        </ScrollView>
 
     </LinearLayout>
-
 
 </android.support.design.widget.CoordinatorLayout>

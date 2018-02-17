@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".App"
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/new_ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +20,7 @@
 
         <!-- Splash screen -->
         <activity
-            android:name=".SplashScreen"
+            android:name=".common.SplashScreen"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -31,46 +31,104 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- LOGIN AND LOGOUT -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".common.LoginActivity"
             android:label="@string/login_title"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".common.RegisterActivity"
             android:label="@string/register_title"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".common.MainActivity"
             android:label="@string/main_title"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- DAFTAR NASABAH AND PROFIL -->
         <activity
-            android:name=".DaftarNasabahActivity"
+            android:name=".common.DaftarNasabahActivity"
             android:label="@string/daftarnasabah_title" />
         <activity
-            android:name=".DaftarNasabahKeluargaTerdaftarActivity"
+            android:name=".common.DaftarNasabahKeluargaTerdaftarActivity"
             android:label="@string/daftarnasabah_title" />
         <activity
-            android:name=".DaftarNasabahKeluargaBaruActivity"
-            android:label="@string/daftarnasabah_title" />
-        <activity android:name=".DaftarRekeningActivity" />
-        <activity
-            android:name=".DaftarNasabahUploadFotoActivity"
+            android:name=".common.DaftarNasabahKeluargaBaruActivity"
             android:label="@string/daftarnasabah_title" />
         <activity
-            android:name=".FullScreenImageActivity"
+            android:name=".common.DaftarRekeningActivity" />
+        <activity
+            android:name=".common.DaftarNasabahUploadFotoActivity"
+            android:label="@string/daftarnasabah_title" />
+        <activity
+            android:name=".common.FullScreenImageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".common.ProfileActivity"
             android:label="@string/profile_title" />
         <activity
-            android:name=".DPKActivity"
+            android:name=".common.FamilyProfileActivity"
+            android:label="@string/title_activity_family_profile"/>
+
+        <!-- COMMON ACTIVITIES -->
+        <activity
+            android:name=".common.HistoryActivity"
+            android:label="Riwayat" />
+        <activity
+            android:name=".common.HistoryPaymentActivity"
+            android:label="Detail Pembayaran" />
+        <activity
+            android:name=".common.HistoryClaimActivity"
+            android:label="Detail Klaim" />
+        <activity
+            android:name=".common.NasabahActivity"
+            android:label="@string/dkk_nasabah_daftarkan" />
+        <activity
+            android:name=".common.NasabahAddActivity"
+            android:label="@string/dkk_nasabah_daftarkan" />
+        <activity
+            android:name=".common.BayarActivity"
+            android:label="Pembayaran Bulanan" />
+        <activity
+            android:name=".common.ClaimActivity"
+            android:label="Klaim Dana"/>
+
+        <!-- DPGK -->
+        <activity
+            android:name=".dpgk.DPGKActivity"
             android:label="Dana Pendidikan Kami" />
         <activity
-            android:name=".DKKActivity"
+            android:name=".dpgk.DPGKDescriptionActivity"
+            android:label="@string/title_activity_deskripsi" />
+        <activity
+            android:name=".dpgk.DPGKTermsConditionsActivity"
+            android:label="Syarat dan Ketentuan" />
+
+        <!-- DKK -->
+        <activity
+            android:name=".dkk.DKKActivity"
             android:label="Dana Kesehatan Kami" />
         <activity
-            android:name=".DWKActivity"
-            android:label="Dana Warisan Kami"/>
+            android:name=".dkk.DKKTermsConditionsActivity"
+            android:label="Syarat dan Ketentuan" />
+        <activity
+            android:name=".dkk.DKKDescriptionActivity"
+            android:label="@string/title_activity_deskripsi" />
+        <activity
+            android:name=".dkk.DKKListRumahSakitActivity"
+            android:label="Daftar RS Mitra" />
+
+        <!-- DWK -->
+        <activity
+            android:name=".dwk.DWKActivity"
+            android:label="Dana Warisan Kami" />
+        <activity
+            android:name=".dwk.DWKDescriptionActivity"
+            android:label="@string/title_activity_deskripsi" />
+        <activity
+            android:name=".dwk.DWKTermsConditionsActivity"
+            android:label="Syarat dan Ketentuan" />
+
     </application>
 
 </manifest>

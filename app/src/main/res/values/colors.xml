@@ -14,8 +14,18 @@
     <color name="yellow">#F9CF20</color>
     <color name="yellow_pressed">#E0B607</color>
     <color name="blue">#3333FF</color>
+    <color name="yellow_light">#ffeba3</color>
+    <color name="yellow_light_pressed">#dbcea2</color>
 
     <color name="dpgk_color">#9FC5F8</color>
     <color name="dkk_color">#DC5162</color>
     <color name="dwk_color">#8DCE71</color>
+
+    <color name="waiting">#FF9900</color>
+    <color name="rejected">#CF2A27</color>
+    <color name="accepted">#009E0F</color>
+
+    <color name="dpgk_nasabah_checked_color">#e2eeff</color>
+    <color name="dkk_nasabah_checked_color">#f7b4bb</color>
+    <color name="dwk_nasabah_checked_color">#e0fcd4</color>
 </resources>
