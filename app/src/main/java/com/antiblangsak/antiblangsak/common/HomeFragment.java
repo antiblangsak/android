@@ -7,18 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
-import com.antiblangsak.antiblangsak.common.DaftarNasabahActivity;
 import com.antiblangsak.antiblangsak.dkk.DKKActivity;
 import com.antiblangsak.antiblangsak.dpgk.DPGKActivity;
 import com.antiblangsak.antiblangsak.dwk.DWKActivity;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 /**
  * Created by Syukri on 12/26/17.
@@ -42,6 +44,10 @@ public class HomeFragment extends Fragment {
 
     int familyId = -1;
     int familyStatus = -1;
+
+    CarouselView carouselView;
+
+    int[] sampleImages = {R.drawable.dpgk, R.drawable.dkk, R.drawable.dwk};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -111,6 +117,18 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        carouselView = (CarouselView) view.findViewById(R.id.carouselView);
+        carouselView.setPageCount(sampleImages.length);
+
+        carouselView.setImageListener(imageListener);
+
         return view;
     }
+
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
 }
