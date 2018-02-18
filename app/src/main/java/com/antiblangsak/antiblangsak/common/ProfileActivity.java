@@ -158,7 +158,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                         for (int i = 0; i < bankAccounts.length(); i++) {
                             JSONObject bankAccount = bankAccounts.getJSONObject(i);
-                            bankAccountsStr[i] = bankAccount.getString("name");
+                            bankAccountsStr[i] = bankAccount.getString("account_name") + " - " + bankAccount.getString("bank_name");
                         }
 
                         tvName.setText(name);

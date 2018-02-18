@@ -33,6 +33,7 @@ public class DPGKActivity extends AppCompatActivity {
     private LinearLayout rowHistory;
 
     private boolean hasFamily;
+    private int familyStatus;
 
     private SharedPrefManager sharedPrefManager;
 
@@ -53,6 +54,7 @@ public class DPGKActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
 
         hasFamily = sharedPrefManager.hasFamily();
+        familyStatus = sharedPrefManager.getFamilyStatus();
 
         rowDeskripsi = findViewById(R.id.rowDeskripsi);
         rowNasabah = findViewById(R.id.rowNasabah);
@@ -68,7 +70,7 @@ public class DPGKActivity extends AppCompatActivity {
             }
         });
 
-        if (hasFamily) {
+        if (hasFamily && (familyStatus ==1)) {
 
             rowNasabah.setOnClickListener(new View.OnClickListener() {
                 @Override
