@@ -1,25 +1,35 @@
 package com.antiblangsak.antiblangsak.dwk;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.antiblangsak.antiblangsak.common.DaftarNasabahActivity;
 import com.antiblangsak.antiblangsak.common.ProfilKeluargaActivity;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
+import com.antiblangsak.antiblangsak.dpgk.DPGKActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DWKActivity extends AppCompatActivity {
     private LinearLayout rowDeskripsiDWK;
+    private LinearLayout rowNasabah;
+    private LinearLayout rowBayar;
+    private LinearLayout rowClaim;
     private LinearLayout rowHistoryDWK;
+
     private SharedPrefManager sharedPrefManager;
+    private boolean hasFamily;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -33,11 +43,13 @@ public class DWKActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         sharedPrefManager = new SharedPrefManager(this);
 
-        rowDeskripsiDWK = (LinearLayout) findViewById(R.id.rowDeskripsi);
-        rowHistoryDWK = (LinearLayout) findViewById(R.id.rowHistory);
+        hasFamily = sharedPrefManager.hasFamily();
 
-        ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+        rowDeskripsiDWK = (LinearLayout) findViewById(R.id.rowDeskripsi);
+        rowNasabah = findViewById(R.id.rowNasabah);
+        rowBayar = findViewById(R.id.rowBayar);
+        rowClaim = findViewById(R.id.rowKlaim);
+        rowHistoryDWK = (LinearLayout) findViewById(R.id.rowHistory);
 
         rowDeskripsiDWK.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -45,13 +57,160 @@ public class DWKActivity extends AppCompatActivity {
                 startActivity(new Intent(DWKActivity.this, DWKDescriptionActivity.class));
             }
         });
-        rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
-            }
-        });
 
+
+        if (hasFamily) {
+
+            rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
+                }
+            });
+
+        } else {
+
+            rowNasabah.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
+                    builder.setMessage("Harap mendaftarkan keluarga anda terlebih dahulu sebelum menggunakan layanan ini.")
+
+                            .setCancelable(true)
+                            .setPositiveButton("Daftar Sekarang", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(DWKActivity.this, DaftarNasabahActivity.class));
+                                }
+                            })
+                            .setNegativeButton("Nanti", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
+                    Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+
+                    Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+                    if(a != null) {
+                        a.setTextColor(getResources().getColor(R.color.accepted));
+                    }
+
+                    if(b != null) {
+                        b.setTextColor(getResources().getColor(R.color.gray));
+                    }
+                }
+            });
+
+            rowBayar.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
+                    builder.setMessage("Harap mendaftarkan keluarga anda terlebih dahulu sebelum menggunakan layanan ini.")
+
+                            .setCancelable(true)
+                            .setPositiveButton("Daftar Sekarang", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(DWKActivity.this, DaftarNasabahActivity.class));
+                                }
+                            })
+                            .setNegativeButton("Nanti", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
+                    Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+
+                    Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+                    if(a != null) {
+                        a.setTextColor(getResources().getColor(R.color.accepted));
+                    }
+
+                    if(b != null) {
+                        b.setTextColor(getResources().getColor(R.color.gray));
+                    }
+                }
+            });
+
+            rowClaim.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
+                    builder.setMessage("Harap mendaftarkan keluarga anda terlebih dahulu sebelum menggunakan layanan ini.")
+
+                            .setCancelable(true)
+                            .setPositiveButton("Daftar Sekarang", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(DWKActivity.this, DaftarNasabahActivity.class));
+                                }
+                            })
+                            .setNegativeButton("Nanti", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
+                    Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+
+                    Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+                    if(a != null) {
+                        a.setTextColor(getResources().getColor(R.color.accepted));
+                    }
+
+                    if(b != null) {
+                        b.setTextColor(getResources().getColor(R.color.gray));
+                    }
+                }
+            });
+
+            rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
+                    builder.setMessage("Harap mendaftarkan keluarga anda terlebih dahulu sebelum menggunakan layanan ini.")
+
+                            .setCancelable(true)
+                            .setPositiveButton("Daftar Sekarang", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(DWKActivity.this, DaftarNasabahActivity.class));
+                                }
+                            })
+                            .setNegativeButton("Nanti", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
+                    Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+
+                    Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+                    if(a != null) {
+                        a.setTextColor(getResources().getColor(R.color.accepted));
+                    }
+
+                    if(b != null) {
+                        b.setTextColor(getResources().getColor(R.color.gray));
+                    }
+                }
+            });
+
+        }
+
+
+        ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
     }
 
     @Override
