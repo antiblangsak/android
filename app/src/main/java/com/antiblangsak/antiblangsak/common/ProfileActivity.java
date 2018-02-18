@@ -1,7 +1,9 @@
 package com.antiblangsak.antiblangsak.common;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
@@ -9,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -67,9 +71,12 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_profile);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.gray_dark)));
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
@@ -207,6 +214,9 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setStackedBackgroundDrawable() {
     }
 
     @Override
