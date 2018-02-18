@@ -15,20 +15,31 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.antiblangsak.antiblangsak.retrofit.ApiClient;
+import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 import com.antiblangsak.antiblangsak.utils.ImageUtil;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.AppHelper;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.google.gson.Gson;
 import com.mvc.imagepicker.ImagePicker;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.Arrays;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DaftarRekeningActivity extends AppCompatActivity {
@@ -40,6 +51,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     private EditText etAccountPhoto;
     private Button btnDaftarkanRekening;
     private PhotoView imAccountPhoto;
+    private ProgressBar progressBar;
 
     private String bankName;
     private String branchName;
@@ -51,7 +63,12 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     private final String DEFAULT_BANK_NAME = "Pilih Nama Bank...";
     private String DEFAULT_PHOTO_NAME;
 
+    private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
+
+    private String token;
+    private String emailUser;
+    private int userId;
 
     public static final String KEY_BANK_NAME = "BANK_NAME";
     public static final String KEY_BRANCH_NAME = "BRANCH_NAME";
@@ -81,8 +98,13 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar_rekening);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
-        ImagePicker.setMinQuality(600, 600);
+
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
+
+        token = sharedPrefManager.getToken();
+        emailUser = sharedPrefManager.getEmail();
+        userId = sharedPrefManager.getId();
 
         DEFAULT_PHOTO_NAME = getResources().getString(R.string.daftarrekening_accountphoto);
 
@@ -93,6 +115,7 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         etAccountPhoto.setFocusable(false);
         etAccountPhoto.setClickable(true);
         imAccountPhoto = findViewById(R.id.imAccountPhoto);
+        progressBar = findViewById(R.id.pbDaftarkan);
 
         spBankName = findViewById(R.id.bankNameSpinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
@@ -154,15 +177,70 @@ public class DaftarRekeningActivity extends AppCompatActivity {
         btnDaftarkanRekening.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (validateInput()) {
+                    btnDaftarkanRekening.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.VISIBLE);
                     Log.v("btnDaftarkanRekening", "VALID INPUT");
-                    Intent myIntent = new Intent(DaftarRekeningActivity.this,
-                            DaftarNasabahUploadFotoActivity.class);
-                    myIntent.putExtra(KEY_BANK_NAME, bankName);
-                    myIntent.putExtra(KEY_BRANCH_NAME, branchName);
-                    myIntent.putExtra(KEY_ACCOUNT_NUMBER, accountNumber);
-                    myIntent.putExtra(KEY_ACCOUNT_HOLDERNAME, accountHolderName);
-                    startActivity(myIntent);
+
+                    Call call = apiInterface.registerBankAccount(token, userId, bankName, branchName, accountNumber, accountHolderName, accountPhotoBase64);
+                    call.enqueue(new Callback() {
+                        @Override
+                        public void onResponse(Call call, Response response) {
+                            JSONObject body = null;
+                            int statusCode = response.code();
+                            Log.w("status", "status: " + statusCode);
+
+                            if (statusCode == 201) {
+                                try {
+                                    body = new JSONObject(new Gson().toJson(response.body()));
+                                    Log.w("RESPONSE", "body: " + body.toString());
+
+                                    JSONObject data = body.getJSONObject("data");
+                                    Toast.makeText(getApplicationContext(), AppConstant.DAFTAR_REKENING_SUCCESS_STRING, Toast.LENGTH_SHORT).show();
+                                    Intent myIntent = new Intent(DaftarRekeningActivity.this,
+                                            DaftarNasabahUploadFotoActivity.class);
+                                    startActivity(myIntent);
+                                    finish();
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            } else {
+                                try {
+                                    Log.w("body", response.errorBody().string());
+                                    sharedPrefManager.logout();
+                                    Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(DaftarRekeningActivity.this, LoginActivity.class)
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                    finish();
+
+                                    Call callLogout = apiInterface.logout(token, emailUser);
+                                    callLogout.enqueue(new Callback() {
+                                        @Override
+                                        public void onResponse(Call call, Response response) {
+
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call call, Throwable t) {
+                                        }
+                                    });
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                            btnDaftarkanRekening.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    });
                 } else {
                     Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
                     Log.v("btnDaftarkanRekening", "INVALID INPUT");
@@ -238,14 +316,14 @@ public class DaftarRekeningActivity extends AppCompatActivity {
 
             etAccountPhoto.setText(getResources().getString(R.string.daftarrekening_accountphotoubah));
             etAccountPhoto.setError(null);
-            accountPhotoBase64 = ImageUtil.convert(ImageUtil.compress(bitmap));
+            accountPhotoBase64 = ImageUtil.convert(bitmap);
 
             imAccountPhoto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent fullScreenIntent = new Intent(DaftarRekeningActivity.this,
                             FullScreenImageActivity.class);
-
+                    fullScreenIntent.putExtra("TYPE", SharedPrefManager.BANK_ACC_PHOTO_BASE64);
                     sharedPrefManager.saveString(SharedPrefManager.BANK_ACC_PHOTO_BASE64, accountPhotoBase64);
                     startActivity(fullScreenIntent);
                 }

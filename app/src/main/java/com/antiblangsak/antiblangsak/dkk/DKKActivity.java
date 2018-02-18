@@ -8,19 +8,18 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.antiblangsak.antiblangsak.common.BayarActivity;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.common.DaftarNasabahActivity;
 import com.antiblangsak.antiblangsak.common.HistoryActivity;
 import com.antiblangsak.antiblangsak.common.NasabahActivity;
-import com.antiblangsak.antiblangsak.common.NasabahAddActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -57,7 +56,6 @@ public class DKKActivity extends AppCompatActivity {
             }
         });
 
-
         rowNasabah = findViewById(R.id.rowNasabah);
         rowBayar = findViewById(R.id.rowBayar);
         rowHistory = findViewById(R.id.rowHistory);
@@ -72,6 +70,14 @@ public class DKKActivity extends AppCompatActivity {
                 }
             });
 
+        rowBayar = findViewById(R.id.rowBayar);
+        rowBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DKKActivity.this, BayarActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DKK_SERVICE_ID_INTEGER));
+            }
+        });
 
             rowHistory.setOnClickListener(new View.OnClickListener(){
                 @Override

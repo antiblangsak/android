@@ -66,7 +66,19 @@ public class HomeFragment extends Fragment {
         hasFamily = sharedPrefManager.hasFamily();
 
         if (hasFamily) {
-            btnRegisterAsNasabah.setText(R.string.home_profilkeluargabutton);
+            int familyStatus = sharedPrefManager.getFamilyStatus();
+            if (familyStatus == 0) {
+                btnRegisterAsNasabah.setText(R.string.home_datasedangdivalidasibutton);
+                btnRegisterAsNasabah.setBackground(getResources().getDrawable(R.drawable.daftarnasabah_option));
+            } else {
+                btnRegisterAsNasabah.setText(R.string.home_profilkeluargabutton);
+                btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(), FamilyProfileActivity.class));
+                    }
+                });
+            }
         } else {
             btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener(){
                 @Override

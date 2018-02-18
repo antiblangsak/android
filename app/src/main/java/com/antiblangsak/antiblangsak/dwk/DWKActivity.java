@@ -13,20 +13,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.antiblangsak.antiblangsak.common.BayarActivity;
+import com.antiblangsak.antiblangsak.common.ClaimActivity;
 import com.antiblangsak.antiblangsak.common.DaftarNasabahActivity;
-import com.antiblangsak.antiblangsak.common.ProfilKeluargaActivity;
 import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
-import com.antiblangsak.antiblangsak.dpgk.DPGKActivity;
+import com.antiblangsak.antiblangsak.common.HistoryActivity;
+import com.antiblangsak.antiblangsak.common.NasabahActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DWKActivity extends AppCompatActivity {
-    private LinearLayout rowDeskripsiDWK;
+
+    private LinearLayout rowDeskripsi;
+    private LinearLayout rowHistory;
     private LinearLayout rowNasabah;
     private LinearLayout rowBayar;
     private LinearLayout rowClaim;
-    private LinearLayout rowHistoryDWK;
 
     private SharedPrefManager sharedPrefManager;
     private boolean hasFamily;
@@ -45,13 +49,17 @@ public class DWKActivity extends AppCompatActivity {
 
         hasFamily = sharedPrefManager.hasFamily();
 
-        rowDeskripsiDWK = (LinearLayout) findViewById(R.id.rowDeskripsi);
         rowNasabah = findViewById(R.id.rowNasabah);
         rowBayar = findViewById(R.id.rowBayar);
         rowClaim = findViewById(R.id.rowKlaim);
-        rowHistoryDWK = (LinearLayout) findViewById(R.id.rowHistory);
+        rowDeskripsi = findViewById(R.id.rowDeskripsi);
+        rowHistory = findViewById(R.id.rowHistory);
+        rowNasabah = findViewById(R.id.rowNasabah);
 
-        rowDeskripsiDWK.setOnClickListener(new View.OnClickListener(){
+        ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
+
+        rowDeskripsi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DWKActivity.this, DWKDescriptionActivity.class));
@@ -61,12 +69,39 @@ public class DWKActivity extends AppCompatActivity {
 
         if (hasFamily) {
 
-            rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(DWKActivity.this, ProfilKeluargaActivity.class));
-                }
-            });
+        rowNasabah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, NasabahActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
+        rowBayar = findViewById(R.id.rowBayar);
+        rowBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, BayarActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
+        rowClaim = findViewById(R.id.rowKlaim);
+        rowClaim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, ClaimActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
+
+        rowHistory.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DWKActivity.this, HistoryActivity.class)
+                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+            }
+        });
 
         } else {
 

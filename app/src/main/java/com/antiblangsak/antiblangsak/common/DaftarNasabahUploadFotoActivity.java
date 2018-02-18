@@ -13,16 +13,28 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.antiblangsak.antiblangsak.retrofit.ApiClient;
+import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 import com.antiblangsak.antiblangsak.utils.ImageUtil;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.AppHelper;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.google.gson.Gson;
 import com.mvc.imagepicker.ImagePicker;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
@@ -34,8 +46,10 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
     private PhotoView imPhotoKk;
     private CheckBox chAgree;
     private Button btnDaftarkanKeluarga;
+    private ProgressBar progressBar;
 
     private Intent previousIntent;
+    private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
 
     private String photoKtp;
@@ -44,6 +58,10 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
     private String photoKkBase64;
 
     private String DEFAULT_PHOTO_NAME;
+
+    private String token;
+    private String emailUser;
+    private int userId;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -56,7 +74,13 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar_nasabah_upload_foto);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.daftarnasabah_title);
+
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
+
+        token = sharedPrefManager.getToken();
+        emailUser = sharedPrefManager.getEmail();
+        userId = sharedPrefManager.getId();
 
         previousIntent = getIntent();
 
@@ -67,6 +91,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
         imPhotoKtp = findViewById(R.id.imPhotoKtp);
         imPhotoKk = findViewById(R.id.imPhotoKk);
         chAgree = findViewById(R.id.chAgree);
+        progressBar = findViewById(R.id.pbDaftarkan);
 
         etPhotoKtp.setFocusable(false);
         etPhotoKtp.setClickable(true);
@@ -95,18 +120,73 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validateInput()) {
-                    Intent myIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
-                            MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    Log.v(DaftarRekeningActivity.KEY_BANK_NAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_BANK_NAME));
-                    Log.v(DaftarRekeningActivity.KEY_BRANCH_NAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_BRANCH_NAME));
-                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_NUMBER, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_NUMBER));
-                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_HOLDERNAME, previousIntent.getStringExtra(DaftarRekeningActivity.KEY_ACCOUNT_HOLDERNAME));
-                    Log.v(DaftarRekeningActivity.KEY_ACCOUNT_PHOTO_BYTES, sharedPrefManager.getBankAccPhotoBase64());
-                    Log.v("POTO KTP", photoKtpBase64);
-                    Log.v("POTO KK", photoKkBase64);
+                    btnDaftarkanKeluarga.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.VISIBLE);
 
-                    sharedPrefManager.clearPhotos();
-                    startActivity(myIntent);
+                    Call call = apiInterface.registerFamilyUploadPhotos(token, userId, photoKkBase64, photoKtpBase64);
+                    call.enqueue(new Callback() {
+                        @Override
+                        public void onResponse(Call call, Response response) {
+                            JSONObject body = null;
+                            int statusCode = response.code();
+                            Log.w("status", "status: " + statusCode);
+
+                            if (statusCode == 201) {
+                                try {
+                                    body = new JSONObject(new Gson().toJson(response.body()));
+                                    Log.w("RESPONSE", "body: " + body.toString());
+
+                                    JSONObject data = body.getJSONObject("data");
+                                    int familyId = data.getInt("id");
+                                    int familyStatus = data.getInt("status");
+
+                                    sharedPrefManager.saveBoolean(SharedPrefManager.HAS_FAMILY, true);
+                                    sharedPrefManager.saveInt(SharedPrefManager.FAMILY_ID, familyId);
+                                    sharedPrefManager.saveInt(SharedPrefManager.FAMILY_STATUS, familyStatus);
+
+                                    Intent myIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
+                                            MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    sharedPrefManager.clearPhotos();
+                                    startActivity(myIntent);
+                                    finish();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            } else {
+                                try {
+                                    Log.w("body", response.errorBody().string());
+                                    sharedPrefManager.logout();
+                                    Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(DaftarNasabahUploadFotoActivity.this, LoginActivity.class)
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                    finish();
+
+                                    Call callLogout = apiInterface.logout(token, emailUser);
+                                    callLogout.enqueue(new Callback() {
+                                        @Override
+                                        public void onResponse(Call call, Response response) {
+
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call call, Throwable t) {
+                                        }
+                                    });
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                            btnDaftarkanKeluarga.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    });
                 } else {
                     Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
                 }
@@ -185,6 +265,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                                 FullScreenImageActivity.class);
+                        fullScreenIntent.putExtra("TYPE", SharedPrefManager.KTP_PHOTO_BASE64);
                         sharedPrefManager.saveString(SharedPrefManager.KTP_PHOTO_BASE64, photoKkBase64);
                         startActivity(fullScreenIntent);
                     }
@@ -200,6 +281,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                                 FullScreenImageActivity.class);
+                        fullScreenIntent.putExtra("TYPE", SharedPrefManager.KK_PHOTO_BASE64);
                         sharedPrefManager.saveString(SharedPrefManager.KK_PHOTO_BASE64, photoKkBase64);
                         startActivity(fullScreenIntent);
                     }

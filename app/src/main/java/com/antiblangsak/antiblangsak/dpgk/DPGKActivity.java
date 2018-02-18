@@ -17,9 +17,10 @@ import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.common.DaftarNasabahActivity;
+import com.antiblangsak.antiblangsak.common.BayarActivity;
+import com.antiblangsak.antiblangsak.common.ClaimActivity;
 import com.antiblangsak.antiblangsak.common.HistoryActivity;
 import com.antiblangsak.antiblangsak.common.NasabahActivity;
-import com.antiblangsak.antiblangsak.dkk.DKKActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

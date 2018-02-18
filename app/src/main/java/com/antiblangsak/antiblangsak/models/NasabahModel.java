@@ -11,6 +11,8 @@ public class NasabahModel {
     private int status;
     private boolean selected;
 
+    private int remainingClaimAmount;
+
     public NasabahModel(int id, String name, String relation, int status) {
         this.id = id;
         this.name = name;
@@ -47,5 +49,13 @@ public class NasabahModel {
 
     public boolean isSelected() {
         return selected;
+    }
+
+    public int getRemainingClaimAmount() {
+        return remainingClaimAmount;
+    }
+
+    public void setRemainingClaimAmount(int remainingClaimAmount) {
+        this.remainingClaimAmount = remainingClaimAmount;
     }
 }

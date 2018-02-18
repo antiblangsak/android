@@ -23,6 +23,7 @@ public class SharedPrefManager {
     public static final String BANK_ACC_PHOTO_BASE64 = "BANK_ACC";
     public static final String KTP_PHOTO_BASE64 = "KTP";
     public static final String KK_PHOTO_BASE64 = "KK";
+    public static final String CLAIM_PHOTO_BASE64 = "CLAIM";
 
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;
@@ -41,6 +42,7 @@ public class SharedPrefManager {
         spEditor.remove(HAS_FAMILY);
         spEditor.remove(FAMILY_ID);
         spEditor.remove(FAMILY_STATUS);
+        clearPhotos();
         spEditor.commit();
     }
 
@@ -59,6 +61,20 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
+    public String getPhoto(String key) {
+        if (key.equals(BANK_ACC_PHOTO_BASE64)) {
+            return getBankAccPhotoBase64();
+        } else if (key.equals(CLAIM_PHOTO_BASE64)) {
+            return getClaimPhotoBase64();
+        } else if (key.equals(KTP_PHOTO_BASE64)){
+            return getKtpPhotoBase64();
+        } else if (key.equals(KK_PHOTO_BASE64)) {
+            return getKkPhotoBase64();
+        } else {
+            return null;
+        }
+    }
+
     public String getBankAccPhotoBase64() {
         return sp.getString(BANK_ACC_PHOTO_BASE64, "");
     }
@@ -71,10 +87,15 @@ public class SharedPrefManager {
         return sp.getString(KK_PHOTO_BASE64, "");
     }
 
+    public String getClaimPhotoBase64() {
+        return sp.getString(CLAIM_PHOTO_BASE64, "");
+    }
+
     public void clearPhotos() {
         spEditor.remove(BANK_ACC_PHOTO_BASE64);
         spEditor.remove(KTP_PHOTO_BASE64);
         spEditor.remove(KK_PHOTO_BASE64);
+        spEditor.remove(CLAIM_PHOTO_BASE64);
         spEditor.commit();
     }
 
