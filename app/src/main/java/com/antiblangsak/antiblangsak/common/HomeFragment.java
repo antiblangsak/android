@@ -1,8 +1,10 @@
 package com.antiblangsak.antiblangsak.common;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,6 +78,29 @@ public class HomeFragment extends Fragment {
             if (familyStatus == 0) {
                 btnRegisterAsNasabah.setText(R.string.home_datasedangdivalidasibutton);
                 btnRegisterAsNasabah.setBackground(getResources().getDrawable(R.drawable.daftarnasabah_option));
+
+                btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Data Keluarga anda sedang dalam proses verifikasi, mohon tunggu beberapa saat.")
+                                .setCancelable(true)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                       // do thing
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+
+                        Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+
+                        if(a != null) {
+                            a.setTextColor(getResources().getColor(R.color.accepted));
+                        }
+                    }
+                });
+
             } else {
                 btnRegisterAsNasabah.setText(R.string.home_profilkeluargabutton);
                 btnRegisterAsNasabah.setOnClickListener(new View.OnClickListener() {
