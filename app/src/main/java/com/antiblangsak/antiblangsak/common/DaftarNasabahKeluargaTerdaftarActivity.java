@@ -51,7 +51,7 @@ public class DaftarNasabahKeluargaTerdaftarActivity extends AppCompatActivity {
                     startActivity(myIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE,
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });

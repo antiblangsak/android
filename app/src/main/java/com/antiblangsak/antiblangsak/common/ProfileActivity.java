@@ -152,9 +152,6 @@ public class ProfileActivity extends AppCompatActivity {
         token = sharedPrefManager.getToken();
         email = sharedPrefManager.getEmail();
 
-        Log.w("GET PROFIlE", "ID " + id + " called");
-        Log.w("GET PROFILE", "token " + token + " called");
-
         Call call = apiInterface.profile(token, id);
         call.enqueue(new Callback() {
 
@@ -255,7 +252,7 @@ public class ProfileActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                     }
                 } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
                     Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
@@ -269,7 +266,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

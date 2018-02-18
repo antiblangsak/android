@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
         String token = sharedPrefManager.getToken();
         boolean hasFamily = sharedPrefManager.hasFamily();
 
-        Log.w("USER_ID", "" + id);
-        Log.w("API_TOKEN", "" + token);
-        Log.w("HAS_FAMILY", "" + hasFamily);
         if (hasFamily) {
             Log.w("FAMILY_ID", sharedPrefManager.getFamilyId() + "");
             Log.w("FAMILY_STATUS", sharedPrefManager.getFamilyStatus() + "");

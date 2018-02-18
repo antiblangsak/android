@@ -155,7 +155,6 @@ public class ClaimActivity extends AppCompatActivity {
                     button.setVisibility(View.GONE);
                     progressBarKirim.setVisibility(View.VISIBLE);
                     
-                    Log.w("CLIENT ID", selectedClientId + "");
                     callPost = apiInterface.postClaim(token, serviceId, userId, selectedClientId);
                     callPost.enqueue(new Callback() {
 
@@ -217,7 +216,7 @@ public class ClaimActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                             button.setVisibility(View.VISIBLE);
                             progressBarKirim.setVisibility(View.GONE);
                         }

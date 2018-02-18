@@ -234,13 +234,13 @@ public class DaftarRekeningActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                             btnDaftarkanRekening.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.GONE);
                         }
                     });
                 } else {
-                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), AppConstant.GENERAL_MISSING_FIELD_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
                     Log.v("btnDaftarkanRekening", "INVALID INPUT");
                 }
             }

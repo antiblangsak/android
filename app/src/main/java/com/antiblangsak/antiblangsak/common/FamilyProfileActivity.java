@@ -158,7 +158,6 @@ public class FamilyProfileActivity extends AppCompatActivity {
                 if (statusCode == 200) {
                     try {
                         body = new JSONObject(new Gson().toJson(response.body()));
-//                        Log.w("RESPONSE", "body: " + body.toString());
 
                         JSONObject data = body.getJSONObject("data");
 
@@ -243,7 +242,7 @@ public class FamilyProfileActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                     }
                 } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
                     Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
@@ -257,7 +256,7 @@ public class FamilyProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
             }
         });

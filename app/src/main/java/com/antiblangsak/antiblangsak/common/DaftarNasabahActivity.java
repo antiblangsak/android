@@ -114,7 +114,7 @@ public class DaftarNasabahActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                         mainLayout.setVisibility(View.VISIBLE);
                         progressBar.setVisibility(View.GONE);
                     }

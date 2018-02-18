@@ -255,7 +255,7 @@ public class HistoryPaymentActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                         progressBarButton.setVisibility(View.GONE);
                         btnBayar.setVisibility(View.VISIBLE);
                         informasi.setVisibility(View.VISIBLE);

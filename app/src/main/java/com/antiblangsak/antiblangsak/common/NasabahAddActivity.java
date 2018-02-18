@@ -111,7 +111,6 @@ public class NasabahAddActivity extends AppCompatActivity {
                 int id = obj.getInt("id");
                 String name = obj.getString("fullname");
                 String relation = obj.getString("relation");
-                Log.w("DATA", id + " | " + name + " | " + relation);
                 nasabahModels.add(new NasabahModel(id, name, relation, 0));
             }
             nasabahAdapter = new NasabahAdapter(nasabahModels, NasabahAddActivity.this, false);
@@ -177,7 +176,7 @@ public class NasabahAddActivity extends AppCompatActivity {
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                    Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                                 }
                             } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
                                 Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
@@ -192,7 +191,7 @@ public class NasabahAddActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                             btnDaftarkan.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.GONE);
                         }

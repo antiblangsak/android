@@ -95,12 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
                 String password_confirmation = etPasswordConfirmation.getText().toString();
 
-                Log.w("NAME", "name: " + name);
-                Log.w("EMAIL", "email: " + email);
-                Log.w("PASSWORD", "password: " + password);
-                Log.w("PASSWORD_CONF", "password_confirmation: " + password_confirmation);
-
-
                 if (!validateInput(name, email, password, password_confirmation)) {
                     pbRegister.setVisibility(View.GONE);
                     btnRegister.setVisibility(View.VISIBLE);
@@ -121,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Log.w("status", "status: " + statusCode);
 
                         if (statusCode == 201) {
-                            Toast.makeText(getApplicationContext(), "Register berhasil!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Register berhasil!", Toast.LENGTH_SHORT).show();
                             try {
                                 body = new JSONObject(new Gson().toJson(response.body()));
                                 Log.w("RESPONSE", "body: " + body.toString());
@@ -140,7 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 finish();
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             etEmail.requestFocus();
@@ -166,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity {
                         tvToLoginPage.setVisibility(View.VISIBLE);
                         tvSudahPunyaAkun.setVisibility(View.VISIBLE);
 
-                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
