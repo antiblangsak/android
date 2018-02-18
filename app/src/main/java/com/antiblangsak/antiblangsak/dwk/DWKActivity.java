@@ -101,8 +101,7 @@ public class DWKActivity extends AppCompatActivity {
             });
 
         } else {
-
-            rowNasabah.setOnClickListener(new View.OnClickListener(){
+            View.OnClickListener toRegisterNasabahPage = new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
@@ -134,110 +133,11 @@ public class DWKActivity extends AppCompatActivity {
                         b.setTextColor(getResources().getColor(R.color.gray));
                     }
                 }
-            });
-
-            rowBayar.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
-                    builder.setMessage("Harap mendaftarkan keluarga anda terlebih dahulu sebelum menggunakan layanan ini.")
-
-                            .setCancelable(true)
-                            .setPositiveButton("Daftar Sekarang", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    startActivity(new Intent(DWKActivity.this, DaftarNasabahActivity.class));
-                                }
-                            })
-                            .setNegativeButton("Nanti", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //do things
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
-
-                    Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
-
-                    Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
-
-                    if(a != null) {
-                        a.setTextColor(getResources().getColor(R.color.accepted));
-                    }
-
-                    if(b != null) {
-                        b.setTextColor(getResources().getColor(R.color.gray));
-                    }
-                }
-            });
-
-            rowClaim.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
-                    builder.setMessage("Harap mendaftarkan keluarga anda terlebih dahulu sebelum menggunakan layanan ini.")
-
-                            .setCancelable(true)
-                            .setPositiveButton("Daftar Sekarang", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    startActivity(new Intent(DWKActivity.this, DaftarNasabahActivity.class));
-                                }
-                            })
-                            .setNegativeButton("Nanti", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //do things
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
-
-                    Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
-
-                    Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
-
-                    if(a != null) {
-                        a.setTextColor(getResources().getColor(R.color.accepted));
-                    }
-
-                    if(b != null) {
-                        b.setTextColor(getResources().getColor(R.color.gray));
-                    }
-                }
-            });
-
-            rowHistory.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
-                    builder.setMessage("Harap mendaftarkan keluarga anda terlebih dahulu sebelum menggunakan layanan ini.")
-
-                            .setCancelable(true)
-                            .setPositiveButton("Daftar Sekarang", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    startActivity(new Intent(DWKActivity.this, DaftarNasabahActivity.class));
-                                }
-                            })
-                            .setNegativeButton("Nanti", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //do things
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
-
-                    Button a = alert.getButton(DialogInterface.BUTTON_POSITIVE);
-
-                    Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
-
-                    if(a != null) {
-                        a.setTextColor(getResources().getColor(R.color.accepted));
-                    }
-
-                    if(b != null) {
-                        b.setTextColor(getResources().getColor(R.color.gray));
-                    }
-                }
-            });
-
+            };
+            rowNasabah.setOnClickListener(toRegisterNasabahPage);
+            rowBayar.setOnClickListener(toRegisterNasabahPage);
+            rowClaim.setOnClickListener(toRegisterNasabahPage);
+            rowHistory.setOnClickListener(toRegisterNasabahPage);
         }
     }
 
