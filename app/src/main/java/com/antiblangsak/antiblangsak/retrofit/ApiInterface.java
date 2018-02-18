@@ -137,4 +137,9 @@ public interface ApiInterface {
     @POST("claim/upload_file")
     @Multipart
     Call<ResponseBody> postImage(@Header("Authorization") String token, @Part MultipartBody.Part image, @Part("name") RequestBody name);
+
+    @POST("connect_family")
+    @FormUrlEncoded
+    Call<Object> connectFamily(@Header("Authorization") String token, @Field("user_id") int userId, @Field("nik") String nik, @Field("family_id") int familyId);
+
 }

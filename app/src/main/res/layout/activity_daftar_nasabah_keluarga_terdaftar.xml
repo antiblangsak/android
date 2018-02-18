@@ -64,15 +64,6 @@
                 />
         </android.support.design.widget.TextInputLayout>
 
-        <ProgressBar
-            android:visibility="gone"
-            android:id="@+id/pbDaftarkan"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="@dimen/margin_xxxl"
-            android:indeterminateTint="@color/yellow"
-            android:indeterminate="true" />
-
         <Button
             android:id="@+id/btnDaftarkan"
             android:layout_width="match_parent"
@@ -84,6 +75,21 @@
             android:textColor="@color/black"
             android:textSize="@dimen/textsize_button_md"/>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/pbDaftarkan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/margin_xxl"
+                android:indeterminateTint="@color/yellow"
+                android:indeterminate="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
