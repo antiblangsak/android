@@ -44,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView tvMemberSince;
     private TextView tvEmail;
 
-    private ListView bankAccList;
+    private NonScrollListView bankAccList;
     private TextView tvEndRekening;
     private ArrayAdapter<String> arrayAdapter;
 
