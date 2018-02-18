@@ -34,6 +34,7 @@ public class DWKActivity extends AppCompatActivity {
 
     private SharedPrefManager sharedPrefManager;
     private boolean hasFamily;
+    private int familyStatus;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -48,6 +49,7 @@ public class DWKActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
 
         hasFamily = sharedPrefManager.hasFamily();
+        familyStatus = sharedPrefManager.getFamilyStatus();
 
         rowDeskripsi = findViewById(R.id.rowDeskripsi);
         rowNasabah = findViewById(R.id.rowNasabah);
@@ -66,7 +68,7 @@ public class DWKActivity extends AppCompatActivity {
         });
 
 
-        if (hasFamily) {
+        if (hasFamily && (familyStatus ==1)) {
 
             rowNasabah.setOnClickListener(new View.OnClickListener() {
                 @Override
