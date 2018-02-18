@@ -1,5 +1,9 @@
 package com.antiblangsak.antiblangsak.app;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * Created by Syukri on 1/1/18.
  */
@@ -7,6 +11,7 @@ package com.antiblangsak.antiblangsak.app;
 public class AppConstant {
 
     public static final String SESSION_EXPIRED_STRING = "Session tidak valid!";
+    public static final String API_CALL_UNKNOWN_ERROR_STRING = "Terjadi error. Kode HTTP ";
 
     public static final int DAFTAR_REKENING_REQUEST_GALLERY = 1;
     public static final int UPLOAD_FOTO_KTP_REQUEST_GALLERY = 2;
@@ -62,4 +67,20 @@ public class AppConstant {
     public static final int DPGK_SERVICE_ID_INTEGER = 1;
     public static final int DKK_SERVICE_ID_INTEGER = 2;
     public static final int DWK_SERVICE_ID_INTEGER = 3;
+
+    public static final int HTTP_RESPONSE_200_OK = 200;
+    public static final int HTTP_RESPONSE_201_CREATED = 201;
+    public static final int HTTP_RESPONSE_401_UNAUTHORIZED = 401;
+    public static final int HTTP_RESPONSE_404_NOT_FOUND = 404;
+
+    public static final Callback EMPTY_CALLBACK = new Callback() {
+        @Override
+        public void onResponse(Call call, Response response) {
+
+        }
+
+        @Override
+        public void onFailure(Call call, Throwable t) {
+        }
+    };
 }

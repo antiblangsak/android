@@ -1,30 +1,22 @@
 package com.antiblangsak.antiblangsak.app;
 
 import android.app.Activity;
-import android.content.Context;
-import android.database.Cursor;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.util.Log;
-import android.widget.EditText;
-import android.widget.ImageView;
 
+import com.antiblangsak.antiblangsak.common.LoginActivity;
+import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 /**
  * Created by Syukri on 1/1/18.
@@ -45,5 +37,19 @@ public class AppHelper {
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         return formatRupiah.format(harga);
+    }
+
+    public static void performLogout(Response response, SharedPrefManager sharedPrefManager, Activity activity, ApiInterface apiInterface) {
+        try {
+            Log.w("body", response.errorBody().string());
+            sharedPrefManager.logout();
+            activity.startActivity(new Intent(activity, LoginActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+
+            Call callLogout = apiInterface.logout(sharedPrefManager.getToken(), sharedPrefManager.getEmail());
+            callLogout.enqueue(AppConstant.EMPTY_CALLBACK);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

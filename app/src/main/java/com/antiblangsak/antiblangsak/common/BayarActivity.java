@@ -20,12 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.adapters.NasabahBayarAdapter;
-import com.antiblangsak.antiblangsak.app.App;
+import com.antiblangsak.antiblangsak.app.AppHelper;
 import com.antiblangsak.antiblangsak.models.NasabahBayarModel;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.AppConstant;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
-import com.antiblangsak.antiblangsak.dkk.DKKActivity;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 import com.google.gson.Gson;
@@ -158,7 +157,7 @@ public class BayarActivity extends AppCompatActivity {
                 int statusCode = response.code();
                 Log.w("status", "status: " + statusCode);
 
-                if (statusCode == 200) {
+                if (statusCode == AppConstant.HTTP_RESPONSE_200_OK) {
                     try {
                         body = new JSONObject(new Gson().toJson(response.body()));
                         Log.w("RESPONSE", "body: " + body.toString());
@@ -256,25 +255,23 @@ public class BayarActivity extends AppCompatActivity {
                         mainLayout.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                         finish();
                     }
+                } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
+                    Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                    AppHelper.performLogout(response, sharedPrefManager, BayarActivity.this, apiInterface);
+                    finish();
                 } else {
-                    try {
-                        Log.w("body", response.errorBody().string());
-                        sharedPrefManager.logout();
-                        startActivity(new Intent(BayarActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        finish();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    Toast.makeText(getApplicationContext(), AppConstant.API_CALL_UNKNOWN_ERROR_STRING + statusCode, Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
 
             @Override
             public void onFailure(Call call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 
@@ -367,36 +364,22 @@ public class BayarActivity extends AppCompatActivity {
                                 e.printStackTrace();
                                 Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
                             }
+                        } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
+                            Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                            AppHelper.performLogout(response, sharedPrefManager, BayarActivity.this, apiInterface);
+                            finish();
                         } else {
-                            try {
-                                Log.w("body", response.errorBody().string());
-                                sharedPrefManager.logout();
-                                startActivity(new Intent(BayarActivity.this, LoginActivity.class)
-                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                finish();
-
-                                Call callLogout = apiInterface.logout(token, emailUser);
-                                callLogout.enqueue(new Callback() {
-                                    @Override
-                                    public void onResponse(Call call, Response response) {
-
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call call, Throwable t) {
-                                    }
-                                });
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            Toast.makeText(getApplicationContext(), AppConstant.API_CALL_UNKNOWN_ERROR_STRING + statusCode, Toast.LENGTH_SHORT).show();
+                            btnBayar.setVisibility(View.VISIBLE);
+                            progressBarBayar.setVisibility(View.GONE);
                         }
                     }
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Error: " + t.toString(), Toast.LENGTH_LONG).show();
-                        btnBayar.setVisibility(View.GONE);
-                        progressBarBayar.setVisibility(View.VISIBLE);
+                        btnBayar.setVisibility(View.VISIBLE);
+                        progressBarBayar.setVisibility(View.GONE);
                     }
                 });
             }

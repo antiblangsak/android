@@ -186,34 +186,19 @@ public class HistoryPaymentActivity extends AppCompatActivity {
                             status.setTextColor(getResources().getColor(R.color.rejected));
                         }
                         main.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                     }
+                } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
+                    Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                    AppHelper.performLogout(response, sharedPrefManager, HistoryPaymentActivity.this, apiInterface);
+                    finish();
                 } else {
-                    try {
-                        Log.w("body", response.errorBody().string());
-                        sharedPrefManager.logout();
-                        startActivity(new Intent(HistoryPaymentActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        finish();
-
-                        Call callLogout = apiInterface.logout(token, emailUser);
-                        callLogout.enqueue(new Callback() {
-                            @Override
-                            public void onResponse(Call call, Response response) {
-
-                            }
-
-                            @Override
-                            public void onFailure(Call call, Throwable t) {
-                            }
-                        });
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    Toast.makeText(getApplicationContext(), AppConstant.API_CALL_UNKNOWN_ERROR_STRING + statusCode, Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-                progressBar.setVisibility(View.GONE);
             }
 
             @Override

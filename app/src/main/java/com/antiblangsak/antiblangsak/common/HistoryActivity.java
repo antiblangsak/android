@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.adapters.HistoryAdapter;
 import com.antiblangsak.antiblangsak.app.AppConstant;
+import com.antiblangsak.antiblangsak.app.AppHelper;
 import com.antiblangsak.antiblangsak.models.HistoryModel;
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
@@ -122,7 +123,6 @@ public class HistoryActivity extends AppCompatActivity {
                             }
                             adapter = new HistoryAdapter(history, HistoryActivity.this);
                             listView.setAdapter(adapter);
-                            listView.setVisibility(View.VISIBLE);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -144,35 +144,21 @@ public class HistoryActivity extends AppCompatActivity {
 
                                 }
                             });
+                            listView.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.GONE);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();
                     }
+                } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
+                    Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                    AppHelper.performLogout(response, sharedPrefManager, HistoryActivity.this, apiInterface);
+                    finish();
                 } else {
-                    try {
-                        Log.w("body", response.errorBody().string());
-                        sharedPrefManager.logout();
-                        startActivity(new Intent(HistoryActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        finish();
-
-                        Call callLogout = apiInterface.logout(token, emailUser);
-                        callLogout.enqueue(new Callback() {
-                            @Override
-                            public void onResponse(Call call, Response response) {
-
-                            }
-
-                            @Override
-                            public void onFailure(Call call, Throwable t) {
-                            }
-                        });
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    Toast.makeText(getApplicationContext(), AppConstant.API_CALL_UNKNOWN_ERROR_STRING + statusCode, Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-                progressBar.setVisibility(View.GONE);
             }
 
 

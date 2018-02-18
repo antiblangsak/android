@@ -24,6 +24,8 @@ import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.R;
 import com.antiblangsak.antiblangsak.adapters.FamilyMemberAdapter;
+import com.antiblangsak.antiblangsak.app.AppConstant;
+import com.antiblangsak.antiblangsak.app.AppHelper;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
 import com.antiblangsak.antiblangsak.models.FamilyMemberModel;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
@@ -184,36 +186,19 @@ public class FamilyProfileActivity extends AppCompatActivity {
                         listFamilyMember.setAdapter(familyMemberAdapter);
 
                         mainLayout.setVisibility(View.VISIBLE);
-//                        mainLayout.startAnimation(slide_up);
+                        progressBar.setVisibility(View.GONE);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_LONG).show();
                     }
+                } else if (statusCode == AppConstant.HTTP_RESPONSE_401_UNAUTHORIZED) {
+                    Toast.makeText(getApplicationContext(), AppConstant.SESSION_EXPIRED_STRING, Toast.LENGTH_SHORT).show();
+                    AppHelper.performLogout(response, sharedPrefManager, FamilyProfileActivity.this, apiInterface);
+                    finish();
                 } else {
-                    try {
-                        Log.w("body", response.errorBody().string());
-                        sharedPrefManager.logout();
-                        startActivity(new Intent(FamilyProfileActivity.this, LoginActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        finish();
-
-                        Call callLogout = apiInterface.logout(token, emailUser);
-                        callLogout.enqueue(new Callback() {
-                            @Override
-                            public void onResponse(Call call, Response response) {
-
-                            }
-
-                            @Override
-                            public void onFailure(Call call, Throwable t) {
-                            }
-                        });
-                    } catch (IOException e) {
-                        progressBar.setVisibility(View.GONE);
-                        e.printStackTrace();
-                    }
+                    Toast.makeText(getApplicationContext(), AppConstant.API_CALL_UNKNOWN_ERROR_STRING + statusCode, Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-                progressBar.setVisibility(View.GONE);
             }
 
             @Override
