@@ -49,12 +49,11 @@ public class DWKActivity extends AppCompatActivity {
 
         hasFamily = sharedPrefManager.hasFamily();
 
+        rowDeskripsi = findViewById(R.id.rowDeskripsi);
         rowNasabah = findViewById(R.id.rowNasabah);
         rowBayar = findViewById(R.id.rowBayar);
         rowClaim = findViewById(R.id.rowKlaim);
-        rowDeskripsi = findViewById(R.id.rowDeskripsi);
         rowHistory = findViewById(R.id.rowHistory);
-        rowNasabah = findViewById(R.id.rowNasabah);
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
@@ -69,39 +68,37 @@ public class DWKActivity extends AppCompatActivity {
 
         if (hasFamily) {
 
-        rowNasabah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, NasabahActivity.class)
-                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
-            }
-        });
+            rowNasabah.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DWKActivity.this, NasabahActivity.class)
+                            .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+                }
+            });
 
-        rowBayar = findViewById(R.id.rowBayar);
-        rowBayar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, BayarActivity.class)
-                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
-            }
-        });
+            rowBayar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DWKActivity.this, BayarActivity.class)
+                            .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+                }
+            });
 
-        rowClaim = findViewById(R.id.rowKlaim);
-        rowClaim.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, ClaimActivity.class)
-                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
-            }
-        });
+            rowClaim.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DWKActivity.this, ClaimActivity.class)
+                            .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+                }
+            });
 
-        rowHistory.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DWKActivity.this, HistoryActivity.class)
-                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
-            }
-        });
+            rowHistory.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DWKActivity.this, HistoryActivity.class)
+                            .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DWK_SERVICE_ID_INTEGER));
+                }
+            });
 
         } else {
 
@@ -207,7 +204,7 @@ public class DWKActivity extends AppCompatActivity {
                 }
             });
 
-            rowHistoryDWK.setOnClickListener(new View.OnClickListener(){
+            rowHistory.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(DWKActivity.this);
@@ -242,10 +239,6 @@ public class DWKActivity extends AppCompatActivity {
             });
 
         }
-
-
-        ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dwk_color)));
     }
 
     @Override

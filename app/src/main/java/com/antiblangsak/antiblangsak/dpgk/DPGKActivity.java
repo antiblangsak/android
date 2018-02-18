@@ -54,8 +54,12 @@ public class DPGKActivity extends AppCompatActivity {
 
         hasFamily = sharedPrefManager.hasFamily();
 
-
         rowDeskripsi = findViewById(R.id.rowDeskripsi);
+        rowNasabah = findViewById(R.id.rowNasabah);
+        rowBayar = findViewById(R.id.rowBayar);
+        rowClaim = findViewById(R.id.rowKlaim);
+        rowHistory = findViewById(R.id.rowHistory);
+
         rowDeskripsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,18 +68,28 @@ public class DPGKActivity extends AppCompatActivity {
             }
         });
 
-
-        rowNasabah = findViewById(R.id.rowNasabah);
-        rowBayar = findViewById(R.id.rowBayar);
-        rowClaim = findViewById(R.id.rowKlaim);
-        rowHistory = findViewById(R.id.rowHistory);
-
         if (hasFamily) {
 
             rowNasabah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(DPGKActivity.this, NasabahActivity.class)
+                            .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DPGK_SERVICE_ID_INTEGER));
+                }
+            });
+
+            rowBayar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DPGKActivity.this, BayarActivity.class)
+                            .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DPGK_SERVICE_ID_INTEGER));
+                }
+            });
+
+            rowClaim.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DPGKActivity.this, ClaimActivity.class)
                             .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DPGK_SERVICE_ID_INTEGER));
                 }
             });
@@ -225,10 +239,7 @@ public class DPGKActivity extends AppCompatActivity {
                     }
                 }
             });
-
         }
-
-
     }
 
     @Override

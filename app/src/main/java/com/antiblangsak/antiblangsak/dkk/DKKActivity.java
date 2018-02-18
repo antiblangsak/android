@@ -49,16 +49,16 @@ public class DKKActivity extends AppCompatActivity {
         hasFamily = sharedPrefManager.hasFamily();
 
         rowDeskripsi = findViewById(R.id.rowDeskripsi);
+        rowNasabah = findViewById(R.id.rowNasabah);
+        rowBayar = findViewById(R.id.rowBayar);
+        rowHistory = findViewById(R.id.rowHistory);
+
         rowDeskripsi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DKKActivity.this, DKKDescriptionActivity.class));
             }
         });
-
-        rowNasabah = findViewById(R.id.rowNasabah);
-        rowBayar = findViewById(R.id.rowBayar);
-        rowHistory = findViewById(R.id.rowHistory);
 
         if (hasFamily) {
 
@@ -70,14 +70,13 @@ public class DKKActivity extends AppCompatActivity {
                 }
             });
 
-        rowBayar = findViewById(R.id.rowBayar);
-        rowBayar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DKKActivity.this, BayarActivity.class)
-                        .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DKK_SERVICE_ID_INTEGER));
-            }
-        });
+            rowBayar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(DKKActivity.this, BayarActivity.class)
+                            .putExtra(AppConstant.KEY_SERVICE_ID, AppConstant.DKK_SERVICE_ID_INTEGER));
+                }
+            });
 
             rowHistory.setOnClickListener(new View.OnClickListener(){
                 @Override
