@@ -1,6 +1,7 @@
 package com.antiblangsak.antiblangsak.retrofit;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -19,7 +20,10 @@ public class ApiClient {
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
-        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(15, TimeUnit.SECONDS);
 
         httpClient.addInterceptor(new Interceptor() {
             @Override
