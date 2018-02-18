@@ -32,7 +32,8 @@ public class DaftarNasabahKeluargaBaruActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(DaftarNasabahKeluargaBaruActivity.this,
-                        DaftarRekeningActivity.class);
+                        DaftarRekeningActivity.class)
+                        .putExtra("FROM", "Daftar Nasabah");
                 startActivity(myIntent);
                 finish();
             }

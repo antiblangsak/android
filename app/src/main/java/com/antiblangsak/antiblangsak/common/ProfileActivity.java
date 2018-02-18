@@ -88,6 +88,15 @@ public class ProfileActivity extends AppCompatActivity {
         tvLogout = findViewById(R.id.tvLogout);
         progressBarLogout = findViewById(R.id.progressBarLogout);
 
+        tvEndRekening.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, DaftarRekeningActivity.class)
+                .putExtra("FROM", "Profile"));
+                finish();
+            }
+        });
+
         logoutLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

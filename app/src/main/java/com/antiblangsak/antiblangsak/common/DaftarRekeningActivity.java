@@ -70,6 +70,8 @@ public class DaftarRekeningActivity extends AppCompatActivity {
     private String emailUser;
     private int userId;
 
+    private String from;
+
     public static final String KEY_BANK_NAME = "BANK_NAME";
     public static final String KEY_BRANCH_NAME = "BRANCH_NAME";
     public static final String KEY_ACCOUNT_NUMBER = "ACCOUNT_NUMBER";
@@ -101,6 +103,8 @@ public class DaftarRekeningActivity extends AppCompatActivity {
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         sharedPrefManager = new SharedPrefManager(this);
+
+        from = getIntent().getStringExtra("FROM");
 
         token = sharedPrefManager.getToken();
         emailUser = sharedPrefManager.getEmail();
@@ -198,8 +202,17 @@ public class DaftarRekeningActivity extends AppCompatActivity {
 
                                     JSONObject data = body.getJSONObject("data");
                                     Toast.makeText(getApplicationContext(), AppConstant.DAFTAR_REKENING_SUCCESS_STRING, Toast.LENGTH_SHORT).show();
-                                    Intent myIntent = new Intent(DaftarRekeningActivity.this,
-                                            DaftarNasabahUploadFotoActivity.class);
+
+                                    Intent myIntent;
+                                    if (from.equals("Profile")){
+
+                                        myIntent = new Intent(DaftarRekeningActivity.this,
+                                                ProfileActivity.class);
+
+                                    } else {
+                                        myIntent = new Intent(DaftarRekeningActivity.this,
+                                                DaftarNasabahUploadFotoActivity.class);
+                                    }
                                     startActivity(myIntent);
                                     finish();
 
