@@ -42,6 +42,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.sql.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -194,7 +195,11 @@ public class ProfileActivity extends AppCompatActivity {
                         }
 
                         tvName.setText(name);
-                        tvMemberSince.setText(memberSince);
+                        try {
+                            tvMemberSince.setText("Bergabung sejak " + new SimpleDateFormat("d MMM yyyy").format(new SimpleDateFormat("yyyy-MM-dd").parse(memberSince)));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         tvEmail.setText(email);
 
                         arrayAdapter = new ArrayAdapter<String>(ProfileActivity.this, R.layout.listitem_rekening, bankAccountsStr);

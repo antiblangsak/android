@@ -2,11 +2,13 @@ package com.antiblangsak.antiblangsak.models;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * Created by Syukri on 2/16/18.
  */
 
-public class FamilyMemberModel {
+public class FamilyMemberModel implements Serializable {
 
     private int id;
     private String name;

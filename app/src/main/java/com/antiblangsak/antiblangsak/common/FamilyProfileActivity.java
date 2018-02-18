@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -184,6 +185,59 @@ public class FamilyProfileActivity extends AppCompatActivity {
                         }
                         familyMemberAdapter = new FamilyMemberAdapter(listMembers, getApplicationContext());
                         listFamilyMember.setAdapter(familyMemberAdapter);
+
+                        //martin add clickable
+                        listFamilyMember.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                                try {
+                                Intent inten;
+                                    inten = new Intent(FamilyProfileActivity.this, FamilyMemberActivity.class);
+                                    JSONObject member = listMembers.get(position).getData();
+                                    Log.w("lst",member+"");
+                                    String fullname = member.getString("fullname");
+                                    String nik = member.getString("nik");
+                                    String gender = member.getString("gender");
+                                    String birth_place = member.getString("birth_place");
+                                    String birth_date = member.getString("birth_date");
+                                    String religion = member.getString("religion");
+                                    String education = member.getString("education");
+                                    String occupation = member.getString("occupation");
+                                    String marital_status = member.getString("marital_status");
+                                    String relation = member.getString("relation");
+                                    String nationality = member.getString("nationality");
+                                    String passport_license = member.getString("passport_license");
+                                    String father_name = member.getString("father_name");
+                                    String mother_name = member.getString("mother_name");
+
+                                    inten.putExtra("fullname", member.getString("fullname"));
+                                    inten.putExtra("nik", member.getString("nik"));
+                                    inten.putExtra("gender", member.getString("gender"));
+                                    inten.putExtra("birth_place", member.getString("birth_place"));
+                                    inten.putExtra("birth_date", member.getString("birth_date"));
+                                    inten.putExtra("religion", member.getString("religion"));
+                                    inten.putExtra("education", member.getString("education"));
+                                    inten.putExtra("occupation", member.getString("occupation"));
+                                    inten.putExtra("marital_status", member.getString("marital_status"));
+                                    inten.putExtra("relation", member.getString("relation"));
+                                    inten.putExtra("nationality", member.getString("nationality"));
+                                    inten.putExtra("passport_license", member.getString("passport_license"));
+                                    inten.putExtra("father_name", member.getString("father_name"));
+                                    inten.putExtra("mother_name", member.getString("mother_name"));
+
+                                    startActivity(inten);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                        });
+
+
+
+
 
                         mainLayout.setVisibility(View.VISIBLE);
                         progressBar.setVisibility(View.GONE);

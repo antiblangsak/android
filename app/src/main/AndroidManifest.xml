@@ -55,8 +55,7 @@
         <activity
             android:name=".common.DaftarNasabahKeluargaBaruActivity"
             android:label="@string/daftarnasabah_title" />
-        <activity
-            android:name=".common.DaftarRekeningActivity" />
+        <activity android:name=".common.DaftarRekeningActivity" />
         <activity
             android:name=".common.DaftarNasabahUploadFotoActivity"
             android:label="@string/daftarnasabah_title" />
@@ -65,10 +64,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.ProfileActivity"
-            android:label="@string/profile_title" />
+            android:label="" />
         <activity
             android:name=".common.FamilyProfileActivity"
-            android:label="@string/title_activity_family_profile"/>
+            android:label="@string/title_activity_family_profile" />
 
         <!-- COMMON ACTIVITIES -->
         <activity
@@ -91,7 +90,7 @@
             android:label="Pembayaran Bulanan" />
         <activity
             android:name=".common.ClaimActivity"
-            android:label="Klaim Dana"/>
+            android:label="Klaim Dana" />
 
         <!-- DPGK -->
         <activity
@@ -128,7 +127,9 @@
         <activity
             android:name=".dwk.DWKTermsConditionsActivity"
             android:label="Syarat dan Ketentuan" />
-
+        <activity
+            android:name=".common.FamilyMemberActivity"
+            android:label=""/>
     </application>
 
 </manifest>
