@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.antiblangsak.antiblangsak.common.ProfileActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -14,7 +14,7 @@
         <LinearLayout
             android:background="@color/gray_dark"
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="295dp">
 
             <LinearLayout
                 android:visibility="gone"
@@ -62,7 +62,7 @@
 
                     <Button
                         android:id="@+id/button"
-                        android:background="@drawable/all_button"
+                        android:background="@drawable/daftarnasabah_option"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -70,7 +70,7 @@
                         android:layout_margin="@dimen/margin_lg"
                         android:paddingLeft="@dimen/padding_lg"
                         android:paddingRight="@dimen/padding_lg"
-                        android:text="Edit Profile"
+                        android:text="Ubah Profil"
                         android:textSize="14dp" />
 
                 </RelativeLayout>
@@ -83,8 +83,6 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="300dp"
-            android:background="@color/white"
             android:id="@+id/relativeLayout2">
 
             <LinearLayout
@@ -183,7 +181,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/home_serviceitem"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvLogout"
@@ -212,16 +211,22 @@
 
         </RelativeLayout>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="@dimen/margin_xxl"
-            android:indeterminateTint="@color/yellow"
-            android:indeterminate="true"
-            android:layout_centerInParent="true"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </RelativeLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/margin_xxxl"
+                android:indeterminateTint="@color/yellow"
+                android:indeterminate="true"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
