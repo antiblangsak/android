@@ -1,9 +1,11 @@
 package com.antiblangsak.antiblangsak.common;
 
 import android.app.ActionBar;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
@@ -13,7 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -22,7 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.R;
+import com.antiblangsak.antiblangsak.app.AppConfig;
 import com.antiblangsak.antiblangsak.app.SharedPrefManager;
+import com.antiblangsak.antiblangsak.models.BankAccountModel;
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
 import com.antiblangsak.antiblangsak.retrofit.ApiInterface;
 import com.google.gson.Gson;
@@ -32,6 +39,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,6 +71,8 @@ public class ProfileActivity extends AppCompatActivity {
     private int id;
     private String token;
     private String email;
+
+    private ArrayList<BankAccountModel> bankAccountOBJ;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -94,6 +105,8 @@ public class ProfileActivity extends AppCompatActivity {
         logoutLayout = findViewById(R.id.logout);
         tvLogout = findViewById(R.id.tvLogout);
         progressBarLogout = findViewById(R.id.progressBarLogout);
+
+        bankAccountOBJ = new ArrayList<BankAccountModel>();
 
         tvEndRekening.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -165,7 +178,17 @@ public class ProfileActivity extends AppCompatActivity {
 
                         for (int i = 0; i < bankAccounts.length(); i++) {
                             JSONObject bankAccount = bankAccounts.getJSONObject(i);
-                            bankAccountsStr[i] = bankAccount.getString("account_name") + " - " + bankAccount.getString("bank_name");
+
+                            String nam = bankAccount.getString("account_name");
+                            String bn = bankAccount.getString("bank_name");
+                            int idd = bankAccount.getInt("id");
+                            String cab = bankAccount.getString("branch_name");
+                            String an = bankAccount.getString("account_number");
+
+                            bankAccountsStr[i] = nam + " - " + bn;
+
+                            bankAccountOBJ.add(new BankAccountModel(idd, bn, nam, an, cab));
+
                         }
 
                         tvName.setText(name);
@@ -174,6 +197,51 @@ public class ProfileActivity extends AppCompatActivity {
 
                         arrayAdapter = new ArrayAdapter<String>(ProfileActivity.this, R.layout.listitem_rekening, bankAccountsStr);
                         bankAccList.setAdapter(arrayAdapter);
+
+                        bankAccList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                                // custom dialog
+                                final Dialog dialog = new Dialog(ProfileActivity.this);
+                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+                                WindowManager.LayoutParams params = dialog.getWindow().getAttributes(); // change this to your dialog.
+                                params.y = -100; // Here is the param to set your dialog position. Same with params.x
+                                dialog.getWindow().setAttributes(params);
+
+                                dialog.setContentView(R.layout.view_rekening_nasabah);
+                                //dialog.setTitle("Info Rekening");
+
+                                BankAccountModel bankacc = bankAccountOBJ.get(i);
+                                Typeface boldFont = Typeface.createFromAsset(ProfileActivity.this.getAssets(), AppConfig.BOLD_FONT);
+
+                                // set the custom dialog components - text, image and button
+                                TextView info = dialog.findViewById(R.id.infoRekening);
+                                TextView namaBank = (TextView) dialog.findViewById(R.id.namaBank);
+                                TextView cabang = (TextView) dialog.findViewById(R.id.cabang);
+                                TextView noRek = (TextView) dialog.findViewById(R.id.noRek);
+                                TextView atasNama = (TextView) dialog.findViewById(R.id.atasNama);
+
+                                info.setTypeface(boldFont);
+                                namaBank.setText(bankacc.getBankName());
+                                cabang.setText(bankacc.getBranchName());
+                                noRek.setText(bankacc.getAccountNumber());
+                                atasNama.setText(bankacc.getAccountName());
+
+                                TextView dialogButton = dialog.findViewById(R.id.done);
+                                // if button is clicked, close the custom dialog
+                                dialogButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                                dialog.show();
+
+                            }
+                        });
 
                         lowerLayout.setVisibility(View.VISIBLE);
                         upperLayout.setVisibility(View.VISIBLE);

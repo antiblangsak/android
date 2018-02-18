@@ -16,6 +16,10 @@
     <dimen name="textsize_md">14dp</dimen>
     <dimen name="textsize_ll">16dp</dimen>
     <dimen name="textsize_lg">20sp</dimen>
+    <dimen name="textsize_xl">24sp</dimen>
+    <dimen name="textsize_xxl">28sp</dimen>
+    <dimen name="textsize_xxxl">32sp</dimen>
+
 
     <dimen name="margin_superxl">60dp</dimen>
     <dimen name="margin_xxxxl">48dp</dimen>

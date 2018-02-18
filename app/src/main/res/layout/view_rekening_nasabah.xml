@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/margin_xxl"
+    android:paddingRight="@dimen/margin_xxl">
+
+    <TextView
+        android:id="@+id/infoRekening"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Info Rekening"
+        android:textSize="@dimen/textsize_xl"
+        android:layout_marginTop="@dimen/margin_xl"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_lg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Bank"
+                android:textSize="@dimen/textsize_md"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="@dimen/textsize_md"
+                android:gravity="right"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginLeft="@dimen/margin_sm">
+
+            <TextView
+                android:id="@+id/namaBank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Bank"
+                android:textSize="@dimen/textsize_md"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_xs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Cabang"
+                android:textSize="@dimen/textsize_md"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="@dimen/textsize_md"
+                android:gravity="right"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginLeft="@dimen/margin_sm">
+
+            <TextView
+                android:id="@+id/cabang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cabang"
+                android:textSize="@dimen/textsize_md"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_xs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No. Rekening"
+                android:textSize="@dimen/textsize_md"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="@dimen/textsize_md"
+                android:gravity="right"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginLeft="@dimen/margin_sm">
+
+            <TextView
+                android:id="@+id/noRek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No. Rekening"
+                android:textSize="@dimen/textsize_md"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_xs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Pemilik"
+                android:textSize="@dimen/textsize_md"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="@dimen/textsize_md"
+                android:gravity="right"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginLeft="@dimen/margin_sm">
+
+            <TextView
+                android:id="@+id/atasNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Atas Nama"
+                android:textSize="@dimen/textsize_md"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_md"
+        android:layout_marginTop="@dimen/margin_md"
+        android:layout_marginBottom="@dimen/margin_sm"
+        android:layout_marginLeft="@dimen/margin_superxl"
+        android:layout_marginRight="@dimen/margin_superxl"
+        android:textAlignment="center"
+        android:text="TUTUP"
+        android:textSize="@dimen/textsize_button_xd"
+        android:textColor="@color/yellow"/>
+
+</LinearLayout>
