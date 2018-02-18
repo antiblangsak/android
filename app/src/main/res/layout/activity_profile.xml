@@ -9,18 +9,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
             android:background="@color/gray_dark"
             android:layout_width="match_parent"
-            android:layout_height="240dp">
+            android:layout_height="300dp">
 
             <LinearLayout
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_superxl"
                 android:orientation="vertical"
                 android:id="@+id/relativeLayout">
 
@@ -83,7 +83,8 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="300dp"
+            android:background="@color/white"
             android:id="@+id/relativeLayout2">
 
             <LinearLayout

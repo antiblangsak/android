@@ -13,7 +13,7 @@
         android:layout_weight="1">
 
         <ImageView
-            android:src="@drawable/splash_logo"
+            android:src="@drawable/ic_nasabah"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:paddingRight="@dimen/margin_sm"
