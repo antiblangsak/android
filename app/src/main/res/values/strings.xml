@@ -87,16 +87,16 @@
     <string name="dwk_deskripsi_short">Apa itu Dana Warisan Kami?</string>
 
     <string name="dpk_nasabah_title">Nasabah</string>
-    <string name="dpk_nasabah_short">Anda Belum Mendaftarkan Nasabah</string>
+    <string name="dpk_nasabah_short">Daftarkan anggota keluarga Anda</string>
 
     <string name="dpk_bayar_title">Bayar</string>
-    <string name="dpk_bayar_short">Anda Belum Mendaftarkan Nasabah</string>
+    <string name="dpk_bayar_short">Lakukan pembayaran bulanan</string>
 
     <string name="dpk_klaim_title">Klaim</string>
-    <string name="dpk_klaim_short">Anda Belum Mendaftarkan Nasabah</string>
+    <string name="dpk_klaim_short">Lakukan permohonan klaim dana</string>
 
     <string name="dpk_history_title">Riwayat</string>
-    <string name="dpk_history_short">Anda Belum Mendaftarkan Nasabah</string>
+    <string name="dpk_history_short">Lihat riwayat transaksi Anda</string>
     <string name="title_activity_list_rs">ListRSActivity</string>
     <string name="title_activity_deskripsi_dwk">DeskripsiDWKActivity</string>
 
