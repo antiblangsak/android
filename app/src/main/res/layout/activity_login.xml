@@ -2,11 +2,11 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/gray_dark">
+    android:background="@color/gray_dark"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/mainLayout"
@@ -17,28 +17,21 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="6"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                />
-
             <ImageView
-                android:src="@drawable/login_logo"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="48dp"
                 android:layout_marginRight="48dp"
-                android:layout_marginBottom="30dp"
-                android:layout_weight="4"/>
+                android:src="@drawable/login_logo" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <LinearLayout
@@ -48,89 +41,142 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_email"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_xxxl"
-                android:layout_marginRight="@dimen/margin_xxxl"
-                android:layout_marginBottom="@dimen/margin_md"
-                android:textColorHint="@color/gray">
+                android:layout_height="0dp"
+                android:layout_weight="4">
 
-                <EditText
-                    android:id="@+id/etEmail"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/emailhint"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textsize_inputtext"
-                    android:backgroundTint="@color/yellow"
-                    />
-            </android.support.design.widget.TextInputLayout>
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true">
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_password"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_xs"
+                        android:layout_marginLeft="@dimen/margin_xxxl"
+                        android:layout_marginRight="@dimen/margin_xxxl"
+                        android:textColorHint="@color/gray">
+
+                        <EditText
+                            android:id="@+id/etEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/yellow"
+                            android:hint="@string/emailhint"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_xs"
+                        android:layout_marginLeft="@dimen/margin_xxxl"
+                        android:layout_marginRight="@dimen/margin_xxxl"
+                        android:textColorHint="@color/gray"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/white">
+
+                        <EditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/yellow"
+                            android:hint="@string/passwordhint"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_xxxl"
-                android:layout_marginRight="@dimen/margin_xxxl"
-                android:layout_marginBottom="@dimen/margin_md"
-                android:textColorHint="@color/gray"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/white">
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/etPassword"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/passwordhint"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textsize_inputtext"
-                    android:backgroundTint="@color/yellow"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <ProgressBar
-                android:visibility="gone"
-                android:id="@+id/pbLogin"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="@dimen/margin_xxl"
-                android:indeterminateTint="@color/yellow"
-                android:indeterminate="true" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_xl"
-                android:layout_marginLeft="@dimen/margin_xxxl"
-                android:layout_marginRight="@dimen/margin_xxxl"
-                android:paddingBottom="@dimen/padding_xxs"
-                android:text="@string/login_loginbutton"
-                android:textColor="@color/black"
-                android:background="@drawable/all_button"
-                android:textSize="@dimen/textsize_button_md" />
+                        <ProgressBar
+                            android:id="@+id/pbLogin"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/margin_xxl"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/yellow"
+                            android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/tvBelumPunyaAkun"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_xxxl"
-                android:text="@string/login_registerlinkinfo"
-                android:textAlignment="center"
-                android:textSize="14dp"
-                android:textColor="@color/white"/>
+                    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tvToRegisterPage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_xs"
-                android:text="@string/login_registerlink"
-                android:textAlignment="center"
-                android:textSize="14dp"
-                android:textColor="@color/blue"/>
+                    <Button
+                        android:id="@+id/btnLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_xxxl"
+                        android:layout_marginRight="@dimen/margin_xxxl"
+                        android:layout_marginTop="@dimen/margin_md"
+                        android:background="@drawable/all_button"
+                        android:paddingBottom="@dimen/padding_xxs"
+                        android:text="@string/login_loginbutton"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_button_md" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerHorizontal="true">
+
+                        <TextView
+                            android:id="@+id/tvBelumPunyaAkun"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_registerlinkinfo"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/tvToRegisterPage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_xs"
+                            android:text="@string/login_registerlink"
+                            android:textAlignment="center"
+                            android:textColor="@color/blue"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
