@@ -116,7 +116,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(ProfileActivity.this, DaftarRekeningActivity.class)
                 .putExtra("FROM", "Profile"));
-                finish();
             }
         });
 

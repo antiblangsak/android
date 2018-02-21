@@ -205,10 +205,8 @@ public class DaftarRekeningActivity extends AppCompatActivity {
 
                                     Intent myIntent;
                                     if (from.equals("Profile")){
-
-                                        myIntent = new Intent(DaftarRekeningActivity.this,
-                                                ProfileActivity.class);
-
+                                        myIntent = new Intent(DaftarRekeningActivity.this, ProfileActivity.class)
+                                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     } else {
                                         myIntent = new Intent(DaftarRekeningActivity.this,
                                                 DaftarNasabahUploadFotoActivity.class);
