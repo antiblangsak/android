@@ -251,7 +251,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                         Intent fullScreenIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                                 FullScreenImageActivity.class);
                         fullScreenIntent.putExtra("TYPE", SharedPrefManager.KTP_PHOTO_BASE64);
-                        sharedPrefManager.saveString(SharedPrefManager.KTP_PHOTO_BASE64, photoKkBase64);
+                        sharedPrefManager.saveString(SharedPrefManager.KTP_PHOTO_BASE64, photoKtpBase64);
                         startActivity(fullScreenIntent);
                     }
                 });
