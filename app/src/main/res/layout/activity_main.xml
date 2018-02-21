@@ -17,32 +17,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/yellow"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/padding_xs"
+            android:paddingBottom="@dimen/padding_xs">
 
             <ImageView
                 android:id="@+id/imProfile"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@drawable/ic_profile"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_profile"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="4"
+                android:padding="@dimen/padding_xs"
                 android:src="@drawable/home_logo"
-                android:layout_marginTop="@dimen/margin_md"
-                android:layout_marginBottom="@dimen/margin_md"
-                android:layout_marginRight="65dp"
                 android:textAlignment="center" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </View>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
