@@ -17,7 +17,7 @@ import com.antiblangsak.antiblangsak.R;
 
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
-    private String tabTitles[] = new String[] { "<b>Home</b>", "<b>Feeds</b>" };
+    private String tabTitles[] = new String[] { "HOME", "FEEDS" };
 
     public MainPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -52,7 +52,7 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
         // Given you have a custom layout in `res/layout/view_customtabmtab.xml` with a TextView and ImageView
         View view = LayoutInflater.from(context).inflate(R.layout.view_customtab, null);
         TextView textView= (TextView) view.findViewById(R.id.textView);
-        textView.setText(Html.fromHtml(getPageTitle(position)));
+        textView.setText(getPageTitle(position));
         return view;
     }
 }

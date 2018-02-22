@@ -1,488 +1,586 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="12">
-
-        <ProgressBar
-            android:visibility="gone"
-            android:id="@+id/pbLogout"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:indeterminateTint="@color/yellow"
-            android:indeterminate="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
-
-        <com.synnapps.carouselview.CarouselView
-            android:id="@+id/carouselView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:fillColor="#FFFFFFFF"
-            app:pageColor="#00000000"
-            app:radius="6dp"
-            app:slideInterval="3000"
-            app:strokeColor="#FF777777"
-            app:strokeWidth="1dp"/>
-
-        <!--<TextView-->
-            <!--android:id="@+id/tvLogout"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerInParent="true"-->
-            <!--android:text="Ruang untuk iklan"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:textAppearance="?android:attr/textAppearanceLarge"/>-->
-
-    </RelativeLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="20"
-        android:background="@color/white"
-        android:orientation="vertical"
-        >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnRegisterAsNasabah"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/margin_sm"
-                android:paddingBottom="@dimen/padding_xxs"
-                android:text="@string/home_daftarnasabahbutton"
-                android:textColor="@color/black"
-                android:background="@drawable/all_button"
-                android:textSize="@dimen/textsize_button_sm"
-                />
+                android:layout_height="200dp">
+
+                <com.synnapps.carouselview.CarouselView
+                    android:id="@+id/carouselView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:fillColor="#FFFFFFFF"
+                    app:pageColor="#00000000"
+                    app:radius="6dp"
+                    app:slideInterval="3000"
+                    app:strokeColor="#FF777777"
+                    app:strokeWidth="1dp" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnRegisterAsNasabah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_sm"
+                        android:padding="@dimen/padding_sm"
+                        android:background="@drawable/all_button"
+                        android:text="@string/home_daftarnasabahbutton"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_button_sm"
+                        android:minHeight="0dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/home_serviceitem_normal"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceDpgk"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="10dp"
+                                android:layout_centerInParent="true"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/home_dpgk_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_dpgklabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_sm"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceDkk"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_dkk_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_dkklabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_sm"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceDwk"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_dwk_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_dwklabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_sm"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceDtmk"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_dtmk_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm"
+                            android:paddingLeft="@dimen/padding_xs">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_dtmklabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_sm"
+                    android:background="@drawable/home_serviceitem_normal"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceOjek"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="10dp"
+                                android:layout_centerInParent="true"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/home_ayoojek_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoojeklabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceDokter"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_ayoodokter_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoodokterlabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceFood"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_ayoofood_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoofoodlabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServicePiknik"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_ayoopiknik_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm"
+                            android:paddingLeft="@dimen/padding_xs">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoopikniklabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/home_serviceitem_normal"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceModal"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="10dp"
+                                android:layout_centerInParent="true"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/home_ayoomodal_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoomodallabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceBayar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_ayoobayar_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoobayarlabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceStore"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_ayoostore_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoostorelabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnServiceBaca"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/home_serviceitem"
+                        android:clickable="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/margin_sm"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/home_ayoobaca_logo" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/margin_sm"
+                            android:paddingLeft="@dimen/padding_xs">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_ayoobacalabel"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/textsize_all_xs"
+                                android:layout_centerInParent="true"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:background="@drawable/home_serviceitem_normal"
-            android:layout_marginBottom="@dimen/margin_sm"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:id="@+id/btnServiceDpgk"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_dpgk_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_lg"
-                    android:layout_marginLeft="@dimen/margin_xl"
-                    android:layout_marginRight="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_dpgklabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:layout_alignParentBottom="true"
-                    android:textSize="@dimen/textsize_sm"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceDkk"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_dkk_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_dkklabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:layout_alignParentBottom="true"
-                    android:textSize="@dimen/textsize_sm"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceDwk"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_dwk_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_dwklabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:layout_alignParentBottom="true"
-                    android:textSize="@dimen/textsize_sm"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceDtmk"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_dtmk_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_dtmklabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_sm"
-                    />
-
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:background="@drawable/home_serviceitem_normal"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:id="@+id/btnServiceOjek"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoojek_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xxl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoojeklabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceDokter"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoodokter_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoodokterlabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceFood"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoofood_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoofoodlabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServicePiknik"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoopiknik_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoopikniklabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:background="@drawable/home_serviceitem_normal"
-            android:orientation="horizontal"
-            >
-
-            <RelativeLayout
-                android:id="@+id/btnServiceModal"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoomodal_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoomodallabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceBayar"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoobayar_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoobayarlabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceStore"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoostore_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoostorelabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnServiceBaca"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/home_serviceitem"
-                android:clickable="true"
-                >
-
-                <ImageView
-                    android:src="@drawable/home_ayoobaca_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_xl"
-                    android:layout_marginBottom="@dimen/margin_xxxl"
-                    android:adjustViewBounds="true"
-                    android:layout_centerHorizontal="true"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_ayoobacalabel"
-                    android:textColor="@color/gray"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/textsize_all_xs"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_md"
-                    />
-
-
-            </RelativeLayout>
-
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

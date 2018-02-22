@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,11 +32,10 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     TextView tvLogout;
-    ProgressBar pbLogout;
     Button btnRegisterAsNasabah;
-    RelativeLayout btnServiceDpgk;
-    RelativeLayout btnServiceDkk;
-    RelativeLayout btnServiceDwk;
+    LinearLayout btnServiceDpgk;
+    LinearLayout btnServiceDkk;
+    LinearLayout btnServiceDwk;
 
     private SharedPrefManager sharedPrefManager;
     private ApiInterface apiInterface;
@@ -63,7 +63,6 @@ public class HomeFragment extends Fragment {
         }
 
         tvLogout = view.findViewById(R.id.tvLogout);
-        pbLogout = view.findViewById(R.id.pbLogout);
         btnRegisterAsNasabah = view.findViewById(R.id.btnRegisterAsNasabah);
         btnServiceDpgk = view.findViewById(R.id.btnServiceDpgk);
         btnServiceDkk = view.findViewById(R.id.btnServiceDkk);

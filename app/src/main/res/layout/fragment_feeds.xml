@@ -7,28 +7,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="@color/gray_dark">
 
         <Button
             android:id="@+id/btnTulisBerita"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_sm"
-            android:paddingBottom="@dimen/padding_xxs"
+            android:padding="@dimen/padding_sm"
+            android:background="@drawable/all_button"
             android:text="@string/home_tulisberitabutton"
             android:textColor="@color/black"
-            android:background="@drawable/all_button"
             android:textSize="@dimen/textsize_button_sm"
-            />
+            android:minHeight="0dp"/>
 
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
@@ -37,7 +35,7 @@
             android:text="Belum ada data."
             android:textAlignment="center"
             android:textColor="@color/gray_light_pressed"
-            android:textSize="18dp"/>
+            android:textSize="@dimen/textsize_lg"/>
         
     </RelativeLayout>
 
