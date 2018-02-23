@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/white">
 
         <RelativeLayout
@@ -13,22 +13,24 @@
             android:layout_height="match_parent"
             android:paddingBottom="20dp"
             android:paddingTop="10dp">
+
             <LinearLayout
                 android:id="@+id/row1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvKetentuan1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="1."
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="1."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
                 <TextView
                     android:id="@+id/tvKetentuanDPK1"
@@ -36,31 +38,33 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/ketentuan_dpk1"
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="@string/ketentuan_dpk1"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/row2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/row1"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvKetentuan2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="2."
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="2."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
                 <TextView
                     android:id="@+id/tvKetentuanDPK2"
@@ -68,31 +72,33 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/ketentuan_dpk2"
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="@string/ketentuan_dpk2"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/row3"
-                android:layout_below="@id/row2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/row2"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvKetentuan3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="3."
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="3."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
                 <TextView
                     android:id="@+id/tvKetentuanDPK3"
@@ -100,31 +106,33 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/ketentuan_dpk3"
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="@string/ketentuan_dpk3"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/row4"
-                android:layout_below="@id/row3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/row3"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvKetentuan4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="4."
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="4."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
                 <TextView
                     android:id="@+id/tvKetentuanDPK4"
@@ -132,31 +140,33 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/ketentuan_dpk4"
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="@string/ketentuan_dpk4"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/row5"
-                android:layout_below="@id/row4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/row4"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvKetentuan5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="5."
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="5."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
                 <TextView
                     android:id="@+id/tvKetentuanDPK5"
@@ -164,31 +174,33 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/ketentuan_dpk5"
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="@string/ketentuan_dpk5"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/row6"
-                android:layout_below="@id/row5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/row5"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvKetentuan6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="6."
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="6."
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
                 <TextView
                     android:id="@+id/tvKetentuanDPK6"
@@ -196,12 +208,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/ketentuan_dpk6"
-                    android:textColor="@color/gray_dark"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="14dp" />
+                    android:text="@string/ketentuan_dpk6"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/textsize_md" />
 
             </LinearLayout>
 

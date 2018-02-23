@@ -1,63 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:padding="5dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp">
+
             <TextView
                 android:id="@+id/tvDeskripsiDWK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="@string/deskripsi_dwk"
-                android:textColor="@color/gray_dark"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="12dp"
                 android:paddingTop="10dp"
-                android:textSize="14dp" />
+                android:text="@string/deskripsi_dwk"
+                android:textColor="@color/gray_dark"
+                android:textSize="@dimen/textsize_md" />
+
             <TextView
                 android:id="@+id/tvDeskripsiDWK1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="@string/deskripsi_dwk1"
-                android:textColor="@color/gray_dark"
-                android:paddingTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="12dp"
-                android:textSize="14dp" />
+                android:paddingTop="10dp"
+                android:text="@string/deskripsi_dwk1"
+                android:textColor="@color/gray_dark"
+                android:textSize="@dimen/textsize_md" />
+
             <TextView
                 android:id="@+id/tvDeskripsiDWK2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="@string/deskripsi_dwk2"
-                android:textColor="@color/gray_dark"
-                android:paddingTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="12dp"
-                android:textSize="14dp" />
+                android:paddingTop="10dp"
+                android:text="@string/deskripsi_dwk2"
+                android:textColor="@color/gray_dark"
+                android:textSize="@dimen/textsize_md" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp">
+
                 <TextView
                     android:id="@+id/tvSyaratKetentuanDWK"
                     android:layout_width="match_parent"
@@ -65,10 +68,13 @@
                     android:layout_margin="@dimen/margin_md"
                     android:text="@string/syarat_dan_ketentuan"
                     android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:textColor="@color/blue"/>
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/textsize_md" />
 
             </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
+
 </android.support.design.widget.CoordinatorLayout>
