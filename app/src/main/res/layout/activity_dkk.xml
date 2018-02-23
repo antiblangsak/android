@@ -21,7 +21,7 @@
                 android:src="@drawable/dkk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 />
 
 
@@ -37,10 +37,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/relativeLayout2">
 
-
-
                 <LinearLayout
-                    android:padding="@dimen/padding_lg"
+                    android:paddingTop="@dimen/padding_lg"
+                    android:paddingBottom="@dimen/padding_lg"
                     android:id="@+id/rowDeskripsi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -49,36 +48,36 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/margin_sm"
+                        android:layout_marginRight="@dimen/margin_sm">
 
                         <ImageView
                             android:src="@drawable/ic_deskripsi"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
-                            android:paddingRight="@dimen/margin_sm"
+                            android:paddingRight="@dimen/padding_md"
+                            android:paddingLeft="@dimen/padding_md"
                             android:adjustViewBounds="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5">
+                        android:layout_weight="5"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tvEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
                             android:text="@string/dpk_deskripsi_title"
                             android:textSize="@dimen/textsize_feature_title"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:layout_marginTop="@dimen/margin_xxl"
                             android:id="@+id/tvEmail2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -86,12 +85,13 @@
                             android:text="@string/dkk_deskripsi_short"/>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:padding="@dimen/padding_lg"
+                    android:paddingTop="@dimen/padding_lg"
+                    android:paddingBottom="@dimen/padding_lg"
                     android:id="@+id/rowNasabah"
                     android:layout_below="@+id/rowDeskripsi"
                     android:layout_width="match_parent"
@@ -101,23 +101,26 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/margin_sm"
+                        android:layout_marginRight="@dimen/margin_sm">
 
                         <ImageView
                             android:src="@drawable/ic_nasabah"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:paddingRight="@dimen/margin_sm"
+                            android:layout_height="35dp"
+                            android:paddingRight="@dimen/padding_sm"
+                            android:paddingLeft="@dimen/padding_sm"
                             android:adjustViewBounds="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5">
+                        android:layout_weight="5"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -127,19 +130,19 @@
                             android:text="@string/dpk_nasabah_title"/>
 
                         <TextView
-                            android:layout_marginTop="@dimen/margin_xxl"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/textsize_feature_title_desc"
                             android:text="@string/dpk_nasabah_short"/>
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/rowBayar"
-                    android:padding="@dimen/padding_lg"
+                    android:paddingTop="@dimen/padding_lg"
+                    android:paddingBottom="@dimen/padding_lg"
                     android:layout_below="@+id/rowNasabah"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -148,25 +151,26 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_alignBottom="@+id/relativeLayout2"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/margin_sm"
+                        android:layout_marginRight="@dimen/margin_sm">
 
                         <ImageView
                             android:src="@drawable/ic_bayar"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
-                            android:paddingRight="@dimen/margin_sm"
+                            android:paddingRight="@dimen/padding_sm"
+                            android:paddingLeft="@dimen/padding_sm"
                             android:adjustViewBounds="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5">
+                        android:layout_weight="5"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -176,19 +180,19 @@
                             android:text="@string/dpk_bayar_title"/>
 
                         <TextView
-                            android:layout_marginTop="@dimen/margin_xxl"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/textsize_feature_title_desc"
                             android:text="@string/dpk_bayar_short"/>
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/rowHistory"
-                    android:padding="@dimen/padding_lg"
+                    android:paddingTop="@dimen/padding_lg"
+                    android:paddingBottom="@dimen/padding_lg"
                     android:layout_below="@+id/rowBayar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -197,25 +201,25 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_alignBottom="@+id/relativeLayout2"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/margin_sm"
+                        android:layout_marginRight="@dimen/margin_sm">
 
                         <ImageView
                             android:src="@drawable/ic_history"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
-                            android:paddingRight="@dimen/margin_sm"
-                            android:adjustViewBounds="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"/>
+                            android:paddingRight="@dimen/padding_md"
+                            android:paddingLeft="@dimen/padding_md"
+                            android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5">
+                        android:layout_weight="5"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -225,13 +229,12 @@
                             android:text="@string/dpk_history_title"/>
 
                         <TextView
-                            android:layout_marginTop="@dimen/margin_xxl"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/textsize_feature_title_desc"
                             android:text="@string/dpk_history_short"/>
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 

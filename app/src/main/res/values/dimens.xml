@@ -5,8 +5,8 @@
     <dimen name="textsize_button_sm">14sp</dimen>
     <dimen name="borderradius_button">8dp</dimen>
 
-    <dimen name="textsize_feature_title">16dp</dimen>
-    <dimen name="textsize_feature_title_desc">12dp</dimen>
+    <dimen name="textsize_feature_title">16sp</dimen>
+    <dimen name="textsize_feature_title_desc">12sp</dimen>
 
     <dimen name="textsize_hint">10sp</dimen>
     <dimen name="textsize_inputtext">16sp</dimen>
