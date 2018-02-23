@@ -45,7 +45,7 @@
                     android:textAlignment="center"
                     android:text="Nama Saya"
                     android:textColor="@color/white"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/textsize_lg" />
 
                 <TextView
                     android:id="@+id/tvMemberSince"
@@ -54,7 +54,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:text="Bergabung sejak"
-                    android:textSize="12dp" />
+                    android:textSize="@dimen/textsize_sm" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -65,13 +65,16 @@
                         android:background="@drawable/daftarnasabah_option"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:minHeight="0dp"
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center_vertical"
                         android:layout_margin="@dimen/margin_lg"
+                        android:paddingBottom="@dimen/padding_sm"
+                        android:paddingTop="@dimen/padding_sm"
                         android:paddingLeft="@dimen/padding_lg"
                         android:paddingRight="@dimen/padding_lg"
                         android:text="Ubah Profil"
-                        android:textSize="14dp" />
+                        android:textSize="@dimen/textsize_button_sm" />
 
                 </RelativeLayout>
 
@@ -105,7 +108,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="EMAIL"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -119,7 +122,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -144,7 +147,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="REKENING"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -171,7 +174,7 @@
                             android:paddingRight="@dimen/padding_sm"
                             android:paddingBottom="@dimen/padding_sm"
                             android:text="Tambah rekening baru"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -195,7 +198,7 @@
                         android:layout_height="wrap_content"
                         android:text="LOGOUT"
                         android:textAlignment="center"
-                        android:textSize="14dp"/>
+                        android:textSize="@dimen/textsize_ll"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"

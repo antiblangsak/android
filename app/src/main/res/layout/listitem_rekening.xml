@@ -5,7 +5,7 @@
     android:paddingRight="@dimen/padding_sm"
     android:paddingBottom="@dimen/padding_sm"
     android:gravity="right"
-    android:textSize="14dp"
+    android:textSize="@dimen/textsize_md"
     android:textColor="@color/blue">
 
 </TextView>
