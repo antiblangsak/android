@@ -134,7 +134,8 @@
                         android:layout_marginRight="@dimen/margin_xxxl"
                         android:layout_marginTop="@dimen/margin_md"
                         android:background="@drawable/all_button"
-                        android:paddingBottom="@dimen/padding_xxs"
+                        android:padding="@dimen/padding_sm"
+                        android:minHeight="0dp"
                         android:text="@string/login_loginbutton"
                         android:textColor="@color/black"
                         android:textSize="@dimen/textsize_button_md" />
@@ -159,7 +160,7 @@
                             android:text="@string/login_registerlinkinfo"
                             android:textAlignment="center"
                             android:textColor="@color/white"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tvToRegisterPage"
@@ -169,7 +170,7 @@
                             android:text="@string/login_registerlink"
                             android:textAlignment="center"
                             android:textColor="@color/blue"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 

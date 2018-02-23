@@ -24,7 +24,7 @@
             android:layout_marginTop="@dimen/margin_xxl"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:text="@string/register_title"
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
-                android:layout_marginBottom="@dimen/margin_md"
+                android:layout_marginBottom="@dimen/margin_xs"
                 android:textColorHint="@color/gray">
 
                 <EditText
@@ -56,13 +56,14 @@
                     android:backgroundTint="@color/yellow"
                     />
             </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
-                android:layout_marginBottom="@dimen/margin_md"
+                android:layout_marginBottom="@dimen/margin_xs"
                 android:textColorHint="@color/gray">
 
                 <EditText
@@ -76,13 +77,14 @@
                     android:backgroundTint="@color/yellow"
                     />
             </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
-                android:layout_marginBottom="@dimen/margin_md"
+                android:layout_marginBottom="@dimen/margin_xs"
                 android:textColorHint="@color/gray"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/white">
@@ -96,6 +98,7 @@
                     android:textSize="@dimen/textsize_inputtext"
                     android:backgroundTint="@color/yellow"/>
             </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_password_confirmation"
                 android:layout_width="match_parent"
@@ -152,7 +155,7 @@
                 android:layout_marginTop="@dimen/margin_xxxl"
                 android:layout_marginBottom="@dimen/margin_xs"
                 android:text="@string/register_loginlinkinfo"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textAlignment="center"
                 android:textColor="@color/white"/>
 
@@ -163,7 +166,7 @@
                 android:layout_margin="@dimen/margin_xs"
                 android:text="@string/register_loginlink"
                 android:textAlignment="center"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textColor="@color/blue"/>
         </LinearLayout>
 
