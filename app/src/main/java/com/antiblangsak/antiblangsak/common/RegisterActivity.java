@@ -126,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 sharedPrefManager.saveInt(SharedPrefManager.ID, id);
                                 sharedPrefManager.saveString(SharedPrefManager.EMAIL, email);
-                                sharedPrefManager.saveString(SharedPrefManager.TOKEN, token);
+                                sharedPrefManager.saveString(SharedPrefManager.TOKEN, "Bearer " + token);
                                 sharedPrefManager.saveBoolean(SharedPrefManager.STATUS_LOGIN, true);
 
                                 startActivity(new Intent(RegisterActivity.this, MainActivity.class)
