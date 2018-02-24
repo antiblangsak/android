@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -76,9 +77,9 @@ public class FamilyProfileActivity extends AppCompatActivity {
     private Animation slideDown;
 
     private LinearLayout layoutFamilyDataHeader;
-    private LinearLayout layoutFamilyData;
-    private LinearLayout layoutFamilyMember;
+    private NestedScrollView layoutFamilyData;
     private LinearLayout layoutFamilyMemberHeader;
+    private NestedScrollView layoutFamilyMember;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -139,7 +140,7 @@ public class FamilyProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (layoutFamilyMember.getVisibility() == View.GONE) {
-                    expand(layoutFamilyMember, 1000);
+                    expand(layoutFamilyMember, 550);
                 } else {
                     collapse(layoutFamilyMember);
                 }

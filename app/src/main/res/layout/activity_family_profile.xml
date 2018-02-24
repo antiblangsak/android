@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textAlignment="center"
-                android:textSize="18dp"
+                android:textSize="@dimen/textsize_lg"
                 android:background="@drawable/daftarnasabah_option_normal"
                 android:layout_margin="@dimen/margin_md"
                 android:padding="@dimen/padding_sm"/>
@@ -53,33 +53,35 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="6">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
                         android:text="Data Keluarga"
-                        android:textSize="18dp"
+                        android:textSize="@dimen/textsize_feature_title"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_marginTop="@dimen/margin_xxl"
-                        android:id="@+id/tvDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_feature_title_desc"
                         android:text="Informasi umum keluarga Anda"/>
 
-                </RelativeLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
+            <android.support.v4.widget.NestedScrollView
                 android:id="@+id/layoutFamilyData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -321,6 +323,8 @@
 
             </LinearLayout>
 
+            </android.support.v4.widget.NestedScrollView>
+
             <LinearLayout
                 android:id="@+id/layoutFamilyMemberHeader"
                 android:padding="@dimen/padding_lg"
@@ -345,39 +349,38 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="6">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
                         android:text="Anggota Keluarga"
-                        android:textSize="18dp"
+                        android:textSize="@dimen/textsize_feature_title"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_marginTop="@dimen/margin_xxl"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_feature_title_desc"
                         android:text="Lihat detail anggota keluarga Anda"/>
 
-                </RelativeLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
+            <android.support.v4.widget.NestedScrollView
                 android:id="@+id/layoutFamilyMember"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <com.antiblangsak.antiblangsak.common.NonScrollListView
                     android:id="@+id/listFamilyMember"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:paddingTop="@dimen/padding_xl"
                     android:paddingBottom="@dimen/padding_xl"
                     android:paddingLeft="@dimen/padding_xxxl"
@@ -387,7 +390,7 @@
 
                 </com.antiblangsak.antiblangsak.common.NonScrollListView>
 
-            </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
 
         </LinearLayout>
 
