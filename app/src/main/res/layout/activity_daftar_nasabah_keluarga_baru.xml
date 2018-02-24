@@ -50,7 +50,7 @@
             android:background="@drawable/all_button"
             android:text="@string/lanjutkanbutton"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/textsize_button_md"/>
+            android:textSize="@dimen/textsize_button_xd"/>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
