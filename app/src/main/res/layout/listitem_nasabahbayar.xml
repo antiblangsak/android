@@ -10,6 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14dp"
-        android:focusable="false"/>
+        android:focusable="false"
+        android:text="Nasabah"
+        android:textColor="@color/colorPrimaryDark"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
 </LinearLayout>

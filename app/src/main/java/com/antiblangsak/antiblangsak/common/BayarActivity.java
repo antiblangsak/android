@@ -85,15 +85,15 @@ public class BayarActivity extends AppCompatActivity {
     private ArrayList<Integer> selectedClients;
 
     public static void addTagihan() {
-        tagihan += 25000;
+        tagihan += AppConstant.PAYMENT_PER_NASABAH_VALUE;
     }
 
     public static void reduceTagihan() {
-        tagihan -= 25000;
+        tagihan -= AppConstant.PAYMENT_PER_NASABAH_VALUE;
     }
 
     public static void showTagihan() {
-        totalTagihan.setText("Rp. " + tagihan + ",00");
+        totalTagihan.setText(AppHelper.formatRupiah(tagihan));
     }
 
     private Button btnBayar;

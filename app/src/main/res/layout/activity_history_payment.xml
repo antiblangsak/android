@@ -7,6 +7,10 @@
     android:background="@color/white"
     tools:context="com.antiblangsak.antiblangsak.common.HistoryPaymentActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/mainLayout"
@@ -170,6 +174,8 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"

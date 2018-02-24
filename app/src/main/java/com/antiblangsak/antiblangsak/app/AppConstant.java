@@ -73,6 +73,8 @@ public class AppConstant {
     public static final int HTTP_RESPONSE_401_UNAUTHORIZED = 401;
     public static final int HTTP_RESPONSE_404_NOT_FOUND = 404;
 
+    public static final int PAYMENT_PER_NASABAH_VALUE = 25000;
+
     public static final Callback EMPTY_CALLBACK = new Callback() {
         @Override
         public void onResponse(Call call, Response response) {

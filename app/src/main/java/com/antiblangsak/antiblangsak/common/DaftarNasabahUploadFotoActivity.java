@@ -147,6 +147,7 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                                     Intent myIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                                             MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     sharedPrefManager.clearPhotos();
+                                    Toast.makeText(getApplicationContext(), "Anda telah berhasil mendaftarkan keluarga. Mohon tunggu proses verifikasi.", Toast.LENGTH_SHORT).show();
                                     startActivity(myIntent);
                                     finish();
                                 } catch (JSONException e) {
