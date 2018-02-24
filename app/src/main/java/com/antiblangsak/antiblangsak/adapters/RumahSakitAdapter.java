@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.graphics.Typeface;
 
 import com.antiblangsak.antiblangsak.R;
-import com.antiblangsak.antiblangsak.app.AppConfig;
 import com.antiblangsak.antiblangsak.models.RumahSakitModel;
 
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ public class RumahSakitAdapter extends ArrayAdapter<RumahSakitModel> {
     }
 
     public RumahSakitAdapter(ArrayList<RumahSakitModel> data, Context context) {
-        super(context, R.layout.content_list_rs, data);
+        super(context, R.layout.listitem_rs, data);
         this.dataSet = data;
         this.mContext=context;
     }
@@ -48,7 +46,7 @@ public class RumahSakitAdapter extends ArrayAdapter<RumahSakitModel> {
         if (convertView == null) {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.content_list_rs, parent, false);
+            convertView = inflater.inflate(R.layout.listitem_rs, parent, false);
             viewHolder.list_tvNameRS = (TextView) convertView.findViewById(R.id.list_tvNameRS);
             viewHolder.list_tvAddress = (TextView) convertView.findViewById(R.id.list_tvAddress);
             viewHolder.list_tvDistance = (TextView) convertView.findViewById(R.id.list_tvDistance);

@@ -134,7 +134,7 @@
                         android:layout_marginRight="@dimen/margin_xxxl"
                         android:layout_marginTop="@dimen/margin_md"
                         android:background="@drawable/all_button"
-                        android:padding="@dimen/padding_sm"
+                        android:padding="10dp"
                         android:minHeight="0dp"
                         android:text="@string/login_loginbutton"
                         android:textColor="@color/colorPrimaryDark"

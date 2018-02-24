@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="@dimen/padding_lg"
+    android:paddingTop="@dimen/padding_lg"
+    android:paddingBottom="@dimen/padding_lg"
+    android:paddingRight="@dimen/padding_lg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/home_serviceitem">
@@ -9,43 +11,45 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/margin_sm"
+        android:layout_marginRight="@dimen/margin_sm">
 
         <ImageView
-            android:id="@+id/list_icon_rs"
             android:src="@drawable/rumah_sakit"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:paddingRight="@dimen/margin_sm"
+            android:paddingRight="@dimen/padding_sm"
+            android:paddingLeft="@dimen/padding_sm"
             android:adjustViewBounds="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerInParent="true"/>
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="4">
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/list_tvNameRS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:text="Rumah Sakit"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/textsize_ll"/>
 
         <TextView
-            android:layout_marginTop="@dimen/margin_xxl"
             android:id="@+id/list_tvAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="alamat rumah sakit"/>
+            android:text="alamat rumah sakit"
+            android:textSize="@dimen/textsize_sm"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -59,7 +63,7 @@
             android:layout_centerVertical="true"
             android:gravity="right"
             android:text="14 km"
-            android:textSize="14dp"
+            android:textSize="@dimen/textsize_sm"
             android:textColor="@color/black"
             android:textStyle="bold" />
 

@@ -142,7 +142,7 @@
                 android:layout_marginTop="@dimen/margin_xl"
                 android:layout_marginLeft="@dimen/margin_xxxl"
                 android:layout_marginRight="@dimen/margin_xxxl"
-                android:padding="@dimen/padding_sm"
+                android:padding="10dp"
                 android:background="@drawable/all_button"
                 android:text="@string/register_registerbutton"
                 android:textColor="@color/colorPrimaryDark"
