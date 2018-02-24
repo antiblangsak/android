@@ -71,8 +71,8 @@
                             android:background="@drawable/all_button"
                             android:padding="@dimen/padding_sm"
                             android:text="@string/list_rumah_sakit"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/textsize_button_sm" />
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/textsize_button_xd" />
 
                     </RelativeLayout>
 

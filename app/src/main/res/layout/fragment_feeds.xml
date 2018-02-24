@@ -18,8 +18,8 @@
             android:padding="@dimen/padding_sm"
             android:background="@drawable/all_button"
             android:text="@string/home_tulisberitabutton"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textsize_button_sm"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/textsize_button_xd"
             android:minHeight="0dp"/>
 
     </LinearLayout>

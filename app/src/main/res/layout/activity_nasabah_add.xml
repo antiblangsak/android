@@ -29,9 +29,9 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:text="@string/dkk_nasabah_daftarkan_button"
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/all_button"
-            android:textSize="@dimen/textsize_button_md" />
+            android:textSize="@dimen/textsize_button_xd" />
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_dark"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <LinearLayout
@@ -137,8 +137,8 @@
                         android:padding="@dimen/padding_sm"
                         android:minHeight="0dp"
                         android:text="@string/login_loginbutton"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/textsize_button_md" />
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/textsize_button_xd" />
 
                 </LinearLayout>
 

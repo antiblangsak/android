@@ -74,7 +74,8 @@
                         android:paddingLeft="@dimen/padding_lg"
                         android:paddingRight="@dimen/padding_lg"
                         android:text="Ubah Profil"
-                        android:textSize="@dimen/textsize_button_sm" />
+                        android:textSize="@dimen/textsize_button_sm"
+                        android:textColor="@color/colorPrimaryDark"/>
 
                 </RelativeLayout>
 

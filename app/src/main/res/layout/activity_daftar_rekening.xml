@@ -166,8 +166,8 @@
             android:paddingBottom="@dimen/padding_xxs"
             android:background="@drawable/all_button"
             android:text="@string/daftarrekening_daftarkanbutton"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textsize_button_md"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/textsize_button_xd"/>
 
     </LinearLayout>
 
