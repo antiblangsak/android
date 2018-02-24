@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.antiblangsak.antiblangsak.common.DaftarNasabahKeluargaBaruActivity">
 
-    <LinearLayout
-        android:id="@+id/mainLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_superxl"
-        android:layout_marginLeft="@dimen/margin_xxxl"
-        android:layout_marginRight="@dimen/margin_xxxl"
-        android:orientation="vertical"
-        android:descendantFocusability="beforeDescendants"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_xxl">
+            android:layout_marginLeft="@dimen/margin_xxxl"
+            android:layout_marginRight="@dimen/margin_xxxl"
+            android:layout_marginTop="@dimen/margin_superxl"
+            android:clickable="true"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
 
-            <ImageView
-                android:src="@drawable/daftarnasabahkeluargabaru_id"
-                android:padding="50dp"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_margin="@dimen/margin_xxl"
-                android:layout_centerInParent="true"
-                android:background="@drawable/all_circle_dummy"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_xxl">
 
-        </RelativeLayout>
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="@dimen/margin_xxl"
+                    android:background="@drawable/all_circle_dummy"
+                    android:padding="50dp"
+                    android:src="@drawable/daftarnasabahkeluargabaru_id" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_xxl"
-            android:text="@string/daftarnasabahkeluargabaru_info"
-            android:textAlignment="center"/>
+            </RelativeLayout>
 
-        <Button
-            android:id="@+id/btnLanjutkan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/padding_xxs"
-            android:background="@drawable/all_button"
-            android:text="@string/lanjutkanbutton"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/textsize_button_xd"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_xxl"
+                android:text="@string/daftarnasabahkeluargabaru_info"
+                android:textAlignment="center" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnLanjutkan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/all_button"
+                android:padding="@dimen/padding_sm"
+                android:text="@string/lanjutkanbutton"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/textsize_button_xd" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

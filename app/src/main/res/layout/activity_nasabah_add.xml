@@ -28,6 +28,8 @@
             android:layout_marginTop="@dimen/margin_xl"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
+            android:padding="@dimen/padding_sm"
+            android:minHeight="0dp"
             android:text="@string/dkk_nasabah_daftarkan_button"
             android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/all_button"
