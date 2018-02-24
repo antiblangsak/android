@@ -26,7 +26,7 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:text="Nomor Klaim"
-            android:textSize="16dp"
+            android:textSize="@dimen/textsize_ll"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nomor Klaim"
-            android:textSize="14dp"
+            android:textSize="@dimen/textsize_md"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
@@ -47,7 +47,7 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:text="Nominal"
-            android:textSize="16dp"
+            android:textSize="@dimen/textsize_ll"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
 
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nominal"
-            android:textSize="14dp"
+            android:textSize="@dimen/textsize_md"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
@@ -68,7 +68,7 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:text="Nasabah"
-            android:textSize="16dp"
+            android:textSize="@dimen/textsize_ll"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
 
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nasabah"
-            android:textSize="14dp"
+            android:textSize="@dimen/textsize_md"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
@@ -89,7 +89,7 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:text="Detail Klaim"
-            android:textSize="16dp"
+            android:textSize="@dimen/textsize_ll"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
 
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Detail"
-            android:textSize="14dp"
+            android:textSize="@dimen/textsize_md"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
@@ -110,7 +110,7 @@
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:text="Status Klaim"
-            android:textSize="16dp"
+            android:textSize="@dimen/textsize_ll"
             android:textStyle="bold"
             android:textColor="@color/gray"/>
 
@@ -119,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Status Klaim"
-            android:textSize="14dp"
+            android:textSize="@dimen/textsize_md"
             android:layout_marginLeft="@dimen/margin_xxxl"
             android:layout_marginRight="@dimen/margin_xxxl"
             android:layout_marginBottom="@dimen/margin_md"/>
@@ -129,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:textSize="12dp"
+            android:textSize="@dimen/textsize_sm"
             android:textAlignment="center"
             android:layout_marginLeft="@dimen/margin_spinner"
             android:layout_marginRight="@dimen/margin_spinner"
