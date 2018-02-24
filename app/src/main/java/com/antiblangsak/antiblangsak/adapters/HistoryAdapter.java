@@ -31,7 +31,7 @@ public class HistoryAdapter extends ArrayAdapter<HistoryModel> {
     }
 
     public HistoryAdapter(ArrayList<HistoryModel> dataSet, Context context) {
-        super(context, R.layout.listview_dkkhistory, dataSet);
+        super(context, R.layout.listitem_history, dataSet);
         this.dataSet = dataSet;
         this.context = context;
     }
@@ -47,7 +47,7 @@ public class HistoryAdapter extends ArrayAdapter<HistoryModel> {
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.listview_dkkhistory, parent, false);
+            convertView = inflater.inflate(R.layout.listitem_history, parent, false);
             viewHolder.imType = convertView.findViewById(R.id.list_icon_dkk_history);
             viewHolder.tvType = convertView.findViewById(R.id.list_tvTitle);
             viewHolder.tvStatus = convertView.findViewById(R.id.list_tvStatus);
