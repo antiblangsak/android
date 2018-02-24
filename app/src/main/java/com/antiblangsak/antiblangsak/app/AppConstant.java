@@ -25,6 +25,7 @@ public class AppConstant {
     public static final String BAYAR_NO_CLIENT_SELECTED_ERROR_MESSAGE = "Harap pilih minimal 1 Nasabah";
 
     public static final String DAFTAR_REKENING_SUCCESS_STRING = "Berhasil menambahkan rekening!";
+    public static final String DAFTAR_NASABAH_SUCCESS_STRING = "Pendaftaran berhasil!\nMohon tunggu proses verifikasi.";
 
     public static final String KEY_IMAGE_BASE64 = "IMAGE_BASE64";
 

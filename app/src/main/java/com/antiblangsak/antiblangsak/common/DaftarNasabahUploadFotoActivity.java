@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,7 +14,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antiblangsak.antiblangsak.retrofit.ApiClient;
@@ -147,7 +150,13 @@ public class DaftarNasabahUploadFotoActivity extends AppCompatActivity {
                                     Intent myIntent = new Intent(DaftarNasabahUploadFotoActivity.this,
                                             MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     sharedPrefManager.clearPhotos();
-                                    Toast.makeText(getApplicationContext(), "Anda telah berhasil mendaftarkan keluarga. Mohon tunggu proses verifikasi.", Toast.LENGTH_SHORT).show();
+                                    Toast toast = Toast.makeText(getApplicationContext(), AppConstant.DAFTAR_NASABAH_SUCCESS_STRING, Toast.LENGTH_SHORT);
+                                    LinearLayout layout = (LinearLayout) toast.getView();
+                                    if (layout.getChildCount() > 0) {
+                                        TextView tv = (TextView) layout.getChildAt(0);
+                                        tv.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+                                    }
+                                    toast.show();
                                     startActivity(myIntent);
                                     finish();
                                 } catch (JSONException e) {
