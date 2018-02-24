@@ -9,7 +9,7 @@
     <dimen name="textsize_feature_title_desc">12sp</dimen>
 
     <dimen name="textsize_hint">10sp</dimen>
-    <dimen name="textsize_inputtext">16sp</dimen>
+    <dimen name="textsize_inputtext">14sp</dimen>
 
     <dimen name="textsize_all_xs">10sp</dimen>
     <dimen name="textsize_sm">12sp</dimen>

@@ -69,7 +69,7 @@
                             android:hint="@string/emailhint"
                             android:inputType="textEmailAddress"
                             android:textColor="@color/white"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/textsize_inputtext" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -91,7 +91,7 @@
                             android:backgroundTint="@color/yellow"
                             android:hint="@string/passwordhint"
                             android:textColor="@color/white"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/textsize_inputtext" />
                     </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
