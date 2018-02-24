@@ -14,7 +14,7 @@
         <LinearLayout
             android:background="@color/colorPrimaryDark"
             android:layout_width="match_parent"
-            android:layout_height="240dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                     android:textAlignment="center"
                     android:text="Nama Saya"
                     android:textColor="@color/white"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/textsize_ll" />
 
                 <TextView
                     android:id="@+id/tvRelation"
@@ -53,7 +53,8 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:text="Bergabung sejak"
-                    android:textSize="12dp" />
+                    android:textSize="@dimen/textsize_sm"
+                    android:layout_marginBottom="@dimen/margin_lg"/>
 
 
             </LinearLayout>
@@ -85,7 +86,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="NIK"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -99,7 +100,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -120,7 +121,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="JENIS KELAMIN"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -134,7 +135,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -155,7 +156,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="TEMPAT LAHIR"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -169,7 +170,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -190,7 +191,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="TANGGAL LAHIR"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -204,7 +205,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -225,7 +226,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="AGAMA"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -239,7 +240,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -260,7 +261,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="PENDIDIKAN"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -274,7 +275,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -295,7 +296,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="PEKERJAAN"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -309,7 +310,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -330,7 +331,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="STATUS PERKAWINAN"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -344,7 +345,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -365,7 +366,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="KEWARGANEGARAAN"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -379,7 +380,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -400,7 +401,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="NO. PASPOR"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -414,7 +415,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -435,7 +436,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="NAMA AYAH"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -449,7 +450,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -471,7 +472,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="NAMA IBU"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
@@ -485,7 +486,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="textEnd"
-                            android:textSize="14dp"/>
+                            android:textSize="@dimen/textsize_md"/>
 
                     </RelativeLayout>
 
