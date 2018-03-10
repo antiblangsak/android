@@ -359,7 +359,7 @@ public class BayarActivity extends AppCompatActivity {
                                         .putExtra(AppConstant.KEY_SERVICE_ID, serviceId)
                                         .putExtra("histoId", paymentId));
                                 finish();
-
+                                Toast.makeText(getApplicationContext(), AppConstant.PAYMENT_REQUEST_SUCCESS_STRING, Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                                 Toast.makeText(getApplicationContext(), "Error ketika parsing JSON!", Toast.LENGTH_SHORT).show();

@@ -227,7 +227,7 @@ public class HistoryPaymentActivity extends AppCompatActivity {
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
                                     .putExtra(AppConstant.KEY_SERVICE_ID, serviceId));
                             finish();
-                            Toast.makeText(getApplicationContext(), "Konfirmasi berhasil!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), AppConstant.PAYMENT_UPDATE_SUCCESS_STRING, Toast.LENGTH_SHORT).show();
                         } else {
                             try {
                                 Log.w("body", response.errorBody().string());

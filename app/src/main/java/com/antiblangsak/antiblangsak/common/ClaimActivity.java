@@ -197,6 +197,7 @@ public class ClaimActivity extends AppCompatActivity {
                                             Toast.makeText(getApplicationContext(), "Upload image failed!", Toast.LENGTH_SHORT).show();
                                         }
                                     });
+                                    Toast.makeText(getApplicationContext(), AppConstant.CLAIM_REQUEST_SUCCESS_STRING, Toast.LENGTH_SHORT).show();
                                     finish();
                                 } catch (JSONException e) {
                                     e.printStackTrace();

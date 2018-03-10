@@ -26,6 +26,10 @@ public class AppConstant {
 
     public static final String DAFTAR_REKENING_SUCCESS_STRING = "Berhasil menambahkan rekening!";
     public static final String DAFTAR_NASABAH_SUCCESS_STRING = "Pendaftaran berhasil!\nMohon tunggu proses verifikasi.";
+    public static final String CLAIM_REQUEST_SUCCESS_STRING = "Klaim terkirim!";
+    public static final String CLAIM_UPDATE_SUCCESS_STRING = "Kalim berhasil ter-update!";
+    public static final String PAYMENT_REQUEST_SUCCESS_STRING = "Pembayaran terkirim!";
+    public static final String PAYMENT_UPDATE_SUCCESS_STRING = "Pembayaran berhasil ter-update!";
 
     public static final String KEY_IMAGE_BASE64 = "IMAGE_BASE64";
 
