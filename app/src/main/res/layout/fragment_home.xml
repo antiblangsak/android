@@ -262,7 +262,7 @@
                                 android:padding="10dp"
                                 android:layout_centerInParent="true"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/home_ayoojek_logo" />
+                                android:src="@drawable/home_ayoojek_logo_colored" />
 
                         </RelativeLayout>
 
@@ -305,7 +305,7 @@
                                 android:padding="@dimen/margin_sm"
                                 android:layout_centerInParent="true"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/home_ayoodokter_logo" />
+                                android:src="@drawable/home_ayoodokter_logo_colored" />
 
                         </RelativeLayout>
 
@@ -348,7 +348,7 @@
                                 android:padding="@dimen/margin_sm"
                                 android:layout_centerInParent="true"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/home_ayoofood_logo" />
+                                android:src="@drawable/home_ayoofood_logo_colored" />
 
                         </RelativeLayout>
 
@@ -391,7 +391,7 @@
                                 android:padding="@dimen/margin_sm"
                                 android:layout_centerInParent="true"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/home_ayoopiknik_logo" />
+                                android:src="@drawable/home_ayoopiknik_logo_colored" />
 
                         </RelativeLayout>
 
@@ -443,7 +443,7 @@
                                 android:padding="10dp"
                                 android:layout_centerInParent="true"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/home_ayoomodal_logo" />
+                                android:src="@drawable/home_ayoomodal_logo_colored" />
 
                         </RelativeLayout>
 
@@ -486,7 +486,7 @@
                                 android:padding="@dimen/margin_sm"
                                 android:layout_centerInParent="true"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/home_ayoobayar_logo" />
+                                android:src="@drawable/home_ayoobayar_logo_colored" />
 
                         </RelativeLayout>
 
@@ -529,7 +529,7 @@
                                 android:padding="@dimen/margin_sm"
                                 android:layout_centerInParent="true"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/home_ayoostore_logo" />
+                                android:src="@drawable/home_ayoostore_logo_colored" />
 
                         </RelativeLayout>
 
@@ -572,7 +572,7 @@
                                 android:padding="@dimen/margin_sm"
                                 android:layout_centerInParent="true"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/home_ayoobaca_logo" />
+                                android:src="@drawable/home_ayoobaca_logo_colored" />
 
                         </RelativeLayout>
 
